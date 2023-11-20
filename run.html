@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script type="text/javascript">
+        $(document).ready(function(){
+            $('.box').css('height',$('.box').css('width'));
+        })
+    </script> -->
+    <style>
+        *{  
+            color: #fcc8de;
+            text-shadow: 0 0 2px #001716, 0 0 1px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975;
+            font-family:cursive;
+            margin: 0; /* margin{外边距} */
+            /* margin:  */
+            padding: 0; /* padding{内边距} */
+            /* padding:  */
+            /*box-sizing: border-box; /* box-sizing{盒子模型} */
+        }
+        html{
+            background-image: url(./imgs/1.jpg);
+            /* background: url(./xc.jpg); 
+            The effect seems to be the same as the previous line
+            效果似乎与前一行相同*/
+            background-attachment: fixed;
+            /* background-color:#f6d5ec; */
+            background-position:35%; /* background-position{背景图像的位置} */
+            /* background-position:  */
+            background-repeat: no-repeat; /* background-repeat{背景图像是否及如何重复} */
+            /*background-size: 100% 100%; /* 占html的100% */
+            background-size: cover; /* cover{背景图像在背景区域中被缩放以填充} */
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+ 
+        i {
+            font-style: normal;
+        }
+ 
+        .box {
+            width: 700px;
+            /* width: 90%; */
+            height: 700px;
+            /* height: calc(width); */
+            /* height: same-as-width; */
+            margin: 100px auto;
+        }
+ 
+        .scope {
+            width: 100%;
+            height: 100%;
+            background: rgba(127, 230, 233, 0.651);
+            position: relative;
+        }
+ 
+        .box .title {
+            width: 100%;
+            text-align: center;
+            font-size: 40px;
+            padding-bottom: 10px;
+            font-weight: bold;
+        }
+ 
+        .box .detail {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+ 
+        .box .detail span {
+            font-size: 20px;
+        }
+ 
+        .box .detail i {
+            margin-left: 10px;
+        }
+ 
+        .box .detail .score {
+            color: saddlebrown;
+        }
+ 
+        .box .detail .status {
+            color: green;
+        }
+ 
+        .box .detail .fail {
+            color: red;
+        }
+    </style>
+</head>
+ 
+<body>
+    <div class="box">
+        <p class="title" title="贪吃蛇">Snake</p>
+        <div class="detail">
+            <span title="状态">author: Nahida-aa</span>
+            <span title="得分">score:<i class="score">0</i></span>
+            <span title="状态">status:<i class="status">Playing</i></span>
+        </div>
+ 
+        <!-- 蛇移动的范围 -->
+        <div class="scope"></div>
+    </div>
+    <script>
+        /*Food object
+        食物对象 */
+        (function(){
+            /*The food is eaten and reappeared using an array
+            食物被吃再出现用数组实现*/
+            let food_arr = [];
+
+            /*create food*/
+            function Food(x,y,width,height,color) {
+                this.x = x || 0;
+                this.y = y || 0;
+                this.width = width || 20;
+                this.height = height || 20;
+                this.color = color || 'green';
+            }
+
+            /*Add food initialization method
+            添加食物初始化方法 */
+            Food.prototype.init = function(scope) {
+                /*Remove the previous food
+                删除之前的食物 */
+                remove_food(scope);
+                
+                /*Create food
+                创建食物 */
+                var food = document.createElement('div');
+                /*Add food to the page
+                将食物添加到页面中 */
+                scope.append(food);
+                /*Set the style of the food
+                设置食物的样式 */
+                food.style.width = this.width + 'px';
+                food.style.height = this.height + 'px';
+                food.style.backgroundColor = this.color;
+                food.style.position = 'absolute';
+
+                /*Set the position of the food
+                随机生成食物的横纵坐标 x = unit_len_x * mx */
+                var ed0_to_1_x = Math.random();
+                var ed0_to_1_y = Math.random();
+                var max_x = scope.offsetWidth;
+                var max_y = scope.offsetHeight;
+                var unit_length_x = this.width;
+                var unit_length_y = this.height;
+                var max_mx = max_x / unit_length_x;
+                var max_my = max_y / unit_length_y;
+                this.x = Math.floor(ed0_to_1_x * max_mx) * unit_length_x;
+                this.y = Math.floor(ed0_to_1_y * max_my) * unit_length_y;
+                food.style.left = this.x + 'px';
+                food.style.top = this.y + 'px';
+
+                /*Add food to the array
+                将食物添加到数组中 */
+                food_arr.push(food);
+            }
+
+            /*Remove the previous food
+            删除之前的食物 */
+            function remove_food(scope) {
+                for(var i = food_arr.length - 1; i >= 0; i--) {
+                    /*Remove the food from the page
+                    将食物从页面中删除 */
+                    scope.removeChild(food_arr[i]);
+                    /*Remove the food from the array
+                    将食物从数组中删除 */
+                    food_arr.splice(i,1);
+                }
+            }
+
+            /*Add food to the prototype
+            将食物添加到原型中 */
+            window.Food = Food;
+        })();
+
+        /*Snake object
+        蛇对象 */
+        (function(){
+            /*Define the direction of the snake
+            定义蛇的方向 */
+            var direction = {
+                left: 'left',
+                right: 'right',
+                top: 'top',
+                bottom: 'bottom'
+            }
+
+            /*Define the body of the snake
+            定义蛇的身体 */
+            var body_arr = [];
+
+            /*Snake object
+            蛇对象 */
+            function Snake(width,height,direction) {
+                this.width = width || 20;
+                this.height = height || 20;
+                this.direction = direction || 'right';
+                /*Define the body of the snake
+                定义蛇的身体 */
+                this.body = [
+                    {mx: 3, my: 2, color: 'red'},
+                    {mx: 2, my: 2, color: 'green'},
+                    {mx: 1, my: 2, color: 'green'}
+                ];
+            }
+
+            /*Add snake to the prototype
+            将蛇添加到原型中 */
+            window.Snake = Snake;
+
+            /*Add snake initialization method
+            添加蛇的初始化方法 */
+            Snake.prototype.init = function(scope) {
+                /*Remove the previous snake
+                删除之前的蛇*/
+                remove(scope);
+                /*Create snake
+                创建蛇*/
+                for(let i = 0; i < this.body.length; i++) {
+                    let item = this.body[i];
+                    let snake = document.createElement('div');
+                    //Add snake to the page
+                    // 将蛇添加到页面中
+                    scope.appendChild(snake);
+                    //Set the style of the snake
+                    // 设置蛇的样式
+                    snake.style.width = this.width + 'px';
+                    snake.style.height = this.height + 'px';
+                    snake.style.backgroundColor = item.color;
+                    snake.style.position = 'absolute';
+                    snake.style.left = item.mx * this.width + 'px';
+                    snake.style.top = item.my * this.height + 'px';
+                    //Add the snake to the body
+                    // 将蛇添加到身体中
+                    body_arr.push(snake);
+                }
+            }
+
+            /*Add the method of removing the snake
+            添加删除蛇的方法 */
+            function remove(scope) {
+                for(let i = body_arr.length - 1; i >= 0; i--) {
+                    /*Remove the snake from the page
+                    将蛇从页面中删除 */
+                    scope.removeChild(body_arr[i]);
+                    /*Remove the snake from the body
+                    将蛇从身体中删除 */
+                    body_arr.splice(i,1);
+                }
+            }
+
+            /*Add the method of moving the snake
+            添加移动蛇的方法 */
+            Snake.prototype.move = function(scope,food,snake) {
+                /*Move the body of the snake
+                移动蛇的身体 */
+                for(let i = this.body.length - 1; i > 0; i--) {
+                    this.body[i].mx = this.body[i - 1].mx;
+                    this.body[i].my = this.body[i - 1].my;
+                }
+
+                /*Move the head of the snake
+                移动蛇的头部 */
+                switch(this.direction) {
+                    case direction.left:
+                        this.body[0].mx -= 1;
+                        break;
+                    case direction.right:
+                        this.body[0].mx += 1;
+                        break;
+                    case direction.top:
+                        this.body[0].my -= 1;
+                        break;
+                    case direction.bottom:
+                        this.body[0].my += 1;
+                        break;
+                }
+
+                /*Get the position of the head of the snake
+                获取蛇头的位置 */
+                var head_x = this.body[0].mx * this.width;
+                var head_y = this.body[0].my * this.height;
+
+                /*Determine whether the snake has eaten the food
+                判断蛇是否吃到了食物 */
+                if(head_x == food.x && head_y == food.y) {
+                    /*Get the last element of the snake
+                    获取蛇的最后一个元素 */
+                    var last = this.body[this.body.length - 1];
+                    /*Add the last element of the snake to the body
+                    将蛇的最后一个元素添加到身体中 */
+                    this.body.push({
+                        mx: last.mx,
+                        my: last.my,
+                        color: last.color
+                    });
+                    /*Remove and create the food
+                    删除并创建食物 */
+                    food.init(scope);
+                    /*Add the score
+                    添加分数 */
+                    var score = document.querySelector('.score');
+                    score.innerHTML = parseInt(score.innerHTML) + 1;
+                }
+            }
+        })();
+
+        /**/
+        (function(){
+            function Game(scope) {
+                this.scope = scope;
+                this.food = new Food();
+                this.snake = new Snake();
+                /*Define the timer
+                定义定时器,节省内存空间 */
+                this.timer = null;
+                /*Define the status of the game
+                定义游戏的状态 */
+                this.is_dead = false;
+                // this.status = 'playing';
+            }
+            /* create init method*/
+            Game.prototype.init = function(scope) {
+                this.food.init(scope);
+                this.snake.init(scope);
+                this.game_move();
+                this.change_direction();
+            }
+
+            /**/
+            Game.prototype.game_move = function() {
+                let that = this;
+                that.timer = setInterval(function(){
+                    /*Move the snake
+                    移动蛇 */
+                    that.snake.move(that.scope,that.food,that.snake);
+                    /*Initialize the snake
+                    初始化蛇 */
+                    that.snake.init(that.scope);
+                    /*Determine whether the snake is dead
+                    判断蛇是否死亡 */
+                    let max_mx = that.scope.offsetWidth / that.snake.width;
+                    let max_my = that.scope.offsetHeight / that.snake.height;
+                    /*Get the m_coordinate of the head of the snake
+                    获取蛇头的m坐标 */
+                    var head_mx = that.snake.body[0].mx;
+                    var head_my = that.snake.body[0].my;
+                    if ((head_mx < 0) || (head_mx >= max_mx) || head_my < 0 || head_my >= max_my) {
+                        /*Stop the timer
+                        停止定时器 */
+                        clearInterval(that.timer);
+                        /*Change the status of the game
+                        改变游戏的状态 */
+                        that.is_dead = true;
+                        /*Change the status of the game
+                        改变游戏的状态 */
+                        let status = document.querySelector('.status');
+                        status.innerHTML = 'Game Over';
+                        status.className = 'fail';
+                        setTimeout(function(){
+                            alert('score:' + document.querySelector('.score').innerHTML + '\nGame Over');
+                        },100);
+                        /*Remove the snake
+                        删除蛇 */
+                        that.snake.init(that.scope);
+                        /*Remove the food
+                        删除食物 */
+                        that.food.init(that.scope);
+                    }
+                    // is_dead(that.snake,that.scope);
+                }.bind(that),200);
+            }
+            /**/
+            Game.prototype.change_direction = function() {
+                let that = this;
+                document.addEventListener('keydown',function(e){
+                    switch(e.keyCode) {
+                        case 37: //left:37left_arrow,65A
+                            that.snake.direction = 'left';
+                        break;
+                        case 65: //left:37left_arrow,65A
+                            that.snake.direction = 'left';
+                        break;
+                        case 38: //top:38up_arrow,87W
+                            that.snake.direction = 'top';
+                        break;
+                        case 87: //top:38up_arrow,87W
+                            that.snake.direction = 'top';
+                        break;
+                        case 39: //right:39right_arrow,68D 
+                            that.snake.direction = 'right';
+                        break;
+                        case 68: //right:39right_arrow,68D 
+                            that.snake.direction = 'right';
+                        break;
+                        case 40: //bottom:40down_arrow,83S
+                            that.snake.direction = 'bottom';
+                        break;
+                        case 83: //bottom:40down_arrow,83S
+                            that.snake.direction = 'bottom';
+                    }
+                })
+            }
+            window.Game = Game;
+        })();
+
+        /*Gets the scope in the page
+        获取页面中的scope */
+        let scope = document.querySelector('.scope');
+
+        let game = new Game(scope);
+        game.init(scope);
+
+    </script>
+    <div id="description"><!-- 说明 -->
+        <span id="w">W</span><span id="up">↑</span><br>
+        <span>A</span>SD or /←/↓/→ <br>
+        to control the <span title="方向">direction</span> of the snake<br>
+    </div>
+    <style>
+        #description {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            text-align: center;
+            line-height: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        /* #description span {
+            color: red;
+        } */
+    </style>
+</body>
+</html>
