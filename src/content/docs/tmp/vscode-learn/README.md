@@ -79,7 +79,7 @@ vcruntime140.dll
 
 定义 Visual Studio Code 在 Windows 10 的开始菜单中的磁贴的视觉元素
 
-## username/.vscode
+## [username/.vscode](.vscode/README.md)
 
 用户级别的 VS Code 配置目录，存储了用户的设置、键盘快捷方式、代码片段和扩展。在 Windows 上，它通常位于 C:\Users\{username}\.vscod
 
