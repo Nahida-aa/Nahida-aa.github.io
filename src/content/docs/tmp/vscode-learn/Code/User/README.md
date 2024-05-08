@@ -12,6 +12,14 @@
 
 ## sync
 
+### sync/extensions
+
+### sync/globalState
+
+### sync/keybindings
+
+### sync/profiles
+
 ## workspaceStorage
 
 ## keybindings.json
