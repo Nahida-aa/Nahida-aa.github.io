@@ -6,6 +6,85 @@ Vim 是从 vi 发展出来的一个文本编辑器。代码补全、编译及错
 
 简单的来说，vi 是老式的字处理器，不过功能已经很齐全了，但是还是有可以进步的地方。vim 则可以说是程序开发者的一项很好用的工具
 
+### table
+
+**normal**:
+
+| mode | command | description |
+| --- | --- | --- |
+| normal | `i` | **insert**, **insert** mode before the cursor |
+| normal | `I` | **Insert**, **Insert** mode at the beginning of the line |
+| normal | `a` | **append**, insert mode after the cursor |
+| normal | `A` | **Append**, insert mode at the end of the line |
+| normal | `o` | **open a new line**, insert mode on the next line |
+| normal | `O` | **Open ane new line**, insert mode on the previous line |
+| normal | `h` | move cursor left |
+| normal | `j` | move cursor down |
+| normal | `k` | move cursor up |
+| normal | `l` | move cursor right |
+| normal | `w` | move cursor to the beginning of the **next word** |
+| normal | `e` | move cursor to the **end** of the next word |
+| normal | `b` | **back**, move cursor to the **beginning** of the previous word |
+| normal | `[number]G` | move cursor to the number line, default to the end of the file |
+| normal | `[number]gg` | move cursor to the number line, default to the beginning of the file |
+| normal | `x` | delete character under the cursor |
+| normal | `dd` | **delete** the line |
+| normal | `dw` | **delete** the **word** under the cursor |
+| normal | `cw` | **change** the **word** under the cursor, enter insert mode |
+
+| normal | `u` | **undo** |
+| normal | `Ctrl + r` | **redo** |
+| normal | `yw` | **yank**, copy the **word** |
+| normal | `yy` | **yank**, copy the line |
+| normal | `p` | **paste** |
+| normal | `.` | repeat the last command |
+| normal | `ci{` | **change** the content **inside** the `{}`, and insert |
+| normal | `ci[` | **change** the content **inside** the `[]`, and insert |
+| normal | `ci(` | **change** the content **inside** the `()`, and insert |
+| normal | `ci'` | **change** the content **inside** the `''`, and insert |
+| normal | `ci"` | **change** the content **inside** the `""`, and insert |
+| normal | `Ctrl + o` | **jump** to the previous position |
+| normal | `Ctrl + i` | **jump** to the next position |
+| normal | `Ctrl + u` | **move** the screen up |
+| normal | `Ctrl + d` | **move** the screen down |
+| normal | `Ctrl + e` | **move** the screen up |
+| normal | `Ctrl + y` | **move** the screen down |
+| normal | `Ctrl + b` | **move** the screen up |
+| normal | `Ctrl + f` | **move** the screen down |
+| normal | `Ctrl + d` | **move** the screen down |
+| normal | `Ctrl + g` | **show** the file information |
+| normal | `Ctrl + v + [movement]` | **visual block mode** |
+
+**:(command line mode)**:
+
+| mode | command | description |
+| --- | --- | --- |
+| : | `:w` | **write**, save the file |
+| : | `:q` | **quit**, close the file |
+| : | `:q!` | **quit**, close the file without saving |
+| : | `:wq` | **write** and **quit**, save the file and close the file |
+| : | `:/pattern` | **search** the pattern |
+| : | `:%s/old_chars/new_chars/g` | **substitute**, replace the old with the new in global |
+| : | `:e!` | **edit**, reload the file |
+| : | `:set nu` | **set**, show the line number |
+| : | `:set nonu` | **set**, hide the line number |
+| : | `:set ts=4` | **set**, set the tabstop to 4 |
+
+**visual** mode:
+
+**settings**:
+
+~/.vimrc
+
+```vimrc
+syntax on # 语法高亮
+set ts=4 # tabstop
+set expandtab # tab转换为空格
+set autoindent # 自动缩进
+set number # 显示行号
+# set relativenumber # 显示相对行号
+```
+
 ## Basics vim
 
 ### Introduction to Vim Modes
@@ -14,7 +93,15 @@ The first key vim concept to understand is **modes**.
 
 You can switch between two primary modes: **normal mode** and **insert mode** to perform different actions.
 
-#### Insert Mode
+- Normal Mode
+
+   Used for:
+
+  - Moving the cursor
+  - Deleting characters, words, lines, etc
+  - Performing operations like Copy / Paste
+
+- Insert Mode
 
 Used for editing and inserting text.
 
@@ -60,6 +147,15 @@ Your left  hand fingers should rest on `a` `s` `d` `f`.
 It is useful to navigate by word to travel medium distances, since all statements in a program are composed of words.  
 通过单词导航以移动中等距离很有用，因为程序中的所有语句都是由单词组成的。
 
+- `w` --- move to the **next word**
+- `e` --- move to the **end** of a word
+- `b` --- move **back** a word
+
+### Insert Mode
+
+So far you have learned how to move in normal mode. In order to edit text, you will need to enter insert mode.
+到目前为止，您已经学会了如何在正常模式下移动。为了编辑文本，您需要进入插入模式。
+
 E37: No write since last change<br>
 E162: No write since change for buffer ".\test\readme.md"<br>
 Press ENTER or type command to continue
@@ -89,5 +185,5 @@ Press ENTER or type command to continue
     按ENTER或键入命令继续
 ```
 
-    
+
 
