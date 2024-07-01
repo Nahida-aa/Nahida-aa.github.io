@@ -49,6 +49,10 @@
 | `Ctrl+w` | close the current **window**(page\\标签卡) |
 | `Ctrl+Shift+W` | close the current **Windows** |
 | `Ctrl+number` | switch to the page |
+| `Ctrl+Tab` | switch between the page |
+| `Ctrl+Shift+N` | **new** Windows |
+| `Ctrl+Shift+V` | paste without format |
+| `Ctrl+E` | open Explorer |
 
 ### Alt
 
@@ -58,6 +62,9 @@
 | `Alt + Escape` | switch between the app windows |
 | `Alt + F4` | close the current window |
 | `Alt + Space` | open the window menu |
+| `Alt+Space+N` | minimize the window |
+| `Alt+Space+X` | maximize the window |
+| `Alt+Space+R` | **restore** the window |
 | `Alt + Left<-/Right->` | go back/forward |
 | `Alt + PageUp/PageDown` | move the window up/down |
 | `Alt + 带下划线的字母` | 在应用中对带下划线的字母运行命令 |
@@ -83,3 +90,4 @@
 | `F4` | select the address bar |
 | `F5` | refresh the page |
 | `F6` | circulate select page elements |
+| `F10` | open the menu bar |
