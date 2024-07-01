@@ -55,6 +55,8 @@ Vim 是从 vi 发展出来的一个文本编辑器。代码补全、编译及错
 | normal | `Ctrl + g` | **show** the file information |
 | normal | `Ctrl + v + [movement]` | **visual block mode** |
 
+insert mode:
+
 **:(command line mode)**:
 
 | mode | command | description |
