@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake</title>
+    <!-- <script type="text/javascript">
+        $(document).ready(function(){
+            $('.box').css('height',$('.box').css('width'));
+        })
+    </script> -->
+    <style>
+        *{  
+            color: #fcc8de;
+            text-shadow: 0 0 2px #001716, 0 0 1px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975;
+            font-family:cursive;
+            margin: 0; /* margin{外边距} */
+            /* margin:  */
+            padding: 0; /* padding{内边距} */
+            /* padding:  */
+            /*box-sizing: border-box; /* box-sizing{盒子模型} */
+        }
+        html{
+            background-image: url(./imgs/1.jpg);
+            /* background: url(./xc.jpg); 
+            The effect seems to be the same as the previous line
+            效果似乎与前一行相同*/
+            background-attachment: fixed;
+            /* background-color:#f6d5ec; */
+            background-position:35%; /* background-position{背景图像的位置} */
+            /* background-position:  */
+            background-repeat: no-repeat; /* background-repeat{背景图像是否及如何重复} */
+            /*background-size: 100% 100%; /* 占html的100% */
+            background-size: cover; /* cover{背景图像在背景区域中被缩放以填充} */
+        }
+        * {
+            margin: 0;
+            padding: 0;
+        }
+ 
+        i {
+            font-style: normal;
+        }
+ 
+        .box {
+            width: 700px;
+            /* width: 90%; */
+            height: 700px;
+            /* height: calc(width); */
+            /* height: same-as-width; */
+            margin: 100px auto;
+        }
+ 
+        .scope {
+            width: 100%;
+            height: 100%;
+            background: rgba(127, 230, 233, 0.651);
+            position: relative;
+        }
+ 
+        .box .title {
+            width: 100%;
+            text-align: center;
+            font-size: 40px;
+            padding-bottom: 10px;
+            font-weight: bold;
+        }
+ 
+        .box .detail {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            padding: 10px 0;
+        }
+ 
+        .box .detail span {
+            font-size: 20px;
+        }
+ 
+        .box .detail i {
+            margin-left: 10px;
+        }
+ 
+        .box .detail .score {
+            color: saddlebrown;
+        }
+ 
+        .box .detail .status {
+            color: green;
+        }
+ 
+        .box .detail .fail {
+            color: red;
+        }
+    </style>
+</head>
+ 
+<body>
+    <div class="box">
+        <p class="title" title="贪吃蛇">Snake</p>
+        <div class="detail">
+            <span title="状态">author: Nahida-aa</span>
+            <span title="得分">score:<i class="score">0</i></span>
+            <span title="状态">status:<i class="status">Playing</i></span>
+        </div>
+ 
+        <!-- 蛇移动的范围 -->
+        <div class="scope"></div>
+    </div>
+
+    <!-- <div id="description">
+        <span id="w">W</span><span id="up">↑</span><br>
+        <span>A</span>SD or /←/↓/→ <br>
+        to control the <span title="方向">direction</span> of the snake<br>
+    </div> -->
+    <!-- <style>
+        #description {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 200px;
+            height: 200px;
+            background-color: #ccc;
+            text-align: center;
+            line-height: 30px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #000;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        /* #description span {
+            color: red;
+        } */
+    </style> -->
+</body>
+</html>
