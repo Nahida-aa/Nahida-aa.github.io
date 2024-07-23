@@ -10,103 +10,153 @@
             $('.box').css('height',$('.box').css('width'));
         })
     </script> -->
-    <style>
-        *{  
-            color: #fcc8de;
-            text-shadow: 0 0 2px #001716, 0 0 1px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975;
-            font-family:cursive;
-            margin: 0; /* margin{外边距} */
-            /* margin:  */
-            padding: 0; /* padding{内边距} */
-            /* padding:  */
-            /*box-sizing: border-box; /* box-sizing{盒子模型} */
-        }
-        html{
-            background-image: url(./imgs/1.jpg);
-            /* background: url(./xc.jpg); 
-            The effect seems to be the same as the previous line
-            效果似乎与前一行相同*/
-            background-attachment: fixed;
-            /* background-color:#f6d5ec; */
-            background-position:35%; /* background-position{背景图像的位置} */
-            /* background-position:  */
-            background-repeat: no-repeat; /* background-repeat{背景图像是否及如何重复} */
-            /*background-size: 100% 100%; /* 占html的100% */
-            background-size: cover; /* cover{背景图像在背景区域中被缩放以填充} */
-        }
-        * {
-            margin: 0;
-            padding: 0;
-        }
- 
-        i {
-            font-style: normal;
-        }
- 
-        .box {
-            width: 700px;
-            /* width: 90%; */
-            height: 700px;
-            /* height: calc(width); */
-            /* height: same-as-width; */
-            margin: 100px auto;
-        }
- 
-        .scope {
-            width: 100%;
-            height: 100%;
-            background: rgba(127, 230, 233, 0.651);
-            position: relative;
-        }
- 
-        .box .title {
-            width: 100%;
-            text-align: center;
-            font-size: 40px;
-            padding-bottom: 10px;
-            font-weight: bold;
-        }
- 
-        .box .detail {
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            padding: 10px 0;
-        }
- 
-        .box .detail span {
-            font-size: 20px;
-        }
- 
-        .box .detail i {
-            margin-left: 10px;
-        }
- 
-        .box .detail .score {
-            color: saddlebrown;
-        }
- 
-        .box .detail .status {
-            color: green;
-        }
- 
-        .box .detail .fail {
-            color: red;
-        }
-    </style>
+<style>
+*{  
+    color: #fcc8de;
+    text-shadow: 0 0 2px #001716, 0 0 1px #03edf975, 0 0 5px #03edf975, 0 0 8px #03edf975;
+    font-family:cursive;
+    margin: 0; /* margin{外边距} */
+    /* margin:  */
+    padding: 0; /* padding{内边距} */
+    /* padding:  */
+    /*box-sizing: border-box; /* box-sizing{盒子模型} */
+}
+html{
+    background-image: url(./imgs/1.jpg);
+    /* background: url(./xc.jpg); 
+    The effect seems to be the same as the previous line
+    效果似乎与前一行相同*/
+    background-attachment: fixed;
+    /* background-color:#f6d5ec; */
+    background-position:35%; /* background-position{背景图像的位置} */
+    /* background-position:  */
+    background-repeat: no-repeat; /* background-repeat{背景图像是否及如何重复} */
+    /*background-size: 100% 100%; /* 占html的100% */
+    background-size: cover; /* cover{背景图像在背景区域中被缩放以填充} */
+}
+* {
+    margin: 0;
+    padding: 0;
+}
+
+i {
+    font-style: normal;
+}
+
+.main {
+    display: flex; /* 设置Flex布局 */
+    align-items: flex-start; /* 确保子元素从顶部开始对齐 */
+}
+
+.button-container {
+    flex: 0 0 auto; /* 不允许按钮容器伸缩 */
+    width: 100px; /* 或根据需要设置固定宽度 */
+}
+
+.content-container {
+  /* flex: 1; 让内容容器占据剩余空间 */
+  /* 居中 */
+
+  width: 700px;
+  /* width: 90%; */
+  height: 700px;
+  /* height: calc(width); */
+  /* height: same-as-width; */
+  margin: 100px auto;
+}
+
+.scope {
+    width: 100%;
+    height: 100%;
+    background: rgba(127, 230, 233, 0.651);
+    position: relative;
+}
+
+.content-container .title {
+    width: 100%;
+    text-align: center;
+    font-size: 40px;
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+.content-container .detail {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.content-container .detail span {
+    font-size: 20px;
+}
+
+.content-container .detail i {
+    margin-left: 10px;
+}
+
+.content-container .detail .score {
+    color: saddlebrown;
+}
+
+.content-container .detail .status {
+    color: green;
+}
+
+.content-container .detail .fail {
+    color: red;
+}
+button {
+  font-size: 16px; /* 设置字体大小 */
+  padding: 5px 10px; /* 设置内边距，第一个值是上下，第二个值是左右 */
+  /* border: 2px solid #007bff;  */
+  /* border-radius: 5px;  */
+  /* background-color: #007bff;  */
+  /* color: white; 设置文字颜色 */
+  cursor: pointer; /* 设置鼠标悬停时的光标样式 */
+  /* transition: background-color 0.3s;  */
+}
+.button-container {
+    flex-shrink: 0; /* 防止按钮容器缩小 */
+    margin-right: 20px; /* 与游戏视图的间距 */
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+.test-button {
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+</style>
 </head>
  
 <body>
-<div class="box">
+<div class="main">
+<!-- 主侧栏(默认在左侧) -->
+<div class="button-container">
+  <button class="test-button" id="snakeInitButton">Snake init</button>
+  <button class="test-button" onclick="testFunction2()">测试函数2</button>
+  <!-- 添加更多按钮 -->
+</div>
+
+<div class="content-container">
   <p class="title" title="贪吃蛇">Snake</p>
   <div class="detail">
-      <span title="状态">author: Nahida-aa</span>
+      <button id="resetButton">
+        <span title="重置">reset</span>
+      </button>
       <span title="得分">score:<i class="score">0</i></span>
       <span title="状态">status:<i class="status">Playing</i></span>
   </div>
 
   <!-- 蛇移动的范围 -->
   <div class="scope"></div>
+</div>
+
 </div>
 <script>
 (function(){
@@ -216,42 +266,42 @@
   /*Add snake initialization method
   添加蛇的初始化方法 */
   Snake.prototype.init = function(scope) {
-      /*Remove the previous snake
-      删除之前的蛇*/
-      remove(scope);
-      /*Create snake
-      创建蛇*/
-      for(let i = 0; i < this.body.length; i++) {
-          let item = this.body[i];
-          let snake = document.createElement('div');
-          //Add snake to the page
-          // 将蛇添加到页面中
-          scope.appendChild(snake);
-          //Set the style of the snake
-          // 设置蛇的样式
-          snake.style.width = this.width + 'px';
-          snake.style.height = this.height + 'px';
-          snake.style.backgroundColor = item.color;
-          snake.style.position = 'absolute';
-          snake.style.left = item.mx * this.width + 'px';
-          snake.style.top = item.my * this.height + 'px';
-          //Add the snake to the body
-          // 将蛇添加到身体中
-          body_arr.push(snake);
-      }
+    /*Remove the previous snake
+    删除之前的蛇*/
+    remove(scope);
+    /*Create snake
+    创建蛇*/
+    for(let i = 0; i < this.body.length; i++) {
+      let item = this.body[i];
+      let snake = document.createElement('div');
+      //Add snake to the page
+      // 将蛇添加到页面中
+      scope.appendChild(snake);
+      //Set the style of the snake
+      // 设置蛇的样式
+      snake.style.width = this.width + 'px';
+      snake.style.height = this.height + 'px';
+      snake.style.backgroundColor = item.color;
+      snake.style.position = 'absolute';
+      snake.style.left = item.mx * this.width + 'px';
+      snake.style.top = item.my * this.height + 'px';
+      //Add the snake to the body
+      // 将蛇添加到身体中
+      body_arr.push(snake);
+    }
   }
 
   /*Add the method of removing the snake
   添加删除蛇的方法 */
   function remove(scope) {
-      for(let i = body_arr.length - 1; i >= 0; i--) {
-          /*Remove the snake from the page
-          将蛇从页面中删除 */
-          scope.removeChild(body_arr[i]);
-          /*Remove the snake from the body
-          将蛇从身体中删除 */
-          body_arr.splice(i,1);
-      }
+    for(let i = body_arr.length - 1; i >= 0; i--) {
+      /*Remove the snake from the page
+      将蛇从页面中删除 */
+      scope.removeChild(body_arr[i]);
+      /*Remove the snake from the body
+      将蛇从身体中删除 */
+      body_arr.splice(i,1);
+    }
   }
 
   /*Add the method of moving the snake
@@ -325,54 +375,55 @@
   }
   /* create init method*/
   Game.prototype.init = function(scope) {
-      this.food.init(scope);
-      this.snake.init(scope);
-      this.game_move();
-      this.change_direction();
+    this.food.init(scope);
+    this.snake.init(scope);
+    this.game_move();
+    this.change_direction();
   }
 
   /**/
   Game.prototype.game_move = function() {
-      let that = this;
-      that.timer = setInterval(function(){
-          /*Move the snake
-          移动蛇 */
-          that.snake.move(that.scope,that.food,that.snake);
-          /*Initialize the snake
-          初始化蛇 */
-          that.snake.init(that.scope);
-          /*Determine whether the snake is dead
-          判断蛇是否死亡 */
-          let max_mx = that.scope.offsetWidth / that.snake.width;
-          let max_my = that.scope.offsetHeight / that.snake.height;
-          /*Get the m_coordinate of the head of the snake
-          获取蛇头的m坐标 */
-          var head_mx = that.snake.body[0].mx;
-          var head_my = that.snake.body[0].my;
-          if ((head_mx < 0) || (head_mx >= max_mx) || head_my < 0 || head_my >= max_my) {
-              /*Stop the timer
-              停止定时器 */
-              clearInterval(that.timer);
-              /*Change the status of the game
-              改变游戏的状态 */
-              that.is_dead = true;
-              /*Change the status of the game
-              改变游戏的状态 */
-              let status = document.querySelector('.status');
-              status.innerHTML = 'Game Over';
-              status.className = 'fail';
-              setTimeout(function(){
-                  alert('score:' + document.querySelector('.score').innerHTML + '\nGame Over');
-              },100);
-              /*Remove the snake
-              删除蛇 */
-              that.snake.init(that.scope);
-              /*Remove the food
-              删除食物 */
-              that.food.init(that.scope);
-          }
-          // is_dead(that.snake,that.scope);
-      }.bind(that),200);
+    let that = this;
+    that.timer = setInterval(function(){
+      /*Move the snake
+      移动蛇 */
+      that.snake.move(that.scope,that.food,that.snake);
+      /*Initialize the snake
+      初始化蛇 */
+      that.snake.init(that.scope);
+      /*Determine whether the snake is dead
+      判断蛇是否死亡 */
+      let max_mx = that.scope.offsetWidth / that.snake.width;
+      let max_my = that.scope.offsetHeight / that.snake.height;
+      /*Get the m_coordinate of the head of the snake
+      获取蛇头的m坐标 */
+      var head_mx = that.snake.body[0].mx;
+      var head_my = that.snake.body[0].my;
+      if ((head_mx < 0) || (head_mx >= max_mx) || head_my < 0 || head_my >= max_my) {
+          /*Stop the timer
+          停止定时器 */
+          clearInterval(that.timer);
+          /*Change the status of the game
+          改变游戏的状态 */
+          that.is_dead = true;
+          /*Change the status of the game
+          改变游戏的状态 */
+          let status = document.querySelector('.status');
+          status.innerHTML = 'Game Over';
+          status.className = 'fail';
+          // setTimeout(function(){
+          //     alert('score:' + document.querySelector('.score').innerHTML + '\nGame Over');
+          // },100);
+          /*Remove the snake
+          删除蛇 */
+          // that.snake.init(that.scope);
+          that.snake.remove(that.scope);
+          /*Remove the food
+          删除食物 */
+          // that.food.init(that.scope);
+      }
+      // is_dead(that.snake,that.scope);
+    }.bind(that),200);
   }
   /**/
   Game.prototype.change_direction = function() {
@@ -407,21 +458,24 @@
   }
   window.Game = Game;
 })();
-while (true) {
-  /*Gets the scope in the page
-  获取页面中的scope */
-  let scope = document.querySelector('.scope');
 
-  let game = new Game(scope);
-  
+/*Gets the scope in the page
+获取页面中的scope */
+let scope = document.querySelector('.scope');
+
+let game = new Game(scope);
+
+game.init(scope);
+
+document.getElementById('resetButton').addEventListener('click', function(){
   game.init(scope);
-  var name = prompt('Please enter your name');
-  if (name == null || name == '') {
-      alert('Please enter your name');
-  } else {
-      break;
-  }
-}
+});
+document.addEventListener('DOMContentLoaded', function() {
+  var button = document.getElementById('snakeInitButton');
+  button.addEventListener('click', function() {
+    
+  });
+});
 </script>
 
     <!-- <div id="description">
