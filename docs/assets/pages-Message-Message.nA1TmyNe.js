@@ -1,0 +1,1 @@
+import{c as e,h as s,a,w as n,g as r,o as t,b as o}from"./index-BPxgz88l.js";import{_ as i}from"./_plugin-vue_export-helper.BCo6x5W8.js";const p=i({},[["render",function(i,p){const l=r;return t(),e("div",{class:"message"},[s("h1",null,"Message"),a(l,{url:"/pages/index/index","open-type":"navigate"},{default:n((()=>[o("首页")])),_:1})])}]]);export{p as default};
