@@ -5,6 +5,13 @@
       <text class="title">{{ title }}</text>
     </view>
   </view>
+  <navigator
+    url="/pages/message/message"
+    open-type="navigate"
+    hover-class="navigator-hover"
+  >
+    留言
+  </navigator>
 </template>
 
 <script setup lang="ts">

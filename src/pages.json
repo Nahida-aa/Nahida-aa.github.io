@@ -5,7 +5,13 @@
 			"style": {
 				"navigationBarTitleText": "uni-app"
 			}
-		}
+		},
+		{
+			"path": "pages/Message/Message",
+			"style": {
+				"navigationBarTitleText": "留言"
+			}
+		},
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
