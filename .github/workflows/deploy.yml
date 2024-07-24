@@ -1,31 +1,31 @@
-name: Deploy to Branch
+# name: Deploy to Branch
 
-on:
-  push:
-    branches:
-      - main  # 当推送到main分支时触发此工作流
+# on:
+#   push:
+#     branches:
+#       - main  # 当推送到main分支时触发此工作流
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2  # 检出代码
+# jobs:
+#   build-and-deploy:
+#     runs-on: ubuntu-latest
+#     steps:
+#     - uses: actions/checkout@v2  # 检出代码
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '14'  # 设置Node.js的版本
+#     - name: Setup Node.js
+#       uses: actions/setup-node@v2
+#       with:
+#         node-version: '14'  # 设置Node.js的版本
 
-    - name: Install Dependencies
-      run: npm install  # 安装依赖
+#     - name: Install Dependencies
+#       run: npm install  # 安装依赖
 
-    - name: Build
-      run: npm run build:h5  # 构建项目，生成/dist/build/h5目录
+#     - name: Build
+#       run: npm run build:h5  # 构建项目，生成/dist/build/h5目录
 
-    - name: Deploy to Branch
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}  # 使用GitHub提供的token
-        publish_dir: ./dist/build/h5  # 设置为你的构建输出目录
-        publish_branch: gh-pages  # 设置为你想要推送到的分支
-        keep_files: true  # 保留现有文件
+#     - name: Deploy to Branch
+#       uses: peaceiris/actions-gh-pages@v3
+#       with:
+#         github_token: ${{ secrets.GITHUB_TOKEN }}  # 使用GitHub提供的token
+#         publish_dir: ./dist/build/h5  # 设置为你的构建输出目录
+#         publish_branch: gh-pages  # 设置为你想要推送到的分支
+#         keep_files: true  # 保留现有文件
