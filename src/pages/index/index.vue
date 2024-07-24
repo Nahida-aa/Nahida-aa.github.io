@@ -1,14 +1,13 @@
 <template>
   <view class="content">
-    <image class="logo" src="/static/logo.png" />
+    <image class="logo" src="/static/imgs/Nahida.jpg" />
     <view class="text-area">
       <text class="title">{{ title }}</text>
     </view>
   </view>
   <navigator
-    url="/pages/message/message"
+    url="/pages/Message/Message"
     open-type="navigate"
-    hover-class="navigator-hover"
   >
     留言
   </navigator>

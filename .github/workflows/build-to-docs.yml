@@ -1,0 +1,33 @@
+name: Build and Deploy
+
+on:
+  push:
+    branches:
+      - main  # 或者你使用的是master分支，就改为master
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20.15.0'  # 指定Node.js的版本
+    - name: Install pnpm
+      run: npm install -g pnpm
+    - name: Install dependencies
+      run: pnpm install
+    - name: Build
+      run: pnpm build:h5
+    - name: Copy files
+      run: |
+        mkdir -p ./docs
+        cp -R ./dist/build/h5/* ./docs/
+    - name: Commit and push changes
+      run: |
+        git config --global user.email "Nahida-aa@outlook.com"
+        git config --global user.name "aa"
+        git add ./docs
+        git commit -m "Deploy GitHub Pages"
+        git push

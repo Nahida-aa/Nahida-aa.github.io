@@ -14,7 +14,7 @@
 #     - name: Setup Node.js
 #       uses: actions/setup-node@v2
 #       with:
-#         node-version: '14'  # 设置Node.js的版本
+#         node-version: '20.15.0'  # 设置Node.js的版本
 
 #     - name: Install Dependencies
 #       run: npm install  # 安装依赖
