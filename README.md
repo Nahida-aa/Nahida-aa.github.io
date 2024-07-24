@@ -1,0 +1,26 @@
+# Nahida-aa.github.io
+
+如果你有一个名为 Nahida-aa.github.io 的仓库，这意味着你已经或者正在设置一个个人网站，利用 GitHub Pages 服务。GitHub Pages 允许你直接从 GitHub 仓库托管网站内容，非常适合托管静态网站（例如，使用 HTML、CSS 和 JavaScript 创建的网站）。
+
+以下是一些基本步骤来配置和更新你的 GitHub Pages 网站：
+
+- 启用 GitHub Pages：
+
+  - 转到你的仓库设置（Repository settings）。
+  - 找到 "GitHub Pages" 部分。
+  - 选择你的源分支（通常是 main 或 master），然后点击 "Save"。
+- 添加内容：
+
+  - 你的网站内容需要放在你的仓库中。对于一个基本的网站，你至少需要一个 index.html 文件。
+  - 你可以直接在 GitHub 上编辑文件，或者在本地编辑后推送到 GitHub。
+- 自定义域名（可选）：
+
+  - 如果你想使用自定义域名而不是默认的 nahida-aa.github.io，你可以在仓库的 settings 下的 GitHub Pages 部分设置自定义域名。
+- 更新网站：
+
+  - 每当你推送新的更改到你的 GitHub 仓库时，GitHub Pages 将自动重新构建并发布你的网站。
+- 访问你的网站：
+
+  - 一旦 GitHub Pages 被激活并且你的仓库中有了网站内容，你就可以通过访问 https://nahida-aa.github.io 来查看你的网站了。
+  
+记得查看 GitHub 的官方文档来获取更详细的指导和最佳实践。GitHub Pages 是一个强大的工具，可以用来托管个人项目、展示你的简历或者作为一个博客平台。
