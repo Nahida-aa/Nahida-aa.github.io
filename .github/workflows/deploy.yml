@@ -1,31 +1,31 @@
-# name: Deploy to Branch
+name: Deploy UniApp site to GitHub Pages
 
-# on:
-#   push:
-#     branches:
-#       - main  # 当推送到main分支时触发此工作流
+on:
+  push:
+    branches:
+      - main  # 或者您希望触发部署的其他分支
 
-# jobs:
-#   build-and-deploy:
-#     runs-on: ubuntu-latest
-#     steps:
-#     - uses: actions/checkout@v2  # 检出代码
+jobs:
+  build:
+    runs-on: ubuntu-latest
 
-#     - name: Setup Node.js
-#       uses: actions/setup-node@v2
-#       with:
-#         node-version: '20.15.0'  # 设置Node.js的版本
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-#     - name: Install Dependencies
-#       run: npm install  # 安装依赖
+    - name: Setup Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20.15.0'  # 或者您需要的其他版本
 
-#     - name: Build
-#       run: npm run build:h5  # 构建项目，生成/dist/build/h5目录
+    - name: Install dependencies
+      run: npm install
 
-#     - name: Deploy to Branch
-#       uses: peaceiris/actions-gh-pages@v3
-#       with:
-#         github_token: ${{ secrets.GITHUB_TOKEN }}  # 使用GitHub提供的token
-#         publish_dir: ./dist/build/h5  # 设置为你的构建输出目录
-#         publish_branch: gh-pages  # 设置为你想要推送到的分支
-#         keep_files: true  # 保留现有文件
+    - name: Build project
+      run: npm run build:h5  # 确保您的 package.json 中有对应的 build 脚本
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./dist/build/h5/  # 替换为您的构建输出目录

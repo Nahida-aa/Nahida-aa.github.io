@@ -25,6 +25,12 @@
   
 记得查看 GitHub 的官方文档来获取更详细的指导和最佳实践。GitHub Pages 是一个强大的工具，可以用来托管个人项目、展示你的简历或者作为一个博客平台。
 
+## jekyll.yml
+
+Jekyll 是一个静态网站生成器，通常用于创建博客和项目文档。它是由 GitHub Pages 支持的，因此非常适合用于托管在 GitHub 上的个人或项目网站。以下是 Jekyll 的一些关键特性：
+
+1. **静态网站生成**：Jekyll 将 Markdown 文件和模板转换为静态 HTML 文件，这些文件可以直接部署到任何 Web 服务器上。
+
 ## uniapp-vite-ts-scss
 
 ```sh
