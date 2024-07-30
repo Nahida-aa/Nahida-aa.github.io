@@ -1,13 +1,18 @@
-name: Deploy UniApp site to GitHub Pages
+name: Deploy static content to Pages
 
 on:
   push:
-    branches:
-      - main  # 或者您希望触发部署的其他分支
-
-  # 允许您从“Actions”选项卡手动运行此工作流程
-  # Allows you to run this workflow manually from the Actions tab
+    branches: ["main"]
   workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
 
 jobs:
   build:
@@ -30,7 +35,7 @@ jobs:
       if: env.dist_exists == 'false'
       uses: actions/setup-node@v2
       with:
-        node-version: '20.15.0'  # 或者您需要的其他版本
+        node-version: '20.15.0'
 
     - name: Install pnpm
       if: env.dist_exists == 'false'
@@ -42,10 +47,30 @@ jobs:
 
     - name: Build project
       if: env.dist_exists == 'false'
-      run: pnpm run build:h5  # 确保您的 package.json 中有对应的 build 脚本
+      run: pnpm run build:h5
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+    - name: Upload artifact
+      if: env.dist_exists == 'false'
+      uses: actions/upload-pages-artifact@v3
       with:
-        github_token: ${{ secrets.DEPLOY_TOKEN }}
-        publish_dir: ./dist/build/h5/  # 替换为您的构建输出目录
+        path: './dist/build/h5/'
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+      - name: Download artifact
+        uses: actions/download-pages-artifact@v3
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: './dist/build/h5/'
