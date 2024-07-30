@@ -8,16 +8,15 @@ pnpm-debug.log*
 lerna-debug.log*
 
 node_modules
-.DS_Store
-# Ignore dist directory except dist/build/h5
-dist/*
-!dist/build/
-!dist/build/h5/
-
+# dist
+dist-ssr
 *.local
 
 # Editor directories and files
+.vscode/*
+!.vscode/extensions.json
 .idea
+.DS_Store
 *.suo
 *.ntvs*
 *.njsproj

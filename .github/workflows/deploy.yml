@@ -25,7 +25,8 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: './dist/build/h5/'
+        # path: './dist/build/h5/'
+        path: './dist/'
 
   deploy:
     needs: upload
@@ -45,4 +46,5 @@ jobs:
         uses: actions/deploy-pages@v4
         with:
           github_token: ${{ secrets.DEPLOY_TOKEN }}
-          publish_dir: './dist/build/h5/'
+          # publish_dir: './dist/build/h5/'
+          publish_dir: './dist/'

@@ -1,24 +1,11 @@
 {
-  // 继承 @vue/tsconfig/tsconfig.json
-  "extends": "@vue/tsconfig/tsconfig.json",
-  "compilerOptions": {
-    // 是否生成 sourceMap(.map文件) 用于调试
-    "sourceMap": true,
-    // 用于解析非相对模块名的基准目录
-    "baseUrl": ".",
-    // 设置模块导入路径的别名
-    "paths": {
-      "@/*": ["./src/*"]
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
     },
-    // 编译过程中将要被包含在编译中库文件
-    "lib": ["esnext", "dom"],
-    // 需要包含的类型声明文件或目录
-    "types": ["@dcloudio/types"],
-    // 添加 ignoreDeprecations 选项来忽略特定版本的弃用警告
-    "ignoreDeprecations": "5.0",
-    // 使用 verbatimModuleSyntax 替代已弃用的选项
-    "verbatimModuleSyntax": true
-  },
-  // 指定编译器需要编译的文件或目录
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ]
 }

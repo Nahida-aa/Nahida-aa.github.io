@@ -39,15 +39,13 @@ my-uniapp-project/
 │   ├── favicon.ico
 │   └── index.html
 ├── src/
-│   ├── assets/
+│   ├── static/                   # 静态资源 
 │   │   ├── images/
 │   │   └── styles/
-│   │       ├── _variables.scss
-│   │       └── main.scss
 │   ├── components/
 │   │   ├── Header.vue
 │   │   └── Footer.vue
-│   ├── pages/
+│   ├── pages/                     # 页面组件 (也有写成views的)
 │   │   ├── Home.vue
 │   │   └── About.vue
 │   ├── App.vue                    # 根组件
@@ -151,6 +149,61 @@ onHide(() => {
     "app-plus": {
       "titleNView": false // 取消标题栏
     }
-  }
+  },
+  "uniIdRouter": {}
 }
 ```
+
+### ./src/router
+
+```sh
+pnpm install vue-router
+mkdir "src/router"
+touch src/router/router.ts
+```
+
+```ts
+import { createRouter, createWebHistory } from 'vue-router';
+import type { RouteRecordRaw } from 'vue-router';
+import home from '@/pages/home/home.vue';
+
+const routes: Array<RouteRecordRaw> = [
+  {
+    path: '/',
+    name: 'home',
+    component: home
+  }
+];
+
+const router = createRouter({
+  history: createWebHistory(process.env.BASE_URL),
+  routes
+});
+
+export default router;
+```
+
+#### ./src/main.ts (导入router)
+
+```ts
+import { createSSRApp } from "vue";
+import App from "./App.vue";
+// import router
+import router from "./router/router";
+
+export function createApp() {
+  const app = createSSRApp(App);
+  // use router (注册 router)
+  app.use(router);
+  
+  return {
+    app,
+  };
+}
+```
+
+## Vue 3 + TypeScript + Vite
+
+This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+
+Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
