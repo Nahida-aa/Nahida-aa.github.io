@@ -9,7 +9,11 @@ lerna-debug.log*
 
 node_modules
 .DS_Store
+# Ignore dist directory except dist/build/h5
 dist
+!dist/build/
+!dist/build/h5/
+
 *.local
 
 # Editor directories and files
