@@ -24,3 +24,127 @@
   - 一旦 GitHub Pages 被激活并且你的仓库中有了网站内容，你就可以通过访问 https://nahida-aa.github.io 来查看你的网站了。
   
 记得查看 GitHub 的官方文档来获取更详细的指导和最佳实践。GitHub Pages 是一个强大的工具，可以用来托管个人项目、展示你的简历或者作为一个博客平台。
+
+## uniapp-vite-ts-scss
+
+```sh
+my-uniapp-project/
+├── public/
+│   ├── favicon.ico
+│   └── index.html
+├── src/
+│   ├── assets/
+│   │   ├── images/
+│   │   └── styles/
+│   │       ├── _variables.scss
+│   │       └── main.scss
+│   ├── components/
+│   │   ├── Header.vue
+│   │   └── Footer.vue
+│   ├── pages/
+│   │   ├── Home.vue
+│   │   └── About.vue
+│   ├── App.vue                    # 根组件
+│   ├── main.ts
+│   ├── router/
+│   │   └── index.ts
+│   ├── store/
+│   │   └── index.ts               # 状态管理
+│   └── utils/
+│       └── api.ts
+├── .gitignore
+├── index.html                     # 入口 HTML
+├── package.json
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
+```
+
+### ./index.html
+
+引入 `./src/main.ts` 入口文件，`<meta>` 标签中添加 `viewport-fit=cover` 属性，用于适配 iPhone X 等异形屏设备。
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <script>
+      var coverSupport = 'CSS' in window && typeof CSS.supports === 'function' && (CSS.supports('top: env(a)') ||
+        CSS.supports('top: constant(a)'))
+      document.write(
+        '<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0' +
+        (coverSupport ? ', viewport-fit=cover' : '') + '" />')
+    </script>
+    <title></title>
+    <!--preload-links-->
+    <!--app-context-->
+  </head>
+  <body>
+    <div id="app"><!--app-html--></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
+```
+
+### ./src/main.ts
+
+```ts
+import { createSSRApp } from "vue";
+import App from "./App.vue";
+export function createApp() {
+  // 创建一个 SSR 应用实例，并将 App 组件作为根组件传入
+  const app = createSSRApp(App);
+  return {
+    app,
+  };
+}
+```
+
+引入 `App.vue` 根组件
+
+还可能会引入路由、状态管理等(可以自己添加)。
+
+### ./src/App.vue
+
+```vue
+<script setup lang="ts">
+import { onLaunch, onShow, onHide } from "@dcloudio/uni-app";
+onLaunch(() => {
+  console.log("App Launch");
+});
+onShow(() => {
+  console.log("App Show");
+});
+onHide(() => {
+  console.log("App Hide");
+});
+</script>
+<style></style>
+```
+
+### ./src/pages.json
+
+```json
+{
+  "pages": [
+    {
+      "path": "pages/index/index",
+      //  remove comments content
+      // "style": {
+      //   "navigationBarTitleText": "首页"
+      // }
+    },
+  ],
+  "globalStyle": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    // "backgroundColor": "#F8F8F8"
+    "navigationStyle": "custom",  // 取消原生导航栏 (上方的)
+    "app-plus": {
+      "titleNView": false // 取消标题栏
+    }
+  }
+}
+```
