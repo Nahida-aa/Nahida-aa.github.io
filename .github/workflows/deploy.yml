@@ -5,6 +5,7 @@ on:
     branches:
       - main  # 或者您希望触发部署的其他分支
 
+  # 允许您从“Actions”选项卡手动运行此工作流程
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
@@ -20,14 +21,26 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '20.15.0'  # 或者您需要的其他版本
-        
+
+    - name: Check if dist directory exists
+      id: check-dist
+      run: |
+        if [ -d "./dist/build/h5" ]; then
+          echo "dist_exists=true" >> $GITHUB_ENV
+        else
+          echo "dist_exists=false" >> $GITHUB_ENV
+        fi
+
     - name: Install pnpm
+      if: env.dist_exists == 'false'
       run: npm install -g pnpm
 
     - name: Install dependencies
+      if: env.dist_exists == 'false'
       run: pnpm install
 
     - name: Build project
+      if: env.dist_exists == 'false'
       run: pnpm run build:h5  # 确保您的 package.json 中有对应的 build 脚本
 
     - name: Deploy to GitHub Pages
