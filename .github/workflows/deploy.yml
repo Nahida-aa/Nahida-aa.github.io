@@ -20,6 +20,9 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: '20.15.0'  # 或者您需要的其他版本
+        
+    - name: Install pnpm
+      run: npm install -g pnpm
 
     - name: Install dependencies
       run: pnpm install
