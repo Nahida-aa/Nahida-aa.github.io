@@ -15,48 +15,20 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  upload:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Check if dist directory exists
-      id: check-dist
-      run: |
-        if [ -d "./dist/build/h5" ]; then
-          echo "dist_exists=true" >> $GITHUB_ENV
-        else
-          echo "dist_exists=false" >> $GITHUB_ENV
-        fi
-
-    - name: Setup Node.js
-      if: env.dist_exists == 'false'
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20.15.0'
-
-    - name: Install pnpm
-      if: env.dist_exists == 'false'
-      run: npm install -g pnpm
-
-    - name: Install dependencies
-      if: env.dist_exists == 'false'
-      run: pnpm install
-
-    - name: Build project
-      if: env.dist_exists == 'false'
-      run: pnpm run build:h5
-
     - name: Upload artifact
-      if: env.dist_exists == 'false'
       uses: actions/upload-pages-artifact@v3
       with:
         path: './dist/build/h5/'
 
   deploy:
-    needs: build
+    needs: upload
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -72,5 +44,5 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.DEPLOY_TOKEN }}
           publish_dir: './dist/build/h5/'
