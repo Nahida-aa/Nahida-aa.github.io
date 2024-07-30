@@ -22,10 +22,10 @@ jobs:
         node-version: '20.15.0'  # 或者您需要的其他版本
 
     - name: Install dependencies
-      run: npm install
+      run: pnpm install
 
     - name: Build project
-      run: npm run build:h5  # 确保您的 package.json 中有对应的 build 脚本
+      run: pnpm run build:h5  # 确保您的 package.json 中有对应的 build 脚本
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
