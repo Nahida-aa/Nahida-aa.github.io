@@ -232,3 +232,73 @@ Learn more about the recommended Project Setup and IDE Support in the [Vue Docs 
 ```sh
 pnpm install vue-router
 ```
+
+### component (Vue3)
+
+vue2的写法
+
+```vue
+<template>
+  <div>
+    <h1>{{ msg }}</h1>
+  </div>
+</template>
+
+<script>
+export default {
+  data() {
+    return {
+      msg: 'Hello Vue 2'
+    }
+  }
+}
+</script>
+```
+
+在其他地方使用
+
+```vue
+<template>
+  <div>
+    <HelloWorld />
+  </div>
+</template>
+
+<script>
+import HelloWorld from '@/components/HelloWorld.vue'
+
+export default {
+  components: {
+    HelloWorld
+  }
+}
+</script>
+```
+
+vue3的写法
+
+```vue
+<template>
+  <div>
+    <h1>{{ msg }}</h1>
+  </div>
+</template>
+
+<script setup>
+const msg = 'Hello Vue 3'
+</script>
+```
+
+在其他地方使用
+
+```vue
+<template>
+  <div>
+    <HelloWorld />
+  </div>
+</template>
+
+<script setup>
+import HelloWorld from '@/components/HelloWorld.vue'
+</script>
+```
