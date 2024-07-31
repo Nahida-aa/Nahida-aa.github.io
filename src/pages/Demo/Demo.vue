@@ -9,9 +9,9 @@
       <li><router-link to="/home">Home</router-link></li>
       <li><router-link to="/about">About</router-link></li>
       <li><router-link to="/demo">Demo</router-link></li>
-      <li><router-link to="/nav/track_nav">/nav/track_nav</router-link></li>
-      <li><router-link to="/nav/track_nav_css">/nav/track_nav_css</router-link></li>
-      <li><router-link to="/nav/track_nav_css">/bg/sky_js</router-link></li>
+      <li><router-link to="/nav/trackNav">/nav/trackNav</router-link></li>
+      <li><router-link to="/nav/track-nav-css">/nav/track-nav-css</router-link></li>
+      <li><router-link to="/bg/sky_js">/bg/sky_js</router-link></li>
       <!-- 添加更多链接以测试其他组件和页面 -->
     </ul>
   </div>
