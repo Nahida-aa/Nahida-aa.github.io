@@ -1,6 +1,11 @@
 {
-  // "files": [],
-  "compilerOptions": {
+"files": [
+    "vite.config.ts",
+    "src/main.ts",
+    "src/shims-vue.d.ts",
+    "src/router/index.ts",
+],
+"compilerOptions": {
     "target": "ES2020",
     "useDefineForClassFields": true,
     "lib": ["ES2020", "DOM", "DOM.Iterable"],
@@ -26,7 +31,8 @@
     "allowSyntheticDefaultImports": true,
     "strict": true,
     "noEmit": true
-  },
-  "include": ["vite.config.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
-  "exclude": ["node_modules"]
+},
+"include": ["vite.config.ts", "src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+"exclude": ["node_modules"]
 }
+  

@@ -1,9 +1,11 @@
+<template>
+  <div id="app">
+    <router-view></router-view>
+  </div>
+</template>
+
 <script setup lang="ts">
 </script>
-
-<template>
-    <router-view></router-view>
-</template>
 
 <style lang="scss">
 @import './assets/styles/global.scss';
