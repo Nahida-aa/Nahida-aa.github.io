@@ -1,0 +1,39 @@
+<script setup lang="ts">
+// 这里可以引入一些你想要测试的组件
+</script>
+
+<template>
+  <div>
+    <h1>测试页面</h1>
+    <ul>
+      <li><router-link to="/home">Home</router-link></li>
+      <li><router-link to="/about">About</router-link></li>
+      <li><router-link to="/demo">Demo</router-link></li>
+      <li><router-link to="/nav/track_nav">/nav/track_nav</router-link></li>
+      <li><router-link to="/nav/track_nav_css">/nav/track_nav_css</router-link></li>
+      <li><router-link to="/nav/track_nav_css">/bg/sky_js</router-link></li>
+      <!-- 添加更多链接以测试其他组件和页面 -->
+    </ul>
+  </div>
+</template>
+
+<style scoped lang="scss">
+/* 添加一些样式以美化测试页面 */
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+
+a {
+  text-decoration: none;
+  color: blue;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+</style>

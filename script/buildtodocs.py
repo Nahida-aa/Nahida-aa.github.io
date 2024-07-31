@@ -2,7 +2,8 @@ import os
 import shutil
 
 # 定义源目录和目标目录
-source_dir = os.path.join(os.getcwd(), 'dist', 'build', 'h5')
+# source_dir = os.path.join(os.getcwd(), 'dist', 'build', 'h5')
+source_dir = os.path.join(os.getcwd(), 'dist')
 dest_dir = os.path.join(os.getcwd(), 'docs')
 
 # 确保目标目录存在，如果不存在则创建
