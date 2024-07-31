@@ -5,7 +5,6 @@ import About from '../pages/About/About.vue';
 import trackNav from '../components/nav/track-nav.vue';
 import track_nav_css from '../components/nav/track-nav-css.vue';
 import sky_js from '../components/bg/sky_js.vue';
-import sky_js_test from '../components/bg/sky-js.vue';
 
 const routes = [
   { path: '/', component: Home },
@@ -15,7 +14,6 @@ const routes = [
   { path: '/nav/trackNav', component: trackNav },
   { path: '/nav/track-nav-css', component: track_nav_css },
   { path: '/bg/sky_js', component: sky_js },
-  { path: '/bg/sky_js_test', component: sky_js_test },
   // 添加更多路由以测试其他组件和页面
 ];
 
