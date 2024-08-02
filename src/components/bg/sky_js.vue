@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div ref="background" class="background">
     <canvas ref="canvas"></canvas>
   </div>
 </template>
@@ -177,29 +177,43 @@ onMounted(() => {
 });
 
 onUnmounted(() => {
+  // 
   window.removeEventListener('resize', resize);
-  canvas.value.removeEventListener('mousemove', onMouseMove);
-  canvas.value.removeEventListener('touchmove', onTouchMove);
-  canvas.value.removeEventListener('touchend', onMouseLeave);
-  document.removeEventListener('mouseleave', onMouseLeave);
+  if (canvas.value) {
+    canvas.value.removeEventListener('mousemove', onMouseMove);
+    canvas.value.removeEventListener('touchmove', onTouchMove);
+    canvas.value.removeEventListener('touchend', onMouseLeave);
+    document.removeEventListener('mouseleave', onMouseLeave);
+  }
+  
 });
 </script>
 
-<style lang="scss">
-* {
-  padding: 0;
-  margin: 0;
-  body {
+<style lang="scss" >
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* 确保背景在所有内容的后面 */
+  overflow: hidden;
+}
+
+.background {
+  width: 100%;
+  height: 100vh;
+  // background-image: linear-gradient(-225deg, #231557 0%, #43107a 29%, #ff1361 100%);
+  background-image: linear-gradient(-225deg, #5944a4 0%, #9770c2 29%, #e098b0 100%);
+  // z-index: -2;
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: 100vh;
-    background-image: linear-gradient(-225deg, #231557 0%, #43107a 29%, #ff1361 100%);
-    canvas {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
+    height: 100%;
+    z-index: -1;
   }
 }
+
 </style>

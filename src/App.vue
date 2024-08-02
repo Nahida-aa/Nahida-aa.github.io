@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import sky_js from './components/bg/sky_js.vue';
 </script>
 
 <template>
-    <router-view></router-view>
+  <sky_js></sky_js>
+  <router-view></router-view>
 </template>
 
 <style lang="scss">

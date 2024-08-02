@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body class="body">
+  <!-- 这些都是 div -->
+  <div class="div">div</div>
+  <header class="header"></header>
+  <main class="main"></main>
+  <footer class="footer"></footer>
+  <section class="section"></section>
+  <article class="article"></article>
+  <nav class="nav"></nav>
+  <aside class="aside"></aside>
+
+  <h1 class="h1">h1</h1>
+  <h2 class="h2">h2</h2>
+  <h3 class="h3">h3</h3>
+  <h4 class="h4">h4</h4>
+  <h5 class="h5">h5</h5>
+  <h6 class="h6">h6</h6>
+  <p class="p">p</p>
+  <a href="" class="a">a</a>
+  <span class="span">span</span>
+  <strong class="strong">strong</strong>
+  <em class="em emphasis ">em</em>
+  <br class="br">
+  <hr class="hr">
+  <custom>custom</custom>
+
+  <form action=""></form>
+  <input type="text">
+  <textarea name="" id=""></textarea>
+  <button></button>
+  <section></section>
+  <option value=""></option>
+  <label for=""></label>
+
+  <img src="" alt="">
+  <audio src=""></audio>
+  <video src=""></video>
+  <iframe src="" frameborder="0"></iframe>
+  <embed src="" type="">  </embed>
+  <object data="" type=""></object>
+  <param name="" value=""> `
+
+  <canvas></canvas>
+  <svg></svg>
+  <math></math>
+  
+</body>
+<style lang="scss">
+/* user agent stylesheet */
+:root {
+    view-transition-name: root;
+}
+
+html {
+  display: block;
+  head{
+    display: none;
+  }
+  body{
+    /* 显示为块，即独占一行，默认填满父级容器的宽度 */
+    display: block;
+    /* content padding border margin */
+    margin: 8px;
+    div {
+      display: block;
+      /* isolate 会将元素的文本与外部隔离 */
+      unicode-bidi: isolate;
+    }
+    h1 {
+      display: block;
+      font-size: 2em;
+      margin-block-start: 0.67em;
+      margin-block-end: 0.67em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+      unicode-bidi: isolate;
+    }
+    h2 {
+      display: block;
+      font-size: 1.5em;
+      margin-block-start: 0.83em;
+      margin-block-end: 0.83em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+      unicode-bidi: isolate;
+    }
+    h3 {
+      display: block;
+      font-size: 1.17em;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+      unicode-bidi: isolate;
+    }
+    h4 {
+      display: block;
+      margin-block-start: 1.33em;
+      margin-block-end: 1.33em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+      unicode-bidi: isolate;
+    }
+    h5 {
+      display: block;
+      font-size: 0.83em;
+      margin-block-start: 1.67em;
+      margin-block-end: 1.67em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+      unicode-bidi: isolate;
+    }
+    h6 {
+      display: block;
+      font-size: 0.67em;
+      margin-block-start: 2.33em;
+      margin-block-end: 2.33em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      font-weight: bold;
+      unicode-bidi: isolate;
+    }
+    p {
+      display: block;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      unicode-bidi: isolate;
+    }
+    a:-webkit-any-link {
+      color: -webkit-link;
+      cursor: pointer;
+      text-decoration: underline;
+    }
+    span {
+      /* default */
+      display: inline;
+    }
+    strong {
+      font-weight: bold;
+    }
+    em {
+      font-style: italic;
+    }
+    br{
+      /*  */
+    }
+    hr {
+      display: block;
+      margin-block-start: 0.5em;
+      margin-block-end: 0.5em;
+      margin-inline-start: auto;
+      margin-inline-end: auto;
+      unicode-bidi: isolate;
+      overflow: hidden;
+      border-style: inset;
+      border-width: 1px;
+    }
+    custom {
+      display: inline;
+    }
+  }
+}
+
+/* 
+display: inline;
+display: block;
+display: none;
+display: flex;
+## flex 布局
+容器（Container）：应用了 display: flex; 或 display: inline-flex; 的元素。
+项目（Items）：容器内的直接子元素。
+*/
+
+/* .body{
+  color: pink;
+  text-align: center;
+
+} */
+/* *{
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+} */
+</style>
+</html>
