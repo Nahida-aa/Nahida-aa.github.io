@@ -78,6 +78,8 @@ onMounted(() => {
     </li>
   </ul>
 </div>
+<div class="nav-placeholder"></div> <!-- 占位符 -->
+<router-view></router-view>
 </template>
 
 <style lang="scss" scoped>
@@ -90,7 +92,8 @@ onMounted(() => {
   width: 100vw;
   // height: 100%;
   height: auto; // 根据内容自动调整高度
-  position: absolute; // 绝对定位
+  // position: absolute; // 绝对定位
+  position: fixed; // 固定定位
   top: 0; // 距离顶部 0
   left: 0; // 距离左侧 0
   background: rgba(245, 245, 245, 0.1); // 半透明背景
@@ -154,6 +157,12 @@ onMounted(() => {
       transform: scale(0.9);
     }
   }
+}
+.nav-placeholder {
+  // position: fixed;
+  // top: 0;
+  height: 7vh; /* 设置占位符的高度与导航栏的高度相同 */
+  // background-color: #e80c0c;
 }
 
 // @media (max-width: 768px) {

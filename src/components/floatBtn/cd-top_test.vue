@@ -37,7 +37,7 @@ const scrollToTop = () => {
   console.log('scrollToTop');
   window.scrollTo({
     top: 0,
-    // behavior: 'smooth'
+    behavior: 'smooth'
   });
 };
 

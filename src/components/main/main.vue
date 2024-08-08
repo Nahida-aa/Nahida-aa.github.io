@@ -9,9 +9,11 @@ import cdTop from '../floatBtn/cd-top_test.vue';
 <template>
 <Nav></Nav>
 <Header></Header>
-<router-view></router-view>
-<Footer></Footer>
+<slot>
+  
+</slot>
 <cdTop></cdTop>
+<Footer></Footer>
 </template>
 
 <style scoped lang="scss">

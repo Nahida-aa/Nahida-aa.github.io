@@ -9,9 +9,11 @@ const title = ref('Home')
 
 <template>
   <sky_js></sky_js>
-  <h1>{{ title }}</h1>
-  <p>Welcome to the home page!</p>
-  <Main></Main>
+  <Main>
+    <h1>{{ title }}</h1>
+    <p>Welcome to the home page!</p>
+  </Main>
+
 </template>
 
 <style scoped lang="scss">
