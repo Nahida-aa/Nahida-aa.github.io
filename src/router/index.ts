@@ -5,6 +5,9 @@ import {
 } from 'vue-router';
 import Home from '../pages/Home/Home.vue';
 import Demo from '../pages/Demo/Demo.vue';
+import Article from '../pages/Article/Article.vue';
+import Guestbook from '../pages/Guestbook/Guestbook.vue';
+import Friend from '../pages/Friend/Friend.vue';
 import About from '../pages/About/About.vue';
 import trackNav from '../components/nav/track-nav.vue';
 import track_nav_css from '../components/nav/track-nav-css.vue';
@@ -15,6 +18,9 @@ const routes = [
   { path: '/', component: Home },
   { path: '/home', component: Home },
   { path: '/demo', component: Demo },
+  { path: '/article', component: Article },
+  { path: '/guestbook', component: Guestbook },
+  { path: '/friend', component: Friend },
   { path: '/about', component: About },
   { path: '/nav/trackNav', component: trackNav },
   { path: '/nav/track-nav-css', component: track_nav_css },

@@ -149,6 +149,7 @@ const movePointer = (x, y) => {
 };
 
 const onMouseMove = (event) => {
+  console.log('onMouseMove');
   touchInput = false;
   movePointer(event.clientX, event.clientY);
 };
@@ -160,24 +161,27 @@ const onTouchMove = (event) => {
 };
 
 const onMouseLeave = () => {
+  console.log('onMouseLeave');
   pointerX = null;
   pointerY = null;
 };
 
 onMounted(() => {
+  console.log('onMounted');
   context = canvas.value.getContext('2d');
+  console.log(context);
   generate();
   resize();
   step();
   window.addEventListener('resize', resize);
-  canvas.value.addEventListener('mousemove', onMouseMove);
+  window.addEventListener('mousemove', onMouseMove); // 改为监听 window 对象
+  // canvas.value.addEventListener('mousemove', onMouseMove);
   canvas.value.addEventListener('touchmove', onTouchMove);
   canvas.value.addEventListener('touchend', onMouseLeave);
   document.addEventListener('mouseleave', onMouseLeave);
 });
 
 onUnmounted(() => {
-  // 
   window.removeEventListener('resize', resize);
   if (canvas.value) {
     canvas.value.removeEventListener('mousemove', onMouseMove);
@@ -185,12 +189,10 @@ onUnmounted(() => {
     canvas.value.removeEventListener('touchend', onMouseLeave);
     document.removeEventListener('mouseleave', onMouseLeave);
   }
-  
 });
 </script>
 
 <style lang="scss" >
-
 .background {
   position: fixed;
   top: 0;
@@ -204,16 +206,14 @@ onUnmounted(() => {
   // z-index: -2;
   // pointer-events: auto; /* 重新启用鼠标事件 */
   // pointer-events: none; /* 背景不接收鼠标事件 */
-
   canvas {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    // z-index: 2;
+    z-index: 20;
     pointer-events: auto;
   }
 }
-
 </style>

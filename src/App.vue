@@ -18,8 +18,8 @@ import sky_js from './components/bg/sky_js.vue';
 }
 
 body {
-  place-items: center;
-  display: flex;
+  // place-items: center;
+  // display: flex;
   // justify-content: center;
   // align-items: center;
   // height: 100vh;

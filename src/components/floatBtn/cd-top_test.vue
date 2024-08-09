@@ -11,7 +11,7 @@
     <p v-show="isMouseMoving">鼠标正在按住并移动...</p>
     <p v-show="!isMouseMoving">鼠标还没按住并移动</p>
     <p v-show="isMouseUp">鼠标松开了...</p>
-    <p v-show!isMouseUp>鼠标还没松开或还没有按下</p>
+    <p v-show="!isMouseUp">鼠标还没松开或还没有按下</p>
   </div>
 </template>
 
