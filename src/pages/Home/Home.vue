@@ -12,7 +12,7 @@ const title = ref('Home')
   <Main>
     <h1>{{ title }}</h1>
     <p>Welcome to the home page!</p>
-    <div v-for="item in 500">内容</div>
+    <div v-for="_ in 500">内容</div>
   </Main>
 
 </template>
