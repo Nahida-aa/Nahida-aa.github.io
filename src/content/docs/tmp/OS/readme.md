@@ -1,5 +1,47 @@
 # Operating System
 
+MIT 6.828/6.S081 Operating System Engineering -- xv6-c
+
+Introduction and Examples
+
+OS Organization and System Calls
+
+Page Tables
+
+RISC-V Calling Convention and Stack Frames
+
+Isolation & System Call Entry_Exit
+
+Page Faults
+
+Interrupts
+
+Multiprocessors and Locks
+
+Thread Switching
+
+Sleep & Wakeup
+
+File System
+
+Crash Recovery
+
+File System Performance and Fast Crash Recovery
+
+Virtual Memory for Applications
+
+OS Organization
+
+Virtual Machines
+
+Kernels and High-Level Languages(HLL)
+
+Networking
+
+Meltdown
+
+RCU
+
 - 探索操作系统的基本概念，包括进程管理、内存管理、文件系统、输入/输出系统等。
 - 理解操作系统如何提供用户与硬件之间的接口。
 - 学习并发、同步、死锁等概念及其管理策略
@@ -20,7 +62,7 @@
     - 内存分配和回收。
     - 虚拟内存、分页和分段管理技术。
     - 页面置换算法（如最佳置换算法、最近最少使用算法等）。
-4. [文件系统](./file_system/README.md)：
+4. [文件系统](./Notes/file_system/README.md)：
 
     - 文件的定义、属性和操作。
     - 文件存储空间的管理。
