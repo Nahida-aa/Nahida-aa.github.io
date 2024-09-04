@@ -58,4 +58,20 @@ http.sslverify=false
 
 ### github
 
+local repo push to empty github repo
+
+```sh
+git remote add origin git@github.com:Nahida/env.git
+git branch -M main
+git push -u origin main
+```
+
+modify github repo, and modify local repo
+
+```sh
+git pull origin main
+```
+
+
+
 ### SSH
