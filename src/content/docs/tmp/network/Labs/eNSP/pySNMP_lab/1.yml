@@ -1,0 +1,38 @@
+FTP1("PC:PC1"):
+  E0/0/1:
+    S4: GE0/0/3
+	IP: 10.2.16.2/24
+	Gateway: 10.2.16.1
+	command:
+		- ipconfig
+		- ping 10.2.16.2
+		- ping 10.2.16.3
+		- ping 10.2.16.1 # Gateway, 预计ping不通
+		
+S4(S:LSW1):
+  GE0/0/1:
+    SZ2: GE1/0/0
+	GE0/0/3:
+		FTP1: E0/0/1
+	GE0/0/4:
+		FTP2: E0/0/1
+	GE0/0/5:
+		WEB: E0/0/1
+	GE0/0/6:
+		MAIL: E0/0/1
+SZ2(R:AR1):
+  GE0/0/0:
+    SZ1: GE0/0/0
+  GE1/0/0:
+    S4: GE0/0/1
+	command:
+		- system-view
+		- sysname SZ2
+		- interface g1/0/0
+		- ip add 10.2.16.1 24 # 现在 可以 在 SZ2 上ping通
+
+ISP(R:AR3):
+	GE0/0/1: 
+		SZ2: GE0/0/1
+	GE0/0/2:
+		SZ2: GE0/0/2

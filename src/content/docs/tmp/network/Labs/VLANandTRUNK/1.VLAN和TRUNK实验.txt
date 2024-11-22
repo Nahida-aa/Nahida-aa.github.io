@@ -1,0 +1,37 @@
+VLAN和TRUNK实验配置过程：
+S1
+1.Switch>enable
+2.Switch#vlan database
+3.Switch(vlan)#vlan 2
+4.Switch(vlan)#vlan 3
+5.Switch(vlan)#exit
+6.Switch#config terminal
+7.Switch(config)#interface f0/2
+8.Switch(config-if)#switchport access vlan 2
+9.Switch(config)#interface f0/3
+10.Switch(config-if)#switchport access vlan 3
+11.Switch(config)#interface f0/24
+12.Switch(config-if)#switchport  mode  trunk
+
+S2
+1.Switch>enable
+2.Switch#vlan database
+3.Switch(vlan)#vlan 2
+4.Switch(vlan)#vlan 3
+5.Switch(vlan)#exit
+6.Switch#config terminal
+7.Switch(config)#interface f0/2
+8.Switch(config-if)#switchport access vlan 2
+9.Switch(config)#interface f0/3
+10.Switch(config-if)#switchport access vlan 3
+11.Switch(config)#interface f0/24
+12.Switch(config-if)#switchport  mode  trunk
+
+实验验证
+1.PC1 ping PC4 Reply
+2.PC2 ping PC5 Reply
+3.PC3 ping PC6 Reply
+
+
+
+

@@ -1,0 +1,54 @@
+VLAN和TRUNK实验配置过程：
+Switch1
+# 进入enable模式(特权模式, en, enable)
+1.Switch>enable
+# 进入VLAN数据库模式
+2.Switch#vlan database
+# 创建VLAN 2和VLAN 3
+3.Switch(vlan)#vlan 2
+4.Switch(vlan)#vlan 3
+5.Switch(vlan)#exit
+# 进入全局配置模式(config terminal, conf t)
+6.Switch#config terminal
+# 进入接口配置模式
+7.Switch(config)#interface f0/2
+# 将f0/2接口分配给VLAN 2
+Switch(config-if)#switchport mode access
+8.Switch(config-if)#switchport access vlan 2
+# 进入接口配置模式
+9.Switch(config)#interface f0/3
+# 将f0/3接口分配给VLAN 3
+Switch(config-if)#switchport mode access
+10.Switch(config-if)#switchport access vlan 3
+# 将f0/24接口配置为 trunk 模式
+11.Switch(config)#interface f0/24
+12.Switch(config-if)#switchport  mode  trunk
+
+# 检查(可选)
+Switch(config-if)#exit
+Switch(config)#exit
+# 查看 vlan
+Switch#show vlan brief
+# 查看接口状态
+Switch#show interfaces status
+
+Switch2
+1.Switch>enable
+2.Switch#vlan database
+3.Switch(vlan)#vlan 2
+4.Switch(vlan)#vlan 3
+5.Switch(vlan)#exit
+6.Switch#config terminal
+7.Switch(config)#interface f0/2
+Switch(config-if)#switchport mode access
+8.Switch(config-if)#switchport access vlan 2
+9.Switch(config)#interface f0/3
+Switch(config-if)#switchport mode access
+10.Switch(config-if)#switchport access vlan 3
+11.Switch(config)#interface f0/24
+12.Switch(config-if)#switchport  mode  trunk
+
+实验验证
+1.PC1 ping PC4 Reply
+2.PC2 ping PC5 Reply
+3.PC3 ping PC6 Reply
