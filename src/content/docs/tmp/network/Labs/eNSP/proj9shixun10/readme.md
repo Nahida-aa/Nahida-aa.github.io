@@ -21,7 +21,7 @@
 
 1、通过Anaconda Prompt在虚拟环境ensp_py下安装PyYAML包，随后将下列YAML文件中数据通过PyYAML模块解析成Python数据并打印出结果。
 
-文件： [test2.yaml](test2.yaml)
+文件： [test2.yaml](https://github.com/Nahida-aa/network/blob/main/Labs/eNSP/proj9shixun10/test2.yaml)
 
 ```py
 import yaml # pip install pyyaml

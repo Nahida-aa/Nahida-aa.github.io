@@ -8,3 +8,6 @@
 *.mp4
 
 *.exe
+
+# docx 临时文件
+~$*.docx
