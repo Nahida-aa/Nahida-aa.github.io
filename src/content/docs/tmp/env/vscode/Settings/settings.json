@@ -1,0 +1,1004 @@
+{
+  "synthwave84.brightness": 0.45,
+  "editor.fontSize": 16,
+  // 工作区 颜色 自定义
+  "workbench.colorCustomizations": {
+    "[SynthWave '84]": {
+
+
+      // "badge.background": "#f92aad",
+      // "badge.foreground": "#2a2139",
+      // "button.background": "#f92aad",
+      // "button.foreground": "#2a2139",
+      // "debugToolBar.background": "#f92aad",
+      // "diffEditor.insertedTextBackground": "#f92aad",
+      // "dropdown.background": "#f92aad",
+      // "dropdown.border": "#2a2139",
+      // "editor.background": "#262335",
+      // "editor.background": "#2a2139",
+      // "editor.background": "#21392b",
+
+      // "editor.findMatchBackground": "#f92aad",
+      // "editor.findMatchHighlightBackground": "#f92aad",
+      // "editor.findRangeHighlightBackground": "#f92aad",
+      // "editor.foreground": "#f92aad",
+      // "editor.hoverHighlightBackground": "#f92aad",
+      // "editor.lineHighlightBackground": "#f92aad",
+      // "editor.selectionBackground": "#f92aad",
+      // "editor.selectionHighlightBackground": "#f92aad",
+      // "editor.selectionHighlightBorder": "#f92aad",
+      // "editor.wordHighlightBackground": "#f92aad",
+      // "editor.wordHighlightStrongBackground": "#f92aad",
+
+      // 鼠标悬停提示背景色
+      "editorCursor.foreground": "#2af998",
+
+      // "editorGutter.modifiedBackground": "#b893ce8f",
+      // "editorGutter.addedBackground": "#206d4bd6",
+      // "editorGutter.deletedBackground": "#fa2e46a4",
+      // "editorGutter.background": "#bd3f23",编辑器导航线的背景色。导航线包括边缘符号和行号
+
+      // "editor.selectionBackground": "#ffffff20",
+      // "editor.selectionBackground": "#27cd38ce",
+
+      //匹配括号 有点影响美观
+      // "editorBracketMatch.background": "#ffffff00",
+      // "editorBracketMatch.border": "#50e47f95",
+      // // 圆角边框 不允许
+      // "editorBracketMatch.border-radius": "10%",
+
+      // "editorGroup.border": "#f92aad",
+      // "editorGroupHeader.tabsBackground": "#f92aad",
+      // "editorIndentGuide.activeBackground": "#f92aad",
+      // "editorIndentGuide.background": "#f92aad",
+      // "editorLineNumber.foreground": "#f92aad",
+      // "editorLineNumber.activeForeground": "#f92aad",
+      // "editorWhitespace.foreground": "#f92aad",
+      // "editorWidget.background": "#f92aad",
+      // "editorWidget.border": "#f92aad",
+      // "editorSuggestWidget.background": "#f92aad",
+      // "editorSuggestWidget.border": "#f92aad",
+      // "editorSuggestWidget.selectedBackground": "#f92aad",
+      // "editorHoverWidget.background": "#f92aad",
+      // "editorHoverWidget.border": "#f92aad",
+      // "editorLink.activeForeground": "#f92aad",
+      // "editorGroupHeader.noTabsBackground": "#f92aad",
+      // "editorGroupHeader.border":"#ff0000",
+      // "editorWarning.foreground": "#00FF00",
+      // "editorError.foreground": "#00FF00",
+      // "editorWarning.border": "#00FF00",
+      // "editorError.border": "#00FF00"
+      //拼写提示波浪线
+      "editorInfo.foreground": "#72f1b8cc",
+      //警告提示波浪线
+      "editorWarning.foreground": "#f2f26acc",
+      //错误提示波浪线
+      "editorError.foreground": "#fe4753d1",
+
+      // "terminal.background":"#F4F3EC",
+      // "terminal.foreground":"#5F5E4E",
+      // "terminalCursor.background":"#5F5E4E",
+      // "terminalCursor.foreground":"#5F5E4E",
+      // "terminal.ansiBlack":"#F4F3EC",
+      // "terminal.ansiBlue":"#36A166",
+      // "terminal.ansiBrightBlack":"#878573",
+      // "terminal.ansiBrightBlue":"#36A166",
+      // "terminal.ansiBrightCyan":"#5B9D48",
+      // "terminal.ansiBrightGreen":"#7D9726",
+      // "terminal.ansiBrightMagenta":"#5F9182",
+      // "terminal.ansiBrightRed":"#BA6236",
+      // "terminal.ansiBrightWhite":"#22221B",
+      // "terminal.ansiBrightYellow":"#A5980D",
+      // "terminal.ansiCyan":"#5B9D48",
+      // "terminal.ansiGreen":"#7D9726",
+      // "terminal.ansiMagenta":"#5F9182",
+      // "terminal.ansiRed":"#BA6236",
+      // "terminal.ansiWhite":"#5F5E4E",
+      // "terminal.ansiYellow":"#A5980D"
+
+      // "terminal.foreground": "#ffffff",
+      // "terminal.ansiBlue": "#03edf9",
+      // "terminal.ansiBrightBlue": "#03edf9",
+      // "terminal.ansiBrightCyan": "#03edf9",
+      // "terminal.ansiBrightGreen": "#72f1b8",
+      // "terminal.ansiBrightMagenta": "#ff7edb",
+      // "terminal.ansiBrightRed": "#fe4450",
+      // "terminal.ansiBrightYellow": "#fede5d",
+      // "terminal.ansiCyan": "#03edf9",
+      // "terminal.ansiGreen": "#72f1b8",
+      // "terminal.ansiMagenta": "#ff7edb",
+      // "terminal.ansiRed": "#fe4450",
+      // "terminal.ansiYellow": "#f3e70f",
+      // "terminal.selectionBackground": "#ffffff20",
+      // "terminalCursor.background": "#ffffff",
+      // "terminalCursor.foreground": "#03edf9",
+      // "terminal.ansiBrightBlack": "#ffffff",
+      // //终端错误信息颜色
+      // "terminal.ansiBrightWhite": "#fe4450",
+
+      // "focusBorder": "#1f212b",
+
+      "inputOption.activeBorder": "#ff7edb99",
+      "inputValidation.errorBorder": "#fe445000",
+
+      // "selection.background": "#ffffff20",
+      "editor.hoverHighlightBackground": "#463564",
+      
+      "editorGroup.border": "#be92b0d7",
+      // "tab.border": "#241b2f00",
+      // "tab.activeBorder": "#880088",
+      
+      // "activityBar.background": "#30253fd0", // ?
+      // "activityBar.background": "#171520",
+      "activityBar.foreground": "#f8b2de",
+      "activityBarBadge.background": "#f7b0db", // eg: 最左下角的小图标,提示更新的气泡
+      "activityBarBadge.foreground": "#a47ce6",
+
+      // "sideBar.background": "#241b2f", // 侧边栏背景色(文件目录)
+      // "sideBar.foreground": "#ffffff99", // 侧边栏字体颜色
+      // "sideBar.dropBackground": "#34294f4c", // 侧边栏拖拽背景色 ?
+      // "sideBarSectionHeader.background": "#241b2f", // 侧边栏标题背景色
+      // "sideBarSectionHeader.foreground": "#ffffffca", // 侧边栏标题颜色
+    }
+  },
+  // 编辑器 代码颜色 自定义
+  "editor.tokenColorCustomizations": {
+    // C:\Users\aa\.vscode\extensions\robbowen.synthwave-vscode-0.1.17\themes\synthwave-color-theme.json
+    "[SynthWave '84]": {
+      "textMateRules": [
+        // text
+        {
+          "name": "text",
+          "scope": [
+            "source",
+            "text.html"
+          ],
+          "settings": {
+            // "foreground": "#a5faec", //改为其他颜色时出现问题{重启解决{生效}}
+            "foreground": "#fcfdfd",
+            // "fontStyle": "italic"
+          }
+        },
+        // func
+        {
+          "name": "function and md heading",
+          "scope": [
+            "entity.name.function", 
+            "support.class.component",
+            "markup.heading.markdown",
+          ],
+          "settings": { "foreground": "#83f8f6", }
+        },
+        // {
+        //   "name": "custom function, Special Method",
+        //   "scope": [
+        //     // "entity.name.function", // 权重 大于 support.function
+        //     // "meta.function-call", // 权重 大于 support.function.builtin
+        //     // "variable.function", // 权重 大于 support.function.builtin
+        //     // "keyword.other.special-method",
+        //     "meta.function",
+        //     // "meta.function-call"
+        //   ],
+        //   "settings": {
+        //     "foreground": "#8df8f6"
+        //   }
+        // },
+        // {
+        //   "name": "built-in function name",
+        //   "scope": [
+        //     "support.function.builtin", 
+        //     // "support.function.builtin.python", 
+        //     // "support.function", // built-in function name 权重 大于 support.function.builtin
+        //     // "meta.function-call"
+        //   ],
+        //   "settings": { "foreground": "#48e7e5" }
+        // },
+
+        // class
+        {
+          "name": "Class",
+          "scope": [
+            "entity.name.type",
+            "entity.name.type.class",
+
+            "support.type",
+            // "support.class",
+            // "support.other.namespace.use.php",
+            // "meta.use.php",
+            // "support.other.namespace.php",
+            // "markup.changed.git_gutter",
+            // "support.type.sys-types"
+            "entity.name.tag",
+          ],
+          "settings": {
+            "foreground": "#d087f1"
+          }
+        },
+        // {
+        //   "name": "custom class",
+        //   "scope": [
+        //     // "entity.name.type.class", // 权重 大于 support.class, support.type
+        //     "entity.name.type.class.python", // 权重 大于 support.class, support.type
+        //     // "meta.attribute.class",
+        //     // "entity.other.inherited-class"
+        //     "meta.class",
+        //     "class"
+        //   ],
+        //   "settings": {
+        //     "foreground": "#d087f1"
+        //   }
+        // },
+
+        // {
+        //   "name": "built-in class",
+        //   "scope": [
+        //     // "entity.name.type.class",
+        //     "meta.class.js",
+        //     "meta.attribute.class",
+        //     // "support.type.builtin", // 不存在的 scope
+        //     "support.type",
+        //     // "support.class"
+        //     // "entity.other.inherited-class"
+        //     // "meta.class.python",
+        //   ],
+        //   "settings": {
+        //     "foreground": "#c86bf3"
+        //   }
+        // },
+
+
+        // keyword
+        {
+          "name": "keyword",
+          "scope": [
+            "keyword",
+            //import、from、as
+
+            //return、pass、if
+            // "keyword.control",
+            //==、>=、<=、!=
+            // "keyword.operator",
+            //=
+            // "keyword.operator.assignment.python",
+            //={html}
+            "punctuation.separator.key-value",
+            //in
+            "keyword.operator.logical",
+            //new{js}
+            "keyword.operator.new",
+            //em{css}
+            "keyword.other.unit",
+            //def、class、let{js}
+            "storage.type",
+            "storage.modifier",
+            "keyword.other.typedef.c",
+            "keyword.other.important.css",
+            "keyword.other.unit.vh.css",
+            "keyword.other.unit.px.css",
+            "keyword.other.unit.percentage.css",
+            "support.type.property-name",
+            "support.type.property-name.json.comments",
+            // headings{#}{.md}
+            "markup.heading.markdown"
+          ],
+          "settings": {
+            "foreground": "#ebe5cd"
+          }
+        },
+
+        {
+          "name": "constant",
+          "scope": [
+            "variable.other.constant", // 常量(变量)
+            //&#039{html}
+            "constant",
+            // "storage.modifier.c",
+            //None、True、False
+            "support.constant.property-value.css",
+            //
+            "string.regexp.quoted.single",
+            // headings{text}{.md}
+            // "markup.heading.markdown",
+            "entity.name.section.markdown",
+            // bold{md}
+            "markup.bold.markdown",
+          ],
+          "settings": {
+            "foreground": "#e1eea1"
+          }
+        },
+        {
+          "name": "enums",
+          "scope": ["variable.other.enummember"],
+          "settings": { "foreground": "#e1eea1" }
+        },
+
+        {
+          "name": "Comment",
+          "scope": [
+            "comment",
+            // "punctuation.definition.comment",
+            "string.quoted.docstring", // python docstring(用作文档的多行字符串)
+          ],
+          "settings": {
+            "fontStyle": "italic",
+            "foreground": "#848BBD",
+          }
+        },
+
+        // module
+        {
+          "name": "Entity",
+          "scope": [
+            "entity.name.namespace"
+        ],
+          "settings": {
+            "foreground": "#f3a0a5"
+          }
+        },
+
+
+
+
+        //meta.property-value.css
+        {
+          "name": "Variable,attribute",
+          "scope": [
+            //.documentElement.classList{js}
+            "support.variable.property",
+            "variable",
+            "entity.name.variable",
+            // "meta.function-call.arguments.python",
+            // attribute-name
+            "entity.other.attribute-name",
+            "entity.other.attribute-name.class.css",
+            "entity.other.attribute-name.html",
+            "constant.other.color.rgb-value.hex.css",
+            //_wpemojiSettings{js_obj.attr}
+            "variable.other.property.js",
+            // semantic token type:	property; modifiers:readonly defaultLibrary
+            "variable.other.constant.property.js, variable.other.property.js",
+            //{md}
+            "string.other.link.description",
+            //i{md}
+            "markup.italic.markdown",
+            //python variable
+            "markup.fenced_code.block.markdown"
+          ],
+          "settings": {
+            "foreground": "#f1c9e5",
+            "fontStyle": ""
+          }
+        },
+
+        {
+            "name": "Markdown headings",
+            "scope": [
+              "markup.heading.markdown",
+              "entity.name.section.markdown",
+              "markup.bold",
+            ],
+            "settings": {
+                "fontStyle": "bold"
+            }
+        },
+        {
+          "name": "Parameter",
+          "scope": [
+            "variable.parameter",
+            "variable.parameter.function-call.python"
+          ],
+          "settings": {
+            "foreground": "#f5c0d5",
+            "fontStyle": "italic"
+          }
+        },
+        {
+          "name": "self or cls",
+          "scope": [
+            "variable.parameter.function.language.special.self",
+            "variable.parameter.function.language.special.cls",
+            //window{js_obj}
+            "support.variable",
+            //:where{css_Pseudo-class-or-element}
+            "entity.other.attribute-name.pseudo-class",
+            "entity.other.attribute-name.pseudo-element",
+            //md{python}
+            "variable.language.special.cls",
+            "variable.language.special.self",
+            //js{this}
+            "variable.language.this"
+          ],
+          "settings": {
+            "foreground": "#e5dff5"
+            //细体
+            // "fontStyle":"",
+          }
+        },
+  
+        {
+          "name": "String",
+          "scope": [
+            "string.quoted.",
+            "string.template",
+            //C:\x\x.png{md}
+            "markup.underline.link",
+          ],
+          "settings": {
+            // "foreground": "#a5faec", //改为其他颜色时出现问题{重启解决{生效}}
+            "foreground": "#b2f8e3",
+            "fontStyle": "italic"
+          }
+        },
+
+        {
+          "name": "number",
+          "scope": ["constant.numeric"],
+          "settings": {
+            "foreground": "#51c7f5"
+          }
+        },
+
+      //   //括号
+      //   // {
+      //   //     "name": "bracket",
+      //   //     "scope": [
+      //   //         "punctuation.definition.inheritance.begin.python",
+      //   //     ],
+      //   //     "settings": {
+      //   //         "foreground": "#f8e1ec"
+      //   //     }
+      //   // },
+      //   {
+      //     //白色 .class{css} .class{html} .class{js} .class{python}
+      //     "name": "entity.other.inherited-class",
+      //     "scope": ["entity.other.inherited-class"],
+      //     "settings": {
+      //       "foreground": "#f3e7ea"
+      //     }
+      //   }
+      ]
+    }
+  },
+  //字体
+  // "editor.fontFamily": "'Monaspace Neon', monospace", // Radon
+  // "editor.fontFamily": "'Monaspace Radon', monospace",
+  "editor.fontFamily": "CodeNewRoman Nerd Font Mono",
+  "editor.fontLigatures": "'calt', 'liga', 'ss01', 'ss02', 'ss03', 'ss04', 'ss05', 'ss06', 'ss07', 'ss08', 'ss09'",
+  "terminal.integrated.fontFamily": "CodeNewRoman Nerd Font Mono",
+  // 样式
+  "editor.cursorStyle": "block",
+  // "editor.cursorWidth": 2,
+  // "editor.cursorBlinking": "blink",
+
+  // "vscode_custom_css.policy": true,
+  //自定义主题
+  "vscode_custom_css.imports": [
+    "file:///D:/VSCode_Custom/Extensions/Custom_CSS_and_JS_Loader/custom/glow.css",
+    "file:///D:/VSCode_Custom/Extensions/Custom_CSS_and_JS_Loader/custom/vscode_icon.css",
+    "file:///D:/VSCode_Custom/Extensions/Custom_CSS_and_JS_Loader/custom/transparent.js",
+    "file:///D:/VSCode_Custom/Extensions/Custom_CSS_and_JS_Loader/custom/index.js"
+    // "file:///c:/Users/aa/.vscode/extensions/brandonkirbyson.vscode-animations-2.0.3/dist/updateHandler.js"
+  ],
+
+  // "C_Cpp.default.compilerPath": "C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Tools/MSVC/14.37.32822/bin/Hostx64/x64/cl.exe",
+  "C_Cpp.default.compilerPath": "D:\\msys64\\ucrt64\\bin\\g++.exe",
+
+  "files.autoSave": "afterDelay",
+  "files.autoSaveDelay": 1000,
+  "C_Cpp.errorSquiggles": "Enabled",
+  "cmake.configureOnOpen": true,
+  "cmake.options.advanced": {
+    "build": {
+      "statusBarVisibility": "visible"
+    },
+    "launch": {
+      "statusBarVisibility": "visible"
+    },
+    "debug": {
+      "statusBarVisibility": "visible"
+    }
+  },
+  "cmake.options.statusBarVisibility": "visible",
+  "cmake.pinnedCommands": [
+    "workbench.action.tasks.configureTaskRunner",
+    "workbench.action.tasks.runTask"
+  ],
+  // "cmake.cmakePath": "C:/Program Files (x86)/Microsoft Visual Studio/2019/BuildTools/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake.exe",
+  "cmake.cmakePath": "D:/msys64/usr/bin/cmake.exe",
+  "cmake.configureSettings": {
+    "CMAKE_MAKE_PROGRAM": "D:/msys64/ucrt64/bin/ninja.exe"
+  },
+  "cmake.generator": "Ninja",
+  "vim.useCtrlKeys": false,
+  "glassit.alpha": 235,
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.tabSize": 2
+  },
+  "[css]": {
+    "editor.defaultFormatter": "vscode.css-language-features"
+  },
+  "[python]": {
+    "editor.defaultFormatter": "ms-python.autopep8"
+    // "editor.defaultFormatter": "ms-python.python",
+    // "editor.formatOnSave": true,
+  },
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": true,
+    "scminput": false
+  },
+  "editor.mouseWheelZoom": true,
+  "python.analysis.diagnosticSeverityOverrides": {
+    "reportMissingImports": "none"
+  },
+  "liveServer.settings.donotVerifyTags": true,
+
+  "[javascript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.wordWrap": "on"
+  },
+  "npm.packageManager": "pnpm",
+  "editor.wordWrap": "on",
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+    },
+    "editor.suggest.snippetsPreventQuickSuggestions": false,
+    "editor.tabSize": 2
+  },
+  "[dockercompose]": {
+    "editor.tabSize": 4
+  },
+  "[yaml]": {
+    "editor.tabSize": 4,
+    "editor.defaultFormatter": "redhat.vscode-yaml"
+  },
+  "[html]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "vscode.html-language-features"
+  },
+  "[vue]": {
+    "editor.tabSize": 2,
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features",
+    "editor.tabSize": 2,
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+  },
+  "[typescriptreact]" : {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+  },
+
+  "files.associations": {
+    "*.py": "python",
+    "*.html": "html",
+    "*.json": "jsonc",
+    "*.vue": "vue",
+    "*.schema.json": "jsonc"
+  },
+  // "json.schemas": [
+  //   {
+  //     "fileMatch": [
+  //       "*.schema.json"
+  //     ],
+  //     "url": "http://json-schema.org/draft-07/schema#"
+  //   }
+  // ],
+  "json.schemaStore.enable": false,
+  "json.schemas": [
+    {
+      "fileMatch": ["*.schema.json"],
+      "url": "http://json-schema.org/draft-07/schema#",
+      "schema": {
+        "properties": {
+          "enum": {
+            "type": "object",
+            "properties": {
+              "collection": {
+                "type": "string"
+              },
+              "field": {
+                "type": "string"
+              }
+            },
+            "required": ["collection", "field"]
+          }
+        }
+      }
+    }
+  ],
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.editorAssociations": {
+    "*.copilotmd": "vscode.markdown.preview.editor",
+    "*.csv": "default",
+    "*.pyc": "default",
+    "*.md": "default",
+    "*.pdf": "latex-workshop-pdf-hook",
+    "*.txt": "default"
+  },
+
+  "terminal.external.windowsExec": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+  "terminal.integrated.defaultProfile.osx": "",
+  "terminal.integrated.accessibleViewPreserveCursorPosition": true,
+  "terminal.integrated.allowChords": false,
+  // "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  // "terminal.integrated.defaultProfile.windows": "Git Bash",
+  "terminal.integrated.profiles.windows": {
+    "PowerShell": {
+      "path": "C:\\Program Files\\PowerShell\\7\\pwsh.exe",
+      "source": "PowerShell",
+      "icon": "terminal-powershell"
+      // "args": ["-NoExit", "/K", "chcp 65001"]
+    },
+    "Command Prompt": {
+      "path": [
+        "${env:windir}\\Sysnative\\cmd.exe",
+        "${env:windir}\\System32\\cmd.exe"
+      ],
+      "args": ["-NoExit", "/K", "chcp 65001"],
+      "icon": "terminal-cmd"
+    },
+    "Git Bash": {
+      "path": "D:\\Git\\bin\\bash.exe",
+      "source": "Git Bash"
+    }
+  },
+  "editor.linkedEditing": true,
+  "files.encoding": "utf8",
+
+  "[django-html]": {
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": true,
+      "strings": true
+    }
+    // "editor.colorDecorators": true, // 没有效果
+  },
+
+  // CSS 文件中的颜色值旁边显示一个小的颜色预览方块
+  // "editor.colorDecorators": true,
+  // "colorInfo.languages": [
+  //     {
+  //         "selector": "html",
+  //         "colors": "css"
+  //     },
+  //     {
+  //         "selector": "css",
+  //         "colors": "css"
+  //     }
+  // ], // 没有效果 Color Info 扩展 先删了吧
+
+  "cSpell.enableFiletypes": ["django-html"],
+  "cSpell.userWords": [
+    "DESCR",
+    "Efron",
+    "endfor",
+    "figsize",
+    "fullscreen",
+    "Hastie",
+    "helloworld",
+    "Iain",
+    "Johnstone",
+    "katex",
+    "Nahida",
+    "ndim",
+    "sklearn",
+    "struct",
+    "Structs",
+    "Tibshirani",
+    "ueditor",
+    "viewsets",
+    "xlim",
+    "ylim"
+  ],
+  "remote.SSH.showLoginTerminal": true, // 远程连接时显示登录终端
+  "remote.SSH.defaultForwardedPorts": [],
+  "remote.SSH.path": "D:\\Git\\usr\\bin\\ssh.exe",
+  "remote.SSH.configFile": "D:\\msys64\\home\\aa\\.ssh\\config",
+  "remote.SSH.useLocalServer": true,
+  "vscode-office.editorTheme": "Github Dark",
+  "markdownlint.config": {
+    //MD033/no-inline-html 代码块中不允许内联html的警告
+    "MD033": false
+  },
+  "git.openRepositoryInParentFolders": "never",
+  "editor.accessibilitySupport": "off",
+  "markdown-preview-enhanced.previewTheme": "atom-dark.css",
+  "markdown-preview-enhanced.revealjsTheme": "none.css",
+  "markdown-preview-enhanced.codeBlockTheme": "github-dark.css",
+  "markdown-preview-enhanced.enablePreviewZenMode": true,
+  "markdown-preview-enhanced.breakOnSingleNewLine": false,
+  "picgo.picBed.current": "github",
+  "picgo.picBed.github.branch": "main",
+  "picgo.picBed.github.path": "images/",
+  "picgo.picBed.github.token": "",
+  "picgo.picBed.github.customUrl": "https://raw.githubusercontent.com/Nahida-aa/picgo/main",
+  "picgo.picBed.github.repo": "Nahida-aa/picgo",
+  "vscode-office.openOutline": false,
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "xelatex",
+      "tools": ["xelatex"]
+    }
+  ],
+  "latex-workshop.latex.tools": [
+    {
+      "name": "xelatex",
+      "command": "xelatex",
+      "args": [
+        "-synctex=1",
+        "-interaction=nonstopmode",
+        "-file-line-error",
+        "%DOC%"
+      ]
+    }
+  ],
+  "[latex]": {
+    "editor.defaultFormatter": "GitHub.copilot"
+  },
+  "synthwave84.disableGlow": true,
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "security.workspace.trust.untrustedFiles": "open",
+  "picgo.picBed.uploader": "github",
+  "files.exclude": {
+    "**/.git": false,
+    "public/monaco/": true
+  },
+  "diffEditor.ignoreTrimWhitespace": false,
+  "git.enableSmartCommit": true,
+  "git.confirmSync": false,
+  "github.codespaces.defaultExtensions": [
+    "GitHub.codespaces",
+    "GitHub.vscode-pull-request-github"
+  ],
+  "remoteHub.commitDirectlyWarning": "off",
+  "githubPullRequests.remotes": ["origin", "upstream", "github"],
+  "git.autofetch": true,
+  "terminal.integrated.env.linux": {
+    "SSH_AUTH_SOCK": "/tmp/ssh-XXXXXXJI2DH4/agent.88906"
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "github.copilot.editor.enableAutoCompletions": true,
+  "redhat.telemetry.enabled": false,
+  "code-runner.executorMap": {
+    "javascript": "node",
+    "java": "cd $dir && javac $fileName && java $fileNameWithoutExt",
+    "c": "cd $dir && gcc $fileName -o $fileNameWithoutExt && $fileNameWithoutExt",
+    "zig": "zig run",
+    "cpp": "cd $dir && g++ -std=c++20 $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "objective-c": "cd $dir && gcc -framework Cocoa $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "php": "php",
+    "python": "python -u",
+    "perl": "perl",
+    "perl6": "perl6",
+    "ruby": "ruby",
+    "go": "go run",
+    "lua": "lua",
+    "groovy": "groovy",
+    "powershell": "powershell -ExecutionPolicy ByPass -File",
+    "bat": "cmd /c",
+    "shellscript": "bash",
+    "fsharp": "fsi",
+    "csharp": "scriptcs",
+    "vbscript": "cscript //Nologo",
+    "typescript": "ts-node",
+    "coffeescript": "coffee",
+    "scala": "scala",
+    "swift": "swift",
+    "julia": "julia",
+    "crystal": "crystal",
+    "ocaml": "ocaml",
+    "r": "Rscript",
+    "applescript": "osascript",
+    "clojure": "lein exec",
+    "haxe": "haxe --cwd $dirWithoutTrailingSlash --run $fileNameWithoutExt",
+    "rust": "cd $dir && rustc $fileName && $dir$fileNameWithoutExt",
+    "racket": "racket",
+    "scheme": "csi -script",
+    "ahk": "autohotkey",
+    "autoit": "autoit3",
+    "dart": "dart",
+    "pascal": "cd $dir && fpc $fileName && $dir$fileNameWithoutExt",
+    "d": "cd $dir && dmd $fileName && $dir$fileNameWithoutExt",
+    "haskell": "runghc",
+    "nim": "nim compile --verbosity:0 --hints:off --run",
+    "lisp": "sbcl --script",
+    "kit": "kitc --run",
+    "v": "v run",
+    "sass": "sass --style expanded",
+    "scss": "scss --style expanded",
+    "less": "cd $dir && lessc $fileName $fileNameWithoutExt.css",
+    "FortranFreeForm": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran-modern": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran_fixed-form": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "fortran": "cd $dir && gfortran $fileName -o $fileNameWithoutExt && $dir$fileNameWithoutExt",
+    "sml": "cd $dir && sml $fileName",
+    "mojo": "mojo run",
+    "erlang": "escript",
+    "spwn": "spwn build",
+    "pkl": "cd $dir && pkl eval -f yaml $fileName -o $fileNameWithoutExt.yaml",
+    "gleam": "gleam run -m $fileNameWithoutExt"
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "notebook.markup.fontSize": 16,
+  "leetcode.endpoint": "leetcode-cn",
+  "leetcode.workspaceFolder": "d:\\aa\\.leetcode",
+  "leetcode.defaultLanguage": "c",
+  "leetcode.hint.configWebviewMarkdown": false,
+  "leetcode.hint.commandShortcut": false,
+  "leetcode.editor.shortcuts": [
+    "submit",
+    "test",
+    "star",
+    "solution",
+    "description"
+  ],
+  "leetcode.hint.commentDescription": false,
+  "cmake.showOptionsMovedNotification": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "git.ignoreLegacyWarning": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "restructuredtext.conflictingExtensions": [
+    "tht13.rst-vscode",
+    "TatsuyaNakamori.resttext",
+    "CeresNorthPole.rst-lim"
+  ],
+  "java.compile.encoding": "UTF-8",
+  // 指定默认的 JDK 安装路径
+  "java.home": "D:\\Program\\Java\\openjdk-22.0.2",
+
+  // 配置多个 JDK 版本
+  "java.configuration.runtimes": [
+      {
+        // 22
+          "name": "JavaSE-22",
+          "path": "D:\\Program\\Java\\openjdk-22.0.2",
+          "default": true
+      },
+      {
+          "name": "JavaSE-1.8",
+          "path": "D:\\Program\\Java\\jdk-1.8"
+      },
+      {
+          "name": "JavaSE-17",
+          "path": "D:\\Program\\Java\\jdk-17.0.12"
+      }
+  ],
+  "java.nullAnalysis.nonnull": [
+    "org.eclipse.jdt.annotation.NonNull",
+    "javax.annotation.Nonnull",
+    "edu.umd.cs.findbugs.annotations.NonNull"
+  ],
+  "java.nullAnalysis.nullable": [
+    "org.eclipse.jdt.annotation.Nullable",
+    "javax.annotation.Nullable",
+    "edu.umd.cs.findbugs.annotations.Nullable"
+  ],
+  "[groovy]": {
+    
+  },
+  "fileHeaderComment.parameter": {
+    "*": {
+      "author": "aa",
+      "lastEditor": "aa"
+    },
+    "python": {
+      "commentbegin": "",
+      "commentprefix": "#",
+      // "commentend": ""
+    },
+    "shellscript": {
+      "commentbegin": "",
+      "commentprefix": "#",
+      "commentend": ""
+    },
+  },
+  "fileHeaderComment.template": {
+    "*": [
+      "${commentbegin}",
+      "${commentprefix} @Author: ${author}",
+      "${commentprefix} @Date: ${datetime}",
+      "${commentprefix} @LastEditors: ${lastEditor}",
+      "${commentprefix} @LastEditTime: ${datetime}",
+      "${commentprefix} @Filename: ${filename}",
+      "${commentprefix} @Description:",
+      "${commentend}"
+    ]
+  },
+  "colorize.languages": [
+    "html",
+    "javascript",
+    "typescript",
+    "css",
+    "sass",
+    "scss",
+    "less",
+    "postcss",
+    "sss",
+    "stylus",
+    "xml",
+    "svg"
+  ],
+  // "colorHelper.enable": true,
+  "colorHelper.languages": [
+    "javascript",
+    "typescript",
+    "css",
+    "scss",
+    "less",
+    "sass",
+    "stylus",
+    "xml",
+    "svg"
+  ],
+  "settingsSync.ignoredExtensions": [
+    "mutantdino.resourcemonitor"
+  ],
+  "editor.minimap.enabled": false,
+  "github.copilot.advanced": {
+    "authProvider": "github"
+  },
+  "[mdx]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.tabSize": 2,
+  },
+  "workbench.activityBar.location": "bottom",
+  "hediet.vscode-drawio.resizeImages": null,
+
+  // 函数注释
+  "fileheader.cursorMode": {
+    "description": "", // 函数注释生成之后，光标移动到这里
+    "param": "", // param 开启函数参数自动提取 需要将光标放在函数行或者函数上方的空白行
+    "return": "",
+  },
+  "fileheader.configObj": {
+    "createFileTime": true, // 创建文件时自动生成时间
+    "autoAdd": true, // 自动添加头部注释
+    "autoAddLine": 100, // 自动添加头部注释的行数
+    "autoAlready": true, // 自动更新已经存在的头部注释
+    "useWorker": false, // 是否使用 worker 线程
+    "language": {
+      // "typescript": {
+      //   "head": "/**",
+      //   "middle": " * @",
+      //   "end": " */",
+      //   "use": true
+      // },
+      "markdown": {
+        "head": "---",
+        "middle": "",
+        "end": "---",
+        "use": true
+      },
+      "mdx": {
+        "head": "---",
+        "middle": "",
+        "end": "---",
+        "use": true
+      }
+    }
+  },
+  "[snippets]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "diffEditor.hideUnchangedRegions.enabled": true,
+  "workbench.colorTheme": "SynthWave '84",
+  "database-client.autoSync": true,
+  "markdown-preview-enhanced.alwaysShowBacklinksInPreview": false,
+
+  
+}
