@@ -1,5 +1,6 @@
-import type { NextConfig } from 'next';
-import createMDX, { NextMDXOptions } from '@next/mdx'
+// import type { NextConfig } from 'next';
+// import createMDX, { NextMDXOptions } from '@next/mdx'
+import createMDX from '@next/mdx'
 // import type { Options } from '@mdx-js/loader'
 import remarkGfm from 'remark-gfm';
 import remarkFrontmatter from 'remark-frontmatter';
@@ -27,10 +28,11 @@ const rehypePrettyCode_options = {
 
 const isDev = process.env.NODE_ENV === 'development'
 
-let withMDX: (config: NextConfig) => NextConfig
+// let withMDX: (config: NextConfig) => NextConfig
+let withMDX;
 
 if (isDev) {
-  withMDX = createMDX({
+  const mdxCfg = {
     // Add markdown plugins here, as desired
     extension: /\.mdx?$/,
     options: {
@@ -53,7 +55,8 @@ if (isDev) {
         ["rehype-mathjax"],
       ],
     },
-  } as NextMDXOptions)
+  }
+  withMDX = createMDX(mdxCfg)
 } else {
   withMDX = createMDX({
     extension: /\.mdx?$/,
@@ -73,8 +76,6 @@ if (isDev) {
   });
 }
 
-
-
 // console.log(`process.env: `, process.env)
 const STATIC_EXPORT = process.env.STATIC_EXPORT
 const output = STATIC_EXPORT ? "export" : undefined
@@ -82,10 +83,8 @@ const images = STATIC_EXPORT ? {
     unoptimized: true, // 禁用图片优化
   } : undefined
 
-
-
-/** @type {import('next').NextConfig} */
-const nextConfig: NextConfig = {
+// /** @type {import('next').NextConfig} */
+const nextConfig = {
   output,
   images,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
@@ -100,6 +99,6 @@ const plugins = [
   // withBundleAnalyzer, 
 ]
 
-// module.exports = nextConfig; js 写法
+// module.exports = nextConfig; CommonJS 写法
 // export default plugins.reduce((prev, item) => item(prev), nextConfig)
 export default withMDX(nextConfig)
