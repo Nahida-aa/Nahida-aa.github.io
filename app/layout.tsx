@@ -11,6 +11,8 @@ import { TailwindBG } from "@/components/layout/bg/tailwind";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
 import { ProgressBar } from "@/components/layout/header/ProgressBar";
 import { AppSidebar } from "@/components/layout/sidebar";
+import { Suspense } from "react";
+import { LoadingS } from "@/components/ui/loading/Loading";
 
 export const metadata: Metadata = {
   title: {
@@ -44,7 +46,8 @@ export default async function RootLayout({
           "min-h-screen bg-background font-sans antialiased",
           myFont.className,
         )}
-      >
+      ><Suspense fallback={<LoadingS />}>
+
         <Providers attribute="class" defaultTheme="dark" >
         <SearchProvider>
         <section className="flex  items-center pb-[30vh] -mb-[30vh] h-gradient "></section>
@@ -61,6 +64,7 @@ export default async function RootLayout({
             <section className="w-full text-amber-100/70 !max-w-none prose dark:prose-invert text-center pt-[20vh] -mt-[20vh] f-gradient" ></section>
         </SearchProvider>
         </Providers>
+      </Suspense>
       </body>
     </html>
   );
