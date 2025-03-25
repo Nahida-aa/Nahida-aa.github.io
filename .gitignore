@@ -6,7 +6,7 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-
+# nodejs
 node_modules
 # dist
 dist-ssr
@@ -27,3 +27,5 @@ dist-ssr
 .env*
 !.env.example
 
+# next
+.next

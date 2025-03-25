@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import MermaidRenderer from "./mermaid-renderer"
+// import MermaidRenderer from "./mermaid-renderer"
 import { PreWithCopy } from "./preWithCopy"
 
 // 定义更具体的类型
@@ -68,20 +68,20 @@ export function isLanguageCodeBlock(element: React.ReactElement, language: strin
 }
 
 export const Pre = ({children, ...props}: React.HTMLAttributes<HTMLPreElement>) => {
-  console.log('Pre: children:')
+  // console.log('Pre: children:')
   // console.log(children)
-  const childArray = React.Children.toArray(children)
-  const codeElement = childArray.find((child) => React.isValidElement(child) && child.type === "code") as React.ReactElement<'code'>
-  console.log('Pre: codeElement:')
+  // const childArray = React.Children.toArray(children)
+  // const codeElement = childArray.find((child) => React.isValidElement(child) && child.type === "code") as React.ReactElement<'code'>
+  // console.log('Pre: codeElement:')
   // console.log(codeElement)
   
   // 如果找到代码元素并且是 Mermaid 代码块
-  if (codeElement && isLanguageCodeBlock(codeElement, 'mermaid')) {
-    // 提取 代码
-    const code = extractCodeContent(codeElement)
-    console.log('Pre: mermaid:code:')
-    // console.log(code)
-    return <MermaidRenderer code={code} />
-  }
+  // if (codeElement && isLanguageCodeBlock(codeElement, 'mermaid')) {
+  //   // 提取 代码
+  //   const code = extractCodeContent(codeElement)
+  //   console.log('Pre: mermaid:code:')
+  //   // console.log(code)
+  //   return <MermaidRenderer code={code} />
+  // }
   return <PreWithCopy {...props}>{children}</PreWithCopy>
 }

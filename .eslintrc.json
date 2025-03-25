@@ -27,14 +27,15 @@
     }
   },
   "rules": {
-    "no-console": "warn",
+    "react/no-unknown-property": "off", // 禁止使用未知属性
+    "no-console": "off", // 禁止使用console
     "react/prop-types": "off",
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react-hooks/exhaustive-deps": "off",
     "jsx-a11y/click-events-have-key-events": "warn",
     "jsx-a11y/interactive-supports-focus": "warn",
-    "prettier/prettier": "warn",
+    "prettier/prettier": "off",
     "no-unused-vars": "off",
     "unused-imports/no-unused-vars": "off",
     "unused-imports/no-unused-imports": "warn",
@@ -70,8 +71,8 @@
       }
     ],
     "react/self-closing-comp": "warn",
-    "react/jsx-sort-props": [
-      "warn",
+    "react/jsx-sort-props": [ // 默认要求安装字母排序
+      "off",
       {
         "callbacksLast": true,
         "shorthandFirst": true,
@@ -79,8 +80,8 @@
         "reservedFirst": true
       }
     ],
-    "padding-line-between-statements": [
-      "warn",
+    "padding-line-between-statements": [ // 用于检查换行是否规范
+      "off",
       {"blankLine": "always", "prev": "*", "next": "return"},
       {"blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
       {

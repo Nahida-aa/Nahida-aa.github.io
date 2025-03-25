@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 import LanguageChanger from '@/app/i18n/LanguageChanger';
 // import { ModeToggleGradientIconV0 } from '@/components/common/mode-toggle';
 // import { SearchModalButton } from '@/components/common/search';
-import { SearchButton } from '@/components/search/search-button';
+import { SearchButton } from '@/app/[locale]/search/search-button';
 import { siteMetadata } from '@/config/site';
 import Link from '@/components/Link';
 

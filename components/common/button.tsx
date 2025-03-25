@@ -1,5 +1,5 @@
 "use client"
-import { Button } from "@heroui/react"
+import { Button } from "@heroui/button"
 import { useRouter } from "next/navigation"
 
 export const ToPrevPageButton = ({ text="Back" }: { text?: string }) => {

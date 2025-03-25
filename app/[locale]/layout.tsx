@@ -6,7 +6,7 @@ import {Header} from '@/components/layout/header/Header'
 import { Providers } from "@/app/providers";
 
 import { siteConfig } from "@/config/site";
-import { fontSans } from "@/config/fonts";
+import { myFont } from '@/app/font/font'
 import { Navbar } from "@/components/navbar";
 import initTranslations from "../i18n/i18n";
 import { dir } from "i18next";
@@ -42,7 +42,7 @@ export default async function RootLayout({ params,
       <body
         className={clsx(
           "min-h-screen bg-background font-sans antialiased",
-          fontSans.variable,
+          myFont.className,
         )}
       >
         <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>

@@ -6,15 +6,15 @@ import { MenuItemType } from "@/components/layout/sidebar/TreeNode";
 
 // Get all documents
 export const getAllDocs = async (locale:string, type:string) => {
-  const module = await import(`@/../public/data/${locale}/${type}/index.json`);
-  return module.default as DocSearchValue[];
+  const jsonModule = await import(`@/../public/data/${locale}/${type}/index.json`);
+  return jsonModule.default as DocSearchValue[];
 }
 
 // Get a document by slug
-export const getDocBySlug = async (locale:string, type:string, slug:string) => {
-  const module = await import(`@/../public/data/${locale}/${type}/${slug}.json`)
-  return module.default as DocSearchValue;
-}
+// export const getDocBySlug = async (locale:string, type:string, slug:string) => {
+//   const module = await import(`@/../public/data/${locale}/${type}/${slug}.json`)
+//   return module.default as DocSearchValue;
+// }
 
 export type NavNode = {
   segment: string

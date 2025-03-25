@@ -5,8 +5,8 @@ import {Kbd} from "@heroui/kbd";
 import {Modal,ModalContent,ModalHeader,ModalBody,ModalFooter,useDisclosure,} from "@heroui/modal";
 import {Command,CommandEmpty,CommandGroup,CommandInput,CommandItem,CommandList,CommandSeparator,CommandShortcut,CommandDialog, CommandDialogProps} from "@/components/ui/command"
 import { createContext, useContext, useEffect, useState } from "react";
-import { DialogTitle } from "../ui/dialog";
-import { useTranslation } from "react-i18next";
+import { DialogTitle } from "@/components/ui/dialog";
+// import { useTranslation } from "react-i18next";
 
 const SearchModalContext = createContext({
   open: false,
@@ -15,7 +15,9 @@ const SearchModalContext = createContext({
   setSearchKeyword: (keyword: string) => {},
 });
 export const useSearchModal = () => useContext(SearchModalContext);
-export const SearchModalProvider = ({ children }) => {
+export const SearchModalProvider = ({ children }:
+  { children: React.ReactNode }
+) => {
   const [open, setOpen] = useState(false);
   const [searchKeyword, setSearchKeyword] = useState('');
 
