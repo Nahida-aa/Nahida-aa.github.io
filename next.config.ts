@@ -1,5 +1,6 @@
 import type { NextConfig } from 'next';
 import createMDX, { NextMDXOptions } from '@next/mdx'
+// import type { Options } from '@mdx-js/loader'
 
 const rehypePrettyCode_options = {
   // keepBackground: false, // 是否继承背景色
@@ -16,8 +17,8 @@ const rehypePrettyCode_options = {
     cls: "entity.name.class",
   },
 };
-let remarkPlugins = []
-let rehypePlugins = []
+let remarkPlugins: any[] = []
+let rehypePlugins: any[] = []
 const isDev = process.env.NODE_ENV === 'development'
 if (isDev) {
   remarkPlugins = [
