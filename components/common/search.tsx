@@ -6,7 +6,6 @@ import {Modal,ModalContent,ModalHeader,ModalBody,ModalFooter,useDisclosure,} fro
 import {Command,CommandEmpty,CommandGroup,CommandInput,CommandItem,CommandList,CommandSeparator,CommandShortcut,CommandDialog, CommandDialogProps} from "@/components/ui/command"
 import { createContext, useContext, useEffect, useState } from "react";
 import { DialogTitle } from "@/components/ui/dialog";
-// import { useTranslation } from "react-i18next";
 
 const SearchModalContext = createContext({
   open: false,

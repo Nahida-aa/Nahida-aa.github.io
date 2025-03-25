@@ -5,7 +5,6 @@ import {Header} from '@/components/layout/header/Header'
 import { Providers } from "@/app/providers";
 import { siteConfig } from "@/config/site";
 import { myFont } from '@/app/font/font'
-import { dir } from "i18next";
 import { SearchProvider } from "./search/search-context";
 import { TailwindBG } from "@/components/layout/bg/tailwind";
 import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
@@ -39,7 +38,7 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang='zh' dir={dir('zh')}  >
+    <html suppressHydrationWarning lang='zh'  >
       <head />
       <body
         className={clsx(

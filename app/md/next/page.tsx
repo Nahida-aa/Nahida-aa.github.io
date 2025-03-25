@@ -3,11 +3,8 @@ import { title } from "@/components/primitives"
 import { LoadingS } from "@/components/ui/loading/Loading"
 import { MdxComp } from "../types"
 
-
 export default async function Page({
-  params,
 }: {
-  params: Promise<{ locale: string, slug: readonly string[] }>
 }) {
   const { default: Content, frontmatter:metadata } = await import("@/app/md/test.mdx") as MdxComp
   console.log("rest: ")
