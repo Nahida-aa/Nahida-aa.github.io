@@ -68,17 +68,21 @@ const withMDX = createMDX({
 
 
 // console.log(`process.env: `, process.env)
-const STAT_export = "export"
-const output = STAT_export ? "export" : undefined
-const images = STAT_export ? {
+const output = process.env.STATIC_EXPORT ? "export" : undefined
+const images = process.env.STATIC_EXPORT ? {
     unoptimized: true, // 禁用图片优化
   } : undefined
 
+const isDev = process.env.NODE_ENV === 'development'
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
   output,
   images,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  webpack: (config, { isServer }) => {
+    return config
+  },
+  transpilePackages: ['next-mdx-remote'],
 };
 
 const plugins = [

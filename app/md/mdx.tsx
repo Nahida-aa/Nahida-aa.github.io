@@ -70,7 +70,8 @@ export async function CustomMDX(props: MDXRemoteProps) {
         // 下面的插件必须最后使用
         // rehypeMdxCodeProps
       ],
-      format: props.options?.mdxOptions?.format || 'mdx', // 'mdx' or 'md'
+      // format: props.options?.mdxOptions?.format || 'mdx', // 'mdx' or 'md'
+      format: 'md', // 'mdx' or 'md'
     },
     // Indicates whether or not to parse the frontmatter from the MDX source
     parseFrontmatter: true,  // default: false
@@ -95,12 +96,12 @@ export async function CustomMDX(props: MDXRemoteProps) {
   // console.log(content)
   // const c = () => {content}
   // console.log(`compileMDX:rest: `, rest) // 拿不到, 除非修改源码或者将数据提取到frontmatter
-  return { content, frontmatter }
+  // return { content, frontmatter }
   // return <><h1>{frontmatter.title}</h1>
   // {content}</>
-  // return <MDXRemote {...mdxRemoteProps}
-  //   // {...props}
-  //   // options={{...options, ...(props.options||{}) }}
-  //   // components={components}
-  // />
+  return <MDXRemote {...mdxRemoteProps}
+    // {...props}
+    // options={{...options, ...(props.options||{}) }}
+    // components={components}
+  />
 }
