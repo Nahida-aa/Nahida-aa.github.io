@@ -16,30 +16,45 @@ const rehypePrettyCode_options = {
     cls: "entity.name.class",
   },
 };
+let remarkPlugins = []
+let rehypePlugins = []
+const isDev = process.env.NODE_ENV === 'development'
+if (isDev) {
+  remarkPlugins = [
+    // [remarkGfm, {}],
+    ['remark-gfm'],
+    ['@vcarl/remark-headings'],
+    ['remark-frontmatter', {type: 'yaml', marker: '-'}], // 解析 frontmatter 到 语法树
+    ['remark-mdx-frontmatter'], // 导出 frontmatter
+    // ['remark-mermaidjs'],
+    // [remarkMath,{}],
+    ['remark-math', {}]
+  ]
+  rehypePlugins = [
+    ['rehype-callouts'],
+    // ['rehype-katex', { strict: true, throwOnError: true }]
+    // [rehypeMathjax,{}],
+    // ['rehype-mermaid'],
+    ['rehype-pretty-code', rehypePrettyCode_options],
+    ["rehype-mathjax"],
+  ]
+  // remarkPlugins.push(['remark-gfm'])
+  // rehypePlugins.push(['rehype-callouts'])
+  // rehypePlugins.push(['rehype-mathjax'])
+  // rehypePlugins.push(['rehype-pretty-code', rehypePrettyCode_options])
+} else {
+}
 const withMDX = createMDX({
   // Add markdown plugins here, as desired
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [
-      // [remarkGfm, {}],
-      ['remark-gfm'],
-      ['@vcarl/remark-headings'],
-      ['remark-frontmatter', {type: 'yaml', marker: '-'}], // 解析 frontmatter 到 语法树
-      ['remark-mdx-frontmatter'], // 导出 frontmatter
-      // ['remark-mermaidjs'],
-      // [remarkMath,{}],
-      ['remark-math', {}]
-    ],
-    rehypePlugins: [
-      ['rehype-callouts'],
-      // ['rehype-katex', { strict: true, throwOnError: true }]
-      // [rehypeMathjax,{}],
-      // ['rehype-mermaid'],
-      ['rehype-pretty-code', rehypePrettyCode_options],
-      ["rehype-mathjax"],
-    ],
+    remarkPlugins: remarkPlugins,
+    rehypePlugins: rehypePlugins,
   },
 } as NextMDXOptions)
+
+
+// console.log(`process.env: `, process.env)
 
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
