@@ -1,6 +1,13 @@
 import type { NextConfig } from 'next';
 import createMDX, { NextMDXOptions } from '@next/mdx'
 // import type { Options } from '@mdx-js/loader'
+import remarkGfm from 'remark-gfm';
+import remarkFrontmatter from 'remark-frontmatter';
+import remarkMdxFrontmatter from 'remark-mdx-frontmatter';
+import remarkMath from 'remark-math';
+import rehypeCallouts from 'rehype-callouts';
+import rehypePrettyCode from 'rehype-pretty-code';
+import rehypeMathjax from 'rehype-mathjax';
 
 const rehypePrettyCode_options = {
   // keepBackground: false, // 是否继承背景色
@@ -18,30 +25,54 @@ const rehypePrettyCode_options = {
   },
 };
 
-const withMDX = createMDX({
-  // Add markdown plugins here, as desired
-  extension: /\.mdx?$/,
-  options: {
-    remarkPlugins: [
-      // [remarkGfm, {}],
-      ['remark-gfm'],
-      // ['@vcarl/remark-headings'],
-      ['remark-frontmatter', {type: 'yaml', marker: '-'}], // 解析 frontmatter 到 语法树
-      ['remark-mdx-frontmatter'], // 导出 frontmatter
-      // ['remark-mermaidjs'],
-      // [remarkMath,{}],
-      ['remark-math', {}]
-    ],
-    rehypePlugins: [
-      ['rehype-callouts'],
-      // ['rehype-katex', { strict: true, throwOnError: true }]
-      // [rehypeMathjax,{}],
-      // ['rehype-mermaid'],
-      ['rehype-pretty-code', rehypePrettyCode_options],
-      ["rehype-mathjax"],
-    ],
-  },
-} as NextMDXOptions)
+const isDev = process.env.NODE_ENV === 'development'
+
+let withMDX: (config: NextConfig) => NextConfig
+
+if (isDev) {
+  withMDX = createMDX({
+    // Add markdown plugins here, as desired
+    extension: /\.mdx?$/,
+    options: {
+      remarkPlugins: [
+        // [remarkGfm, {}],
+        ['remark-gfm'],
+        // ['@vcarl/remark-headings'],
+        ['remark-frontmatter', {type: 'yaml', marker: '-'}], // 解析 frontmatter 到 语法树
+        ['remark-mdx-frontmatter'], // 导出 frontmatter
+        // ['remark-mermaidjs'],
+        // [remarkMath,{}],
+        ['remark-math', {}]
+      ],
+      rehypePlugins: [
+        ['rehype-callouts'],
+        // ['rehype-katex', { strict: true, throwOnError: true }]
+        // [rehypeMathjax,{}],
+        // ['rehype-mermaid'],
+        ['rehype-pretty-code', rehypePrettyCode_options],
+        ["rehype-mathjax"],
+      ],
+    },
+  } as NextMDXOptions)
+} else {
+  withMDX = createMDX({
+    extension: /\.mdx?$/,
+    options: {
+      remarkPlugins: [
+        remarkGfm,
+        [remarkFrontmatter, {type: 'yaml', marker: '-'}],
+        remarkMdxFrontmatter,
+        [remarkMath, {}]
+      ],
+      rehypePlugins: [
+        rehypeCallouts,
+        [rehypePrettyCode, rehypePrettyCode_options],
+        rehypeMathjax,
+      ],
+    },
+  });
+}
+
 
 
 // console.log(`process.env: `, process.env)
@@ -51,7 +82,8 @@ const images = STATIC_EXPORT ? {
     unoptimized: true, // 禁用图片优化
   } : undefined
 
-const isDev = process.env.NODE_ENV === 'development'
+
+
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
   output,
