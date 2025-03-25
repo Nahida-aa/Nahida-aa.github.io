@@ -17,30 +17,7 @@ const rehypePrettyCode_options = {
     cls: "entity.name.class",
   },
 };
-// let remarkPlugins: any[] = []
-// let rehypePlugins: any[] = []
-// const isDev = process.env.NODE_ENV === 'development'
-// if (isDev) {
-//   remarkPlugins = [
-//     // [remarkGfm, {}],
-//     ['remark-gfm'],
-//     ['@vcarl/remark-headings'],
-//     ['remark-frontmatter', {type: 'yaml', marker: '-'}], // 解析 frontmatter 到 语法树
-//     ['remark-mdx-frontmatter'], // 导出 frontmatter
-//     // ['remark-mermaidjs'],
-//     // [remarkMath,{}],
-//     ['remark-math', {}]
-//   ]
-//   rehypePlugins = [
-//     ['rehype-callouts'],
-//     // ['rehype-katex', { strict: true, throwOnError: true }]
-//     // [rehypeMathjax,{}],
-//     // ['rehype-mermaid'],
-//     ['rehype-pretty-code', rehypePrettyCode_options],
-//     ["rehype-mathjax"],
-//   ]
-// } else {
-// }
+
 const withMDX = createMDX({
   // Add markdown plugins here, as desired
   extension: /\.mdx?$/,
@@ -68,8 +45,9 @@ const withMDX = createMDX({
 
 
 // console.log(`process.env: `, process.env)
-const output = process.env.STATIC_EXPORT ? "export" : undefined
-const images = process.env.STATIC_EXPORT ? {
+const STATIC_EXPORT = process.env.STATIC_EXPORT
+const output = STATIC_EXPORT ? "export" : undefined
+const images = STATIC_EXPORT ? {
     unoptimized: true, // 禁用图片优化
   } : undefined
 
