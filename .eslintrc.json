@@ -47,8 +47,8 @@
         "argsIgnorePattern": "^_.*?$"
       }
     ],
-    "import/order": [
-      "warn",
+    "import/order": [ // 导入顺序
+      "off",
       {
         "groups": [
           "type",

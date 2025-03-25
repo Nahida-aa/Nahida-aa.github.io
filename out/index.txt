@@ -1,0 +1,23 @@
+1:"$Sreact.fragment"
+4:I[9665,[],"OutletBoundary"]
+7:I[9665,[],"ViewportBoundary"]
+9:I[9665,[],"MetadataBoundary"]
+b:I[6614,[],""]
+:HL["/_next/static/media/89d2ae4fe5622132-s.p.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/_next/static/css/392c738ebb60e2e4.css","style"]
+:HL["/_next/static/css/4f50fa4981a1a3e3.css","style"]
+0:{"P":null,"b":"ug3ezOlCnCqZ1TsRTNKn8","p":"","c":["",""],"i":false,"f":[[["",{"children":["__PAGE__",{}]},"$undefined","$undefined",true],["",["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/css/392c738ebb60e2e4.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/_next/static/css/4f50fa4981a1a3e3.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],"$L2"]}],{"children":["__PAGE__",["$","$1","c",{"children":["$L3","$undefined",null,["$","$L4",null,{"children":["$L5","$L6",null]}]]}],{},null,false]},null,false],["$","$1","h",{"children":[null,["$","$1","84pWg1-ea3w5-Cpsygt-k",{"children":[["$","$L7",null,{"children":"$L8"}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}],["$","$L9",null,{"children":"$La"}]]}],false]],"m":"$undefined","G":["$b","$undefined"],"s":false,"S":true}
+c:I[3574,["926","static/chunks/926-9ddc38c40974ce18.js","943","static/chunks/943-af0c8859631dad09.js","963","static/chunks/963-e6c7d95cc6064433.js","382","static/chunks/382-cd361546345dc2bb.js","177","static/chunks/app/layout-689e759820f0d1a3.js"],"Providers"]
+d:I[4118,["926","static/chunks/926-9ddc38c40974ce18.js","943","static/chunks/943-af0c8859631dad09.js","963","static/chunks/963-e6c7d95cc6064433.js","382","static/chunks/382-cd361546345dc2bb.js","177","static/chunks/app/layout-689e759820f0d1a3.js"],"SearchProvider"]
+e:I[4761,["926","static/chunks/926-9ddc38c40974ce18.js","943","static/chunks/943-af0c8859631dad09.js","963","static/chunks/963-e6c7d95cc6064433.js","382","static/chunks/382-cd361546345dc2bb.js","177","static/chunks/app/layout-689e759820f0d1a3.js"],"Header"]
+f:I[7555,[],""]
+10:I[6678,["39","static/chunks/app/error-887151996d33f7e8.js"],"default"]
+11:I[1295,[],""]
+12:I[7726,["926","static/chunks/926-9ddc38c40974ce18.js","963","static/chunks/963-e6c7d95cc6064433.js","345","static/chunks/app/not-found-7708fa0d44bfb65c.js"],"default"]
+13:"$Sreact.suspense"
+2:["$","html",null,{"suppressHydrationWarning":true,"lang":"zh","dir":"ltr","children":[["$","head",null,{}],["$","body",null,{"className":"min-h-screen bg-background font-sans antialiased __className_35dea5","children":["$","$Lc",null,{"themeProps":{"attribute":"class","defaultTheme":"dark"},"children":["$","$Ld",null,{"children":["$","div",null,{"className":"relative flex flex-col h-screen","children":["$","main",null,{"className":"container mx-auto max-w-7xl pt-16 px-6 flex-grow","children":[["$","$Le",null,{}],["$","$Lf",null,{"parallelRouterKey":"children","error":"$10","errorStyles":[],"errorScripts":[],"template":["$","$L11",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[["$","$L12",null,{}],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]]}]}]}]}]}]]}]
+3:["$","$13",null,{"fallback":["$","div",null,{"children":["$","svg",null,{"viewBox":"0 0 200 200","children":[["$","circle",null,{"cx":"100","cy":"100","r":"50","fill":"none","strokeWidth":"10px","strokeLinecap":"round","className":"animate-[neon-loading_2s_linear_infinite] blur-[10px] stroke-[#43acff]"}],["$","circle",null,{"cx":"100","cy":"100","r":"50","fill":"none","strokeWidth":"10px","strokeLinecap":"round","className":"animate-[neon-loading_2s_linear_infinite] blur-[20px] stroke-[#43acff]"}],["$","circle",null,{"cx":"100","cy":"100","r":"50","fill":"none","strokeWidth":"10px","strokeLinecap":"round","className":"animate-[neon-loading_2s_linear_infinite] stroke-[#fff]"}]]}]}],"children":"Hello, 我的第一个网页"}]
+8:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","media":"(prefers-color-scheme: light)","content":"white"}],["$","meta","3",{"name":"theme-color","media":"(prefers-color-scheme: dark)","content":"black"}]]
+5:null
+6:null
+a:[["$","title","0",{"children":"Next.js + HeroUI"}],["$","meta","1",{"name":"description","content":"Make beautiful websites regardless of your design experience."}],["$","link","2",{"rel":"icon","href":"/favicon.ico"}]]

@@ -41,7 +41,7 @@ export const ContentNavTree = ({currentNavTree}: ContentNavTreeProps) => {
   };
   return <>
         <SidebarMenu className="gap-0 px-2">
-        {currentNavTree.map((item, index) => (
+        {currentNavTree?.map((item, index) => (
           <TreeMenuNode key={index} item={item} currentPath={pathname}    
             expandedPaths={expandedPaths}
           togglePath={togglePath}

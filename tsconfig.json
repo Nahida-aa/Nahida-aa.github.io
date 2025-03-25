@@ -15,11 +15,7 @@
     "jsx": "preserve",
     "incremental": true,
     "noImplicitAny": false,
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ],
+    "plugins": [{"name": "next"}],
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]

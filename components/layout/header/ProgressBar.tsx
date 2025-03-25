@@ -3,7 +3,7 @@
 import { Suspense, useEffect } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import NProgress from 'nprogress'
-import '@/css/nprogress.css'
+import '@/styles/nprogress.css'
 import { LoadingS } from '@/components/ui/loading/Loading'
 
 export const ProgressBar = () => {

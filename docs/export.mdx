@@ -1,0 +1,18 @@
+---
+title: export
+description: 当想要将next.js项目导出为静态网站时, 可以使用next export命令。
+created_at: 2025-03-26T03:42:29Z
+updated_at: 2025-03-26T03:42:29Z
+tags: [next,export,html]
+---
+
+## Unsupported feature
+> 不支持的功能
+
+https://nextjs.org/docs/app/building-your-application/deploying/static-exports#unsupported-features
+
+Features that require a Node.js server, or dynamic logic that cannot be computed during the build process, are **not** supported:
+> 需要Node.js服务器的功能, 或者在构建过程中无法计算的动态逻辑，**不**支持：
+- Dynamic Routes with `dynamicParams: true`
+- Dynamic Routes without `generateStaticParams()`
+- ...

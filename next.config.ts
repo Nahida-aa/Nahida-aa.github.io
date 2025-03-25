@@ -17,48 +17,67 @@ const rehypePrettyCode_options = {
     cls: "entity.name.class",
   },
 };
-let remarkPlugins: any[] = []
-let rehypePlugins: any[] = []
-const isDev = process.env.NODE_ENV === 'development'
-if (isDev) {
-  remarkPlugins = [
-    // [remarkGfm, {}],
-    ['remark-gfm'],
-    ['@vcarl/remark-headings'],
-    ['remark-frontmatter', {type: 'yaml', marker: '-'}], // 解析 frontmatter 到 语法树
-    ['remark-mdx-frontmatter'], // 导出 frontmatter
-    // ['remark-mermaidjs'],
-    // [remarkMath,{}],
-    ['remark-math', {}]
-  ]
-  rehypePlugins = [
-    ['rehype-callouts'],
-    // ['rehype-katex', { strict: true, throwOnError: true }]
-    // [rehypeMathjax,{}],
-    // ['rehype-mermaid'],
-    ['rehype-pretty-code', rehypePrettyCode_options],
-    ["rehype-mathjax"],
-  ]
-  // remarkPlugins.push(['remark-gfm'])
-  // rehypePlugins.push(['rehype-callouts'])
-  // rehypePlugins.push(['rehype-mathjax'])
-  // rehypePlugins.push(['rehype-pretty-code', rehypePrettyCode_options])
-} else {
-}
+// let remarkPlugins: any[] = []
+// let rehypePlugins: any[] = []
+// const isDev = process.env.NODE_ENV === 'development'
+// if (isDev) {
+//   remarkPlugins = [
+//     // [remarkGfm, {}],
+//     ['remark-gfm'],
+//     ['@vcarl/remark-headings'],
+//     ['remark-frontmatter', {type: 'yaml', marker: '-'}], // 解析 frontmatter 到 语法树
+//     ['remark-mdx-frontmatter'], // 导出 frontmatter
+//     // ['remark-mermaidjs'],
+//     // [remarkMath,{}],
+//     ['remark-math', {}]
+//   ]
+//   rehypePlugins = [
+//     ['rehype-callouts'],
+//     // ['rehype-katex', { strict: true, throwOnError: true }]
+//     // [rehypeMathjax,{}],
+//     // ['rehype-mermaid'],
+//     ['rehype-pretty-code', rehypePrettyCode_options],
+//     ["rehype-mathjax"],
+//   ]
+// } else {
+// }
 const withMDX = createMDX({
   // Add markdown plugins here, as desired
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: remarkPlugins,
-    rehypePlugins: rehypePlugins,
+    remarkPlugins: [
+      // [remarkGfm, {}],
+      ['remark-gfm'],
+      // ['@vcarl/remark-headings'],
+      ['remark-frontmatter', {type: 'yaml', marker: '-'}], // 解析 frontmatter 到 语法树
+      ['remark-mdx-frontmatter'], // 导出 frontmatter
+      // ['remark-mermaidjs'],
+      // [remarkMath,{}],
+      ['remark-math', {}]
+    ],
+    rehypePlugins: [
+      ['rehype-callouts'],
+      // ['rehype-katex', { strict: true, throwOnError: true }]
+      // [rehypeMathjax,{}],
+      // ['rehype-mermaid'],
+      ['rehype-pretty-code', rehypePrettyCode_options],
+      ["rehype-mathjax"],
+    ],
   },
 } as NextMDXOptions)
 
 
 // console.log(`process.env: `, process.env)
+const STAT_export = "export"
+const output = STAT_export ? "export" : undefined
+const images = STAT_export ? {
+    unoptimized: true, // 禁用图片优化
+  } : undefined
 
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
+  output,
+  images,
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
 };
 

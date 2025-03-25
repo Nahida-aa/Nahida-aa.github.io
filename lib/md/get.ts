@@ -1,4 +1,4 @@
-import { DocMeta, DocSearchValue } from "@/app/[locale]/md/types"
+import { DocMeta, DocSearchValue } from "@/app/md/types"
 
 import path from "path";
 import fs from "fs/promises"

@@ -3,10 +3,9 @@ import { NavList } from './NavList'
 import { motion } from 'framer-motion'
 import { ModeToggleGradientIcon } from '@/components/common/ModeToggle';
 import { useEffect, useState } from 'react';
-import LanguageChanger from '@/app/i18n/LanguageChanger';
 // import { ModeToggleGradientIconV0 } from '@/components/common/mode-toggle';
 // import { SearchModalButton } from '@/components/common/search';
-import { SearchButton } from '@/app/[locale]/search/search-button';
+import { SearchButton } from '@/app/search/search-button';
 import { siteMetadata } from '@/config/site';
 import Link from '@/components/Link';
 
@@ -87,7 +86,6 @@ export const Header = ({
       <ModeToggleGradientIcon />
       {/* <ModeToggleGradientIconV0 /> */}
       {/* <ThemeSwitch /> */}
-      <LanguageChanger />
     </section>
     {/* <div className="flex items-center space-x-4 leading-5 sm:space-x-6">
 

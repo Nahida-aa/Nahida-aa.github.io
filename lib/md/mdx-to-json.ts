@@ -8,7 +8,7 @@ import remarkStringify from "remark-stringify"
 import remarkFrontmatter from 'remark-frontmatter'
 import remarkHeadings from '@vcarl/remark-headings';
 import { text2slug } from "@/lib/utils/slug"
-import { DocMeta, DocSearchValue, Toc } from "@/app/[locale]/md/types"
+import { DocMeta, DocSearchValue, Toc } from "@/app/md/types"
 import { getNavigationList } from "@/lib/md/get";
 import { outputDir } from "@/config/path";
 
