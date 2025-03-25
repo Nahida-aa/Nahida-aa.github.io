@@ -42,6 +42,6 @@ export type DocSearchValue = {
 }
 
 export type MdxComp = {
-  default: typeof import("@/app/[locale]/md/test.mdx")["default"]
+  default: typeof import("@/app/md/test.mdx")["default"]
   frontmatter: DocMeta
 }

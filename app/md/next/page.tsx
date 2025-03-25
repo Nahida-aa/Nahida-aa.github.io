@@ -15,7 +15,7 @@ export default async function Page({
     <article className="prose dark:prose-invert  mx-auto max-w-full  ">
       <h1 className={`${title()} flex justify-center `}>
         {metadata.title}
-        </h1>
+      </h1>
       <Content />
     </article>
     </section>
