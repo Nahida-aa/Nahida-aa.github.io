@@ -91,4 +91,5 @@ const plugins = [
 ]
 
 // module.exports = nextConfig; js 写法
-export default plugins.reduce((prev, item) => item(prev), nextConfig)
+// export default plugins.reduce((prev, item) => item(prev), nextConfig)
+export default withMDX(nextConfig)
