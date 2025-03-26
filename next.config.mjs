@@ -78,7 +78,8 @@ if (isDev) {
 }
 
 // console.log(`process.env: `, process.env)
-const STATIC_EXPORT = process.env.STATIC_EXPORT
+// const STATIC_EXPORT = process.env.STATIC_EXPORT
+const STATIC_EXPORT = "export"
 const output = STATIC_EXPORT ? "export" : undefined
 const images = STATIC_EXPORT ? {
     unoptimized: true, // 禁用图片优化
