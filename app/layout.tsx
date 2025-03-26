@@ -45,15 +45,13 @@ export default async function RootLayout({
       <body
         className={clsx(
           "min-h-screen  bg-background font-sans antialiased",
-         
         )}
       ><Suspense fallback={<LoadingS />}>
-
         <Providers attribute="class" defaultTheme="dark" >
         <SearchProvider>
         <section className="flex  items-center pb-[30vh] -mb-[30vh] h-gradient "></section>
           <TailwindBG />
-            <SidebarProvider>
+            <SidebarProvider defaultOpen={false}>
             <AppSidebar locale={"zh"} />
             <SidebarInset className=' justify-between bg-transparent'>
               <Header  />

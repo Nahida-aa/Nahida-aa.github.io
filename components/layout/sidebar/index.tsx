@@ -1,3 +1,4 @@
+// "use client"
 import * as React from "react"
 
 import { SearchForm } from "@/components/common/search-form"
