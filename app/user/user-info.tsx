@@ -1,6 +1,6 @@
 "use client"
 import { useUserEnvironment } from '@/hooks/use-user';
-import React from 'react';
+import React, { JSX, use, useEffect, useState } from 'react';
 
 type UserInfoProps = {
   className?: string;
@@ -8,18 +8,33 @@ type UserInfoProps = {
 export const UserInfo = (
   props: UserInfoProps
 ) => {
-  const { userAgent, language, region, timeZone, os, browser, ip } = useUserEnvironment();
+  // const { userAgent, language, region, timeZone, currentTime, timeZoneTime,  os, browser, ip } = useUserEnvironment();
+  const userEnvironment = useUserEnvironment();
+//   const userInfoCodeTs = `// 用户环境信息
+// userAgent = ${userAgent}
+// language = ${language}
+// region = ${region}
+// timeZone = ${timeZone}
+// os = ${os}
+// browser = ${browser}
+// ip = ${ip}`;
+  // useEffect(() => {
+  //   console.log('Rendered on client');
+
+  //   // 定义一个异步函数来处理高亮逻辑
+  //   const fetchHighlight = async () => {
+  //     const highlightedCode = await highlight(userInfoCodeTs, 'ts');
+  //     setInitial(highlightedCode);
+  //   };
+
+  //   fetchHighlight(); // 调用异步函数
+  // }, []); // 添加依赖项，确保在 `userInfoCodeTs` 变化时重新执行
 
   return (
     <div className={props.className}>
-      <h1>用户环境信息</h1>
-      <p>用户代理：{userAgent}</p>
-      <p>语言偏好：{language}</p>
-      <p>地区：{region}</p>
-      <p>时区：{timeZone}</p>
-      <p>操作系统：{os}</p>
-      <p>浏览器：{browser}</p>
-      <p>IP 地址：{ip}</p>
+      <pre>
+        {JSON.stringify(userEnvironment, null, 2)}
+      </pre>
     </div>
   );
 }

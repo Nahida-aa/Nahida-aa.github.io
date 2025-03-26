@@ -5,6 +5,9 @@ interface UserEnvironment {
   language: string; // 用户的语言偏好
   region: string;   // 用户的地区（通过 IP 获取）
   timeZone: string; // 用户的时区
+  currentTime: string; // 当前时间（本地时间）
+  // timeZoneTime: string; // 对应时区的时间
+  utcTime: string;  // UTC 时间
   os: string;       // 当前操作系统
   browser: string;  // 当前浏览器
   ip: string;       // 用户的 IP 地址
@@ -16,6 +19,9 @@ export function useUserEnvironment(): UserEnvironment {
     language: '',
     region: '',
     timeZone: '',
+    currentTime: '',
+    // timeZoneTime: '',
+    utcTime: '',
     os: '',
     browser: '',
     ip: '',
@@ -28,15 +34,19 @@ export function useUserEnvironment(): UserEnvironment {
     // 获取语言和时区
     const language = navigator.language || 'unknown';
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown';
+    // 获取当前时间
+    // const currentTime = new Date().toLocaleString(); // 本地时间
+    // // 指定时区的时间
+    // const timeZoneTime = new Date().toLocaleString('en-US', { timeZone });
 
     // 检测操作系统
     const userAgent_lower = userAgent.toLowerCase();
     let os = 'unknown';
-    if (userAgent_lower.includes('win')) os = 'Windows';
+    if (userAgent_lower.includes('android')) os = 'Android';
+    else if (userAgent_lower.includes('win')) os = 'Windows';
     else if (userAgent_lower.includes('mac')) os = 'MacOS';
-    else if (userAgent_lower.includes('linux')) os = 'Linux';
-    else if (userAgent_lower.includes('android')) os = 'Android';
     else if (userAgent_lower.includes('iphone') || userAgent_lower.includes('ipad')) os = 'iOS';
+    else if (userAgent_lower.includes('linux')) os = 'Linux';
 
     // 检测浏览器
     let browser = 'unknown';
@@ -83,10 +93,41 @@ export function useUserEnvironment(): UserEnvironment {
       userAgent,
       language,
       timeZone,
+      // currentTime,
+      // timeZoneTime,
       os,
       browser,
     }));
   }, []);
+  useEffect(() => {
+    const updateTime = () => {
+      const timeZone = environment.timeZone;
+
+      // 本地时间
+      const currentTime = new Date().toLocaleString();
+
+      // 指定时区的时间
+      // const timeZoneTime = new Date().toLocaleString();
+      // UTC 时间
+      const utcTime = new Date().toISOString(); // ISO 格式的 UTC 时间
+
+      setEnvironment((prev) => ({
+        ...prev,
+        currentTime,
+        // timeZoneTime,
+        utcTime,
+      }));
+    };
+
+    // 初始化时间
+    updateTime();
+
+    // 每秒更新一次时间
+    const interval = setInterval(updateTime, 1000);
+
+    // 清除定时器
+    return () => clearInterval(interval);
+  }, [environment.timeZone]);
 
   return environment;
 }
