@@ -10,6 +10,7 @@ interface UserEnvironment {
   utcTime: string;  // UTC 时间
   os: string;       // 当前操作系统
   browser: string;  // 当前浏览器
+  device: string;   // 设备类型
   ip: string;       // 用户的 IP 地址
 }
 
@@ -24,6 +25,7 @@ export function useUserEnvironment(): UserEnvironment {
     utcTime: '',
     os: '',
     browser: '',
+    device: '',
     ip: '',
   });
 
@@ -56,6 +58,12 @@ export function useUserEnvironment(): UserEnvironment {
     else if (userAgent_lower.includes('edg')) browser = 'Edge';
     else if (userAgent_lower.includes('opera') || userAgent_lower.includes('opr')) browser = 'Opera';
     else if (userAgent_lower.includes('msie') || userAgent_lower.includes('trident')) browser = 'Internet Explorer';
+
+    // 检测设备类型
+    let device = 'unknown';
+    if (userAgent_lower.includes('mobile')) device = 'Mobile';
+    else if (userAgent_lower.includes('tablet')) device = 'Tablet';
+    else device = 'Desktop';
 
     // 获取 IP 地址
     const fetchIp = async () => {
@@ -99,6 +107,7 @@ export function useUserEnvironment(): UserEnvironment {
       // timeZoneTime,
       os,
       browser,
+      device,
     }));
   }, [environment.ip]);
   useEffect(() => {
