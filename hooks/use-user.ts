@@ -12,7 +12,7 @@ interface UserEnvironment {
 
 export function useUserEnvironment(): UserEnvironment {
   const [environment, setEnvironment] = useState<UserEnvironment>({
-    userAgent: navigator.userAgent,
+    userAgent: '',
     language: '',
     region: '',
     timeZone: '',
@@ -22,27 +22,30 @@ export function useUserEnvironment(): UserEnvironment {
   });
 
   useEffect(() => {
+    const { navigator } = window;
+    // 获取用户代理
+    const userAgent = navigator.userAgent || 'unknown';
     // 获取语言和时区
     const language = navigator.language || 'unknown';
     const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown';
 
     // 检测操作系统
-    const userAgent = navigator.userAgent.toLowerCase();
+    const userAgent_lower = userAgent.toLowerCase();
     let os = 'unknown';
-    if (userAgent.includes('win')) os = 'Windows';
-    else if (userAgent.includes('mac')) os = 'MacOS';
-    else if (userAgent.includes('linux')) os = 'Linux';
-    else if (userAgent.includes('android')) os = 'Android';
-    else if (userAgent.includes('iphone') || userAgent.includes('ipad')) os = 'iOS';
+    if (userAgent_lower.includes('win')) os = 'Windows';
+    else if (userAgent_lower.includes('mac')) os = 'MacOS';
+    else if (userAgent_lower.includes('linux')) os = 'Linux';
+    else if (userAgent_lower.includes('android')) os = 'Android';
+    else if (userAgent_lower.includes('iphone') || userAgent_lower.includes('ipad')) os = 'iOS';
 
     // 检测浏览器
     let browser = 'unknown';
-    if (userAgent.includes('chrome') && !userAgent.includes('edg')) browser = 'Chrome';
-    else if (userAgent.includes('firefox')) browser = 'Firefox';
-    else if (userAgent.includes('safari') && !userAgent.includes('chrome')) browser = 'Safari';
-    else if (userAgent.includes('edg')) browser = 'Edge';
-    else if (userAgent.includes('opera') || userAgent.includes('opr')) browser = 'Opera';
-    else if (userAgent.includes('msie') || userAgent.includes('trident')) browser = 'Internet Explorer';
+    if (userAgent_lower.includes('chrome') && !userAgent_lower.includes('edg')) browser = 'Chrome';
+    else if (userAgent_lower.includes('firefox')) browser = 'Firefox';
+    else if (userAgent_lower.includes('safari') && !userAgent_lower.includes('chrome')) browser = 'Safari';
+    else if (userAgent_lower.includes('edg')) browser = 'Edge';
+    else if (userAgent_lower.includes('opera') || userAgent_lower.includes('opr')) browser = 'Opera';
+    else if (userAgent_lower.includes('msie') || userAgent_lower.includes('trident')) browser = 'Internet Explorer';
 
     // 获取 IP 地址
     const fetchIp = async () => {
@@ -77,6 +80,7 @@ export function useUserEnvironment(): UserEnvironment {
     fetchIp();
     setEnvironment((prev) => ({
       ...prev,
+      userAgent,
       language,
       timeZone,
       os,
