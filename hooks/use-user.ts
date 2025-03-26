@@ -52,6 +52,8 @@ export function useUserEnvironment(): UserEnvironment {
 
     // 检测浏览器
     let browser = 'unknown';
+    // if (userAgent_lower.includes('mqqbrowser')) browser = 'QQ';
+    // else if (userAgent_lower.includes('micromessenger')) browser = 'WeChat';
     if (userAgent_lower.includes('chrome') && !userAgent_lower.includes('edg')) browser = 'Chrome';
     else if (userAgent_lower.includes('firefox')) browser = 'Firefox';
     else if (userAgent_lower.includes('safari') && !userAgent_lower.includes('chrome')) browser = 'Safari';
