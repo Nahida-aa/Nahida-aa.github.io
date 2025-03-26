@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import { LoadingS } from '@/components/ui/loading/Loading';
+import { UserInfo } from './user/user-info';
 
 export default async function Page ({
   // params,
@@ -12,5 +13,6 @@ export default async function Page ({
   // const { page = '1', sort = 'asc', query = '' } = await searchParams
   return <Suspense fallback={<LoadingS />}>
     Hello, 我的第一个网页
+    <UserInfo />
   </Suspense>
 }

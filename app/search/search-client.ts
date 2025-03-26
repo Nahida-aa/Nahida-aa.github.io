@@ -25,10 +25,10 @@ class SearchClient {
 
     try {
       // 加载文档数据
-      const [zhDocs, enDocs] = await Promise.all([this.fetchDocuments("zh",'docs'), this.fetchDocuments("en",'docs')])
+      const [Docs] = await Promise.all([ this.fetchDocuments()])
 
       // 索引文档
-      const indexedDocs = indexMdxDocuments([...zhDocs, ...enDocs])
+      const indexedDocs = indexMdxDocuments(Docs)
       this.searchEngine.addDocuments(indexedDocs)
 
       this.initialized = true
@@ -40,15 +40,15 @@ class SearchClient {
   }
 
   // 获取文档数据
-  private async fetchDocuments(locale: string, type:string): Promise<any[]> {
+  private async fetchDocuments(): Promise<any[]> {
     try {
-      const response = await fetch(`/data/${locale}/${type}/index.json`)
+      const response = await fetch(`/blog/index.json`)
       if (!response.ok) {
-        throw new Error(`Failed to fetch ${locale}/${type} documents: ${response.statusText}`)
+        throw new Error(`Failed to fetch documents: ${response.statusText}`)
       }
       return await response.json()
     } catch (error) {
-      console.error(`Error fetching ${locale} documents:`, error)
+      console.error(`Error fetching documents:`, error)
       return []
     }
   }

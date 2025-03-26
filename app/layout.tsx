@@ -12,6 +12,8 @@ import { ProgressBar } from "@/components/layout/header/ProgressBar";
 import { AppSidebar } from "@/components/layout/sidebar";
 import { Suspense } from "react";
 import { LoadingS } from "@/components/ui/loading/Loading";
+import Footer from "@/components/layout/Footer";
+import { EnhancedSearchModal } from "./search/enhanced-search-modal";
 
 export const metadata: Metadata = {
   title: {
@@ -38,12 +40,12 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html suppressHydrationWarning lang='zh'  >
+    <html suppressHydrationWarning lang='zh' className={`scroll-smooth ${ myFont.className}`} >
       <head />
       <body
         className={clsx(
-          "min-h-screen bg-background font-sans antialiased",
-          myFont.className,
+          "min-h-screen  bg-background font-sans antialiased",
+         
         )}
       ><Suspense fallback={<LoadingS />}>
 
@@ -57,6 +59,8 @@ export default async function RootLayout({
               <Header  />
               {children}
               <ProgressBar />
+              <EnhancedSearchModal />
+              <Footer />
             </SidebarInset>
             </SidebarProvider>
             <section className="w-full text-amber-100/70 !max-w-none prose dark:prose-invert text-center pt-[20vh] -mt-[20vh] f-gradient" ></section>

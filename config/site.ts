@@ -68,8 +68,8 @@ export const siteConfig = {
   },
 };
 export const headerNavLinks = [
-  { href: '/docs', title: 'Docs' },
-  { href: '/playground', title: 'Playground' },
+  { href: '/blog', title: 'Blog' },
+  // { href: '/playground', title: 'Playground' },
 ]
 
 export const siteMetadata = {
@@ -87,7 +87,7 @@ export const siteMetadata = {
   email: 'address@yoursite.com',
   github: 'https://github.com',
   x: 'https://twitter.com/x',
-  // twitter: 'https://twitter.com/Twitter',
+  twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com',
