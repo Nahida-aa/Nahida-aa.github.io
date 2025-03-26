@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 
 interface UserEnvironment {
+  userAgent: string; // 用户的 User-Agent
   language: string; // 用户的语言偏好
   region: string;   // 用户的地区（通过 IP 获取）
   timeZone: string; // 用户的时区
@@ -11,6 +12,7 @@ interface UserEnvironment {
 
 export function useUserEnvironment(): UserEnvironment {
   const [environment, setEnvironment] = useState<UserEnvironment>({
+    userAgent: navigator.userAgent,
     language: '',
     region: '',
     timeZone: '',

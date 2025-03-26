@@ -8,11 +8,12 @@ type UserInfoProps = {
 export const UserInfo = (
   props: UserInfoProps
 ) => {
-  const { language, region, timeZone, os, browser, ip } = useUserEnvironment();
+  const { userAgent, language, region, timeZone, os, browser, ip } = useUserEnvironment();
 
   return (
     <div className={props.className}>
       <h1>用户环境信息</h1>
+      <p>用户代理：{userAgent}</p>
       <p>语言偏好：{language}</p>
       <p>地区：{region}</p>
       <p>时区：{timeZone}</p>
