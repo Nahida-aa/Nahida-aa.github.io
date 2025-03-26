@@ -73,9 +73,9 @@ export const headerNavLinks = [
 ]
 
 export const siteMetadata = {
-  title: 'MdxHub',
+  title: 'Nahida-aa',
   author: 'Nahida-aa',
-  headerTitle: 'MdxHub',
+  headerTitle: 'Nahida-aa',
   description: 'A blog created with Next.js and Tailwind.css',
   language: 'en',
   theme: 'system', // system, dark or light

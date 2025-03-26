@@ -10,6 +10,7 @@ export const UserInfo = (
 ) => {
   // const { userAgent, language, region, timeZone, currentTime, timeZoneTime,  os, browser, ip } = useUserEnvironment();
   const userEnvironment = useUserEnvironment();
+  // console.log("UserInfo: ", userEnvironment);
 //   const userInfoCodeTs = `// 用户环境信息
 // userAgent = ${userAgent}
 // language = ${language}
@@ -32,7 +33,7 @@ export const UserInfo = (
 
   return (
     <div className={props.className}>
-      <pre>
+      <pre className='w-full overflow-auto'>
         {JSON.stringify(userEnvironment, null, 2)}
       </pre>
     </div>

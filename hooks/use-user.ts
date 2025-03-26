@@ -62,6 +62,7 @@ export function useUserEnvironment(): UserEnvironment {
       try {
         const response = await fetch('https://api.ipify.org?format=json');
         const data = await response.json();
+        console.log('IP:', data);
         setEnvironment((prev) => ({
           ...prev,
           ip: data.ip,
@@ -77,6 +78,7 @@ export function useUserEnvironment(): UserEnvironment {
       try {
         const response = await fetch(`http://ip-api.com/json/${ip}`);
         const data = await response.json();
+        console.log('Region:', data);
         setEnvironment((prev) => ({
           ...prev,
           region: data.regionName || 'unknown', // 返回更准确的地区
@@ -98,7 +100,7 @@ export function useUserEnvironment(): UserEnvironment {
       os,
       browser,
     }));
-  }, []);
+  }, [environment.ip]);
   useEffect(() => {
     const updateTime = () => {
       const timeZone = environment.timeZone;
