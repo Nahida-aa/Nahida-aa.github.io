@@ -19,7 +19,7 @@ export default async function Page ({
   const { metadata, content, rawContent } = getFile(file_path)
   console.log("metadata:", metadata, "content:", content, "rawContent:", rawContent)
   if (!content) return notFound()
-  // const {content: JSXContent, frontmatter} = await CustomMDX({ source: rawContent })
+  const {content: JSXContent, frontmatter} = await CustomMDX({ source: rawContent })
   // console.log("JSXContent:", JSXContent, 
   //   // "frontmatter:", frontmatter
   // )
@@ -36,8 +36,8 @@ export default async function Page ({
   <section className='mx-6'>
   <article className="prose dark:prose-invert  mx-auto max-w-full  ">
     <h1 className={`${title()} flex justify-center `}>{metadata.title}</h1>
-    <CustomMDX source={MdxDoc.content} />
-    {/* {JSXContent} */}
+    {/* <CustomMDX source={MdxDoc.content} /> */}
+    {JSXContent}
     {/* <Content /> */}
   </article>
   </section>

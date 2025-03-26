@@ -96,12 +96,12 @@ export async function CustomMDX(props: MDXRemoteProps) {
   // console.log(content)
   // const c = () => {content}
   // console.log(`compileMDX:rest: `, rest) // 拿不到, 除非修改源码或者将数据提取到frontmatter
-  // return { content, frontmatter }
+  return { content, frontmatter }
   // return <><h1>{frontmatter.title}</h1>
   // {content}</>
-  return <MDXRemote {...mdxRemoteProps}
-    // {...props}
-    // options={{...options, ...(props.options||{}) }}
-    // components={components}
-  />
+  // return <MDXRemote {...mdxRemoteProps}
+  //   // {...props}
+  //   // options={{...options, ...(props.options||{}) }}
+  //   // components={components}
+  // />
 }
