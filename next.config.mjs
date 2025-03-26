@@ -56,6 +56,7 @@ if (isDev) {
       ],
     },
   }
+  // @ts-ignore: Turbopack 要求使用 字符串
   withMDX = createMDX(mdxCfg)
 } else {
   withMDX = createMDX({
