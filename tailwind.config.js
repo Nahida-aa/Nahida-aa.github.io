@@ -1,8 +1,7 @@
-import type { Config } from "tailwindcss";
 import {heroui} from "@heroui/theme"
 
-// /** @type {import('tailwindcss').Config} */
-const config: Config = {
+/** @type {import('tailwindcss').Config} */
+const config = {
   content: [
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
@@ -86,5 +85,5 @@ const config: Config = {
   plugins: [heroui(), require("tailwindcss-animate")],
 }
 
-// module.exports = config;
-export default config;
+module.exports = config;
+// export default config;

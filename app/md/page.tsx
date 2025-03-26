@@ -14,7 +14,7 @@ export default async function Page ({
   // searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
   // const { page = '1', sort = 'asc', query = '' } = await searchParams
-  const file_path = `app/md/test.mdx`
+  const file_path = `app/md/mdx-page/test.mdx`
   const { metadata, content, rawContent } = getFile(file_path)
   console.log("metadata:", metadata, "content:", content, "rawContent:", rawContent)
   if (!content) return notFound()

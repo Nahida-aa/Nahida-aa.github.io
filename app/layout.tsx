@@ -54,7 +54,6 @@ export default async function RootLayout({
             <SidebarProvider>
             <AppSidebar locale={"zh"} />
             <SidebarInset className=' justify-between bg-transparent'>
-              
               <Header  />
               {children}
               <ProgressBar />
