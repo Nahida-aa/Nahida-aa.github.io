@@ -2,25 +2,27 @@ import { useEffect, useState } from 'react';
 
 interface UserEnvironment {
   language: string; // 用户的语言偏好
-  region: string;   // 用户的地区
+  region: string;   // 用户的地区（通过 IP 获取）
+  timeZone: string; // 用户的时区
   os: string;       // 当前操作系统
   browser: string;  // 当前浏览器
   ip: string;       // 用户的 IP 地址
 }
 
 export function useUserEnvironment(): UserEnvironment {
-  const [environment, setEnvironment] = useState<UserEnvironment & { ip: string }>({
+  const [environment, setEnvironment] = useState<UserEnvironment>({
     language: '',
     region: '',
+    timeZone: '',
     os: '',
     browser: '',
     ip: '',
   });
 
   useEffect(() => {
-    // 获取语言和 时间区域
+    // 获取语言和时区
     const language = navigator.language || 'unknown';
-    const region = Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown';
+    const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'unknown';
 
     // 检测操作系统
     const userAgent = navigator.userAgent.toLowerCase();
@@ -49,13 +51,14 @@ export function useUserEnvironment(): UserEnvironment {
           ...prev,
           ip: data.ip,
         }));
-        fetchLocation(data.ip); // 获取地理位置
+        fetchRegion(data.ip); // 获取地理位置
       } catch (error) {
         console.error('Failed to fetch IP address:', error);
       }
     };
-    // 获取地理位置
-    const fetchLocation = async (ip: string) => {
+
+    // 获取地理位置（地区）
+    const fetchRegion = async (ip: string) => {
       try {
         const response = await fetch(`http://ip-api.com/json/${ip}`);
         const data = await response.json();
@@ -67,15 +70,16 @@ export function useUserEnvironment(): UserEnvironment {
         console.error('Failed to fetch location:', error);
       }
     };
+
+    // 初始化数据
     fetchIp();
-    // 更新状态
-    setEnvironment({
+    setEnvironment((prev) => ({
+      ...prev,
       language,
-      region,
+      timeZone,
       os,
       browser,
-      ip: '',
-    });
+    }));
   }, []);
 
   return environment;
