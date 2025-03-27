@@ -1,12 +1,189 @@
 ---
 title: bfs
-description: bfs, 图, 网格
+description: 通常是指 广度优先搜索 (Breadth-First Search)，一种经典的图算法，用于遍历或搜索树或图的数据结构
 created_at: 2025-03-26T22:29:10Z
 updated_at: 2025-03-26T22:29:10Z
 tags: [alg,bfs]
 ---
 
+## BFS 思想
+
+BFS 通常是指 广度优先搜索 (Breadth-First Search)，一种经典的图算法，用于遍历或搜索树或图的数据结构。
+
+BFS 的核心是逐层扩展，使用队列存储待访问的节点
+1. 遍历所有相邻节点（如岛屿问题）。
+2. 模拟扩散过程。
+3. 求最短路径。
+
 ## leetCode 695. 岛屿的最大面积
 
 [695. 岛屿的最大面积](https://leetcode-cn.com/problems/max-area-of-island/)
 
+给你一个大小为 `m x n` 的二进制矩阵 `grid` 。
+
+岛屿 是由一些相邻的 `1` (代表土地) 构成的组合，这里的「相邻」要求两个 `1` 必须在 水平或者竖直的四个方向上 相邻。你可以假设 `grid` 的四个边缘都被 `0` （代表水）包围着。
+
+岛屿的面积是岛上值为 `1` 的单元格的数目。
+
+计算并返回 `grid` 中最大的岛屿面积。如果没有岛屿，则返回面积为 `0` 
+
+**示例 1:**
+![1](https://assets.leetcode.com/uploads/2021/05/01/maxarea1-grid.jpg)
+> **输入:** 
+> ```py
+> grid = [[0,0,1,0,0,0,0,1,0,0,0,0,0],
+>         [0,0,0,0,0,0,0,1,1,1,0,0,0],
+>         [0,1,1,0,1,0,0,0,0,0,0,0,0],
+>         [0,1,0,0,1,1,0,0,1,0,1,0,0],
+>         [0,1,0,0,1,1,0,0,1,1,1,0,0],
+>         [0,0,0,0,0,0,0,0,0,0,1,0,0],
+>         [0,0,0,0,0,0,0,1,1,1,0,0,0],
+>         [0,0,0,0,0,0,0,1,1,0,0,0,0]]
+> ```
+> **输出:** 6 <br/>
+> **解释:** 答案不应该是 `11` ，因为岛屿只能包含水平或垂直这四个方向上的 `1` 。
+
+**示例 2:**
+> **输入:** `grid = [[0,0,0,0,0,0,0,0]]{:py}` <br/>
+> **输出:** 0
+
+**提示:**
+- `m == grid.length`
+- `n == grid[i].length`
+- `1 <= m, n <= 50`
+- `grid[i][j]` 为 `0` 或 `1`
+
+```py showLineNumbers
+def maxAreaOfIsland(self, grid: List[List[int]]) -> int:
+    m, n = len(grid), len(grid[0])
+    # 维护一个结果变量
+    res = 0
+    # 定义一个方向数组
+    d1 = [(0, 1), (0, -1), (1, 0), (-1, 0)]
+    # 遍历每个点
+    for i in range(m):
+        for j in range(n):
+        # 如果当前点是陆地
+        if grid[i][j] == 1:
+            # 将当前点加入队列
+            q = [(i, j)]
+            # 维护当前岛屿的面积
+            area = 1
+            # 将当前点置为 0
+            grid[i][j] = 0
+            # 遍历队列
+            while q:
+                # 取出队列的第一个元素
+                x, y = q.pop(0)
+                # 遍历四个方向
+                for dx, dy in d1:
+                    # 计算新的坐标
+                    nx, ny = x + dx, y + dy
+                    # 如果新的坐标合法
+                    if 0 <= nx < m and 0 <= ny < n and grid[nx][ny]:
+                    # 将新的坐标加入队列
+                    q.append((nx, ny))
+                    # 将新的坐标置为 0
+                    grid[nx][ny] = 0
+                    # 面积加一
+                    area += 1
+            # 更新结果
+            res = max(res, area)
+    return res
+```
+
+## lanqiao 长草
+
+https://www.lanqiao.cn/problems/149/learning/?page=1&first_category_id=1&tags=BFS&tag_relation=intersection&difficulty=20
+
+**题目描述**
+
+小明有一块空地，他将这块空地划分为 n 行 m 列的小块，每行和每列的长度都为 1。
+
+小明选了其中的一些小块空地，种上了草，其他小块仍然保持是空地。
+
+这些草长得很快，每个月，草都会向外长出一些，如果一个小块种了草，则它将向自己的上、下、左、右四小块空地扩展，
+
+这四小块空地都将变为有草的小块。请告诉小明, k 个月后空地上哪些地方有草。
+**输入描述**
+
+输入的第一行包含两个整数 n,m。
+
+接下来 n 行，每行包含 m 个字母，表示初始的空地状态，字母之间没有空格。如果为小数点，表示为空地，如果字母为 g, 表示种了草。
+
+接下来包含一个整数 k。 其中, 2≤n,m≤1000, 1≤k≤1000
+**输出描述**
+
+输出 n 行，每行包含 m 个字母，表示 k 个月后空地的状态。如果为小数点，表示为空地，如果字母为 g, 表示长了草。
+**输入输出样例**
+**示例**
+
+>输入
+```
+4 5
+.g...
+.....
+..g..
+.....
+2
+```
+>输出
+```
+gggg.
+gggg.
+ggggg
+.ggg.
+```
+**运行限制**
+
+- 最大运行时间: 1s
+- 最大运行内存: 256M
+
+```py showLineNumbers
+import sys
+from collections import deque
+input = lambda: sys.stdin.readline().strip()
+def grass_growth(n, m, grid, k):
+    # 定义方向数组（上下左右）
+    d1 = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+    
+    # 初始化队列，找到所有初始种草的格子
+    q = deque()
+    for y in range(n):
+        for x in range(m):
+            if grid[y][x] == 1:
+                print("aq")
+                q.append((y, x))
+    
+    # 模拟 k 个月的扩展
+    for _ in range(k):
+        print('k')
+        for _ in range(len(q)):
+            print('q', len(q))
+            y, x = q.popleft()
+            for dy, dx in d1:
+                ny, nx = y + dy, x + dx
+                # 检查边界条件和是否为空地
+                if 0 <= ny < n and 0 <= nx < m and grid[ny][nx] == 0:
+                    grid[ny][nx] = 1  # 将空地变为草
+                    q.append((ny, nx))
+    
+    # 返回最终的状态
+    return grid
+
+n, m = map(int, input().split())
+grid = [[0]*m] * n
+print(grid)
+for y in range(n):
+    r = input()
+    print(r)
+    for x in range(m):
+        if r[x] == 'g':
+            print('rx==g')
+            grid[y][x] = 1
+print(grid)
+k = int(input())
+res = grass_growth(n, m, grid, k)
+for row in res:
+    print(''.join(['g' if x == 1 else '.' for x in row]))
+```

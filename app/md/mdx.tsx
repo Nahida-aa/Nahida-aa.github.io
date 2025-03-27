@@ -24,7 +24,7 @@ import rehypeMathjax from 'rehype-mathjax'
 import { SerializeOptions } from 'node_modules/next-mdx-remote/dist/types';
 import mdxErrorHandler from './plugins/error-handler';
 import rehypeCallouts from 'rehype-callouts'
-// import remarkBreaks from 'remark-breaks'
+import remarkBreaks from 'remark-breaks'
 // import remarkHeadings from '@vcarl/remark-headings';
 import { DocMeta } from './types';
 
@@ -32,6 +32,10 @@ const rehypePrettyCode_options:RehypePrettyCode_options = {
   // keepBackground: false, // 是否继承背景色
   defaultLang: "plaintext",
   // theme: moonlightTheme,
+  theme: {
+    dark: "github-dark-dimmed",
+    light: "github-light",
+  },
   tokensMap: {
     var: "variable",
     str: "string",
@@ -54,7 +58,7 @@ export async function CustomMDX(props: MDXRemoteProps) {
       remarkPlugins: [  // 处理 md 插件, remarkRehype: Transform to HTML AST
         // mdxErrorHandler,
         remarkGfm,
-        // remarkBreaks,// 处理换行符
+        remarkBreaks,// 处理换行符
         // remarkHeadings, // 提前 标题, 但是 compileMDX 不支持 返回 别的 内容: ...rest 为空
         remarkMath, // 将 math 标记为 code and pre/code
         // remarkMark
