@@ -29,6 +29,7 @@ import rehypeCallouts from 'rehype-callouts'
 import remarkBreaks from 'remark-breaks'
 // import remarkHeadings from '@vcarl/remark-headings';
 import { DocMeta } from './types';
+import { PluggableList } from 'unified';
 
 const rehypePrettyCode_options:RehypePrettyCode_options = {
   // keepBackground: false, // 是否继承背景色
@@ -48,8 +49,22 @@ const rehypePrettyCode_options:RehypePrettyCode_options = {
 
 // mdx2html: 工作流程是先将 MDX 源码解析为 JSX, 然后再根据需要切换和渲染自定义组件
 export async function CustomMDX(props: MDXRemoteProps) {
-
+  const format = props.options?.mdxOptions?.format || 'mdx'
   // console.log(`CustomMDX: ${JSON.stringify(props.options, null, 2)}`)
+  const rehypePlugins: PluggableList = [ // 处理 html 插件
+    rehypeCallouts,
+    // rehypeMermaid,
+    [rehypePrettyCode, rehypePrettyCode_options],
+    // rehypeAutolinkHeadings, // 不知道为什么不起作用, 然后自己实现
+    // rehypeSlug, // 为标题添加 id 貌似 不需要, 因为我自定义组件时实现了, 自定义组件保证 id 的正确性
+    // rehypeKatex, // 需要 css
+    rehypeMathjax, // 不需要 css
+    // 下面的插件必须最后使用
+    // rehypeMdxCodeProps
+  ]
+  if (format === "md") {
+    rehypePlugins.unshift(rehypeRaw); // 确保 rehypeRaw 在其他插件之前运行
+  }
   const options: SerializeOptions = {
     // made available to the arguments of any custom MDX component
     // scope: {},
@@ -67,22 +82,11 @@ export async function CustomMDX(props: MDXRemoteProps) {
         // remarkMermaid,
         
       ],
-      rehypePlugins: [ // 处理 html 插件
-        rehypeRaw,
-        rehypeCallouts,
-        // rehypeMermaid,
-        [rehypePrettyCode, rehypePrettyCode_options],
-        // rehypeAutolinkHeadings, // 不知道为什么不起作用, 然后自己实现
-        // rehypeSlug, // 为标题添加 id 貌似 不需要, 因为我自定义组件时实现了, 自定义组件保证 id 的正确性
-        // rehypeKatex, // 需要 css
-        rehypeMathjax, // 不需要 css
-        // 下面的插件必须最后使用
-        // rehypeMdxCodeProps
-      ],
-      remarkRehypeOptions: {
-        passThrough: ["mdxJsxTextElement"], // 允许通过 mdxJsxTextElement 节点
-      },
-      format: props.options?.mdxOptions?.format || 'mdx', // 'mdx' or 'md'
+      rehypePlugins,
+      // remarkRehypeOptions: {
+      //   passThrough: ['mdxjsEsm', 'mdxFlowExpression', 'mdxJsxFlowElement', 'mdxJsxTextElement', 'mdxTextExpression'], // 允许通过 mdxJsxTextElement 节点
+      // },
+      format, // 'mdx' or 'md'
       // format: 'md', // 'mdx' or 'md'
     },
     // Indicates whether or not to parse the frontmatter from the MDX source

@@ -57,7 +57,7 @@ export const MdxComponents = {
   pre: Pre,
   // Image: RoundedImage,
   // code: Code,
-  
+  // p:p,
   // 添加组件
   // Table,
   // Image: CustomImage,
