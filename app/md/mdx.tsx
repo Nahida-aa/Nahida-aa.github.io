@@ -10,7 +10,7 @@ import { MdxComponents } from './mdxComponents'
 import remarkGfm from 'remark-gfm'
 import rehypePrettyCode, { Options as RehypePrettyCode_options } from 'rehype-pretty-code';
 // import moonlightTheme from './assets/moonlight-ii.json' with { type: 'json' };
-
+import rehypeRaw from 'rehype-raw'
 import remarkMath from 'remark-math' // 用于将 math 标记为 code and pre/code
 // import rehypeKatex from 'rehype-katex'
 import rehypeMathjax from 'rehype-mathjax'
@@ -59,8 +59,9 @@ export async function CustomMDX(props: MDXRemoteProps) {
       // jsx: true,
       remarkPlugins: [  // 处理 md 插件, remarkRehype: Transform to HTML AST
         // mdxErrorHandler,
+        
         remarkGfm,
-        remarkBreaks,// 处理换行符
+        // remarkBreaks,// 处理换行符
         // remarkHeadings, // 提前 标题, 但是 compileMDX 不支持 返回 别的 内容: ...rest 为空
         remarkMath, // 将 math 标记为 code and pre/code
         // remarkMark
@@ -68,6 +69,7 @@ export async function CustomMDX(props: MDXRemoteProps) {
         
       ],
       rehypePlugins: [ // 处理 html 插件
+        rehypeRaw,
         rehypeCallouts,
         // rehypeMermaid,
         [rehypePrettyCode, rehypePrettyCode_options],
@@ -78,8 +80,8 @@ export async function CustomMDX(props: MDXRemoteProps) {
         // 下面的插件必须最后使用
         // rehypeMdxCodeProps
       ],
-      // format: props.options?.mdxOptions?.format || 'mdx', // 'mdx' or 'md'
-      format: 'md', // 'mdx' or 'md'
+      format: props.options?.mdxOptions?.format || 'mdx', // 'mdx' or 'md'
+      // format: 'md', // 'mdx' or 'md'
     },
     // Indicates whether or not to parse the frontmatter from the MDX source
     parseFrontmatter: true,  // default: false

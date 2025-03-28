@@ -1,9 +1,10 @@
 import { JSX, Suspense } from 'react';
 import { LoadingS } from '@/components/ui/loading/Loading';
-import { getFile } from '@/app/md/lib/get';
+import { getFile, getFileWithMetaWithToc } from '@/app/md/lib/get';
 import { notFound } from 'next/navigation';
 import { CustomMDX } from '@/app/md/mdx';
 import { title } from '@/components/primitives';
+import { DocsToc } from '@/app/md/comp/DocsToc';
 
 export const generateStaticParams = async() => {
   const params: { slug: string[] }[] = [
@@ -22,7 +23,7 @@ export default async function Page ({
 }) {
   const { slug } = await params
   const dslug = slug.join('/')
-  const { metadata, content, rawContent } = getFile(`docs/${dslug}`)
+  const { metadata, content, rawContent, toc } = await getFileWithMetaWithToc(`docs/${dslug}`)
   if (!metadata) return notFound()
   const {content: JSXContent, frontmatter} = await CustomMDX({ source: rawContent })
   const Content = (): JSX.Element => JSXContent;
@@ -30,12 +31,11 @@ export default async function Page ({
   <section className='px-4 sm:px-6 w-full min-w-0  flex-1 grid grid-cols-12'>
     <article className="prose dark:prose-invert  col-span-12 lg:col-span-9 lg:px-4 xl:col-span-9 xl:px-8
     mx-auto w-full min-w-0 max-w-full ">
-      <h1 className={`${title()} flex justify-center `}>
-        {metadata?.title||'Title'}
-      </h1>
+      <h1 className={`${title()} flex justify-center `}>{metadata?.title||'Title'}</h1>
       <p>{metadata?.description|| 'description'}</p>
       <Content />
     </article>
+    <DocsToc toc={toc} />
   </section>
   </Suspense>
 }

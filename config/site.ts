@@ -69,7 +69,7 @@ export const siteConfig = {
 };
 export const headerNavLinks = [
   { href: '/blog', title: 'Blog' },
-  // { href: '/playground', title: 'Playground' },
+  { href: '/about', title: 'About' },
 ]
 
 export const siteMetadata = {

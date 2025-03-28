@@ -13,6 +13,7 @@ export default async function Page ({
   // const { page = '1', sort = 'asc', query = '' } = await searchParams
   return <Suspense fallback={<LoadingS />}>
     Hello, 我的第一个 github pages
+    <img src="https://count.getloli.com/get/@Nahida-aa?theme=gelbooru" alt="count" />
     <UserInfo />
   </Suspense>
 }

@@ -4,6 +4,14 @@
     border-bottom: 1px solid #fbcfe8;
     @apply text-pink-400 border-b-pink-500 shadow-[0_0_0_0.2rem_text-transparent] hover:text-zinc-900 hover:bg-pink-200 rounded-[1px] hover:shadow-[0_0_0_0.2rem_#fbcfe8] hover:border-b-pink-200;
   }
+  p>a:has(img){
+    text-decoration: none; /* 去掉下划线 */
+    border-bottom: none; /* 去掉下划线 */
+    @apply hover:bg-transparent hover:shadow-none;
+  }
+  p>a>img{
+    @apply inline-block;
+  }
   .heading-element {
     position: relative;
   }
@@ -67,6 +75,15 @@
       text-decoration: none;
       border-bottom: 1px solid #fbcfe8;
       @apply text-pink-200 border-b-pink-300 shadow-[0_0_0_0.2rem_text-transparent] hover:text-zinc-900 hover:bg-pink-200 rounded-[1px] hover:shadow-[0_0_0_0.2rem_#fbcfe8] hover:border-b-pink-200;
+    }
+    p>a:has(img){
+      text-decoration: none; /* 去掉下划线 */
+      border-bottom: none; /* 去掉下划线 */
+      @apply hover:bg-transparent hover:shadow-none;
+    }
+    p>img,
+    p>a>img{
+      @apply inline-block;
     }
     h1,h2,h3,h4,h5,h6 {
       @apply font-semibold mt-6 mb-4 leading-[1.25];
