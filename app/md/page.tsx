@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import { LoadingS } from '@/components/ui/loading/Loading';
 import { CustomMDX } from './mdx';
 import { SerializeOptions } from 'node_modules/next-mdx-remote/dist/types';
-import { getFile } from './lib/get';
+import { getFile, getFileWithMetaWithToc } from './lib/get';
 import { notFound } from 'next/navigation';
 import { title } from '@/components/primitives';
 import { MdxComp } from './types';
@@ -17,7 +17,7 @@ export default async function Page ({
   const file_path = `app/md/mdx-page/test.mdx`
   
   const {default: MdxDoc} = await import(`@/public/blog/alg.json`)
-  const { metadata, content, rawContent } = getFile(file_path)
+  const { metadata, content, rawContent, toc } = await getFileWithMetaWithToc(file_path)
   console.log("metadata:", metadata, "content:", content, "rawContent:", rawContent)
   if (!content) return notFound()
   const format = file_path.endsWith('.md') ? 'md' : 'mdx'
