@@ -8,6 +8,7 @@ import { useEffect, useState } from 'react';
 import { SearchButton } from '@/app/search/search-button';
 import { siteMetadata } from '@/config/site';
 import Link from '@/components/Link';
+import { useScroll } from '../ScrollContext';
 
 export const Header = ({
   className=''
@@ -16,6 +17,7 @@ export const Header = ({
 }) => {
   const [lastScrollTop, setLastScrollTop] = useState(0)
   const [headerVisible, setHeaderVisible] = useState(true)
+  // const { scrollY } = useScroll();
   const [isScrolled, setScrolled] = useState(false)
   const triggerHeight = 100
   // mount initial scroll position
@@ -26,10 +28,10 @@ export const Header = ({
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY || document.documentElement.scrollTop
-      if (scrollTop > lastScrollTop) {
-        setHeaderVisible(false)
-      } else {
-        setHeaderVisible(true)
+      if (scrollTop > lastScrollTop) { // 如果现在距离顶部的位置大于上一次距离顶部的位置那么, 说明在向下滚动
+        setHeaderVisible(false) // 向下滚动时隐藏 Header
+      } else { 
+        setHeaderVisible(true) // 向上滚动时显示 Header
       }
       setLastScrollTop(scrollTop <= 0 ? 0 : scrollTop)
       setScrolled(scrollTop > triggerHeight)
@@ -40,30 +42,32 @@ export const Header = ({
       window.removeEventListener('scroll', handleScroll)
     }
   }, [lastScrollTop])
-  const isVisble = ()=> headerVisible || !isScrolled
+  const isView = ()=> headerVisible || !isScrolled
 
   return <>
   <motion.header className={`px-4  rounded-md mx-auto bg-background/0 backdrop-blur supports-[backdrop-filter]:bg-background/10 ${isScrolled ? 'shadow-md' : ''} dark:shadow-gray-800 ${siteMetadata.stickyNav? 'sticky  top-0 z-50' : ''} 
   ${className}`} 
   // ${siteMetadata.stickyNav? 'sticky  top-0 z-50' : ''}
-  initial={{ width: '100%' }} animate={{
-          width: isScrolled ? '90%' : '100%',
-          top: isVisble() ? '' : '-60px',
-        }}
-        transition={{ duration: 0.5 }}
+    initial={{ width: '100%' }} 
+    animate={{
+      width: isScrolled ? '90%' : '100%',
+      top: isView() ? '' : '-60px',
+    }}
+    transition={{ duration: 0.5 }}
   >
     <div className='flex items-center justify-between h-12'>
     <section >
       <div></div>
-      <section className='mr-4 hidden md:flex'>
-        
+      {/* <section className='mr-4 hidden md:flex'> */}
+      <section className='mr-4 flex'>
       <Link href="/" aria-label={siteMetadata.headerTitle} className='mr-4 flex items-center gap-2 lg:mr-6'>
         <div className="flex items-center justify-between">
           {/* <div className="mr-3">
             <Logo />
           </div> */}
           {typeof siteMetadata.headerTitle === 'string' ? (
-            <div className="hidden h-6 text-2xl leading-6 font-semibold sm:block">
+            // <div className="hidden h-6 text-2xl leading-6 font-semibold sm:block">
+            <div className=" h-6 text-2xl leading-6 font-semibold ">
               {siteMetadata.headerTitle}
             </div>
           ) : (

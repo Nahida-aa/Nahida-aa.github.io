@@ -14,6 +14,8 @@ import { Suspense } from "react";
 import { LoadingS } from "@/components/ui/loading/Loading";
 import Footer from "@/components/layout/Footer";
 import { EnhancedSearchModal } from "./search/enhanced-search-modal";
+import { BackToTop } from "@/components/layout/backToTop";
+import { ScrollProvider } from "@/components/layout/ScrollContext";
 
 export const metadata: Metadata = {
   title: {
@@ -47,6 +49,8 @@ export default async function RootLayout({
           "min-h-screen  bg-background font-sans antialiased",
         )}
       ><Suspense fallback={<LoadingS />}>
+        <ScrollProvider>
+          
         <Providers attribute="class" defaultTheme="dark" >
         <SearchProvider>
         <section className="flex  items-center pb-[30vh] -mb-[30vh] h-gradient "></section>
@@ -63,7 +67,10 @@ export default async function RootLayout({
             </SidebarProvider>
             <section className="w-full text-amber-100/70 !max-w-none prose dark:prose-invert text-center pt-[20vh] -mt-[20vh] f-gradient" ></section>
         </SearchProvider>
+
         </Providers>
+        <BackToTop />
+        </ScrollProvider>
       </Suspense>
       </body>
     </html>

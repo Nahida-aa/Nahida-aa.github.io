@@ -15,3 +15,24 @@
     /* scrollbar-color: hsl(var(--border)) hsl(240 6% 10); */
     scrollbar-color: hsl(var(--border)) transparent;
 }
+
+.back-to-top {
+	position: fixed;
+	z-index: 2;
+    right: -108px; /* 初始隐藏 */
+	bottom: 0;
+	width: 108px;
+	height: 150px;
+	background: url("/back-to-top.png?v=1") no-repeat 0 0;
+	background-size: 108px 450px;
+	opacity: 0.6;
+	transition: opacity 0.3s, right 0.8s;
+	cursor: pointer;
+}
+.back-to-top:hover {
+    background-position: 0 -150px;
+    opacity: 1;
+}
+.back-to-top.visible {
+    right: 0; /* 滑动到可见位置 */
+}

@@ -79,6 +79,10 @@
         color: inherit;
       }
     }
+    pre foreignObject p:is(.dark *) {
+      /* @apply ; */
+      color: rgb(38 38 38 / var(--tw-text-opacity, 1));
+    }
   }
 }
 

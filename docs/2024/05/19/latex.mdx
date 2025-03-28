@@ -1,0 +1,77 @@
+---
+title: Latex
+description: LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。
+created_at: 2024-05-19T19:35:46Z
+updated_at: 2025-03-28T19:35:46Z
+tags: []
+---
+
+## 基本结构
+
+一个简单的 LaTeX 文档通常包含以下结构：
+
+```latex
+\documentclass{article} % 文档类型
+\usepackage{amsmath}    % 数学公式支持
+\begin{document}
+
+\section{引言}
+这是一个简单的 LaTeX 示例。
+
+\subsection{数学公式}
+以下是一个数学公式示例：
+\[
+E = mc^2
+\]
+
+\end{document}
+```
+
+## 数学公式
+
+LaTeX 对数学公式的支持非常强大。以下是一些常见的公式示例：
+
+行内公式：
+```latex
+这是一个行内公式 $a^2 + b^2 = c^2$。
+```
+
+块级公式：
+```latex
+\[
+\int_a^b f(x) \, dx = F(b) - F(a)
+\]
+```
+
+### 希腊字母
+```latex
+\alpha, \beta, \gamma, \delta, \epsilon, \pi, \sigma
+```
+
+## 表格
+
+使用 `tabular` 环境可以创建表格：
+
+```latex
+\begin{tabular}{|c|c|c|}
+\hline
+列1 & 列2 & 列3 \\
+\hline
+数据1 & 数据2 & 数据3 \\
+\hline
+\end{tabular}
+```
+
+## 插入图片
+
+使用 `graphicx` 包可以插入图片：
+
+```latex
+\usepackage{graphicx}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.5\textwidth]{example.png}
+\caption{示例图片}
+\end{figure}
+```

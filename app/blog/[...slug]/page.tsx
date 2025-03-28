@@ -7,7 +7,10 @@ import { title } from '@/components/primitives';
 
 export const generateStaticParams = async() => {
   const params: { slug: string[] }[] = [
+    {slug: ['2025', '03', '25', 'alg.mdx']},
     {slug: ['2025', '03', '26', 'bfs.mdx']},
+    {slug: ['2025', '03', '27', 'dfs.mdx']},
+    {slug: ['2025', '03', '28', 'Union-Find.mdx']},
   ];
   return params
 }

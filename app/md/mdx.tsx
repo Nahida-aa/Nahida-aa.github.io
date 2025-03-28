@@ -22,6 +22,8 @@ import rehypeMathjax from 'rehype-mathjax'
 // import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 // import rehypeSlug from 'rehype-slug';
 import { SerializeOptions } from 'node_modules/next-mdx-remote/dist/types';
+import remarkMermaid from 'remark-mermaidjs'
+import rehypeMermaid from 'rehype-mermaid'
 import mdxErrorHandler from './plugins/error-handler';
 import rehypeCallouts from 'rehype-callouts'
 import remarkBreaks from 'remark-breaks'
@@ -62,10 +64,12 @@ export async function CustomMDX(props: MDXRemoteProps) {
         // remarkHeadings, // 提前 标题, 但是 compileMDX 不支持 返回 别的 内容: ...rest 为空
         remarkMath, // 将 math 标记为 code and pre/code
         // remarkMark
+        // remarkMermaid,
         
       ],
       rehypePlugins: [ // 处理 html 插件
         rehypeCallouts,
+        // rehypeMermaid,
         [rehypePrettyCode, rehypePrettyCode_options],
         // rehypeAutolinkHeadings, // 不知道为什么不起作用, 然后自己实现
         // rehypeSlug, // 为标题添加 id 貌似 不需要, 因为我自定义组件时实现了, 自定义组件保证 id 的正确性
