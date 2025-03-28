@@ -59,7 +59,6 @@ export async function CustomMDX(props: MDXRemoteProps) {
       // jsx: true,
       remarkPlugins: [  // 处理 md 插件, remarkRehype: Transform to HTML AST
         // mdxErrorHandler,
-        
         remarkGfm,
         // remarkBreaks,// 处理换行符
         // remarkHeadings, // 提前 标题, 但是 compileMDX 不支持 返回 别的 内容: ...rest 为空
@@ -80,6 +79,9 @@ export async function CustomMDX(props: MDXRemoteProps) {
         // 下面的插件必须最后使用
         // rehypeMdxCodeProps
       ],
+      remarkRehypeOptions: {
+        passThrough: ["mdxJsxTextElement"], // 允许通过 mdxJsxTextElement 节点
+      },
       format: props.options?.mdxOptions?.format || 'mdx', // 'mdx' or 'md'
       // format: 'md', // 'mdx' or 'md'
     },
