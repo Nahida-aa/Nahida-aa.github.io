@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 // import { ModeToggleGradientIconV0 } from '@/components/common/mode-toggle';
 // import { SearchModalButton } from '@/components/common/search';
 import { SearchButton } from '@/app/search/search-button';
-import { siteMetadata } from '@/config/site';
+import { siteMetadata } from '@/app/config/site';
 import Link from '@/components/Link';
 import { useScroll } from '../ScrollContext';
 

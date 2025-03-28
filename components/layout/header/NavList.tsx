@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "@/components/Link"
-import { headerNavLinks } from "@/config/site"
+import { headerNavLinks } from "@/app/config/site"
 import { useParams, usePathname } from 'next/navigation'
 
 

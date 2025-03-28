@@ -73,10 +73,13 @@ export const headerNavLinks = [
 ]
 
 export const siteMetadata = {
-  title: 'Nahida-aa',
+  name: "aa'blog",
+  short_name: "aa'blog", // 通常限制在 12 个字符以内（具体长度限制可能因平台而异）, 通常建议避免使用空格，以确保在所有设备和平台上显示一致, 应该能够清晰地传达应用的核心功能或品牌名称, 确保名称在目标用户的设备上是唯一的，避免与其他应用混淆, 某些平台可能对字符类型有限制，建议仅使用字母、数字和少量符号（如 - 或 _）
+  description: 'A blog created with Next.js and Tailwind.css',
+  start_url: '/',
+  title: "aa'blog",
   author: 'Nahida-aa',
   headerTitle: 'Nahida-aa',
-  description: 'A blog created with Next.js and Tailwind.css',
   language: 'en',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',

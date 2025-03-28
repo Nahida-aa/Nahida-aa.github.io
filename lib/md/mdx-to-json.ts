@@ -10,7 +10,7 @@ import remarkHeadings from '@vcarl/remark-headings';
 import { text2slug } from "@/lib/utils/slug"
 import { DocMeta, DocSearchValue, Toc } from "@/app/md/types"
 import { getNavigationList } from "@/lib/md/get";
-import { outputDir } from "@/config/path";
+import { outputDir } from "@/app/config/path";
 
 const DATA_DIR = path.join(process.cwd(), "src",'data')
 const DOCS_DIR = path.join(process.cwd(), "src",'data', 'docs')

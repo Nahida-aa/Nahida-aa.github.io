@@ -2,8 +2,8 @@ import "@/styles/index.css";
 import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 import {Header} from '@/components/layout/header/Header'
-import { Providers } from "@/app/providers";
-import { siteConfig } from "@/config/site";
+import { Providers } from "@/components/providers/providers";
+import { siteConfig } from "@/app/config/site";
 import { myFont } from '@/app/font/font'
 import { SearchProvider } from "./search/search-context";
 import { TailwindBG } from "@/components/layout/bg/tailwind";
