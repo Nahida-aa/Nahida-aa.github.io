@@ -46,8 +46,8 @@ export function useUserEnvironment(): UserEnvironment {
     let os = 'unknown';
     if (userAgent_lower.includes('android')) os = 'Android';
     else if (userAgent_lower.includes('win')) os = 'Windows';
-    else if (userAgent_lower.includes('mac')) os = 'MacOS';
     else if (userAgent_lower.includes('iphone') || userAgent_lower.includes('ipad')) os = 'iOS';
+    else if (userAgent_lower.includes('mac')) os = 'MacOS';
     else if (userAgent_lower.includes('linux')) os = 'Linux';
 
     // 检测浏览器
