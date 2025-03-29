@@ -6,9 +6,10 @@ import { useEffect, useState } from 'react';
 // import { ModeToggleGradientIconV0 } from '@/components/common/mode-toggle';
 // import { SearchModalButton } from '@/components/common/search';
 import { SearchButton } from '@/app/search/search-button';
-import { siteMetadata } from '@/app/config/site';
+import { siteMetadata } from '@/app/settings/site';
 import Link from '@/components/Link';
 import { useScroll } from '../ScrollContext';
+import { SidebarTrigger } from '@/components/ui/sidebar';
 
 export const Header = ({
   className=''
@@ -45,7 +46,7 @@ export const Header = ({
   const isView = ()=> headerVisible || !isScrolled
 
   return <>
-  <motion.header className={`px-4  rounded-md mx-auto bg-background/0 backdrop-blur supports-[backdrop-filter]:bg-background/10 ${isScrolled ? 'shadow-md' : ''} dark:shadow-gray-800 ${siteMetadata.stickyNav? 'sticky  top-0 z-50' : ''} 
+  <motion.header className={`px-2 md:px-4  rounded-md mx-auto bg-background/0 backdrop-blur supports-[backdrop-filter]:bg-background/10 ${isScrolled ? 'shadow-md' : ''} dark:shadow-gray-800 ${siteMetadata.stickyNav? 'sticky  top-0 z-50' : ''} 
   ${className}`} 
   // ${siteMetadata.stickyNav? 'sticky  top-0 z-50' : ''}
     initial={{ width: '100%' }} 
@@ -57,9 +58,9 @@ export const Header = ({
   >
     <div className='flex items-center justify-between h-12'>
     <section >
-      <div></div>
-      {/* <section className='mr-4 hidden md:flex'> */}
-      <section className='mr-4 flex'>
+      <SidebarTrigger className='md:hidden size-10 [&_svg]:size-6' />
+      <section className='mr-4 hidden md:flex'>
+      {/* <section className='mr-4 flex'> */}
       <Link href="/" aria-label={siteMetadata.headerTitle} className='mr-4 flex items-center gap-2 lg:mr-6'>
         <div className="flex items-center justify-between">
           {/* <div className="mr-3">

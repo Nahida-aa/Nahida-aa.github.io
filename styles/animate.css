@@ -15,3 +15,13 @@
     stroke-dashoffset: -295;
   }
 }
+
+/* 按钮的基础样式 */
+.rotate-button {
+  transition: transform 2.3s ease; /* 添加平滑过渡效果 */
+}
+
+/* 鼠标悬停时旋转 */
+.rotate-button:hover {
+  transform: rotate(360deg); /* 旋转 360 度 */
+}

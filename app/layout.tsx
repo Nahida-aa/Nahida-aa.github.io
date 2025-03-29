@@ -3,7 +3,7 @@ import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 import {Header} from '@/components/layout/header/Header'
 import { Providers } from "@/components/providers/providers";
-import { siteConfig } from "@/app/config/site";
+import { siteConfig } from "@/app/settings/site";
 import { myFont } from '@/app/font/font'
 import { SearchProvider } from "./search/search-context";
 import { TailwindBG } from "@/components/layout/bg/tailwind";
@@ -16,6 +16,7 @@ import Footer from "@/components/layout/Footer";
 import { EnhancedSearchModal } from "./search/enhanced-search-modal";
 import { BackToTop } from "@/components/layout/backToTop";
 import { ScrollProvider } from "@/components/layout/ScrollContext";
+import { SidebarConfigProvider } from "./settings/SidebarConfigContext";
 
 export const metadata: Metadata = {
   title: {
@@ -66,8 +67,8 @@ export default async function RootLayout({
         <SearchProvider>
         <section className="flex  items-center pb-[30vh] -mb-[30vh] h-gradient "></section>
           <TailwindBG />
-            <SidebarProvider defaultOpen={false}>
-            <AppSidebar locale={"zh"} />
+            <SidebarConfigProvider>
+            <AppSidebar  />
             <SidebarInset className=' justify-between bg-transparent'>
               <Header  />
               {children}
@@ -75,7 +76,7 @@ export default async function RootLayout({
               <EnhancedSearchModal />
               <Footer />
             </SidebarInset>
-            </SidebarProvider>
+            </SidebarConfigProvider>
             <section className="w-full text-amber-100/70 !max-w-none prose dark:prose-invert text-center pt-[20vh] -mt-[20vh] f-gradient" ></section>
         </SearchProvider>
 

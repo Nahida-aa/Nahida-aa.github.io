@@ -1,30 +1,10 @@
+import { FileClock, FileUserIcon, House, LinkIcon, TagsIcon } from "lucide-react";
+
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
   name: "aa'blog",
   description: "Make beautiful websites regardless of your design experience.",
-  navItems: [
-    {
-      label: "Home",
-      href: "/",
-    },
-    {
-      label: "Docs",
-      href: "/docs",
-    },
-    {
-      label: "Pricing",
-      href: "/pricing",
-    },
-    {
-      label: "Blog",
-      href: "/blog",
-    },
-    {
-      label: "About",
-      href: "/about",
-    },
-  ],
   navMenuItems: [
     {
       label: "Profile",
@@ -67,9 +47,21 @@ export const siteConfig = {
     sponsor: "https://patreon.com/jrgarciadev",
   },
 };
-export const headerNavLinks = [
-  { href: '/blog', title: 'Blog' },
-  { href: '/about', title: 'About' },
+
+export const navItems = [
+  {label: "Home",href: "/", icon: House},
+  { href: '/blog', label: 'Blog', icon: FileClock },
+  { href: '/tags', label: 'Tags', icon: TagsIcon },
+  { href: '/friend', label: 'Friend', icon: LinkIcon },
+  { href: '/about', label: 'About', icon: FileUserIcon },
+  // {
+  //   label: "Docs",
+  //   href: "/docs",
+  // },
+  // {
+  //   label: "Pricing",
+  //   href: "/pricing",
+  // },
 ]
 
 export const siteMetadata = {

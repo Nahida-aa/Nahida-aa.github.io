@@ -20,6 +20,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/manifest.ts"],
-  "exclude": ["node_modules",".next",".vscode"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".vscode/manifest.ts"],
+  "exclude": ["node_modules",".next"]
 }

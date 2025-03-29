@@ -1,4 +1,4 @@
-// "use client"
+"use client"
 import * as React from "react"
 
 import { SearchForm } from "@/components/common/search-form"
@@ -15,6 +15,7 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
   SidebarRail,
+  useSidebar, 
 } from "@/components/ui/sidebar"
 import {ScrollShadow} from "@heroui/scroll-shadow";
 import type { NavNode } from "@/lib/md/get";
@@ -23,41 +24,59 @@ import { ContentNavTree } from "./nav-tree";
 import { Button } from "@/components/ui/button";
 import { Settings } from "lucide-react";
 import { ModeToggleGradientIcon } from "@/components/common/ModeToggle";
+import Link from "@/components/Link"
+import { SettingsIcon } from "@/components/common/button"
+import { navItems } from "@/app/settings/site"
+import { usePathname } from "next/navigation"
+import { useSidebarConfig } from "@/app/settings/SidebarConfigContext"
 
-const types = ["docs"]
+
+const sides = ["docs"]
 
 type AppSidebarProps = React.ComponentProps<typeof Sidebar> & {
-  locale: string
+
 }
-export async function AppSidebar({ locale, ...props }: AppSidebarProps) {
+export function AppSidebar({...props }: AppSidebarProps) {
+  const { sidebarConfig } = useSidebarConfig()
+  const { side, variant, collapsible } = sidebarConfig
+  const {state} = useSidebar()
+  const pathname = usePathname()
   // const cookieStore = await cookies()
   // const type = cookieStore.get('type')?.value || types[0]
-  const type = types[0]
-  console.log("AppSidebar: ", locale, type)
-  const navTreeObj = {} as { [key: string]: NavNode[] }
-  // for (const type of types) {
-  //   // navTreeObj[type] = await import(`@/../public/data/${locale}/${type}/index.json`)
-  //   navTreeObj[type] = (await import(`@/public/data/${locale}/nav.json`)).default as NavNode[]
-  // }
-  const currentNavTree = navTreeObj[type]
   return (
-    <Sidebar {...props} className="Sidebar bg-transparent justify-between">
+    <Sidebar {...props} side={side} variant={variant} collapsible={collapsible} className="Sidebar bg-transparent justify-between h-screen">
       <SidebarHeader>
         <SideSwitcher
-          list={types}
-          defaultItem={types[0]}
+          list={sides}
+          defaultItem={sides[0]}
         />
         {/* <SearchForm /> */}
       </SidebarHeader>
       <ScrollShadow hideScrollBar className="h-full" >
         <SidebarContent>
           {/* We create a SidebarGroup for each parent. */}
-          <ContentNavTree currentNavTree={currentNavTree} />
-            
+          {/* <ContentNavTree currentNavTree={currentNavTree} /> */}
+          <SidebarGroup>
+          <SidebarGroupLabel>Nav</SidebarGroupLabel>
+          <SidebarGroupContent>
+            <SidebarMenu>
+              {navItems.map((item) => (
+                <SidebarMenuItem key={item.label}>
+                  <SidebarMenuButton asChild>
+                    <Link href={item.href} title={item.label} >
+                      <item.icon className={`${pathname === item.href ? 'text-primary' : ''} `} />
+                      <span className={`${pathname === item.href ? 'gradient' : ''}`}>{item.label}</span>
+                    </Link>
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              ))}
+            </SidebarMenu>
+          </SidebarGroupContent>
+          </SidebarGroup>
         </SidebarContent>
       </ScrollShadow>
       <SidebarFooter>
-      <SidebarMenu className='flex-row justify-between'>
+      <SidebarMenu className={`flex-col ${collapsible=="none" ||state==="expanded"? "flex-row": ""} justify-between`}>
           <SidebarMenuItem className="flex items-center">
             {/* <SidebarMenuButton asChild 
             // onClick={() => {
@@ -67,13 +86,16 @@ export async function AppSidebar({ locale, ...props }: AppSidebarProps) {
             //   }}
             </SidebarMenuButton>
             > */}
-              <button  className='flex size-10 h-10 [&_svg]:size-5 items-center justify-center p-1.5'>
-              <Settings />
+              <button  className='flex size-8 h-8 [&_svg]:size-5 items-center justify-center p-1.5'>
+                <Link href={'/settings'}>
+              {/* <Settings className="rotate-button" /> */}
+              <SettingsIcon />
+                </Link>
               </button>
           </SidebarMenuItem>
           <SidebarMenuItem>
             {/* <SidebarMenuButton asChild> */}
-              <ModeToggleGradientIcon  className='size-10 active:bg-sidebar-accent [&_svg]:size-5' />
+              <ModeToggleGradientIcon  className='size-8  [&_svg]:size-5' />
             {/* </SidebarMenuButton> */}
           </SidebarMenuItem>
         </SidebarMenu>

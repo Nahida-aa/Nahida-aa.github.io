@@ -24,6 +24,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip"
+import { defaultConfig } from "@/app/settings/SidebarConfigContext"
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -63,7 +64,8 @@ const SidebarProvider = React.forwardRef<
 >(
   (
     {
-      defaultOpen = true,
+      // defaultOpen = true,
+      defaultOpen = defaultConfig.defaultOpen,
       open: openProp,
       onOpenChange: setOpenProp,
       className,
@@ -172,9 +174,10 @@ const Sidebar = React.forwardRef<
 >(
   (
     {
-      side = "left",
+      side = defaultConfig.side,
       variant = "sidebar",
-      collapsible = "offcanvas",
+      // collapsible = "offcanvas",
+      collapsible = defaultConfig.collapsible,
       className,
       children,
       ...props

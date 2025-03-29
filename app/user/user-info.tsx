@@ -32,8 +32,8 @@ export const UserInfo = (
   // }, []); // 添加依赖项，确保在 `userInfoCodeTs` 变化时重新执行
 
   return (
-    <div className={props.className}>
-      <pre className='w-full overflow-auto'>
+    <div className={`mx-2 max-w-full ${props.className}`}>
+      <pre className='mx-2 overflow-auto overflow-x-auto'>
         {JSON.stringify(userEnvironment, null, 2)}
       </pre>
     </div>
