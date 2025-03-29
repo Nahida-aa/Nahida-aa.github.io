@@ -80,14 +80,13 @@ export const siteMetadata = {
   title: "aa'blog",
   author: 'Nahida-aa',
   headerTitle: 'Nahida-aa',
-  language: 'en',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
   siteRepo: 'https://github.com/Nahida-aa/Nahida-aa.github.io',
   siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
   mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'address@yoursite.com',
+  email: '1276552337@qq.com',
   github: 'https://github.com/Nahida-aa',
   x: 'https://twitter.com/x',
   twitter: 'https://twitter.com/Twitter',
@@ -96,6 +95,7 @@ export const siteMetadata = {
   linkedin: 'https://www.linkedin.com',
   threads: 'https://www.threads.net',
   instagram: 'https://www.instagram.com',
+  language: 'en',
   locale: 'en-US',
   // set to true if you want a navbar fixed to the top
   stickyNav: true,

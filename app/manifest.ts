@@ -1,7 +1,8 @@
 import type { MetadataRoute } from 'next'
-import { siteMetadata } from './config/site'
+import { siteMetadata } from '@/app/config/site'
 
 export const dynamic = "force-static"
+export const revalidate = 60; // 每 60 秒重新生成一次
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: siteMetadata.name,

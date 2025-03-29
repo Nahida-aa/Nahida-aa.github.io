@@ -49,6 +49,7 @@ const nextConfig = {
   // webpack: (config, { isServer }) => {
   //   return config
   // },
+
   // async headers() { // export 时不支持 headers
   //   return [
   //     {
@@ -87,6 +88,7 @@ const nextConfig = {
   //     },
   //   ]
   // },
+
   transpilePackages: ['next-mdx-remote'],
 };
 

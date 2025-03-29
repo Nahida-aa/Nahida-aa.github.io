@@ -44,6 +44,7 @@ export default async function RootLayout({
   return (
     <html suppressHydrationWarning lang='zh' className={`scroll-smooth ${ myFont.className}`} >
       <head>
+        {/* <link rel="manifest" href={`/manifest.webmanifest`} /> */}
         {/* iOS 图标 */}
         <link rel="apple-touch-icon" sizes="120x120" href="/favicons/Nahida-120-r.png" />
         <link rel="apple-touch-icon" sizes="152x152" href="/favicons/Nahida-152-r.png" />
