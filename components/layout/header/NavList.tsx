@@ -1,20 +1,20 @@
 "use client"
 
 import Link from "@/components/Link"
-import { navItems } from "@/app/settings/site"
+import { headNavItems, navItems } from "@/app/settings/site"
 import { useParams, usePathname } from 'next/navigation'
 
 
 export const NavList = () => {
   const pathname = usePathname()
   return <>
-    {navItems.map((link) => (
+    {headNavItems.map((item) => (
       <Link
-        key={link.label}
-        href={link.href}
-        className={`block font-medium text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400 ${pathname === link.href ? 'gradient' : ''}`}
+        key={item.label}
+        href={item.href}
+        className={`block font-medium text-gray-900 hover:text-primary-500 dark:text-gray-100 dark:hover:text-primary-400 ${pathname === item.href ? 'gradient' : ''}`}
       >
-        {link.label}
+        {item.label}
       </Link>))}
   </>
 }

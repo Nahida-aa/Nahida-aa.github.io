@@ -47,7 +47,12 @@ export const siteConfig = {
     sponsor: "https://patreon.com/jrgarciadev",
   },
 };
-
+export const headNavItems = [
+  { href: '/blog', label: 'Blog' },
+  { href: '/tags', label: 'Tags' },
+  { href: '/friend', label: 'Friend' },
+  { href: '/about', label: 'About' },
+]
 export const navItems = [
   {label: "Home",href: "/", icon: House},
   { href: '/blog', label: 'Blog', icon: FileClock },
