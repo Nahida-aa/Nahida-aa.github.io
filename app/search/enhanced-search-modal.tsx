@@ -46,6 +46,7 @@ export function EnhancedSearchModal() {
 
   // 关键词防抖
   useEffect(() => {
+    console.log("searchKeyword:", searchKeyword)
     const timer = setTimeout(() => {
       setDebouncedKeyword(searchKeyword)
       setPage(1) // 重置页码
@@ -73,6 +74,7 @@ export function EnhancedSearchModal() {
           locale: locale !== "all" ? locale : undefined,
           tags: selectedTags.length > 0 ? selectedTags : undefined,
         }
+        console.log("searchOptions:", searchOptions)
 
         const results = await searchClient.search(searchOptions)
         setResults(results)
@@ -86,9 +88,9 @@ export function EnhancedSearchModal() {
     performSearch()
   }, [debouncedKeyword, page, locale, sortBy, sortOrder, selectedTags])
 
-  const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSearchKeyword(e.target.value)
-  }
+  // const handleSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setSearchKeyword(e.target.value)
+  // }
 
   const handlePageChange = (newPage: number) => {
     setPage(newPage)

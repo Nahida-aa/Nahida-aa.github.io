@@ -49,7 +49,7 @@ export const DocsToc = ({ toc }: DocsTocProps) => {
   }, [activeSlug]);
   // 生成标题序号
   const generateHeadingNumbers = (toc: Toc[]) => {
-    console.log("generateHeadingNumbers: ", toc)
+    // console.log("generateHeadingNumbers: ", toc)
     const counters: number[] = []; // 用于记录每个层级的计数器
     return toc.map((item) => {
       const { depth } = item;

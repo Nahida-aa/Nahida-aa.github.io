@@ -1,10 +1,20 @@
 ---
 title: Union-Find
-description: "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 是一种用于处理动态连通性问题的数据结构。"
+description: "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 并查集通常实现为一个森林，其中每棵树表示一个集合 是一种用于处理动态连通性问题的数据结构。"
 created_at: 2025-03-28T19:28:35Z
-updated_at: 2025-03-28T19:28:35Z
+updated_at: 2025-03-30T02:10:58Z
 tags: [alg,tree]
 ---
+
+```mermaid
+graph BT
+    2((2)) -->  1((1))
+    3((3)) -->  1
+    4((4)) -->  3
+    5((5)) -->  3
+    8((8)) -->  7((7))
+    7 -->  6((6))
+```
 
 ## overview
 

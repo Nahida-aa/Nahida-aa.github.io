@@ -42,7 +42,7 @@ class SearchClient {
   // 获取文档数据
   private async fetchDocuments(): Promise<any[]> {
     try {
-      const response = await fetch(`/blog/index.json`)
+      const response = await fetch(`/data/index.json`)
       if (!response.ok) {
         throw new Error(`Failed to fetch documents: ${response.statusText}`)
       }

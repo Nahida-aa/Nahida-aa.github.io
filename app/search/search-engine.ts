@@ -1,5 +1,10 @@
 import Fuse, { IFuseOptions } from "fuse.js"
 import type { IndexedDocument, SearchOptions, SearchResults, SearchResultItem } from "./types"
+// import { cut } from "jieba-js";
+
+// const tokenize = async (text: string): Promise<string[]> => {
+//   return cut(text); // 使用 jieba-js 分词
+// };
 
 export class SearchEngine {
   private fuse: Fuse<IndexedDocument>
@@ -13,15 +18,23 @@ export class SearchEngine {
       includeScore: true,
       includeMatches: true,
       threshold: 0.3,
+      ignoreLocation: true, // 忽略位置，这对中文搜索很重要
       location: 0,
-      distance: 100,
+      distance: 200,
       minMatchCharLength: 2,
       keys: [
         { name: "title", weight: 2 },
         { name: "description", weight: 1.5 },
-        { name: "content", weight: 1 },
+        { name: "content", weight: 1.5 },
         { name: "tags", weight: 1.5 },
       ],
+      // getFn: (obj, path) => {
+      //   const value = Fuse.config.getFn(obj, path);
+      //   if (typeof value === "string") {
+      //     return tokenize(value); // 对字段内容进行分词
+      //   }
+      //   return value;
+      // },
     }
 
     this.fuse = new Fuse(this.documents, options)
@@ -57,7 +70,8 @@ export class SearchEngine {
 
     // 执行搜索
     let results = this.fuse.search(query)
-
+    // 在搜索时打印 Fuse.js 返回的原始结果，检查是否有匹配但被过滤掉的情况
+    console.log("Raw search results:", results);
     // 应用过滤器
     if (locale) {
       results = results.filter((result) => result.item.locale === locale)
