@@ -1,3 +1,4 @@
+import { DiscordIcon } from '../icons'
 import {
   Mail,
   Github,
@@ -9,19 +10,22 @@ import {
   Mastodon,
   Threads,
   Instagram,
+  Bilibili,
+  QQ,
 } from './icons'
 
 const components = {
   mail: Mail,
   github: Github,
+  discord: DiscordIcon,
+  bilibili: Bilibili,
   facebook: Facebook,
   youtube: Youtube,
   linkedin: Linkedin,
   twitter: Twitter,
-  x: X,
+  qq: QQ,x: X,
   mastodon: Mastodon,
-  threads: Threads,
-  instagram: Instagram,
+  threads: Threads,instagram: Instagram,
 }
 
 type SocialIconProps = {

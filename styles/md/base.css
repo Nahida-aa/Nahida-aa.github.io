@@ -9,6 +9,7 @@
     border-bottom: none; /* 去掉下划线 */
     @apply hover:bg-transparent hover:shadow-none;
   }
+  p>img,
   p>a>img{
     @apply inline-block;
   }

@@ -70,28 +70,31 @@ export const navItems = [
 ]
 
 export const siteMetadata = {
-  name: "aa'blog",
-  short_name: "aa'blog", // 通常限制在 12 个字符以内（具体长度限制可能因平台而异）, 通常建议避免使用空格，以确保在所有设备和平台上显示一致, 应该能够清晰地传达应用的核心功能或品牌名称, 确保名称在目标用户的设备上是唯一的，避免与其他应用混淆, 某些平台可能对字符类型有限制，建议仅使用字母、数字和少量符号（如 - 或 _）
-  description: 'A blog created with Next.js and Tailwind.css',
+  name: "Nahida-aaの次元",
+  short_name: "aa'次元", // 通常限制在 12 个字符以内（具体长度限制可能因平台而异）, 通常建议避免使用空格，以确保在所有设备和平台上显示一致, 应该能够清晰地传达应用的核心功能或品牌名称, 确保名称在目标用户的设备上是唯一的，避免与其他应用混淆, 某些平台可能对字符类型有限制，建议仅使用字母、数字和少量符号（如 - 或 _）
+  description: '探索数学、 生物、 算法、统计、机器学习、AI 和 Web 开发的精彩世界。',
   start_url: '/',
-  title: "aa'blog",
+  title: "Nahida-aaの次元",
   author: 'Nahida-aa',
   headerTitle: 'Nahida-aa',
   theme: 'system', // system, dark or light
-  siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app',
+  siteUrl: 'https://nahida-aa.org.edu.kg',
   siteRepo: 'https://github.com/Nahida-aa/Nahida-aa.github.io',
-  siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
-  socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
-  mastodon: 'https://mastodon.social/@mastodonuser',
+  siteLogo: `${process.env.BASE_PATH || ''}/favicon.ico`,
+  // socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
+  mastodon: 'https://mastodon.social/@mastodonuser',// 去中心化的社交媒体平台，类似于 Twitter，但它的架构和运行方式与传统的社交媒体平台（如 Twitter 或 Facebook）有很大的不同, Mastodon 是开源的，任何人都可以搭建自己的 Mastodon 实例， 注册 fosstodon.org（专注于开源和技术）
   email: '1276552337@qq.com',
   github: 'https://github.com/Nahida-aa',
-  x: 'https://twitter.com/x',
-  twitter: 'https://twitter.com/Twitter',
-  facebook: 'https://facebook.com',
+  discord: 'https://discord.gg/HteSse7r',
+  qq: 'https://qm.qq.com/q/LxsjVU2C8G',
+  x: 'https://x.com/aaNahida190631', // 马斯克长期以来的愿景，他希望将 Twitter 转变为一个多功能的超级应用（类似于中国的微信）
+  // twitter: 'https://twitter.com/aaNahida190631',
+  // facebook: 'https://facebook.com',
+  bilibili: 'https://space.bilibili.com/2140306819',
   youtube: 'https://youtube.com',
   linkedin: 'https://www.linkedin.com',
-  threads: 'https://www.threads.net',
-  instagram: 'https://www.instagram.com',
+  instagram: 'https://www.instagram.com', // 用户的 Instagram 关注列表可以直接同步到 Threads
+  threads: 'https://www.threads.net', // Threads 是由 Meta（Facebook 的母公司） 开发的一款社交媒体应用，主要用于文本内容的分享和互动。它被视为 Twitter（现称 X） 的竞争对手，旨在提供一个以文字为主的社交平台
   language: 'en',
   locale: 'en-US',
   // set to true if you want a navbar fixed to the top
@@ -158,7 +161,7 @@ export const siteMetadata = {
   search: {
     provider: 'kbar', // kbar or algolia
     kbarConfig: {
-      searchDocumentsPath: `${process.env.BASE_PATH || ''}/search.json`, // path to load documents to search
+      searchDocumentsPath: `${process.env.BASE_PATH || ''}/data/index.json`, // path to load documents to search
     },
     // provider: 'algolia',
     // algoliaConfig: {

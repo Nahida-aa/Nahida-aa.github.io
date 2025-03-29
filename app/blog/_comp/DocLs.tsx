@@ -10,7 +10,7 @@ export const DocLs = ({allDocs}:{
   allDocs: DocSearchValue[]
 }) => {
   return <Table hideHeader isVirtualized maxTableHeight={800}  aria-label="Blog List" className="bg-transparent Table" classNames={{
-    wrapper: "p-0 bg-transparent ",
+    wrapper: "p-0 bg-transparent shadow-none",
     // td: "",
   }}
   >
@@ -20,8 +20,8 @@ export const DocLs = ({allDocs}:{
         <TableBody items={allDocs} className="bg-transparent TableBody">
           {(item) => (
             <TableRow key={item.slug} className="TableRow">
-              <TableCell className="TableCell">
-                <Card className="p-1">
+              <TableCell className="TableCell ">
+                <Card className="p-1 bg-card/20 backdrop-blur-md  border-none border-0 shadow-none">
                   <CardHeader className="p-4 flex-row items-center justify-between gap-2">
                     <Link href={item.url} className={`text-lg leading-none  !inline-block !border-b-0 `}>
                     {item.title}
