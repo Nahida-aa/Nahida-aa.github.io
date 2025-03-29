@@ -20,7 +20,7 @@
       {
         "title": "Union-Find",
         "slug": "2025/03/28/Union-Find.mdx",
-        "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 是一种用于处理动态连通性问题的数据结构。"
+        "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 并查集通常实现为一个森林，其中每棵树表示一个集合 是一种用于处理动态连通性问题的数据结构。"
       }
     ]
   },
@@ -120,7 +120,7 @@
       {
         "title": "Union-Find",
         "slug": "2025/03/28/Union-Find.mdx",
-        "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 是一种用于处理动态连通性问题的数据结构。"
+        "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 并查集通常实现为一个森林，其中每棵树表示一个集合 是一种用于处理动态连通性问题的数据结构。"
       }
     ]
   }

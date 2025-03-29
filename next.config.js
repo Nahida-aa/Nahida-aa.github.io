@@ -44,7 +44,7 @@ const nextConfig = {
   // pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'], // 不支持将 mdx 作为模块导入
   pageExtensions: ['js', 'jsx','ts', 'tsx'], // 不支持将 mdx 作为模块导入
   webpack: (config) => {
-    // 启用 WebAssembly 支持
+    // 启用 WebAssembly 支持 wasm
     config.experiments = { 
       asyncWebAssembly: true,
       layers: true 

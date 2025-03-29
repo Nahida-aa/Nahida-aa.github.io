@@ -29,7 +29,7 @@ export function indexMdxDocuments(mdxDocs: any[]): IndexedDocument[] {
 }
 
 // 清理 Markdown 语法，提取纯文本内容
-function cleanMarkdown(markdown: string): string {
+export const cleanMarkdown = (markdown: string): string => {
   if (!markdown) return ""
 
   return (

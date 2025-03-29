@@ -9,6 +9,7 @@ import path from "path";
 import { getFileWithMetaWithToc } from "./get";
 import matter from "gray-matter";
 import fs from "fs/promises"
+import { cleanMarkdown } from "@/app/search/indexer";
 
 const mdProcessor = unified()
 .use(remarkParse)
@@ -67,7 +68,7 @@ export const path2MdxJson = async (fullPath: string, contentDir: string): Promis
   const { metadata, content, rawContent, toc } = await getFileWithMetaWithToc(fullPath)
   return {
     title: metadata?.title||path2name(relativePath),
-    description: metadata?.description||`${content.slice(0, 17)}...`, // 取前17个字符 如果不够长则是取全部
+    description: metadata?.description||`${cleanMarkdown(content).slice(0, 27)}...`, // 取前17个字符 如果不够长则是取全部
     url: `/blog/${relativePath}`,
     slug: relativePath,
     segments: relativePath.split("/"),

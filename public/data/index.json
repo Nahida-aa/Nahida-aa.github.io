@@ -230,7 +230,7 @@
   },
   {
     "title": "Union-Find",
-    "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 是一种用于处理动态连通性问题的数据结构。",
+    "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 并查集通常实现为一个森林，其中每棵树表示一个集合 是一种用于处理动态连通性问题的数据结构。",
     "url": "/blog/2025/03/28/Union-Find.mdx",
     "slug": "2025/03/28/Union-Find.mdx",
     "segments": [
@@ -242,15 +242,15 @@
     "filePath": "2025/03/28/Union-Find.mdx",
     "meta": {
       "title": "Union-Find",
-      "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 是一种用于处理动态连通性问题的数据结构。",
+      "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 并查集通常实现为一个森林，其中每棵树表示一个集合 是一种用于处理动态连通性问题的数据结构。",
       "created_at": "2025-03-28T19:28:35.000Z",
-      "updated_at": "2025-03-28T19:28:35.000Z",
+      "updated_at": "2025-03-30T02:10:58.000Z",
       "tags": [
         "alg",
         "tree"
       ]
     },
-    "content": "\n## overview\n\n它可以高效地解决以下问题: \n1. 合并 (Union) ：将两个集合合并为一个集合。\n2. 查询 (Find) ：查询某个元素属于哪个集合 (通常通过找到集合的代表元素) \n\n并查集的核心思想是用一个数组表示集合，通过路径压缩和按秩合并优化，使得查询和合并操作的时间复杂度接近常数 (摊还时间复杂度为 $O(\\alpha(n))$，其中 $\\alpha(n)$ 是反阿克曼函数，增长极慢) ",
+    "content": "\n```mermaid\ngraph BT\n    2((2)) -->  1((1))\n    3((3)) -->  1\n    4((4)) -->  3\n    5((5)) -->  3\n    8((8)) -->  7((7))\n    7 -->  6((6))\n```\n\n## overview\n\n它可以高效地解决以下问题: \n1. 合并 (Union) ：将两个集合合并为一个集合。\n2. 查询 (Find) ：查询某个元素属于哪个集合 (通常通过找到集合的代表元素) \n\n并查集的核心思想是用一个数组表示集合，通过路径压缩和按秩合并优化，使得查询和合并操作的时间复杂度接近常数 (摊还时间复杂度为 $O(\\alpha(n))$，其中 $\\alpha(n)$ 是反阿克曼函数，增长极慢) ",
     "toc": [
       {
         "depth": 2,
