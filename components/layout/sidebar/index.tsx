@@ -31,7 +31,7 @@ import { usePathname } from "next/navigation"
 import { useSidebarConfig } from "@/app/settings/SidebarConfigContext"
 
 
-const sides = ["docs"]
+const sides = ["blog"]
 
 type AppSidebarProps = React.ComponentProps<typeof Sidebar> & {
 
@@ -39,7 +39,8 @@ type AppSidebarProps = React.ComponentProps<typeof Sidebar> & {
 export function AppSidebar({...props }: AppSidebarProps) {
   const { sidebarConfig } = useSidebarConfig()
   const { side, variant, collapsible } = sidebarConfig
-  const {state} = useSidebar()
+  const {state, open, openMobile} = useSidebar()
+  console.log("AppSidebar", state, open, openMobile)
   const pathname = usePathname()
   // const cookieStore = await cookies()
   // const type = cookieStore.get('type')?.value || types[0]
@@ -73,10 +74,14 @@ export function AppSidebar({...props }: AppSidebarProps) {
             </SidebarMenu>
           </SidebarGroupContent>
           </SidebarGroup>
+          <SidebarGroup>
+          <SidebarGroupLabel>Tags</SidebarGroupLabel>
+          <SidebarGroupContent></SidebarGroupContent>
+          </SidebarGroup>
         </SidebarContent>
       </ScrollShadow>
       <SidebarFooter>
-      <SidebarMenu className={`flex-col ${collapsible=="none" ||state==="expanded"? "flex-row": ""} justify-between`}>
+      <SidebarMenu className={`flex-col ${collapsible=="none" ||state==="expanded" || openMobile ? "flex-row": ""} justify-between`}>
           <SidebarMenuItem className="flex items-center">
             {/* <SidebarMenuButton asChild 
             // onClick={() => {

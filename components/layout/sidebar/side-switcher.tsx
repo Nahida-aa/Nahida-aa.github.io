@@ -40,7 +40,7 @@ export function SideSwitcher({
                 <GalleryVerticalEnd className="size-4" />
               </div>
               <div className="flex flex-col gap-0.5 leading-none">
-                <span className="font-semibold">Documentation</span>
+                <span className="font-semibold">一段待定文字</span>
                 <span className="">{selectedItem}</span>
               </div>
               <ChevronsUpDown className="ml-auto" />

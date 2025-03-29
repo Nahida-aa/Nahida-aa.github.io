@@ -3,60 +3,94 @@ import { Suspense } from 'react';
 import { LoadingS } from '@/components/ui/loading/Loading';
 import { SidebarConfig, useSidebarConfig } from './SidebarConfigContext';
 import {Select, SelectItem} from "@heroui/select";
+import { DocsToc } from '../md/comp/DocsToc';
+import { Toc } from '../md/types';
 
+const defaultOpenLs = [
+  { label: "Yes", value: true },
+  { label: "No", value: false },
+]
+const sideOptions = [
+  { label: "Left", key: "left" },
+  { label: "Right", key: "right" },
+]
+const variantOptions = [
+  { label: "Sidebar", key: "sidebar" },
+  { label: "Floating", key: "floating" },
+  { label: "Inset", key: "inset" },
+]
+const collapsibleOptions = [
+  { label: "Offcanvas", key: "offcanvas" },
+  { label: "Icon", key: "icon" },
+  { label: "None", key: "none" },
+]
 export default function Page ({
 }: {
 }) {
   const { sidebarConfig, updateSidebarConfig } = useSidebarConfig();
+  const toc:Toc[] = []
   return <Suspense fallback={<LoadingS />}>
-    <h1 className="text-xl font-bold mb-4">Sidebar Settings</h1>
-          {/* Side Option */}
-          <div className="mb-4">
-  <label className="block mb-2 font-medium">Default Open</label>
-  <input
-    type="checkbox"
-    checked={sidebarConfig.defaultOpen}
-    onChange={(e) => updateSidebarConfig({ defaultOpen: e.target.checked })}
-    className="border rounded px-2 py-1"
-  />
-</div>
-    <div className="mb-4">
-        <label className="block mb-2 font-medium">Side</label>
-        <select
-          value={sidebarConfig.side}
-          onChange={(e) => updateSidebarConfig({ side: e.target.value as SidebarConfig["side"] })}
-          className="border rounded px-2 py-1"
-        >
-          <option value="left">Left</option>
-          <option value="right">Right</option>
-        </select>
-      </div>
-          {/* Variant Option */}
-          <div className="mb-4">
-        <label className="block mb-2 font-medium">Variant</label>
-        <select
-          value={sidebarConfig.variant}
-          onChange={(e) => updateSidebarConfig({ variant: e.target.value as SidebarConfig["variant"] })}
-          className="border rounded px-2 py-1"
-        >
-          <option value="sidebar">Sidebar</option>
-          <option value="floating">Floating</option>
-          <option value="inset">Inset</option>
-        </select>
-      </div>
+  <section className='px-4 sm:px-6 w-full min-w-0  flex-1 grid grid-cols-12'>
+    <article className="prose dark:prose-invert  col-span-12 lg:col-span-9 lg:px-4 xl:col-span-9 xl:px-8
+    mx-auto w-full min-w-0 max-w-full ">
+    <h1 className="text-xl font-bold mb-4"> Settings</h1>
+    {/* Side Option */}
+    <Select
+      className="max-w-xs" variant='underlined'
+      label="Default Open" 
+      defaultSelectedKeys={[sidebarConfig.defaultOpen ? "Yes" : "No"]}
+      selectedKeys={[sidebarConfig.defaultOpen ? "Yes" : "No"]}
+      onSelectionChange={(value) => {
+        updateSidebarConfig({ defaultOpen: String(value.currentKey) === "Yes" });
+      }}
+    >
+      {defaultOpenLs.map((item) => (
+        <SelectItem key={item.label}>{item.label}</SelectItem>
+      ))}
+    </Select>
+    {/* Side Option */}
+    <Select
+      className="max-w-xs" variant='underlined'
+      label="Side Option" 
+      defaultSelectedKeys={[sidebarConfig.side || "left"]}
+      selectedKeys={[sidebarConfig.side || "left"]}
+      onSelectionChange={(value) => {
+        updateSidebarConfig({ side: value.currentKey as SidebarConfig["side"] });
+      }}
+    >
+      {sideOptions.map((item) => (
+        <SelectItem key={item.key}>{item.label}</SelectItem>
+      ))}
+    </Select>
 
-      {/* Collapsible Option */}
-      <div className="mb-4">
-        <label className="block mb-2 font-medium">Collapsible</label>
-        <select
-          value={sidebarConfig.collapsible}
-          onChange={(e) => updateSidebarConfig({ collapsible: e.target.value as SidebarConfig["collapsible"] })}
-          className="border rounded px-2 py-1"
-        >
-          <option value="offcanvas">Offcanvas</option>
-          <option value="icon">Icon</option>
-          <option value="none">None</option>
-        </select>
-      </div>
+    {/* Variant Option */}
+    <Select className="max-w-xs" variant='underlined' label="Variant Option"
+      defaultSelectedKeys={[sidebarConfig.variant || "sidebar"]}
+      selectedKeys={[sidebarConfig.variant || "sidebar"]}
+      onSelectionChange={(value) => {
+        updateSidebarConfig({ variant: value.currentKey as SidebarConfig["variant"] });
+      }}
+    >
+      {variantOptions.map((item) => (
+        <SelectItem key={item.key}>{item.label}</SelectItem>
+      ))}
+    </Select>
+    {/* Collapsible Option */}
+    <Select
+      className="max-w-xs" variant='underlined'
+      label="Collapsible Option" 
+      defaultSelectedKeys={[sidebarConfig.collapsible || "none"]}
+      selectedKeys={[sidebarConfig.collapsible || "none"]}
+      onSelectionChange={(value) => {
+        updateSidebarConfig({ collapsible: value.currentKey as SidebarConfig["collapsible"] });
+      }}
+    >
+      {collapsibleOptions.map((item) => (
+        <SelectItem key={item.key}>{item.label}</SelectItem>
+      ))}
+    </Select>
+    </article>
+    <DocsToc toc={toc} />
+  </section>
   </Suspense>
 }
