@@ -1,0 +1,310 @@
+[
+  {
+    "title": "alg",
+    "description": "\n## 算法竞赛学习路线\n算法竞赛...",
+    "url": "/blog/2025/03/25/alg.mdx",
+    "slug": "2025/03/25/alg.mdx",
+    "segments": [
+      "2025",
+      "03",
+      "25",
+      "alg.mdx"
+    ],
+    "filePath": "2025/03/25/alg.mdx",
+    "meta": {
+      "title": "alg",
+      "description": null,
+      "created_at": "2025-03-28T19:55:10.000Z",
+      "updated_at": "2025-03-28T19:55:10.000Z",
+      "tags": [
+        "alg"
+      ]
+    },
+    "content": "\n## 算法竞赛学习路线\n算法竞赛是一个需要扎实的数学基础和编程能力的领域。以下是一个系统的学习路线，帮助你在算法竞赛中取得更好的成绩。\n\n### 基础数据结构\n   - **数组与字符串**：基本操作、滑动窗口、双指针。\n   - **栈与队列**：单调栈、单调队列、优先队列。\n   - **链表**：单链表、双向链表、环形链表。\n   - **哈希表**：哈希映射、哈希集合。\n   - **树与图**：二叉树、二叉搜索树、并查集（如你当前的文档）、图的表示方法（邻接表、邻接矩阵）。\n\n### 算法基础\n   - **排序与搜索**：快速排序、归并排序、二分查找。\n   - **递归与分治**：递归思想、分治法的应用。\n   - **动态规划 (DP)**：背包问题、区间 DP、状态压缩 DP。\n   - **贪心算法**：常见贪心策略及其应用。\n   - **图论算法**：\n     - 最短路径：Dijkstra、Floyd-Warshall、Bellman-Ford。\n     - 最小生成树：Prim、Kruskal。\n     - 拓扑排序、强连通分量 (Tarjan 算法)。\n   - **数学相关算法**：\n     - 数论：快速幂、欧几里得算法、线性筛、模运算。\n     - 组合数学：排列组合、容斥原理、生成函数。\n     - 博弈论：Nim 博弈、SG 函数。\n\n### 高级数据结构\n   - **线段树**：区间查询与修改。\n   - **树状数组**：高效处理前缀和问题。\n   - **字典树 (Trie)**：字符串处理。\n   - **堆**：优先队列的实现。\n   - **并查集**：路径压缩与按秩合并（如你当前文档提到的内容）。\n   - **平衡树**：如 AVL 树、红黑树、Treap。\n\n### 算法竞赛技巧\n   - **代码能力**：熟练掌握 C++ 或 Python 等语言，尤其是 STL（C++）或内置函数（Python）。\n   - **模板积累**：常用算法和数据结构的代码模板。\n   - **题型分类**：熟悉常见题型，如模拟、搜索、动态规划、数学题。\n   - **时间与空间优化**：掌握复杂度分析，避免超时或超内存。\n\n### 学习资源\n   - **书籍**：\n     - 《算法竞赛入门经典》（刘汝佳，《算法竞赛入门经典（第2版）》）。\n     - 《算法导论》（Introduction to Algorithms）。\n     - 《挑战程序设计竞赛》（日文版/中文版）。\n   - **在线平台**：\n     - [LeetCode](https://leetcode.com/)：刷题平台，适合练习算法和数据结构。\n     - [Codeforces](https://codeforces.com/)：算法竞赛平台，适合参加比赛。\n     - [AtCoder](https://atcoder.jp/)：日本的算法竞赛平台。\n     - [洛谷](https://www.luogu.com.cn/)：中文算法竞赛平台。\n   - **视频课程**：\n     - B 站上的算法竞赛课程（如《算法竞赛基础》系列）。\n\n### 训练计划\n   - **初期**：每天刷 2-3 道简单题，熟悉基础数据结构和算法。\n   - **中期**：每天刷 1-2 道中等题，尝试解决动态规划和图论问题。\n   - **后期**：参加虚拟比赛，模拟真实竞赛环境，提升解题速度和准确率。\n\n### 数学与算法结合\n   - 你的数学背景可以帮助你在以下领域更快上手：\n     - 数学建模：动态规划、图论问题。\n     - 数论：快速幂、模运算、线性代数在图论中的应用。\n     - 组合数学：排列组合、概率问题。\n\n通过系统学习和不断练习，你可以快速提升算法竞赛能力！",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "算法竞赛学习路线",
+        "slug": "算法竞赛学习路线"
+      },
+      {
+        "depth": 3,
+        "value": "基础数据结构",
+        "slug": "基础数据结构"
+      },
+      {
+        "depth": 3,
+        "value": "算法基础",
+        "slug": "算法基础"
+      },
+      {
+        "depth": 3,
+        "value": "高级数据结构",
+        "slug": "高级数据结构"
+      },
+      {
+        "depth": 3,
+        "value": "算法竞赛技巧",
+        "slug": "算法竞赛技巧"
+      },
+      {
+        "depth": 3,
+        "value": "学习资源",
+        "slug": "学习资源"
+      },
+      {
+        "depth": 3,
+        "value": "训练计划",
+        "slug": "训练计划"
+      },
+      {
+        "depth": 3,
+        "value": "数学与算法结合",
+        "slug": "数学与算法结合"
+      }
+    ]
+  },
+  {
+    "title": "bfs",
+    "description": "通常是指 广度优先搜索 (Breadth-First Search)，一种经典的图算法，用于遍历或搜索树或图的数据结构",
+    "url": "/blog/2025/03/26/bfs.mdx",
+    "slug": "2025/03/26/bfs.mdx",
+    "segments": [
+      "2025",
+      "03",
+      "26",
+      "bfs.mdx"
+    ],
+    "filePath": "2025/03/26/bfs.mdx",
+    "meta": {
+      "title": "bfs",
+      "description": "通常是指 广度优先搜索 (Breadth-First Search)，一种经典的图算法，用于遍历或搜索树或图的数据结构",
+      "created_at": "2025-03-26T22:29:10.000Z",
+      "updated_at": "2025-03-27T20:40:13.000Z",
+      "tags": [
+        "alg",
+        "bfs"
+      ]
+    },
+    "content": "\n## BFS 思想\n\nBFS 通常是指 广度优先搜索 (Breadth-First Search)，一种经典的图算法，用于遍历或搜索树或图的数据结构。\n\nBFS 的核心是逐层扩展，使用队列存储待访问的节点\n1. 遍历所有相邻节点（如岛屿问题）。\n2. 模拟扩散过程。\n3. 求最短路径。\n\n## leetCode 695. 岛屿的最大面积\n\n[695. 岛屿的最大面积](https://leetcode-cn.com/problems/max-area-of-island/)\n\n给你一个大小为 `m x n` 的二进制矩阵 `grid` 。\n\n岛屿 是由一些相邻的 `1` (代表土地) 构成的组合，这里的「相邻」要求两个 `1` 必须在 水平或者竖直的四个方向上 相邻。你可以假设 `grid` 的四个边缘都被 `0` （代表水）包围着。\n\n岛屿的面积是岛上值为 `1` 的单元格的数目。\n\n计算并返回 `grid` 中最大的岛屿面积。如果没有岛屿，则返回面积为 `0` \n\n**示例 1:**\n![1](https://assets.leetcode.com/uploads/2021/05/01/maxarea1-grid.jpg)\n> **输入:** \n> ```py\n> grid = [[0,0,1,0,0,0,0,1,0,0,0,0,0],\n>         [0,0,0,0,0,0,0,1,1,1,0,0,0],\n>         [0,1,1,0,1,0,0,0,0,0,0,0,0],\n>         [0,1,0,0,1,1,0,0,1,0,1,0,0],\n>         [0,1,0,0,1,1,0,0,1,1,1,0,0],\n>         [0,0,0,0,0,0,0,0,0,0,1,0,0],\n>         [0,0,0,0,0,0,0,1,1,1,0,0,0],\n>         [0,0,0,0,0,0,0,1,1,0,0,0,0]]\n> ```\n> **输出:** 6 <br/>\n> **解释:** 答案不应该是 `11` ，因为岛屿只能包含水平或垂直这四个方向上的 `1` 。\n\n**示例 2:**\n> **输入:** `grid = [[0,0,0,0,0,0,0,0]]{:py}` <br/>\n> **输出:** 0\n\n**提示:**\n- `m == grid.length`\n- `n == grid[i].length`\n- `1 <= m, n <= 50`\n- `grid[i][j]` 为 `0` 或 `1`\n\n```py showLineNumbers\ndef maxAreaOfIsland(self, grid: List[List[int]]) -> int:\n    m, n = len(grid), len(grid[0])\n    # 维护一个结果变量\n    res = 0\n    # 定义一个方向数组\n    d1 = [(0, 1), (0, -1), (1, 0), (-1, 0)]\n    # 遍历每个点\n    for i in range(m):\n        for j in range(n):\n        # 如果当前点是陆地\n        if grid[i][j] == 1:\n            # 将当前点加入队列\n            q = [(i, j)]\n            # 维护当前岛屿的面积\n            area = 1\n            # 将当前点置为 0\n            grid[i][j] = 0\n            # 遍历队列\n            while q:\n                # 取出队列的第一个元素\n                x, y = q.pop(0)\n                # 遍历四个方向\n                for dx, dy in d1:\n                    # 计算新的坐标\n                    nx, ny = x + dx, y + dy\n                    # 如果新的坐标合法\n                    if 0 <= nx < m and 0 <= ny < n and grid[nx][ny]:\n                    # 将新的坐标加入队列\n                    q.append((nx, ny))\n                    # 将新的坐标置为 0\n                    grid[nx][ny] = 0\n                    # 面积加一\n                    area += 1\n            # 更新结果\n            res = max(res, area)\n    return res\n```\n\n## lanqiao 长草\n\nhttps://www.lanqiao.cn/problems/149/learning/?page=1&first_category_id=1&tags=BFS&tag_relation=intersection&difficulty=20\n\n**题目描述**\n\n小明有一块空地，他将这块空地划分为 n 行 m 列的小块，每行和每列的长度都为 1。\n\n小明选了其中的一些小块空地，种上了草，其他小块仍然保持是空地。\n\n这些草长得很快，每个月，草都会向外长出一些，如果一个小块种了草，则它将向自己的上、下、左、右四小块空地扩展，\n\n这四小块空地都将变为有草的小块。请告诉小明, k 个月后空地上哪些地方有草。\n**输入描述**\n\n输入的第一行包含两个整数 n,m。\n\n接下来 n 行，每行包含 m 个字母，表示初始的空地状态，字母之间没有空格。如果为小数点，表示为空地，如果字母为 g, 表示种了草。\n\n接下来包含一个整数 k。 其中, 2≤n,m≤1000, 1≤k≤1000\n**输出描述**\n\n输出 n 行，每行包含 m 个字母，表示 k 个月后空地的状态。如果为小数点，表示为空地，如果字母为 g, 表示长了草。\n**输入输出样例**\n**示例**\n\n>输入\n```\n4 5\n.g...\n.....\n..g..\n.....\n2\n```\n>输出\n```\ngggg.\ngggg.\nggggg\n.ggg.\n```\n**运行限制**\n\n- 最大运行时间: 1s\n- 最大运行内存: 256M\n\n```py showLineNumbers\nimport sys\nfrom collections import deque\ninput = lambda: sys.stdin.readline().strip()\ndef grass_growth(n, m, grid, k):\n    # 定义方向数组（上下左右）\n    d1 = [(-1, 0), (1, 0), (0, -1), (0, 1)]\n    \n    # 初始化队列，找到所有初始种草的格子\n    q = deque()\n    for y in range(n):\n        for x in range(m):\n            if grid[y][x] == 1:\n                print(\"aq\")\n                q.append((y, x))\n    \n    # 模拟 k 个月的扩展\n    for _ in range(k):\n        print('k')\n        for _ in range(len(q)):\n            print('q', len(q))\n            y, x = q.popleft()\n            for dy, dx in d1:\n                ny, nx = y + dy, x + dx\n                # 检查边界条件和是否为空地\n                if 0 <= ny < n and 0 <= nx < m and grid[ny][nx] == 0:\n                    grid[ny][nx] = 1  # 将空地变为草\n                    q.append((ny, nx))\n    \n    # 返回最终的状态\n    return grid\n\nn, m = map(int, input().split())\ngrid = [[0]*m for _ in range(n)]\nprint(grid)\nfor y in range(n):\n    r = input()\n    print(r)\n    for x in range(m):\n        if r[x] == 'g':\n            print('rx==g')\n            grid[y][x] = 1\nprint(grid)\nk = int(input())\nres = grass_growth(n, m, grid, k)\nfor row in res:\n    print(''.join(['g' if x == 1 else '.' for x in row]))\n```\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "BFS 思想",
+        "slug": "bfs-思想"
+      },
+      {
+        "depth": 2,
+        "value": "leetCode 695. 岛屿的最大面积",
+        "slug": "leetcode-695.-岛屿的最大面积"
+      },
+      {
+        "depth": 2,
+        "value": "lanqiao 长草",
+        "slug": "lanqiao-长草"
+      }
+    ]
+  },
+  {
+    "title": "export",
+    "description": "当想要将next.js项目导出为静态网站时, 可以使用next export命令。",
+    "url": "/blog/2025/03/26/export.mdx",
+    "slug": "2025/03/26/export.mdx",
+    "segments": [
+      "2025",
+      "03",
+      "26",
+      "export.mdx"
+    ],
+    "filePath": "2025/03/26/export.mdx",
+    "meta": {
+      "title": "export",
+      "description": "当想要将next.js项目导出为静态网站时, 可以使用next export命令。",
+      "created_at": "2025-03-26T03:42:29.000Z",
+      "updated_at": "2025-03-26T03:42:29.000Z",
+      "tags": [
+        "next",
+        "export",
+        "html"
+      ]
+    },
+    "content": "\n## Unsupported feature\n> 不支持的功能\n\nhttps://nextjs.org/docs/app/building-your-application/deploying/static-exports#unsupported-features\n\nFeatures that require a Node.js server, or dynamic logic that cannot be computed during the build process, are **not** supported:\n> 需要Node.js服务器的功能, 或者在构建过程中无法计算的动态逻辑，**不**支持：\n- Dynamic Routes with `dynamicParams: true`\n- Dynamic Routes without `generateStaticParams()`\n- ...\n\n## 注意\n\n可能不会识别 next.config.ts 导致变成默认配置, 尽量写 next.config.js 或者 next.config.mjs",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "Unsupported feature",
+        "slug": "unsupported-feature"
+      },
+      {
+        "depth": 2,
+        "value": "注意",
+        "slug": "注意"
+      }
+    ]
+  },
+  {
+    "title": "Next PWA",
+    "description": "偶然发现 nextjs15 版本中...",
+    "url": "/blog/2025/03/26/nextPwa.mdx",
+    "slug": "2025/03/26/nextPwa.mdx",
+    "segments": [
+      "2025",
+      "03",
+      "26",
+      "nextPwa.mdx"
+    ],
+    "filePath": "2025/03/26/nextPwa.mdx",
+    "meta": {
+      "title": "Next PWA",
+      "description": null,
+      "created_at": "2025-03-29T05:13:17.000Z",
+      "updated_at": "2025-03-29T05:13:17.000Z",
+      "tags": [
+        "nextjs",
+        "pwa"
+      ]
+    },
+    "content": "偶然发现 nextjs15 版本中内置了对 PWA 的支持, https://nextjs.org/docs/app/building-your-application/configuring/progressive-web-apps\n",
+    "toc": []
+  },
+  {
+    "title": "api",
+    "description": "fastApi vs hono",
+    "url": "/blog/2025/03/27/api.mdx",
+    "slug": "2025/03/27/api.mdx",
+    "segments": [
+      "2025",
+      "03",
+      "27",
+      "api.mdx"
+    ],
+    "filePath": "2025/03/27/api.mdx",
+    "meta": {
+      "title": "api",
+      "description": "fastApi vs hono",
+      "created_at": "2025-03-27T23:15:42.000Z",
+      "updated_at": "2025-03-27T23:15:42.000Z",
+      "tags": [
+        "web",
+        "api"
+      ]
+    },
+    "content": "",
+    "toc": []
+  },
+  {
+    "title": "dfs",
+    "description": "\n## 最大数字 lanqiao ...",
+    "url": "/blog/2025/03/27/dfs.mdx",
+    "slug": "2025/03/27/dfs.mdx",
+    "segments": [
+      "2025",
+      "03",
+      "27",
+      "dfs.mdx"
+    ],
+    "filePath": "2025/03/27/dfs.mdx",
+    "meta": {
+      "title": "dfs",
+      "description": null,
+      "created_at": "2025-03-27T20:41:55.000Z",
+      "updated_at": "2025-03-27T20:41:55.000Z",
+      "tags": [
+        "alg",
+        "dfs"
+      ]
+    },
+    "content": "\n## 最大数字 lanqiao 2193\nhttps://www.lanqiao.cn/problems/2193/learning/?page=1&first_category_id=1&name=%E6%9C%80%E5%A4%A7%E6%95%B0%E5%AD%97\n\n**问题描述**\n\n给定一个正整数 N 。你可以对 N 的任意一位数字执行任意次以下 2 种操 作：\n\n1. 将该位数字加 1 。如果该位数字已经是 9 , 加 1 之后变成 0 。\n\n2. 将该位数字减 1 。如果该位数字已经是 0 , 减 1 之后变成 9 。\n\n你现在总共可以执行 1 号操作不超过 A 次, 2 号操作不超过 B 次。 请问你最大可以将 N 变成多少?\n**输入格式**\n\n第一行包含 3 个整数: N,A,B\n**输出格式**\n\n一个整数代表答案。\n**样例输入**\n```\n123 1 2\n```\n**样例输出**\n```\n933\n```\n**样例说明**\n\n对百位数字执行 2 次 2 号操作, 对十位数字执行 1 次 1 号操作。\n**评测用例规模与约定**\n\n对于 30%30% 的数据, 1≤N≤100; 0≤A,B≤10\n\n对于 100%100% 的数据, 1≤N≤10^17;0≤A,B≤100\n**运行限制**\n\n- 最大运行时间: 1s\n- 最大运行内存: 512M\n\n**思路**: \n1. 贪心: 从左到右, 近可能构造9\n\n```py\nN, A, B = map(int, input().split())\nsN = str(N)\nlenN = len(sN)\nres = 0\n# 当前的贪心策略虽然高效, 但在某些情况下可能无法找到全局最优解\nfor i in range(len(sN)):\n    base = 10 ** (lenN - i - 1)\n    x = int(sN[i])\n    if x != 9:\n        need_add = 9 - x\n        need_sub = x+1\n        if need_add<= A  and (need_add <= need_sub or B < need_sub):\n            A -= need_add\n            res += 9 * base\n        elif need_sub <= B:\n            B -= need_sub\n            res += 9 * base\n        elif 0 < A:\n            res += (x + A) * base\n            A = 0\n        else:\n          res += x * base\n    else:\n        res += x * base\nprint(res)\n```\n\n```py\ndef dfs(i, curr, a, b):\n    global res\n    if  i == lenN:\n        res = max(res, curr)\n        return\n    x = int(sN[i])\n    d = min(9-x, a)\n    dfs(i+1, curr*10+(x+d), a-d, b)\n    if x+1<=b:\n        dfs(i+1, curr*10+9, a, b-(x+1))\ndfs(0, 0, A, B)\n```\n\n## 小朋友崇拜圈 lanqiao 182\n\nhttps://www.lanqiao.cn/problems/182/learning/?page=1&first_category_id=1&name=%E5%B0%8F%E6%9C%8B%E5%8F%8B%E5%B4%87%E6%8B%9C%E5%9C%88\n\n**题目描述**\n\n班里 N 个小朋友，每个人都有自己最崇拜的一个小朋友（也可以是自己）。\n\n在一个游戏中，需要小朋友坐一个圈，每个小朋友都有自己最崇拜的小朋友在他的右手边。\n\n求满足条件的圈最大多少人？\n\n小朋友编号为 1,2,3,⋯N\n**输入描述**\n\n输入第一行，一个整数 `N (3<N<10^5)`\n\n接下来一行 N 个整数，由空格分开。\n**输出描述**\n\n要求输出一个整数，表示满足条件的最大圈的人数。\n**输入输出样例**\n\n示例\n\n>输入\n```\n9\n3 4 2 5 3 8 4 6 9\n```\n\n>输出\n\n```\n4\n```\n\n>样例解释\n\n如下图所示，崇拜关系用箭头表示，红色表示不在圈中。\n\n显然，最大圈是[2 4 5 3] 构成的圈。\n```mermaid\ngraph LR\n    1((1))-->3\n    2((2))-->4\n    3((3))-->2\n    4((4))-->5\n    5((5))-->3\n    6((6))-->8\n    7((7))-->4\n    8((8))-->6\n    9((9))-->9\n```\n运行限制\n\n- 最大运行时间: 1s\n- 最大运行内存: 256M\n\n**分析**\n- 每个节点 `u` 有且仅有一条出边 `u->v`, 给定数组 `g`, `g[u]==v` 表示这条出边\n\n```py showLineNumbers\nimport sys\nsys.setrecursionlimit(10**5)\nn = int(input())\ng = [0]+ list(map(int, input().split()))\nres = 0 \ndct = {}\ndef dfs(u, idx):\n    global res\n    if u in dct:\n        res = max(res, idx - dct[u])\n        return\n    dct[u] = idx\n    dfs(g[u], idx+1)\nfor u in range(1, n+1):\n    dfs(u, 0)\nprint(res)\n```\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "最大数字 lanqiao 2193",
+        "slug": "最大数字-lanqiao-2193"
+      },
+      {
+        "depth": 2,
+        "value": "小朋友崇拜圈 lanqiao 182",
+        "slug": "小朋友崇拜圈-lanqiao-182"
+      }
+    ]
+  },
+  {
+    "title": "Union-Find",
+    "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 是一种用于处理动态连通性问题的数据结构。",
+    "url": "/blog/2025/03/28/Union-Find.mdx",
+    "slug": "2025/03/28/Union-Find.mdx",
+    "segments": [
+      "2025",
+      "03",
+      "28",
+      "Union-Find.mdx"
+    ],
+    "filePath": "2025/03/28/Union-Find.mdx",
+    "meta": {
+      "title": "Union-Find",
+      "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 是一种用于处理动态连通性问题的数据结构。",
+      "created_at": "2025-03-28T19:28:35.000Z",
+      "updated_at": "2025-03-28T19:28:35.000Z",
+      "tags": [
+        "alg",
+        "tree"
+      ]
+    },
+    "content": "\n## overview\n\n它可以高效地解决以下问题: \n1. 合并 (Union) ：将两个集合合并为一个集合。\n2. 查询 (Find) ：查询某个元素属于哪个集合 (通常通过找到集合的代表元素) \n\n并查集的核心思想是用一个数组表示集合，通过路径压缩和按秩合并优化，使得查询和合并操作的时间复杂度接近常数 (摊还时间复杂度为 $O(\\alpha(n))$，其中 $\\alpha(n)$ 是反阿克曼函数，增长极慢) ",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "overview",
+        "slug": "overview"
+      }
+    ]
+  },
+  {
+    "title": "Latex",
+    "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
+    "url": "/blog/2024/05/19/latex.mdx",
+    "slug": "2024/05/19/latex.mdx",
+    "segments": [
+      "2024",
+      "05",
+      "19",
+      "latex.mdx"
+    ],
+    "filePath": "2024/05/19/latex.mdx",
+    "meta": {
+      "title": "Latex",
+      "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
+      "created_at": "2024-05-19T19:35:46.000Z",
+      "updated_at": "2025-03-28T19:35:46.000Z",
+      "tags": []
+    },
+    "content": "\n## 基本结构\n\n一个简单的 LaTeX 文档通常包含以下结构：\n\n```latex\n\\documentclass{article} % 文档类型\n\\usepackage{amsmath}    % 数学公式支持\n\\begin{document}\n\n\\section{引言}\n这是一个简单的 LaTeX 示例。\n\n\\subsection{数学公式}\n以下是一个数学公式示例：\n\\[\nE = mc^2\n\\]\n\n\\end{document}\n```\n\n## 数学公式\n\nLaTeX 对数学公式的支持非常强大。以下是一些常见的公式示例：\n\n行内公式：\n```latex\n这是一个行内公式 $a^2 + b^2 = c^2$。\n```\n\n块级公式：\n```latex\n\\[\n\\int_a^b f(x) \\, dx = F(b) - F(a)\n\\]\n```\n\n### 希腊字母\n```latex\n\\alpha, \\beta, \\gamma, \\delta, \\epsilon, \\pi, \\sigma\n```\n\n## 表格\n\n使用 `tabular` 环境可以创建表格：\n\n```latex\n\\begin{tabular}{|c|c|c|}\n\\hline\n列1 & 列2 & 列3 \\\\\n\\hline\n数据1 & 数据2 & 数据3 \\\\\n\\hline\n\\end{tabular}\n```\n\n## 插入图片\n\n使用 `graphicx` 包可以插入图片：\n\n```latex\n\\usepackage{graphicx}\n\n\\begin{figure}[h]\n\\centering\n\\includegraphics[width=0.5\\textwidth]{example.png}\n\\caption{示例图片}\n\\end{figure}\n```",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "基本结构",
+        "slug": "基本结构"
+      },
+      {
+        "depth": 2,
+        "value": "数学公式",
+        "slug": "数学公式"
+      },
+      {
+        "depth": 3,
+        "value": "希腊字母",
+        "slug": "希腊字母"
+      },
+      {
+        "depth": 2,
+        "value": "表格",
+        "slug": "表格"
+      },
+      {
+        "depth": 2,
+        "value": "插入图片",
+        "slug": "插入图片"
+      }
+    ]
+  }
+]

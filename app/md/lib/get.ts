@@ -2,11 +2,13 @@ import path from "path"
 import fs from "fs"
 import matter from 'gray-matter';
 import { DocMeta } from "../types";
-import { mdContent2Toc } from "./to";
+import { content2meta, content2Toc, path2name } from "./to";
 
 export const getFile = (file_path: string) => {
-  // console.log(`getFile: ${file_path}`)
-  const filePath = path.join(process.cwd(),`${file_path}`)
+  // 判断是否是绝对路径
+  const filePath = path.isAbsolute(file_path)
+    ? file_path // 如果是绝对路径，直接使用
+    : path.join(process.cwd(), file_path); // 如果是相对路径，拼接到 process.cwd()
   let rawContent = '';
 
   if (!fs.existsSync(filePath)) {
@@ -43,19 +45,29 @@ export const getFileWithMeta = (file_path: string) => {
   return { metadata, content, rawContent }
 };
 
-export const getFileWithMetaWithToc = async(file_path: string) => {
+type ContentWithMetaWithToc = {
+  metadata: DocMeta|null;
+  content: string;
+  rawContent: string|null;
+  toc: {
+    depth: number;
+    value: string;
+    slug: string;
+  }[];
+}
+export const getFileWithMetaWithToc = async(file_path: string):Promise<ContentWithMetaWithToc> => {
   const rawContent = getFile(file_path)
   if (!rawContent) return {
     metadata: null,
-    content: null,
+    content: "",
     rawContent: null,
     toc: []
   }
-  const [toc, {data:metadata, content}, 
-    // {locale,type,url, slug, segments, order}
-   ] = await Promise.all([
-    mdContent2Toc(rawContent),
-    matter(rawContent),
+  const [toc, {metadata, content}, 
+    // {url, slug, segments}
+  ] = await Promise.all([
+    content2Toc(rawContent),
+    content2meta(rawContent),
     // processSlug(relativePath)
   ]);
   return { metadata, content, rawContent, toc }

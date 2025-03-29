@@ -1,6 +1,7 @@
 "use client"
 import * as React from "react"
-
+import tagsMap from "@/public/data/tags.json"
+import {Chip} from "@heroui/chip";
 import { SearchForm } from "@/components/common/search-form"
 import { SideSwitcher } from "@/components/layout/sidebar/side-switcher"
 import {
@@ -18,8 +19,6 @@ import {
   useSidebar, 
 } from "@/components/ui/sidebar"
 import {ScrollShadow} from "@heroui/scroll-shadow";
-import type { NavNode } from "@/lib/md/get";
-import { ContentNavTree } from "./nav-tree";
 // import { headers, cookies } from 'next/headers'
 import { Button } from "@/components/ui/button";
 import { Settings } from "lucide-react";
@@ -76,7 +75,11 @@ export function AppSidebar({...props }: AppSidebarProps) {
           </SidebarGroup>
           <SidebarGroup>
           <SidebarGroupLabel>Tags</SidebarGroupLabel>
-          <SidebarGroupContent></SidebarGroupContent>
+          <SidebarGroupContent className={`space-y-1 space-x-1 ${open||openMobile ? "":"hidden"}`}>
+          {Object.entries(tagsMap).map(([tag, data]) => (
+            <Chip key={tag}>{tag}</Chip>
+          ))}
+          </SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>
       </ScrollShadow>

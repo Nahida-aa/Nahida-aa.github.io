@@ -29,19 +29,18 @@ export type Toc = {
 }
 
 export type DocSearchValue = {
-  locale: string
-  type: string // docs, 指定文档的类型
-  url: string // /zh/docs/dev/cl, 指定文档的 URL
-  slug: string // dev/cl, 指定文档的 slug, 用于 静态生成
-  segments: string[] // ['dev', 'cl'], 指定文档的 slug, 用于 静态生成
-  filePath: string // /docs/zh/01-dev/01-cl.mdx 指定文档的文件路径
-  meta: DocMeta
-  order: number // 99, 指定文档的排序
-  content: string
+  title: string // 指定文档的标题
+  description: string // 指定文档的描述
+  url: string // /blog/2025/10/01/xx.mdx, 指定文档的 URL
+  slug: string // 2025/10/01/xx.mdx, 指定文档的 slug, 用于 静态生成
+  segments: string[] // ["2025", "10", "01", "xx.mdx"], 指定文档的 slug, 用于 静态生成
+  filePath: string // 2025/10/01/xx.mdx 指定文档的相对路径
+  meta: DocMeta|null // 指定文档的 meta 信息
+  content: string // mdx\md 的去 meta 内容
   toc: Toc[]
 }
 
 export type MdxComp = {
-  default: typeof import("@/app/md/test.mdx")["default"]
+  default: typeof import("@/app/md/mdx-page/test.mdx")["default"]
   frontmatter: DocMeta
 }

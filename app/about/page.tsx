@@ -21,7 +21,7 @@ export default async function Page ({
   // const {default: MdxDoc} = await import(`@/public/blog/alg.json`)
   const { metadata, content, rawContent, toc } = await getFileWithMetaWithToc(file_path)
   // console.log("metadata:", metadata, "content:", content, "rawContent:", rawContent)
-  if (!content) return notFound()
+  if (!rawContent) return notFound()
   const format = file_path.endsWith('.md') ? 'md' : 'mdx'
   const mdxOptions: SerializeOptions = {
     mdxOptions: {

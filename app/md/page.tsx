@@ -19,7 +19,7 @@ export default async function Page ({
   const {default: MdxDoc} = await import(`@/public/blog/alg.json`)
   const { metadata, content, rawContent, toc } = await getFileWithMetaWithToc(file_path)
   console.log("metadata:", metadata, "content:", content, "rawContent:", rawContent)
-  if (!content) return notFound()
+  if (!rawContent) return notFound()
   const format = file_path.endsWith('.md') ? 'md' : 'mdx'
   const mdxOptions: SerializeOptions = {
     mdxOptions: {
@@ -37,7 +37,7 @@ export default async function Page ({
   return <Suspense fallback={<LoadingS />}>
   <section className='mx-6'>
   <article className="prose dark:prose-invert  mx-auto max-w-full  ">
-    <h1 className={`${title()} flex justify-center `}>{metadata.title}</h1>
+    <h1 className={`${title()} flex justify-center `}>{metadata?.title}</h1>
     <p>{metadata?.description}</p>
     {/* <CustomMDX source={MdxDoc.content} /> */}
     {JSXContent}
