@@ -3,8 +3,7 @@ import { FileClock, FileUserIcon, House, LinkIcon, TagsIcon } from "lucide-react
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {
-  name: "aa'blog",
-  description: "Make beautiful websites regardless of your design experience.",
+
   navMenuItems: [
     {
       label: "Profile",

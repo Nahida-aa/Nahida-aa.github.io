@@ -3,7 +3,7 @@ import { Metadata, Viewport } from "next";
 import clsx from "clsx";
 import {Header} from '@/components/layout/header/Header'
 import { Providers } from "@/components/providers/providers";
-import { siteConfig } from "@/app/settings/site";
+import { siteConfig, siteMetadata } from "@/app/settings/site";
 import { myFont } from '@/app/font/font'
 import { SearchProvider } from "./search/search-context";
 import { TailwindBG } from "@/components/layout/bg/tailwind";
@@ -20,10 +20,10 @@ import { SidebarConfigProvider } from "./settings/SidebarConfigContext";
 
 export const metadata: Metadata = {
   title: {
-    default: siteConfig.name,
-    template: `%s - ${siteConfig.name}`,
+    default: siteMetadata.name,
+    template: `%s - ${siteMetadata.name}`,
   },
-  description: siteConfig.description,
+  description: siteMetadata.description,
   icons: {
     icon: "/favicon.ico",
   },
@@ -35,7 +35,6 @@ export const viewport: Viewport = {
     { media: "(prefers-color-scheme: dark)", color: "black" },
   ],
 };
-
 
 export default async function RootLayout({ 
   children,
