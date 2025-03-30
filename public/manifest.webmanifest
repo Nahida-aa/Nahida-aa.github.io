@@ -1,7 +1,7 @@
 {
-  "name": "aa'blog",
-  "short_name": "aa'blog",
-  "description": "A blog about Nahida, the Dendro Archon from Genshin Impact.",
+  "name": "Nahida-aaの次元",
+  "short_name": "aaの次元",
+  "description": "探索数学、 生物、 算法、统计、机器学习、AI 和 Web 开发的精彩世界。",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
