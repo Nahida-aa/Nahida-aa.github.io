@@ -44,13 +44,13 @@ export default async function RootLayout({
   return (
     <html suppressHydrationWarning lang='zh' className={`scroll-smooth ${ myFont.className}`} >
       <head>
-        {/* <link rel="manifest" href={`/manifest.webmanifest`} /> */}
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="manifest" href={`/manifest.webmanifest`} />
         {/* iOS 图标 */}
         <link rel="apple-touch-icon" sizes="120x120" href="/favicons/Nahida-120-r.png" />
         <link rel="apple-touch-icon" sizes="152x152" href="/favicons/Nahida-152-r.png" />
         <link rel="apple-touch-icon" sizes="167x167" href="/favicons/Nahida-167-r.png" />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicons/Nahida-180-r.png" />
-
         {/* iOS PWA 配置 */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
