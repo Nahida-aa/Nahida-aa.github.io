@@ -1,53 +1,5 @@
 [
   {
-    "title": "Latex",
-    "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
-    "url": "/blog/2024/05/19/latex.mdx",
-    "slug": "2024/05/19/latex.mdx",
-    "segments": [
-      "2024",
-      "05",
-      "19",
-      "latex.mdx"
-    ],
-    "filePath": "2024/05/19/latex.mdx",
-    "meta": {
-      "title": "Latex",
-      "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
-      "created_at": "2024-05-19T19:35:46.000Z",
-      "updated_at": "2025-03-28T19:35:46.000Z",
-      "tags": []
-    },
-    "content": "\n## 基本结构\n\n一个简单的 LaTeX 文档通常包含以下结构：\n\n```latex\n\\documentclass{article} % 文档类型\n\\usepackage{amsmath}    % 数学公式支持\n\\begin{document}\n\n\\section{引言}\n这是一个简单的 LaTeX 示例。\n\n\\subsection{数学公式}\n以下是一个数学公式示例：\n\\[\nE = mc^2\n\\]\n\n\\end{document}\n```\n\n## 数学公式\n\nLaTeX 对数学公式的支持非常强大。以下是一些常见的公式示例：\n\n行内公式：\n```latex\n这是一个行内公式 $a^2 + b^2 = c^2$。\n```\n\n块级公式：\n```latex\n\\[\n\\int_a^b f(x) \\, dx = F(b) - F(a)\n\\]\n```\n\n### 希腊字母\n```latex\n\\alpha, \\beta, \\gamma, \\delta, \\epsilon, \\pi, \\sigma\n```\n\n## 表格\n\n使用 `tabular` 环境可以创建表格：\n\n```latex\n\\begin{tabular}{|c|c|c|}\n\\hline\n列1 & 列2 & 列3 \\\\\n\\hline\n数据1 & 数据2 & 数据3 \\\\\n\\hline\n\\end{tabular}\n```\n\n## 插入图片\n\n使用 `graphicx` 包可以插入图片：\n\n```latex\n\\usepackage{graphicx}\n\n\\begin{figure}[h]\n\\centering\n\\includegraphics[width=0.5\\textwidth]{example.png}\n\\caption{示例图片}\n\\end{figure}\n```",
-    "toc": [
-      {
-        "depth": 2,
-        "value": "基本结构",
-        "slug": "基本结构"
-      },
-      {
-        "depth": 2,
-        "value": "数学公式",
-        "slug": "数学公式"
-      },
-      {
-        "depth": 3,
-        "value": "希腊字母",
-        "slug": "希腊字母"
-      },
-      {
-        "depth": 2,
-        "value": "表格",
-        "slug": "表格"
-      },
-      {
-        "depth": 2,
-        "value": "插入图片",
-        "slug": "插入图片"
-      }
-    ]
-  },
-  {
     "title": "alg",
     "description": "算法竞赛学习路线 算法竞赛是一个需要扎实的数学基础和编...",
     "url": "/blog/2025/03/25/alg.mdx",
@@ -298,12 +250,60 @@
         "tree"
       ]
     },
-    "content": "\n```mermaid\ngraph BT\n    2((2)) -->  1((1))\n    3((3)) -->  1\n    4((4)) -->  3\n    5((5)) -->  3\n    8((8)) -->  7((7))\n    7 -->  6((6))\n```\n\n## overview\n\n它可以高效地解决以下问题: \n1. 合并 (Union) ：将两个集合合并为一个集合。\n2. 查询 (Find) ：查询某个元素属于哪个集合 (通常通过找到集合的代表元素, 即根节点)。 \n\n并查集的核心思想是用一个数组表示集合，通过路径压缩和按秩合并优化，使得查询和合并操作的时间复杂度接近常数 (摊还时间复杂度为 $O(\\alpha(n))$，其中 $\\alpha(n)$ 是反阿克曼函数，增长极慢) ",
+    "content": "\n```mermaid\ngraph BT\n    2((2)) -->  1((1))\n    3((3)) -->  1\n    4((4)) -->  3\n    5((5)) -->  3\n    8((8)) -->  7((7))\n    7 -->  6((6))\n```\n\n## overview\n\n它可以高效地解决以下问题: \n1. 合并 (Union) ：将两个集合合并为一个集合 (合并对应的树)。\n2. 查询 (Find) ：查询某个元素属于哪个集合 (通常通过找到集合的代表元素, 即根节点)。 \n\n并查集的核心思想是用一个数组表示集合，通过路径压缩和按秩合并优化，使得查询和合并操作的时间复杂度接近常数 (摊还时间复杂度为 $O(\\alpha(n))$，其中 $\\alpha(n)$ 是反阿克曼函数，增长极慢) ",
     "toc": [
       {
         "depth": 2,
         "value": "overview",
         "slug": "overview"
+      }
+    ]
+  },
+  {
+    "title": "Latex",
+    "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
+    "url": "/blog/2024/05/19/latex.mdx",
+    "slug": "2024/05/19/latex.mdx",
+    "segments": [
+      "2024",
+      "05",
+      "19",
+      "latex.mdx"
+    ],
+    "filePath": "2024/05/19/latex.mdx",
+    "meta": {
+      "title": "Latex",
+      "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
+      "created_at": "2024-05-19T19:35:46.000Z",
+      "updated_at": "2025-03-28T19:35:46.000Z",
+      "tags": []
+    },
+    "content": "\n## 基本结构\n\n一个简单的 LaTeX 文档通常包含以下结构：\n\n```latex\n\\documentclass{article} % 文档类型\n\\usepackage{amsmath}    % 数学公式支持\n\\begin{document}\n\n\\section{引言}\n这是一个简单的 LaTeX 示例。\n\n\\subsection{数学公式}\n以下是一个数学公式示例：\n\\[\nE = mc^2\n\\]\n\n\\end{document}\n```\n\n## 数学公式\n\nLaTeX 对数学公式的支持非常强大。以下是一些常见的公式示例：\n\n行内公式：\n```latex\n这是一个行内公式 $a^2 + b^2 = c^2$。\n```\n\n块级公式：\n```latex\n\\[\n\\int_a^b f(x) \\, dx = F(b) - F(a)\n\\]\n```\n\n### 希腊字母\n```latex\n\\alpha, \\beta, \\gamma, \\delta, \\epsilon, \\pi, \\sigma\n```\n\n## 表格\n\n使用 `tabular` 环境可以创建表格：\n\n```latex\n\\begin{tabular}{|c|c|c|}\n\\hline\n列1 & 列2 & 列3 \\\\\n\\hline\n数据1 & 数据2 & 数据3 \\\\\n\\hline\n\\end{tabular}\n```\n\n## 插入图片\n\n使用 `graphicx` 包可以插入图片：\n\n```latex\n\\usepackage{graphicx}\n\n\\begin{figure}[h]\n\\centering\n\\includegraphics[width=0.5\\textwidth]{example.png}\n\\caption{示例图片}\n\\end{figure}\n```",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "基本结构",
+        "slug": "基本结构"
+      },
+      {
+        "depth": 2,
+        "value": "数学公式",
+        "slug": "数学公式"
+      },
+      {
+        "depth": 3,
+        "value": "希腊字母",
+        "slug": "希腊字母"
+      },
+      {
+        "depth": 2,
+        "value": "表格",
+        "slug": "表格"
+      },
+      {
+        "depth": 2,
+        "value": "插入图片",
+        "slug": "插入图片"
       }
     ]
   }

@@ -1,0 +1,31 @@
+---
+title: var
+description: 
+created_at: 2021-12-11T10:11:52Z
+updated_at: 2025-03-30T10:11:52Z
+tags: [c]
+---
+
+## 赋值 (Assignment)
+
+### 引用 (Reference)
+
+引用是一个变量的别名，它本质上是一个绑定到已有变量的“标签”，并不是直接的“取地址”
+
+示例:
+```c title="c" 
+int a = 10;
+int &b = a;  // b 是 a 的引用
+b = 20;      // 修改 b 等同于修改 a
+std::cout << a;  // 输出: 20
+```
+
+#### 解引用 (Dereference)
+解引用是通过指针访问指针所指向的内存地址中的值。解引用操作需要显式使用 `*` 运算符
+
+```c title="c"
+int a = 10;
+int *ptr = &a;  // ptr 是指向 a 的指针
+*ptr = 20;      // 解引用 ptr，修改 a 的值
+std::cout << a;  // 输出: 20
+```

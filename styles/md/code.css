@@ -2,23 +2,54 @@
   overflow: visible; 确保父元素不会裁剪子元素 
 } */
 
-.prose code {
+.prose figure {
   --shiki-dark: #adbac7;
   --shiki-light: #24292e;
   --shiki-dark-bg: #22272e;
+  --shiki-dark-bg-rgb: 34, 39, 46;
   --shiki-light-bg: #fff;
+  --shiki-light-bg-rgb: 255, 255, 255;
 }
 
 .prose pre[data-theme] {
     /* @apply bg-transparent; */
 }
 
-.prose pre {
-  @apply !p-0 my-4  rounded-lg;
-}
-.prose pre code {
-  /* 防止子元素宽度溢出 */
-  @apply py-3 rounded-lg grid overflow-x-auto;
+.prose {
+  pre {
+    @apply !p-0 
+    /* my-4 */
+      rounded-md 
+      ;
+  }
+  pre code {
+    /* 防止子元素宽度溢出 */
+    @apply py-3 
+    rounded-md 
+     grid overflow-x-auto;
+  }
+  figure:has([data-rehype-pretty-code-title]) pre code,
+  figure:has([data-rehype-pretty-code-title]) pre {
+    @apply rounded-t-none;
+    /* border-top-left-radius: 0px;
+    border-top-right-radius: 0px; */
+  }
+  figure:has([data-rehype-pretty-code-caption]) pre code,
+  figure:has([data-rehype-pretty-code-caption]) pre {
+    @apply rounded-b-none;
+  }
+  figure {
+    [data-rehype-pretty-code-title],
+    [data-rehype-pretty-code-caption] {
+      @apply bg-[rgba(var(--shiki-dark-bg-rgb),0.1)];
+    }
+    [data-rehype-pretty-code-title] {
+      @apply text-lg font-semibold rounded-t-md px-4;
+    }
+    [data-rehype-pretty-code-caption] {
+      @apply  font-normal rounded-b-md px-4;
+    }
+  }
 }
 
 .prose pre [data-line] {
@@ -44,6 +75,14 @@ code[data-theme*=" "] span {
  
 @media (prefers-color-scheme:dark) {
 .dark {
+  .prose {
+    figure {
+      [data-rehype-pretty-code-title],
+      [data-rehype-pretty-code-caption] {
+        @apply bg-[rgba(var(--shiki-light-bg-rgb),0.1)];
+      }
+    }
+  }
   code[data-theme*=" "],
   code[data-theme*=" "] span {
     /* @apply p-0.5; */

@@ -1,0 +1,36 @@
+---
+title: css
+description: 
+created_at: 2023-08-02T10:35:32Z
+updated_at: 2025-03-30T10:35:32Z
+tags: [css,html]
+---
+
+## :has()
+```html
+<style>
+  div:has(.highlight) { /* 使用 :has() 选择包含 .highlight 的 div */
+    border: 2px solid red;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  div { /* 普通 div 的样式 */
+    border: 2px solid gray;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .highlight { /* .highlight 的样式 */
+    background-color: yellow;
+    padding: 5px;
+  }
+</style>
+<div><!-- 不包含 .highlight 的 div -->
+  <p>这是一个普通的 div，没有 .highlight 元素。</p>
+</div>
+<div><!-- 包含 .highlight 的 div -->
+  <p>这是一个包含 <span class="highlight">高亮内容</span> 的 div。</p>
+</div>
+<div><!-- 不包含 .highlight 的 div -->
+  <p>这是另一个普通的 div，没有 .highlight 元素。</p>
+</div>
+```

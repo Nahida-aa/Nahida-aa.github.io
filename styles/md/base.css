@@ -101,6 +101,10 @@
       /* @apply ; */
       color: rgb(38 38 38 / var(--tw-text-opacity, 1));
     }
+    .mermaid-wrapper foreignObject div> span.edgeLabel p:is(.dark *) {
+      fill: rgb(204, 204, 204);
+      background: #CCC !important;
+    }
   }
 }
 

@@ -2,6 +2,7 @@
 import * as React from "react"
 import tagsMap from "@/public/data/tags.json"
 import {Chip} from "@heroui/chip";
+import {Tooltip} from "@heroui/tooltip";
 import { SearchForm } from "@/components/common/search-form"
 import { SideSwitcher } from "@/components/layout/sidebar/side-switcher"
 import {
@@ -77,7 +78,13 @@ export function AppSidebar({...props }: AppSidebarProps) {
           <SidebarGroupLabel>Tags</SidebarGroupLabel>
           <SidebarGroupContent className={`space-y-1 space-x-1 ${open||openMobile ? "":"hidden"}`}>
           {Object.entries(tagsMap).map(([tag, data]) => (
-            <Chip key={tag}>{tag}</Chip>
+            <Tooltip key={tag} content={`该标签下有${data.count}篇文章`} showArrow={true}>
+            <Link href={`/tags/${tag}`} key={tag}  className="inline-block" >
+            <Chip key={tag} >
+              {tag}
+            </Chip>
+          </Link>
+            </Tooltip>
           ))}
           </SidebarGroupContent>
           </SidebarGroup>
