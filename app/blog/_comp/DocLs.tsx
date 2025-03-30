@@ -9,7 +9,9 @@ import { ClockIcon, HistoryIcon } from "lucide-react";
 export const DocLs = ({allDocs}:{
   allDocs: DocSearchValue[]
 }) => {
-  return <Table hideHeader isVirtualized maxTableHeight={800}  aria-label="Blog List" className="bg-transparent Table" classNames={{
+  return <Table hideHeader 
+  // isVirtualized maxTableHeight={800} 
+   aria-label="Blog List" className="bg-transparent Table" classNames={{
     wrapper: "p-0 bg-transparent shadow-none",
     // td: "",
   }}

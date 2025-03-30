@@ -13,14 +13,14 @@
         "description": "通常是指 广度优先搜索 (Breadth-First Search)，一种经典的图算法，用于遍历或搜索树或图的数据结构"
       },
       {
-        "title": "dfs",
-        "slug": "2025/03/27/dfs.mdx",
-        "description": "最大数字 lanqiao 2193 https://w..."
-      },
-      {
         "title": "Union-Find",
         "slug": "2025/03/28/Union-Find.mdx",
         "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 并查集通常实现为一个森林，其中每棵树表示一个集合 是一种用于处理动态连通性问题的数据结构。"
+      },
+      {
+        "title": "dfs",
+        "slug": "2025/03/27/dfs.mdx",
+        "description": "最大数字 lanqiao 2193 https://w..."
       }
     ]
   },
@@ -89,6 +89,16 @@
       }
     ]
   },
+  "tree": {
+    "count": 1,
+    "docs": [
+      {
+        "title": "Union-Find",
+        "slug": "2025/03/28/Union-Find.mdx",
+        "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 并查集通常实现为一个森林，其中每棵树表示一个集合 是一种用于处理动态连通性问题的数据结构。"
+      }
+    ]
+  },
   "web": {
     "count": 1,
     "docs": [
@@ -116,16 +126,6 @@
         "title": "dfs",
         "slug": "2025/03/27/dfs.mdx",
         "description": "最大数字 lanqiao 2193 https://w..."
-      }
-    ]
-  },
-  "tree": {
-    "count": 1,
-    "docs": [
-      {
-        "title": "Union-Find",
-        "slug": "2025/03/28/Union-Find.mdx",
-        "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 并查集通常实现为一个森林，其中每棵树表示一个集合 是一种用于处理动态连通性问题的数据结构。"
       }
     ]
   },

@@ -23,7 +23,8 @@ export default async function BlogPage() {
   <section className='px-4 sm:px-6 w-full min-w-0  flex-1 grid grid-cols-12'>
     <article className="prose dark:prose-invert  col-span-12 lg:px-4 xl:px-8
     mx-auto w-full min-w-0 max-w-full ">
-      <h1 className={`${title()} flex justify-center `}>{"Blog List"}</h1>
+      <h1 className={`${title()} flex justify-center sr-only`}>{"Blog List"}</h1>
+      <h2 className={`${title()} flex justify-center `}>{}</h2>
       <DocLs allDocs={allDocs} />
       {/* <p>{metadata?.description}</p> */}
       {/* <CustomMDX source={MdxDoc.content} /> */}

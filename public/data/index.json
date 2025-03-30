@@ -168,6 +168,47 @@
     "toc": []
   },
   {
+    "title": "Union-Find",
+    "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 并查集通常实现为一个森林，其中每棵树表示一个集合 是一种用于处理动态连通性问题的数据结构。",
+    "url": "/blog/2025/03/28/Union-Find.mdx",
+    "slug": "2025/03/28/Union-Find.mdx",
+    "segments": [
+      "2025",
+      "03",
+      "28",
+      "Union-Find.mdx"
+    ],
+    "filePath": "2025/03/28/Union-Find.mdx",
+    "meta": {
+      "title": "Union-Find",
+      "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 并查集通常实现为一个森林，其中每棵树表示一个集合 是一种用于处理动态连通性问题的数据结构。",
+      "created_at": "2025-03-28T19:28:35.000Z",
+      "updated_at": "2025-03-30T02:10:58.000Z",
+      "tags": [
+        "alg",
+        "tree"
+      ]
+    },
+    "content": "\n```mermaid\ngraph BT\n    2((2)) --\"fa[2]\"-->  1((1))\n    3((3)) --\"fa[3]\"-->  1\n    4((4)) --\"fa[4]\"-->  3\n    5((5)) --\"fa[5]\"-->  3\n    8((8)) -->  7((7))\n    7 -->  6((6))\n```\n\n## overview\n\n它可以高效地解决以下问题: \n1. 合并 (Union) ：将两个集合合并为一个集合 (合并对应的树)。\n2. 查询 (Find) ：查询某个元素属于哪个集合 (通常通过找到集合的代表元素, 即根节点)。 \n\n并查集的核心思想是用一个数组表示集合，通过路径压缩和按秩合并优化，使得查询和合并操作的时间复杂度接近常数 (摊还时间复杂度为 $O(\\alpha(n))$，其中 $\\alpha(n)$ 是反阿克曼函数，增长极慢) \n\n### find\n\n```math\n\\begin{align}\n& find(x) = x 所在集合的根节点的值 \\\\\n& if\\quad fa[x] = x : 表示 x 是根节点 \\\\\n& else : find(fa[x]) 递归调用, 沿着树向上找\n\\end{align}\n```\n通常在判断是否可达, 连通性问题时 进行查询, 如需要判断 u, v 是否属于同一个集合, 则可以判断 find(u) == find(v)\n```py\n# 例如 fa[4] = 3 -> fa[3] = 1 -> fa[1] = 1\ndef find(x):\n    if fa[x] != x:\n        fa[x] = find(fa[x]) # 路径压缩\n    return fa[x]\n```\n```py\n# or 如下写法\ndef find(x):\n    return x if fa[x] == x else find(fa[x])\n\nfind = lambda x: x if fa[x] == x else find(fa[x])\n```\n\n### union\n有时需要将两个集合合并(例如两个家庭结婚), 例如将 u, v 合并为同一个集合, 则可以将 u 的根节点的父节点设为 v 的根节点\n```math\n```\n> [!info]- python 的 `=` 操作是 **引用模型** (Reference Model)\n> `a = b{:py}` 是将 a 指向 b\n>```py\n> # 赋值语法: 变量 = 字面量; 实际上是\n> b = [1, 2, 3]\n> # 引用语法: 变量 = 变量\n> a = b\n> a[0] = 4\n> print(b) # [4, 2, 3]\n> ```\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "overview",
+        "slug": "overview"
+      },
+      {
+        "depth": 3,
+        "value": "find",
+        "slug": "find"
+      },
+      {
+        "depth": 3,
+        "value": "union",
+        "slug": "union"
+      }
+    ]
+  },
+  {
     "title": "api",
     "description": "fastApi vs hono",
     "url": "/blog/2025/03/27/api.mdx",
@@ -225,47 +266,6 @@
         "depth": 2,
         "value": "小朋友崇拜圈 lanqiao 182",
         "slug": "小朋友崇拜圈-lanqiao-182"
-      }
-    ]
-  },
-  {
-    "title": "Union-Find",
-    "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 并查集通常实现为一个森林，其中每棵树表示一个集合 是一种用于处理动态连通性问题的数据结构。",
-    "url": "/blog/2025/03/28/Union-Find.mdx",
-    "slug": "2025/03/28/Union-Find.mdx",
-    "segments": [
-      "2025",
-      "03",
-      "28",
-      "Union-Find.mdx"
-    ],
-    "filePath": "2025/03/28/Union-Find.mdx",
-    "meta": {
-      "title": "Union-Find",
-      "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 并查集通常实现为一个森林，其中每棵树表示一个集合 是一种用于处理动态连通性问题的数据结构。",
-      "created_at": "2025-03-28T19:28:35.000Z",
-      "updated_at": "2025-03-30T02:10:58.000Z",
-      "tags": [
-        "alg",
-        "tree"
-      ]
-    },
-    "content": "\n```mermaid\ngraph BT\n    2((2)) --\"fa[2]\"-->  1((1))\n    3((3)) --\"fa[3]\"-->  1\n    4((4)) --\"fa[4]\"-->  3\n    5((5)) --\"fa[5]\"-->  3\n    8((8)) -->  7((7))\n    7 -->  6((6))\n```\n\n## overview\n\n它可以高效地解决以下问题: \n1. 合并 (Union) ：将两个集合合并为一个集合 (合并对应的树)。\n2. 查询 (Find) ：查询某个元素属于哪个集合 (通常通过找到集合的代表元素, 即根节点)。 \n\n并查集的核心思想是用一个数组表示集合，通过路径压缩和按秩合并优化，使得查询和合并操作的时间复杂度接近常数 (摊还时间复杂度为 $O(\\alpha(n))$，其中 $\\alpha(n)$ 是反阿克曼函数，增长极慢) \n\n### find\n\n```math\n\\begin{align}\n& find(x) = x 所在集合的根节点的值 \\\\\n& if\\quad fa[x] = x : 表示 x 是根节点 \\\\\n& else : find(fa[x]) 递归调用, 沿着树向上找\n\\end{align}\n```\n通常在判断是否可达, 连通性问题时 进行查询, 如需要判断 u, v 是否属于同一个集合, 则可以判断 find(u) == find(v)\n```py\n# 例如 fa[4] = 3 -> fa[3] = 1 -> fa[1] = 1\ndef find(x):\n    if fa[x] != x:\n        fa[x] = find(fa[x]) # 路径压缩\n    return fa[x]\n```\n```py\n# or 如下写法\ndef find(x):\n    return x if fa[x] == x else find(fa[x])\n\nfind = lambda x: x if fa[x] == x else find(fa[x])\n```\n\n### union\n有时需要将两个集合合并(例如两个家庭结婚), 例如将 u, v 合并为同一个集合, 则可以将 u 的根节点的父节点设为 v 的根节点\n```math\n```\n> [!info]- python 的 `=` 操作是 **引用模型** (Reference Model)\n> `a = b{:py}` 是将 a 指向 b\n>```py\n> # 赋值语法: 变量 = 字面量; 实际上是\n> b = [1, 2, 3]\n> # 引用语法: 变量 = 变量\n> a = b\n> a[0] = 4\n> print(b) # [4, 2, 3]\n> ```\n",
-    "toc": [
-      {
-        "depth": 2,
-        "value": "overview",
-        "slug": "overview"
-      },
-      {
-        "depth": 3,
-        "value": "find",
-        "slug": "find"
-      },
-      {
-        "depth": 3,
-        "value": "union",
-        "slug": "union"
       }
     ]
   },
