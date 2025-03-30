@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "npm run gen && next dev --turbopack",
     "dev-pwa": "next dev --experimental-https",
-    "build": "next build",
+    "build": "npm run gen && next build",
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix",
     "gen": "ts-node --project tsconfig.node.json scripts/gen.ts"

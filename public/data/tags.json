@@ -55,12 +55,17 @@
     ]
   },
   "html": {
-    "count": 1,
+    "count": 2,
     "docs": [
       {
         "title": "export",
         "slug": "2025/03/26/export.mdx",
         "description": "当想要将next.js项目导出为静态网站时, 可以使用next export命令。"
+      },
+      {
+        "title": "css",
+        "slug": "2023/08/02/css.mdx",
+        "description": ":has()..."
       }
     ]
   },
@@ -121,6 +126,36 @@
         "title": "Union-Find",
         "slug": "2025/03/28/Union-Find.mdx",
         "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 并查集通常实现为一个森林，其中每棵树表示一个集合 是一种用于处理动态连通性问题的数据结构。"
+      }
+    ]
+  },
+  "math": {
+    "count": 1,
+    "docs": [
+      {
+        "title": "微积分",
+        "slug": "2021/11/11/calculus.mdx",
+        "description": "..."
+      }
+    ]
+  },
+  "c": {
+    "count": 1,
+    "docs": [
+      {
+        "title": "var",
+        "slug": "2021/12/11/var.mdx",
+        "description": "赋值 (Assignment) 引用 (Referen..."
+      }
+    ]
+  },
+  "css": {
+    "count": 1,
+    "docs": [
+      {
+        "title": "css",
+        "slug": "2023/08/02/css.mdx",
+        "description": ":has()..."
       }
     ]
   }

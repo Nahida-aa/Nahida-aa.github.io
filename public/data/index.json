@@ -250,12 +250,117 @@
         "tree"
       ]
     },
-    "content": "\n```mermaid\ngraph BT\n    2((2)) -->  1((1))\n    3((3)) -->  1\n    4((4)) -->  3\n    5((5)) -->  3\n    8((8)) -->  7((7))\n    7 -->  6((6))\n```\n\n## overview\n\n它可以高效地解决以下问题: \n1. 合并 (Union) ：将两个集合合并为一个集合 (合并对应的树)。\n2. 查询 (Find) ：查询某个元素属于哪个集合 (通常通过找到集合的代表元素, 即根节点)。 \n\n并查集的核心思想是用一个数组表示集合，通过路径压缩和按秩合并优化，使得查询和合并操作的时间复杂度接近常数 (摊还时间复杂度为 $O(\\alpha(n))$，其中 $\\alpha(n)$ 是反阿克曼函数，增长极慢) ",
+    "content": "\n```mermaid\ngraph BT\n    2((2)) --\"fa[2]\"-->  1((1))\n    3((3)) --\"fa[3]\"-->  1\n    4((4)) --\"fa[4]\"-->  3\n    5((5)) --\"fa[5]\"-->  3\n    8((8)) -->  7((7))\n    7 -->  6((6))\n```\n\n## overview\n\n它可以高效地解决以下问题: \n1. 合并 (Union) ：将两个集合合并为一个集合 (合并对应的树)。\n2. 查询 (Find) ：查询某个元素属于哪个集合 (通常通过找到集合的代表元素, 即根节点)。 \n\n并查集的核心思想是用一个数组表示集合，通过路径压缩和按秩合并优化，使得查询和合并操作的时间复杂度接近常数 (摊还时间复杂度为 $O(\\alpha(n))$，其中 $\\alpha(n)$ 是反阿克曼函数，增长极慢) \n\n### find\n\n```math\n\\begin{align}\n& find(x) = x 所在集合的根节点的值 \\\\\n& if\\quad fa[x] = x : 表示 x 是根节点 \\\\\n& else : find(fa[x]) 递归调用, 沿着树向上找\n\\end{align}\n```\n通常在判断是否可达, 连通性问题时 进行查询, 如需要判断 u, v 是否属于同一个集合, 则可以判断 find(u) == find(v)\n```py\n# 例如 fa[4] = 3 -> fa[3] = 1 -> fa[1] = 1\ndef find(x):\n    if fa[x] != x:\n        fa[x] = find(fa[x]) # 路径压缩\n    return fa[x]\n```\n```py\n# or 如下写法\ndef find(x):\n    return x if fa[x] == x else find(fa[x])\n\nfind = lambda x: x if fa[x] == x else find(fa[x])\n```\n\n### union\n有时需要将两个集合合并(例如两个家庭结婚), 例如将 u, v 合并为同一个集合, 则可以将 u 的根节点的父节点设为 v 的根节点\n```math\n```\n> [!info]- python 的 `=` 操作是 **引用模型** (Reference Model)\n> `a = b{:py}` 是将 a 指向 b\n>```py\n> # 赋值语法: 变量 = 字面量; 实际上是\n> b = [1, 2, 3]\n> # 引用语法: 变量 = 变量\n> a = b\n> a[0] = 4\n> print(b) # [4, 2, 3]\n> ```\n",
     "toc": [
       {
         "depth": 2,
         "value": "overview",
         "slug": "overview"
+      },
+      {
+        "depth": 3,
+        "value": "find",
+        "slug": "find"
+      },
+      {
+        "depth": 3,
+        "value": "union",
+        "slug": "union"
+      }
+    ]
+  },
+  {
+    "title": "微积分",
+    "description": "...",
+    "url": "/blog/2021/11/11/calculus.mdx",
+    "slug": "2021/11/11/calculus.mdx",
+    "segments": [
+      "2021",
+      "11",
+      "11",
+      "calculus.mdx"
+    ],
+    "filePath": "2021/11/11/calculus.mdx",
+    "meta": {
+      "title": "微积分",
+      "description": null,
+      "created_at": "2021-11-11T10:13:16.000Z",
+      "updated_at": "2025-03-30T10:13:16.000Z",
+      "tags": [
+        "math"
+      ]
+    },
+    "content": "",
+    "toc": []
+  },
+  {
+    "title": "var",
+    "description": "赋值 (Assignment) 引用 (Referen...",
+    "url": "/blog/2021/12/11/var.mdx",
+    "slug": "2021/12/11/var.mdx",
+    "segments": [
+      "2021",
+      "12",
+      "11",
+      "var.mdx"
+    ],
+    "filePath": "2021/12/11/var.mdx",
+    "meta": {
+      "title": "var",
+      "description": null,
+      "created_at": "2021-12-11T10:11:52.000Z",
+      "updated_at": "2025-03-30T10:11:52.000Z",
+      "tags": [
+        "c"
+      ]
+    },
+    "content": "\n## 赋值 (Assignment)\n\n### 引用 (Reference)\n\n引用是一个变量的别名，它本质上是一个绑定到已有变量的“标签”，并不是直接的“取地址”\n\n示例:\n```c title=\"c\" \nint a = 10;\nint &b = a;  // b 是 a 的引用\nb = 20;      // 修改 b 等同于修改 a\nstd::cout << a;  // 输出: 20\n```\n\n#### 解引用 (Dereference)\n解引用是通过指针访问指针所指向的内存地址中的值。解引用操作需要显式使用 `*` 运算符\n\n```c title=\"c\"\nint a = 10;\nint *ptr = &a;  // ptr 是指向 a 的指针\n*ptr = 20;      // 解引用 ptr，修改 a 的值\nstd::cout << a;  // 输出: 20\n```\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "赋值 (Assignment)",
+        "slug": "赋值-(assignment)"
+      },
+      {
+        "depth": 3,
+        "value": "引用 (Reference)",
+        "slug": "引用-(reference)"
+      },
+      {
+        "depth": 4,
+        "value": "解引用 (Dereference)",
+        "slug": "解引用-(dereference)"
+      }
+    ]
+  },
+  {
+    "title": "css",
+    "description": ":has()...",
+    "url": "/blog/2023/08/02/css.mdx",
+    "slug": "2023/08/02/css.mdx",
+    "segments": [
+      "2023",
+      "08",
+      "02",
+      "css.mdx"
+    ],
+    "filePath": "2023/08/02/css.mdx",
+    "meta": {
+      "title": "css",
+      "description": null,
+      "created_at": "2023-08-02T10:35:32.000Z",
+      "updated_at": "2025-03-30T10:35:32.000Z",
+      "tags": [
+        "css",
+        "html"
+      ]
+    },
+    "content": "\n## :has()\n```html\n<style>\n  div:has(.highlight) { /* 使用 :has() 选择包含 .highlight 的 div */\n    border: 2px solid red;\n    padding: 10px;\n    margin-bottom: 10px;\n  }\n  div { /* 普通 div 的样式 */\n    border: 2px solid gray;\n    padding: 10px;\n    margin-bottom: 10px;\n  }\n  .highlight { /* .highlight 的样式 */\n    background-color: yellow;\n    padding: 5px;\n  }\n</style>\n<div><!-- 不包含 .highlight 的 div -->\n  <p>这是一个普通的 div，没有 .highlight 元素。</p>\n</div>\n<div><!-- 包含 .highlight 的 div -->\n  <p>这是一个包含 <span class=\"highlight\">高亮内容</span> 的 div。</p>\n</div>\n<div><!-- 不包含 .highlight 的 div -->\n  <p>这是另一个普通的 div，没有 .highlight 元素。</p>\n</div>\n```\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": ":has()",
+        "slug": ":has()"
       }
     ]
   },
@@ -278,7 +383,7 @@
       "updated_at": "2025-03-28T19:35:46.000Z",
       "tags": []
     },
-    "content": "\n## 基本结构\n\n一个简单的 LaTeX 文档通常包含以下结构：\n\n```latex\n\\documentclass{article} % 文档类型\n\\usepackage{amsmath}    % 数学公式支持\n\\begin{document}\n\n\\section{引言}\n这是一个简单的 LaTeX 示例。\n\n\\subsection{数学公式}\n以下是一个数学公式示例：\n\\[\nE = mc^2\n\\]\n\n\\end{document}\n```\n\n## 数学公式\n\nLaTeX 对数学公式的支持非常强大。以下是一些常见的公式示例：\n\n行内公式：\n```latex\n这是一个行内公式 $a^2 + b^2 = c^2$。\n```\n\n块级公式：\n```latex\n\\[\n\\int_a^b f(x) \\, dx = F(b) - F(a)\n\\]\n```\n\n### 希腊字母\n```latex\n\\alpha, \\beta, \\gamma, \\delta, \\epsilon, \\pi, \\sigma\n```\n\n## 表格\n\n使用 `tabular` 环境可以创建表格：\n\n```latex\n\\begin{tabular}{|c|c|c|}\n\\hline\n列1 & 列2 & 列3 \\\\\n\\hline\n数据1 & 数据2 & 数据3 \\\\\n\\hline\n\\end{tabular}\n```\n\n## 插入图片\n\n使用 `graphicx` 包可以插入图片：\n\n```latex\n\\usepackage{graphicx}\n\n\\begin{figure}[h]\n\\centering\n\\includegraphics[width=0.5\\textwidth]{example.png}\n\\caption{示例图片}\n\\end{figure}\n```",
+    "content": "\n## 基本结构\n\n一个简单的 LaTeX 文档通常包含以下结构：\n\n```latex\n\\documentclass{article} % 文档类型\n\\usepackage{amsmath}    % 数学公式支持\n\\begin{document}\n\n\\section{引言}\n这是一个简单的 LaTeX 示例。\n\n\\subsection{数学公式}\n以下是一个数学公式示例：\n\\[\nE = mc^2\n\\]\n\n\\end{document}\n```\n\n## 数学公式\n\nLaTeX 对数学公式的支持非常强大。以下是一些常见的公式示例：\n\n行内公式：\n```latex\n这是一个行内公式 $a^2 + b^2 = c^2$。\n```\n\n块级公式：\n```latex\n\\[\n\\int_a^b f(x) \\, dx = F(b) - F(a)\n\\]\n```\n\n### 希腊字母\n```latex\n\\alpha, \\beta, \\gamma, \\delta, \\epsilon, \\pi, \\sigma\n```\n```math\n\\begin{align}\n&\\alpha \\quad A \\quad  \\text{希腊字母 alpha} \\quad   \\\\\n&\\beta \\quad B  \\text{希腊字母 beta} \\\\\n&\\gamma \\quad \\Gamma \\quad  \\text{希腊字母 gamma} \\\\\n&\\delta \\quad \\Delta \\quad  \\text{希腊字母 delta} \\\\\n&\\epsilon \\quad E  \\text{希腊字母 epsilon} \\\\\n&\\zeta \\quad Z \\quad  \\text{希腊字母 zeta} \\\\\n&\\eta \\quad H \\quad  \\text{希腊字母 eta} \\\\\n&\\theta \\quad \\Theta \\quad  \\text{希腊字母 theta} \\\\\n&\\iota \\quad I \\quad  \\text{希腊字母 iota} \\\\\n&\\kappa \\quad K \\quad  \\text{希腊字母 kappa} \\\\\n&\\lambda \\quad \\Lambda \\quad  \\text{希腊字母 lambda} \\\\\n&\\mu \\quad M \\quad  \\text{希腊字母 mu} \\\\\n&\\nu \\quad N \\quad  \\text{希腊字母 nu} \\\\\n&\\xi \\quad \\Xi \\quad  \\text{希腊字母 xi} \\\\\n&\\omicron \\quad O \\quad  \\text{希腊字母 omicron} \\\\\n&\\pi \\quad \\Pi \\quad  \\text{希腊字母 pi} \\\\\n&\\rho \\quad P  \\quad \\text{希腊字母 rho} \\\\\n&\\sigma \\quad \\Sigma \\quad  \\text{希腊字母 sigma}\\\\\n&\\tau \\quad T \\quad  \\text{希腊字母 tau} \\\\\n&\\upsilon \\quad \\Upsilon \\quad  \\text{希腊字母 upsilon} \\\\\n&\\phi \\quad \\Phi \\quad  \\text{希腊字母 phi} \\\\\n&\\chi \\quad X \\quad  \\text{希腊字母 chi} \\\\\n&\\psi \\quad \\Psi \\quad  \\text{希腊字母 psi} \\\\\n&\\omega \\quad \\Omega  \\quad  \\text{希腊字母 omega} \\\\\n&\\varepsilon \\ :varepsilon,\\ \\vartheta\\ :vartheta,\\ \\varpi\\ :varpi,\\ \\varrho\\ :varrho,\\ \\varsigma\\ :varsigma, \\varphi\\ :varphi \\\\\n\\end{align}\n```\n\n## 表格\n\n使用 `tabular` 环境可以创建表格：\n\n```latex\n\\begin{tabular}{|c|c|c|}\n\\hline\n列1 & 列2 & 列3 \\\\\n\\hline\n数据1 & 数据2 & 数据3 \\\\\n\\hline\n\\end{tabular}\n```\n\n## 插入图片\n\n使用 `graphicx` 包可以插入图片：\n\n```latex\n\\usepackage{graphicx}\n\n\\begin{figure}[h]\n\\centering\n\\includegraphics[width=0.5\\textwidth]{example.png}\n\\caption{示例图片}\n\\end{figure}\n```",
     "toc": [
       {
         "depth": 2,
