@@ -1,0 +1,71 @@
+---
+title: conda
+description: "Conda 是一个开源的包管理器和环境管理器，主要用于 Python 和 R 语言。它允许用户安装、更新和管理软件包及其依赖项，并创建和管理虚拟环境。"
+created_at: 2023-06-12T23:37:49Z
+updated_at: 2025-03-31T23:37:49Z
+tags: [python,env]
+---
+
+## install conda
+
+Conda 支持多种安装方法
+
+- Anaconda 是一个包含 Conda 的完整数据科学工具包，适合需要大量预装库的用户
+  - 自带大量科学计算和数据分析库（如 NumPy、Pandas、Jupyter Notebook 等）
+  - 文件较大（约 500MB+），安装后占用较多磁盘空间
+- Miniconda 是一个轻量级的 Conda 版本，仅包含 Conda 和 Python，适合需要更灵活控制环境的用户
+  - 文件较小（约 50MB）
+
+### Anaconda
+
+
+### Miniconda
+
+#### use 系统包管理器安装
+
+##### winget (Windows)
+
+```sh
+# 搜索 Miniconda
+winget search miniconda
+winget install Anaconda.Miniconda3
+# or 
+winget install Miniconda3
+# 安装完成后会告诉你安装路径
+# 例如 C:\Users\aa\Miniconda3 , 打开这个路径
+# dir C:\Users\aa\Miniconda3 /b # 查看这个目录下的文件和文件夹
+# 查看是否有  bin/ Scripts/ 文件夹
+# 在环境变量中 创建 名为 CondaPath 的变量, 值为 
+# C:\Users\aa\Miniconda3
+# C:\Users\aa\Miniconda3\bin
+# C:\Users\aa\Miniconda3\Scripts
+# 然后蒋在名为 PATH 的变量中添加 %CondaPath%
+```
+
+##### pacman (Arch Linux \ Manjaro)
+
+##### apt (Debian\Ubuntu)
+
+##### dnf (Fedora)
+
+##### yum (openSUSE\CentOS\RHEL)
+
+
+#### use src
+
+#### use docker
+
+## use
+
+### create env
+
+```sh
+# (optional) 列出所有可用的环境
+conda env list
+# (optional) 搜索可用的环境
+conda search python
+# 创建一个新的 Conda 环境，命名为 py38，使用 Python 3.8.16
+conda create -n py38 python=3.8.16
+# activate py38 环境
+conda activate py38
+```

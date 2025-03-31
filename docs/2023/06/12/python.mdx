@@ -1,0 +1,37 @@
+---
+title: python
+description: "Python 是一种广泛使用的高级编程语言，具有清晰的语法和强大的库支持。它适用于多种应用，包括数据分析、机器学习、Web 开发等。"
+created_at: 2023-06-12T23:35:17Z
+updated_at: 2025-03-31T23:35:17Z
+tags: [python]
+---
+
+## install
+
+1. 是否已经安装 python
+    1. 回想自己是否安装过 python, 下面是误装 `python` 的一些例子
+        - 安装 nodejs 时选择了某些选项
+    2. 检查当前环境中是否有 python
+        ```sh title="这些命令会在当前环境中查找 python 的位置"
+        # Windows
+        where python
+        # 注意在 windows 中 C:\Users\aa\AppData\Local\Microsoft\WindowsApps\python.exe 
+        # 这个位置有 python.exe 并不一定意味着你安装了 python, 
+        # 你可以运行 python 查看有什么反应 可能会跳转到 Microsoft Store, 
+        # 而不是进入 python 交互式命令行, 那么说明你没有安装 python
+        # Linux
+        which python
+        # MacOS
+        type python
+        ```
+    3. 如果你想的话可以 在所以文件中查找 python 的位置
+        ```sh title="这些命令会在所有文件中查找 python 的位置"
+        # Windows `/s` 表示递归搜索子目录 `/b` 表示只显示文件名
+        dir C:\python.exe /s /b # 在 C 盘中查找 python.exe
+        dir D:\python.exe /s /b # 在 D 盘中查找 python.exe
+        # Linux
+        find / -name python
+        # MacOS
+        find / -name python
+        ```
+
