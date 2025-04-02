@@ -3,6 +3,7 @@
   "recommendations": [
     "bradlc.vscode-tailwindcss", // tailwindcss
     "kamikillerto.vscode-colorizer", // 颜色预览
+    "streetsidesoftware.code-spell-checker", // 拼写检查
     "w88975.code-translate", // 翻译插件
     "wangguixuan.var-translate-en", // 翻译插件
     "christian-kohler.path-intellisense", // 路径补全
@@ -13,5 +14,6 @@
     "pkief.material-icon-theme", // 图标主题
     "robbowen.synthwave-vscode", // 主题
     "be5invis.vscode-custom-css", // 自定义css
+    "oderwat.indent-rainbow", // 缩进彩虹
   ]
 }
