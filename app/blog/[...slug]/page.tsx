@@ -7,6 +7,25 @@ import { title } from '@/components/primitives';
 import { DocsToc } from '@/app/md/comp/DocsToc';
 import { dir2MdxJsonLs } from '@/app/md/lib/to';
 import { contentDir } from '@/app/settings/path';
+import type { Metadata, ResolvingMetadata } from 'next'
+
+export async function generateMetadata({ params, 
+  // searchParams 
+}: {
+    params: Promise<{ slug: string[] }>
+    // searchParams: Promise<{ [key: string]: string | string[] | undefined }>
+  },
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const slug = (await params).slug
+  const dSlug = slug.join('/')
+  const { metadata, content, rawContent, toc } = await getFileWithMetaWithToc(`docs/${dSlug}`)
+
+  return {
+    title: metadata.title,
+    description: metadata.description,
+  }
+}
 
 export const generateStaticParams = async() => {
   const allDocs = await dir2MdxJsonLs(contentDir)
