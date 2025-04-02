@@ -1,0 +1,41 @@
+---
+title: dns
+description: "全称是 Domain Name System （域名系统），它是互联网的重要基础设施之一，用于将人类易于记忆的 域名（如 www.example.com) 转换为计算机可以识别的 IP 地址（如 192.168.1.1 或 2606:4700:4700::1111)"
+created_at: 2023-07-13T16:23:48Z
+updated_at: 2025-04-02T16:23:48Z
+tags: [web,dns]
+---
+
+## bug
+
+### ERR_TOO_MANY_REDIRECTS
+
+cloudflare vercel
+
+firefox: 检测到该服务器正在将指向此网址的 请求 无限循环 重定向
+
+在 **Vercel** 上部署并使用 **Cloudflare 提供的域名 (CNAME 记录)** 时，出现 **“无限循环重定向”** 的问题，通常是由于 **HTTPS 配置** 或 **Cloudflare 和 Vercel 的设置冲突** 导致的。以下是针对这种情况的分析和解决方法
+
+#### 问题原因分析
+
+##### HTTPS 重定向冲突
+
+- Vercel 默认会强制将所有 HTTP 请求重定向到 HTTPS
+- Cloudflare 也可能启用了 HTTPS 重定向（通过 "Always Use HTTPS" 或 "Automatic HTTPS Rewrites" 功能）
+- 如果两者都启用了 HTTPS 重定向，可能会导致循环重定向
+
+##### Cloudflare 的 SSL/TLS 配置问题
+
+- Cloudflare 提供了多种 SSL/TLS 模式 (如 Flexible, Full, Full (strict) )
+- 如果 Cloudflare 的 SSL 模式设置为 Flexible, Cloudflare 会尝试通过 HTTP 与 Vercel 通信，而 Vercel 强制 HTTPS, 这会导致循环重定向
+
+#### 解决方法
+1. 检查 Cloudflare 的 SSL/TLS 模式
+    1. 登陆 Cloudflare 控制面板
+    2. 选择你的域名
+    3. 点击 **SSL/TLS** 选项卡
+    4. 确保 SSL/TLS 模式设置为 **Full** 或 **Full (strict)**，而不是 **Flexible**
+
+## 参考
+
+- https://brume.top/p/solution-for-err-too-many-redirects-error/
