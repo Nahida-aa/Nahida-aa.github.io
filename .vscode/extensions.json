@@ -1,5 +1,4 @@
 {
-  "typescript.tsdk": "node_modules/typescript/lib",
   "recommendations": [
     "bradlc.vscode-tailwindcss", // tailwindcss
     "kamikillerto.vscode-colorizer", // 颜色预览
