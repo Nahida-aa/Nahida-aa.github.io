@@ -4,6 +4,7 @@ import { Toc } from '../../md/types';
 import { useEffect, useState } from 'react';
 // import { motion } from 'framer-motion';
 import clsx from 'clsx';
+import {ScrollShadow} from "@heroui/scroll-shadow";
 
 interface DocsTocProps {
   toc: Toc[];
@@ -77,10 +78,12 @@ export const DocsToc = ({ toc }: DocsTocProps) => {
 
   const numberedToc = generateHeadingNumbers(toc);
   return <>
-    <section className=' hidden space-y-2 lg:block lg:sticky lg:top-20 lg:col-span-3 xl:col-span-3  w-full pt-4'>
-      <div className='fixed'>
-
+    <section className=' hidden space-y-2 lg:block lg:sticky lg:top-20 lg:col-span-3 xl:col-span-3  w-full pt-4 '>
+      <div className='fixed flex-col  h-[calc(100vh-5rem)]'>
       <p className='font-medium'>在这个页面</p>
+      <ScrollShadow 
+      // hideScrollBar 
+      className="flex-1 h-[calc(100vh-5rem-24px)] overflow-y-auto" >
       <ul>
         {numberedToc.map((item, index) => <li key={index}>
           <Link className={clsx(
@@ -95,6 +98,7 @@ export const DocsToc = ({ toc }: DocsTocProps) => {
           </Link>
         </li>)}
       </ul>
+      </ScrollShadow>
       </div>
     </section>
   </>

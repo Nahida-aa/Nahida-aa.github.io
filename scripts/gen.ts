@@ -2,7 +2,7 @@ import path from "path";
 import { contentDir, outputDir } from "@/app/settings/path";
 import fs from "fs/promises"
 import { DocSearchValue } from "@/app/md/types";
-import { dir2MdxJsonLs, getTagsData } from "@/app/md/lib/to";
+import { dir2MdxJsonLs, getTagsKV } from "@/app/md/lib/to";
 
 
 const genMdxJsonLs = async (allDocs: DocSearchValue[]) => {
@@ -12,7 +12,7 @@ const genMdxJsonLs = async (allDocs: DocSearchValue[]) => {
 
 const genTags = async (allDocs: DocSearchValue[]) => {
   const tagsPath = path.join(outputDir, "tags.json")
-  const tags = getTagsData(allDocs)
+  const tags = getTagsKV(allDocs)
   await fs.writeFile(tagsPath, JSON.stringify(tags, null, 2))
 }
 

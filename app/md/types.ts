@@ -28,6 +28,11 @@ export type Toc = {
   slug: string
 }
 
+export type DocBase = {
+  url: string // /blog/2025/10/01/xx.mdx, 指定文档的 URL
+  meta: DocMeta // 指定文档的 meta 信息
+}
+
 export type DocSearchValue = {
   title: string // 指定文档的标题
   description: string // 指定文档的描述
@@ -35,7 +40,7 @@ export type DocSearchValue = {
   slug: string // 2025/10/01/xx.mdx, 指定文档的 slug, 用于 静态生成
   segments: string[] // ["2025", "10", "01", "xx.mdx"], 指定文档的 slug, 用于 静态生成
   filePath: string // 2025/10/01/xx.mdx 指定文档的相对路径
-  meta: DocMeta|null // 指定文档的 meta 信息
+  meta: DocMeta // 指定文档的 meta 信息
   content: string // mdx\md 的去 meta 内容
   toc: Toc[]
 }

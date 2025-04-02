@@ -1,5 +1,30 @@
 [
   {
+    "title": "websocket",
+    "description": "v",
+    "url": "/blog/2025/02/01/ws.mdx",
+    "slug": "2025/02/01/ws.mdx",
+    "segments": [
+      "2025",
+      "02",
+      "01",
+      "ws.mdx"
+    ],
+    "filePath": "2025/02/01/ws.mdx",
+    "meta": {
+      "title": "websocket",
+      "description": "v",
+      "created_at": "2025-02-01T17:34:03.000Z",
+      "updated_at": "2025-04-02T17:34:03.000Z",
+      "tags": [
+        "web",
+        "ws"
+      ]
+    },
+    "content": "",
+    "toc": []
+  },
+  {
     "title": "alg",
     "description": "算法竞赛学习路线 算法竞赛是一个需要扎实的数学基础和编...",
     "url": "/blog/2025/03/25/alg.mdx",
@@ -13,7 +38,7 @@
     "filePath": "2025/03/25/alg.mdx",
     "meta": {
       "title": "alg",
-      "description": null,
+      "description": "算法竞赛学习路线 算法竞赛是一个需要扎实的数学基础和编...",
       "created_at": "2025-03-28T19:55:10.000Z",
       "updated_at": "2025-03-28T19:55:10.000Z",
       "tags": [
@@ -61,67 +86,6 @@
         "depth": 3,
         "value": "数学与算法结合",
         "slug": "数学与算法结合"
-      }
-    ]
-  },
-  {
-    "title": "api",
-    "description": "fastApi vs hono",
-    "url": "/blog/2025/03/27/api.mdx",
-    "slug": "2025/03/27/api.mdx",
-    "segments": [
-      "2025",
-      "03",
-      "27",
-      "api.mdx"
-    ],
-    "filePath": "2025/03/27/api.mdx",
-    "meta": {
-      "title": "api",
-      "description": "fastApi vs hono",
-      "created_at": "2025-03-27T23:15:42.000Z",
-      "updated_at": "2025-03-27T23:15:42.000Z",
-      "tags": [
-        "web",
-        "api"
-      ]
-    },
-    "content": "",
-    "toc": []
-  },
-  {
-    "title": "dfs",
-    "description": "最大数字 lanqiao 2193 https://w...",
-    "url": "/blog/2025/03/27/dfs.mdx",
-    "slug": "2025/03/27/dfs.mdx",
-    "segments": [
-      "2025",
-      "03",
-      "27",
-      "dfs.mdx"
-    ],
-    "filePath": "2025/03/27/dfs.mdx",
-    "meta": {
-      "title": "dfs",
-      "description": null,
-      "created_at": "2025-03-27T20:41:55.000Z",
-      "updated_at": "2025-03-27T20:41:55.000Z",
-      "tags": [
-        "alg",
-        "dfs"
-      ]
-    },
-    "content": "\n## 最大数字 lanqiao 2193\nhttps://www.lanqiao.cn/problems/2193/learning/?page=1&first_category_id=1&name=%E6%9C%80%E5%A4%A7%E6%95%B0%E5%AD%97\n\n**问题描述**\n\n给定一个正整数 N 。你可以对 N 的任意一位数字执行任意次以下 2 种操 作：\n\n1. 将该位数字加 1 。如果该位数字已经是 9 , 加 1 之后变成 0 。\n\n2. 将该位数字减 1 。如果该位数字已经是 0 , 减 1 之后变成 9 。\n\n你现在总共可以执行 1 号操作不超过 A 次, 2 号操作不超过 B 次。 请问你最大可以将 N 变成多少?\n**输入格式**\n\n第一行包含 3 个整数: N,A,B\n**输出格式**\n\n一个整数代表答案。\n**样例输入**\n```\n123 1 2\n```\n**样例输出**\n```\n933\n```\n**样例说明**\n\n对百位数字执行 2 次 2 号操作, 对十位数字执行 1 次 1 号操作。\n**评测用例规模与约定**\n\n对于 30%30% 的数据, 1≤N≤100; 0≤A,B≤10\n\n对于 100%100% 的数据, 1≤N≤10^17;0≤A,B≤100\n**运行限制**\n\n- 最大运行时间: 1s\n- 最大运行内存: 512M\n\n**思路**: \n1. 贪心: 从左到右, 近可能构造9\n\n```py\nN, A, B = map(int, input().split())\nsN = str(N)\nlenN = len(sN)\nres = 0\n# 当前的贪心策略虽然高效, 但在某些情况下可能无法找到全局最优解\nfor i in range(len(sN)):\n    base = 10 ** (lenN - i - 1)\n    x = int(sN[i])\n    if x != 9:\n        need_add = 9 - x\n        need_sub = x+1\n        if need_add<= A  and (need_add <= need_sub or B < need_sub):\n            A -= need_add\n            res += 9 * base\n        elif need_sub <= B:\n            B -= need_sub\n            res += 9 * base\n        elif 0 < A:\n            res += (x + A) * base\n            A = 0\n        else:\n          res += x * base\n    else:\n        res += x * base\nprint(res)\n```\n\n```py\ndef dfs(i, curr, a, b):\n    global res\n    if  i == lenN:\n        res = max(res, curr)\n        return\n    x = int(sN[i])\n    d = min(9-x, a)\n    dfs(i+1, curr*10+(x+d), a-d, b)\n    if x+1<=b:\n        dfs(i+1, curr*10+9, a, b-(x+1))\ndfs(0, 0, A, B)\n```\n\n## 小朋友崇拜圈 lanqiao 182\n\nhttps://www.lanqiao.cn/problems/182/learning/?page=1&first_category_id=1&name=%E5%B0%8F%E6%9C%8B%E5%8F%8B%E5%B4%87%E6%8B%9C%E5%9C%88\n\n**题目描述**\n\n班里 N 个小朋友，每个人都有自己最崇拜的一个小朋友（也可以是自己）。\n\n在一个游戏中，需要小朋友坐一个圈，每个小朋友都有自己最崇拜的小朋友在他的右手边。\n\n求满足条件的圈最大多少人？\n\n小朋友编号为 1,2,3,⋯N\n**输入描述**\n\n输入第一行，一个整数 `N (3<N<10^5)`\n\n接下来一行 N 个整数，由空格分开。\n**输出描述**\n\n要求输出一个整数，表示满足条件的最大圈的人数。\n**输入输出样例**\n\n示例\n\n>输入\n```\n9\n3 4 2 5 3 8 4 6 9\n```\n\n>输出\n\n```\n4\n```\n\n>样例解释\n\n如下图所示，崇拜关系用箭头表示，红色表示不在圈中。\n\n显然，最大圈是[2 4 5 3] 构成的圈。\n```mermaid\ngraph LR\n    1((1))-->3\n    2((2))-->4\n    3((3))-->2\n    4((4))-->5\n    5((5))-->3\n    6((6))-->8\n    7((7))-->4\n    8((8))-->6\n    9((9))-->9\n```\n运行限制\n\n- 最大运行时间: 1s\n- 最大运行内存: 256M\n\n**分析**\n- 每个节点 `u` 有且仅有一条出边 `u->v`, 给定数组 `g`, `g[u]==v` 表示这条出边\n\n```py showLineNumbers\nimport sys\nsys.setrecursionlimit(10**5)\nn = int(input())\ng = [0]+ list(map(int, input().split()))\nres = 0 \ndct = {}\ndef dfs(u, idx):\n    global res\n    if u in dct:\n        res = max(res, idx - dct[u])\n        return\n    dct[u] = idx\n    dfs(g[u], idx+1)\nfor u in range(1, n+1):\n    dfs(u, 0)\nprint(res)\n```\n",
-    "toc": [
-      {
-        "depth": 2,
-        "value": "最大数字 lanqiao 2193",
-        "slug": "最大数字-lanqiao-2193"
-      },
-      {
-        "depth": 2,
-        "value": "小朋友崇拜圈 lanqiao 182",
-        "slug": "小朋友崇拜圈-lanqiao-182"
       }
     ]
   },
@@ -184,7 +148,7 @@
       "created_at": "2025-03-26T03:42:29.000Z",
       "updated_at": "2025-03-26T03:42:29.000Z",
       "tags": [
-        "next",
+        "nextjs",
         "export",
         "html"
       ]
@@ -205,7 +169,7 @@
   },
   {
     "title": "Next PWA",
-    "description": "偶然发现 nextjs15 版本中内置了对 PWA 的...",
+    "description": "渐进式 Web 应用（PWA）结合了 Web 应用的覆盖范围和可访问性，以及原生移动应用的功能和用户体验。使用 Next.js，您可以创建提供无缝、类似应用体验的 PWA，无需多个代码库或应用商店审批",
     "url": "/blog/2025/03/26/nextPwa.mdx",
     "slug": "2025/03/26/nextPwa.mdx",
     "segments": [
@@ -217,7 +181,7 @@
     "filePath": "2025/03/26/nextPwa.mdx",
     "meta": {
       "title": "Next PWA",
-      "description": null,
+      "description": "渐进式 Web 应用（PWA）结合了 Web 应用的覆盖范围和可访问性，以及原生移动应用的功能和用户体验。使用 Next.js，您可以创建提供无缝、类似应用体验的 PWA，无需多个代码库或应用商店审批",
       "created_at": "2025-03-29T05:13:17.000Z",
       "updated_at": "2025-03-29T05:13:17.000Z",
       "tags": [
@@ -227,6 +191,97 @@
     },
     "content": "偶然发现 nextjs15 版本中内置了对 PWA 的支持, https://nextjs.org/docs/app/building-your-application/configuring/progressive-web-apps\n",
     "toc": []
+  },
+  {
+    "title": "todo",
+    "description": "paper | 时间 | 任务 | | ------ ...",
+    "url": "/blog/2025/03/30/todo.mdx",
+    "slug": "2025/03/30/todo.mdx",
+    "segments": [
+      "2025",
+      "03",
+      "30",
+      "todo.mdx"
+    ],
+    "filePath": "2025/03/30/todo.mdx",
+    "meta": {
+      "title": "todo",
+      "description": "paper | 时间 | 任务 | | ------ ...",
+      "created_at": "2025-03-30T20:54:11.000Z",
+      "updated_at": "2025-03-31T20:54:11.000Z",
+      "tags": [
+        "todo"
+      ]
+    },
+    "content": "\r\n## paper\r\n\r\n| 时间 | 任务 |\r\n| ------ | ---- |\r\n| 03/31 | 大量阅读 CHARLS 相关论文的摘要, 并下载 |\r\n| 04/01 | 描述性统计 |\r\n| 04/02 | 阅读一篇 |\r\n| 04/03 | 阅读两篇 |\r\n| 04/04 | 阅读两篇 |\r\n| 04/05 | 阅读两篇 |\r\n| 04/06 | 回归 |\r\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "paper",
+        "slug": "paper"
+      }
+    ]
+  },
+  {
+    "title": "api",
+    "description": "fastApi vs hono",
+    "url": "/blog/2025/03/27/api.mdx",
+    "slug": "2025/03/27/api.mdx",
+    "segments": [
+      "2025",
+      "03",
+      "27",
+      "api.mdx"
+    ],
+    "filePath": "2025/03/27/api.mdx",
+    "meta": {
+      "title": "api",
+      "description": "fastApi vs hono",
+      "created_at": "2025-03-27T23:15:42.000Z",
+      "updated_at": "2025-03-27T23:15:42.000Z",
+      "tags": [
+        "web",
+        "api"
+      ]
+    },
+    "content": "",
+    "toc": []
+  },
+  {
+    "title": "dfs",
+    "description": "最大数字 lanqiao 2193 https://w...",
+    "url": "/blog/2025/03/27/dfs.mdx",
+    "slug": "2025/03/27/dfs.mdx",
+    "segments": [
+      "2025",
+      "03",
+      "27",
+      "dfs.mdx"
+    ],
+    "filePath": "2025/03/27/dfs.mdx",
+    "meta": {
+      "title": "dfs",
+      "description": "最大数字 lanqiao 2193 https://w...",
+      "created_at": "2025-03-27T20:41:55.000Z",
+      "updated_at": "2025-03-27T20:41:55.000Z",
+      "tags": [
+        "alg",
+        "dfs"
+      ]
+    },
+    "content": "\n## 最大数字 lanqiao 2193\nhttps://www.lanqiao.cn/problems/2193/learning/?page=1&first_category_id=1&name=%E6%9C%80%E5%A4%A7%E6%95%B0%E5%AD%97\n\n**问题描述**\n\n给定一个正整数 N 。你可以对 N 的任意一位数字执行任意次以下 2 种操 作：\n\n1. 将该位数字加 1 。如果该位数字已经是 9 , 加 1 之后变成 0 。\n\n2. 将该位数字减 1 。如果该位数字已经是 0 , 减 1 之后变成 9 。\n\n你现在总共可以执行 1 号操作不超过 A 次, 2 号操作不超过 B 次。 请问你最大可以将 N 变成多少?\n**输入格式**\n\n第一行包含 3 个整数: N,A,B\n**输出格式**\n\n一个整数代表答案。\n**样例输入**\n```\n123 1 2\n```\n**样例输出**\n```\n933\n```\n**样例说明**\n\n对百位数字执行 2 次 2 号操作, 对十位数字执行 1 次 1 号操作。\n**评测用例规模与约定**\n\n对于 30%30% 的数据, 1≤N≤100; 0≤A,B≤10\n\n对于 100%100% 的数据, 1≤N≤10^17;0≤A,B≤100\n**运行限制**\n\n- 最大运行时间: 1s\n- 最大运行内存: 512M\n\n**思路**: \n1. 贪心: 从左到右, 近可能构造9\n\n```py\nN, A, B = map(int, input().split())\nsN = str(N)\nlenN = len(sN)\nres = 0\n# 当前的贪心策略虽然高效, 但在某些情况下可能无法找到全局最优解\nfor i in range(len(sN)):\n    base = 10 ** (lenN - i - 1)\n    x = int(sN[i])\n    if x != 9:\n        need_add = 9 - x\n        need_sub = x+1\n        if need_add<= A  and (need_add <= need_sub or B < need_sub):\n            A -= need_add\n            res += 9 * base\n        elif need_sub <= B:\n            B -= need_sub\n            res += 9 * base\n        elif 0 < A:\n            res += (x + A) * base\n            A = 0\n        else:\n          res += x * base\n    else:\n        res += x * base\nprint(res)\n```\n\n```py\ndef dfs(i, curr, a, b):\n    global res\n    if  i == lenN:\n        res = max(res, curr)\n        return\n    x = int(sN[i])\n    d = min(9-x, a)\n    dfs(i+1, curr*10+(x+d), a-d, b)\n    if x+1<=b:\n        dfs(i+1, curr*10+9, a, b-(x+1))\ndfs(0, 0, A, B)\n```\n\n## 小朋友崇拜圈 lanqiao 182\n\nhttps://www.lanqiao.cn/problems/182/learning/?page=1&first_category_id=1&name=%E5%B0%8F%E6%9C%8B%E5%8F%8B%E5%B4%87%E6%8B%9C%E5%9C%88\n\n**题目描述**\n\n班里 N 个小朋友，每个人都有自己最崇拜的一个小朋友（也可以是自己）。\n\n在一个游戏中，需要小朋友坐一个圈，每个小朋友都有自己最崇拜的小朋友在他的右手边。\n\n求满足条件的圈最大多少人？\n\n小朋友编号为 1,2,3,⋯N\n**输入描述**\n\n输入第一行，一个整数 `N (3<N<10^5)`\n\n接下来一行 N 个整数，由空格分开。\n**输出描述**\n\n要求输出一个整数，表示满足条件的最大圈的人数。\n**输入输出样例**\n\n示例\n\n>输入\n```\n9\n3 4 2 5 3 8 4 6 9\n```\n\n>输出\n\n```\n4\n```\n\n>样例解释\n\n如下图所示，崇拜关系用箭头表示，红色表示不在圈中。\n\n显然，最大圈是[2 4 5 3] 构成的圈。\n```mermaid\ngraph LR\n    1((1))-->3\n    2((2))-->4\n    3((3))-->2\n    4((4))-->5\n    5((5))-->3\n    6((6))-->8\n    7((7))-->4\n    8((8))-->6\n    9((9))-->9\n```\n运行限制\n\n- 最大运行时间: 1s\n- 最大运行内存: 256M\n\n**分析**\n- 每个节点 `u` 有且仅有一条出边 `u->v`, 给定数组 `g`, `g[u]==v` 表示这条出边\n\n```py showLineNumbers\nimport sys\nsys.setrecursionlimit(10**5)\nn = int(input())\ng = [0]+ list(map(int, input().split()))\nres = 0 \ndct = {}\ndef dfs(u, idx):\n    global res\n    if u in dct:\n        res = max(res, idx - dct[u])\n        return\n    dct[u] = idx\n    dfs(g[u], idx+1)\nfor u in range(1, n+1):\n    dfs(u, 0)\nprint(res)\n```\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "最大数字 lanqiao 2193",
+        "slug": "最大数字-lanqiao-2193"
+      },
+      {
+        "depth": 2,
+        "value": "小朋友崇拜圈 lanqiao 182",
+        "slug": "小朋友崇拜圈-lanqiao-182"
+      }
+    ]
   },
   {
     "title": "Union-Find",
@@ -270,6 +325,331 @@
     ]
   },
   {
+    "title": "paper",
+    "description": "常规生物医学指标与中国老年人健康状况的相关性研究 ht...",
+    "url": "/blog/2025/03/31/paper.mdx",
+    "slug": "2025/03/31/paper.mdx",
+    "segments": [
+      "2025",
+      "03",
+      "31",
+      "paper.mdx"
+    ],
+    "filePath": "2025/03/31/paper.mdx",
+    "meta": {
+      "title": "paper",
+      "description": "常规生物医学指标与中国老年人健康状况的相关性研究 ht...",
+      "created_at": "2025-03-31T20:55:25.000Z",
+      "updated_at": "2025-03-31T20:55:25.000Z",
+      "tags": []
+    },
+    "content": "\r\n## 常规生物医学指标与中国老年人健康状况的相关性研究\r\n\r\nhttp://vgms.fanyu.com\r\n\r\n2020 CHARLS Wave 5\r\n\r\n## 数据集\r\n\r\n### 2020 CHARLS Wave 5\r\n\r\n本次数据发布 (版本号: 20231106) 一共发布了八个主要数据集以及两个辅助数据集  (样本信息以及横截面权重) 。PSU信息与往期数据相同。下表给出了这十个数据集的详细\r\n说明\r\n\r\n| 问卷模块 | dataset | description |\r\n| -------- | ------- | ----------- |\r\n| B. 基本信息 | Demographic_Background | 主要受访者及其配偶的基本人口学信息 |\r\n| C. 家庭信息 |  Family_Information | 家庭以及家户成员信息 |\r\n| D. 健康状况与功能 | Health_Status_and_Functioning | 健康状态、健康行为以及认知能力 |\r\n| F. 工作与退休 | Work_Retirement | 工作以及退休状况 |\r\n| G1. 家户收入与支出 | Household_Income | 家户收入、支出以及住房情况 |\r\n| G2. 个人收入 | Individual_Income | 个人收入 |\r\n| V. 疫情 | COVID_Module | 受访者疫情期间的相关信息 |\r\n| EX. 退出问卷 | EXIT_Module | 去世受访者的信息 |\r\n|  | Weights | 横截面权重 |\r\n| | Sample_Infor | 样本信息 |\r\n\r\n所有的数据集均以Stata 14格式存储, 用户可以通过随数据发布的“codebook”获取\r\n数据的基本统计描述。\r\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "常规生物医学指标与中国老年人健康状况的相关性研究",
+        "slug": "常规生物医学指标与中国老年人健康状况的相关性研究"
+      },
+      {
+        "depth": 2,
+        "value": "数据集",
+        "slug": "数据集"
+      },
+      {
+        "depth": 3,
+        "value": "2020 CHARLS Wave 5",
+        "slug": "2020-charls-wave-5"
+      }
+    ]
+  },
+  {
+    "title": "time",
+    "description": "...",
+    "url": "/blog/2025/04/01/time.mdx",
+    "slug": "2025/04/01/time.mdx",
+    "segments": [
+      "2025",
+      "04",
+      "01",
+      "time.mdx"
+    ],
+    "filePath": "2025/04/01/time.mdx",
+    "meta": {
+      "title": "time",
+      "description": "...",
+      "created_at": "2025-04-01T02:04:25.000Z",
+      "updated_at": "2025-04-01T02:04:25.000Z",
+      "tags": [
+        "alg",
+        "time"
+      ]
+    },
+    "content": "\r\n```py\r\nfrom datetime import date, timedelata\r\n# 计算两个日期之间的天数\r\nstart_date = date(2025, 4, 1)\r\nend_date = date(2025, 4, 17)\r\ndelta = end_date - start_date\r\nprint(delta)  # 输出: 16 days, 0:00:00\r\nprint(delta.days)  # 输出: 16\r\n```\r\n",
+    "toc": []
+  },
+  {
+    "title": "IDLE",
+    "description": "IDLE 是 Python 的集成开发环境 (IDE)，它是用 Python 编写的，提供了一个简单的图形用户界面 (GUI) 来编写和运行 Python 代码。",
+    "url": "/blog/2023/06/12/IDLE.mdx",
+    "slug": "2023/06/12/IDLE.mdx",
+    "segments": [
+      "2023",
+      "06",
+      "12",
+      "IDLE.mdx"
+    ],
+    "filePath": "2023/06/12/IDLE.mdx",
+    "meta": {
+      "title": "IDLE",
+      "description": "IDLE 是 Python 的集成开发环境 (IDE)，它是用 Python 编写的，提供了一个简单的图形用户界面 (GUI) 来编写和运行 Python 代码。",
+      "created_at": "2023-06-12T23:35:44.000Z",
+      "updated_at": "2025-03-31T23:35:44.000Z",
+      "tags": [
+        "python",
+        "ide"
+      ]
+    },
+    "content": "\r\n```sh\r\nwhere idle\r\n```\r\n\r\n## use\r\n\r\n- 新建文件: `Ctrl + N`\r\n- 代码补全: `Ctrl + Space` (在 Mac 上是 `Control + Space`)\r\n- 运行: `F5`\r\n- 打开文档: `F1`\r\n- 字体: Options -> Configure IDLE > Fonts/Tabs, 推荐 Consolas, size=18\r\n- 注释: `Alt + 3` (在 Mac 上是 `Option + 3`)\r\n- 取消注释: `Alt + 4` (在 Mac 上是 `Option + 4`)\r\n- 缩进: `Tab`,  取消缩进: `Ctrl + [` (在 Mac 上是 `Command + [`)\r\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "use",
+        "slug": "use"
+      }
+    ]
+  },
+  {
+    "title": "python",
+    "description": "Python 是一种广泛使用的高级编程语言，具有清晰的语法和强大的库支持。它适用于多种应用，包括数据分析、机器学习、Web 开发等。",
+    "url": "/blog/2023/06/12/python.mdx",
+    "slug": "2023/06/12/python.mdx",
+    "segments": [
+      "2023",
+      "06",
+      "12",
+      "python.mdx"
+    ],
+    "filePath": "2023/06/12/python.mdx",
+    "meta": {
+      "title": "python",
+      "description": "Python 是一种广泛使用的高级编程语言，具有清晰的语法和强大的库支持。它适用于多种应用，包括数据分析、机器学习、Web 开发等。",
+      "created_at": "2023-06-12T23:35:17.000Z",
+      "updated_at": "2025-03-31T23:35:17.000Z",
+      "tags": [
+        "python"
+      ]
+    },
+    "content": "\r\n## install\r\n\r\n1. 是否已经安装 python\r\n    1. 回想自己是否安装过 python, 下面是误装 `python` 的一些例子\r\n        - 安装 nodejs 时选择了某些选项\r\n    2. 检查当前环境中是否有 python\r\n        ```sh title=\"这些命令会在当前环境中查找 python 的位置\"\r\n        # Windows\r\n        where python\r\n        # 注意在 windows 中 C:\\Users\\aa\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe \r\n        # 这个位置有 python.exe 并不一定意味着你安装了 python, \r\n        # 你可以运行 python 查看有什么反应 可能会跳转到 Microsoft Store, \r\n        # 而不是进入 python 交互式命令行, 那么说明你没有安装 python\r\n        # Linux\r\n        which python\r\n        # MacOS\r\n        type python\r\n        ```\r\n    3. 如果你想的话可以 在所以文件中查找 python 的位置\r\n        ```sh title=\"这些命令会在所有文件中查找 python 的位置\"\r\n        # Windows `/s` 表示递归搜索子目录 `/b` 表示只显示文件名\r\n        dir C:\\python.exe /s /b # 在 C 盘中查找 python.exe\r\n        dir D:\\python.exe /s /b # 在 D 盘中查找 python.exe\r\n        # Linux\r\n        find / -name python\r\n        # MacOS\r\n        find / -name python\r\n        ```\r\n\r\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "install",
+        "slug": "install"
+      }
+    ]
+  },
+  {
+    "title": "conda",
+    "description": "Conda 是一个开源的包管理器和环境管理器，主要用于 Python 和 R 语言。它允许用户安装、更新和管理软件包及其依赖项，并创建和管理虚拟环境。",
+    "url": "/blog/2023/06/18/conda.mdx",
+    "slug": "2023/06/18/conda.mdx",
+    "segments": [
+      "2023",
+      "06",
+      "18",
+      "conda.mdx"
+    ],
+    "filePath": "2023/06/18/conda.mdx",
+    "meta": {
+      "title": "conda",
+      "description": "Conda 是一个开源的包管理器和环境管理器，主要用于 Python 和 R 语言。它允许用户安装、更新和管理软件包及其依赖项，并创建和管理虚拟环境。",
+      "created_at": "2023-06-12T23:37:49.000Z",
+      "updated_at": "2025-03-31T23:37:49.000Z",
+      "tags": [
+        "python",
+        "env"
+      ]
+    },
+    "content": "\r\n## install conda\r\n\r\nConda 支持多种安装方法\r\n\r\n- Anaconda 是一个包含 Conda 的完整数据科学工具包，适合需要大量预装库的用户\r\n  - 自带大量科学计算和数据分析库（如 NumPy、Pandas、Jupyter Notebook 等）\r\n  - 文件较大（约 500MB+），安装后占用较多磁盘空间\r\n- Miniconda 是一个轻量级的 Conda 版本，仅包含 Conda 和 Python，适合需要更灵活控制环境的用户\r\n  - 文件较小（约 50MB）\r\n\r\n### Anaconda\r\n\r\n\r\n### Miniconda\r\n\r\n#### use 系统包管理器安装\r\n\r\n##### winget (Windows)\r\n\r\n```sh\r\n# 搜索 Miniconda\r\nwinget search miniconda\r\nwinget install Anaconda.Miniconda3\r\n# or \r\nwinget install Miniconda3\r\n# 安装完成后会告诉你安装路径\r\n# 例如 C:\\Users\\aa\\Miniconda3 , 打开这个路径\r\n# dir C:\\Users\\aa\\Miniconda3 /b # 查看这个目录下的文件和文件夹\r\n# 查看是否有  bin/ Scripts/ 文件夹\r\n# 在环境变量中 创建 名为 CondaPath 的变量, 值为 \r\n# C:\\Users\\aa\\Miniconda3\r\n# C:\\Users\\aa\\Miniconda3\\bin\r\n# C:\\Users\\aa\\Miniconda3\\Scripts\r\n# 然后蒋在名为 PATH 的变量中添加 %CondaPath%\r\n```\r\n\r\n##### pacman (Arch Linux \\ Manjaro)\r\n\r\n##### apt (Debian\\Ubuntu)\r\n\r\n##### dnf (Fedora)\r\n\r\n##### yum (openSUSE\\CentOS\\RHEL)\r\n\r\n\r\n#### use src\r\n\r\n#### use docker\r\n\r\n## use\r\n\r\n### create env\r\n\r\n```sh\r\n# (optional) 列出所有可用的环境\r\nconda env list\r\n# (optional) 搜索可用的环境\r\nconda search python\r\n# 创建一个新的 Conda 环境，命名为 py38，使用 Python 3.8.16\r\nconda create -n py38 python=3.8.16\r\n# activate py38 环境\r\nconda activate py38\r\n```\r\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "install conda",
+        "slug": "install-conda"
+      },
+      {
+        "depth": 3,
+        "value": "Anaconda",
+        "slug": "anaconda"
+      },
+      {
+        "depth": 3,
+        "value": "Miniconda",
+        "slug": "miniconda"
+      },
+      {
+        "depth": 4,
+        "value": "use 系统包管理器安装",
+        "slug": "use-系统包管理器安装"
+      },
+      {
+        "depth": 5,
+        "value": "winget (Windows)",
+        "slug": "winget-(windows)"
+      },
+      {
+        "depth": 5,
+        "value": "pacman (Arch Linux \\ Manjaro)",
+        "slug": "pacman-(arch-linux-\\-manjaro)"
+      },
+      {
+        "depth": 5,
+        "value": "apt (Debian\\Ubuntu)",
+        "slug": "apt-(debian\\ubuntu)"
+      },
+      {
+        "depth": 5,
+        "value": "dnf (Fedora)",
+        "slug": "dnf-(fedora)"
+      },
+      {
+        "depth": 5,
+        "value": "yum (openSUSE\\CentOS\\RHEL)",
+        "slug": "yum-(opensuse\\centos\\rhel)"
+      },
+      {
+        "depth": 4,
+        "value": "use src",
+        "slug": "use-src"
+      },
+      {
+        "depth": 4,
+        "value": "use docker",
+        "slug": "use-docker"
+      },
+      {
+        "depth": 2,
+        "value": "use",
+        "slug": "use"
+      },
+      {
+        "depth": 3,
+        "value": "create env",
+        "slug": "create-env"
+      }
+    ]
+  },
+  {
+    "title": "auth",
+    "description": "...",
+    "url": "/blog/2023/07/12/auth.mdx",
+    "slug": "2023/07/12/auth.mdx",
+    "segments": [
+      "2023",
+      "07",
+      "12",
+      "auth.mdx"
+    ],
+    "filePath": "2023/07/12/auth.mdx",
+    "meta": {
+      "title": "auth",
+      "description": "...",
+      "created_at": "2023-07-12T05:59:58.000Z",
+      "updated_at": "2025-04-02T05:59:58.000Z",
+      "tags": [
+        "web",
+        "auth"
+      ]
+    },
+    "content": "",
+    "toc": []
+  },
+  {
+    "title": "dns",
+    "description": "全称是 Domain Name System （域名系统），它是互联网的重要基础设施之一，用于将人类易于记忆的 域名（如 www.example.com) 转换为计算机可以识别的 IP 地址（如 192.168.1.1 或 2606:4700:4700::1111)",
+    "url": "/blog/2023/07/13/dns.mdx",
+    "slug": "2023/07/13/dns.mdx",
+    "segments": [
+      "2023",
+      "07",
+      "13",
+      "dns.mdx"
+    ],
+    "filePath": "2023/07/13/dns.mdx",
+    "meta": {
+      "title": "dns",
+      "description": "全称是 Domain Name System （域名系统），它是互联网的重要基础设施之一，用于将人类易于记忆的 域名（如 www.example.com) 转换为计算机可以识别的 IP 地址（如 192.168.1.1 或 2606:4700:4700::1111)",
+      "created_at": "2023-07-13T16:23:48.000Z",
+      "updated_at": "2025-04-02T16:23:48.000Z",
+      "tags": [
+        "web",
+        "dns"
+      ]
+    },
+    "content": "\n## bug\n\n### ERR_TOO_MANY_REDIRECTS\n\ncloudflare vercel\n\nfirefox: 检测到该服务器正在将指向此网址的 请求 无限循环 重定向\n\n在 **Vercel** 上部署并使用 **Cloudflare 提供的域名 (CNAME 记录)** 时，出现 **“无限循环重定向”** 的问题，通常是由于 **HTTPS 配置** 或 **Cloudflare 和 Vercel 的设置冲突** 导致的。以下是针对这种情况的分析和解决方法\n\n#### 问题原因分析\n\n##### HTTPS 重定向冲突\n\n- Vercel 默认会强制将所有 HTTP 请求重定向到 HTTPS\n- Cloudflare 也可能启用了 HTTPS 重定向（通过 \"Always Use HTTPS\" 或 \"Automatic HTTPS Rewrites\" 功能）\n- 如果两者都启用了 HTTPS 重定向，可能会导致循环重定向\n\n##### Cloudflare 的 SSL/TLS 配置问题\n\n- Cloudflare 提供了多种 SSL/TLS 模式 (如 Flexible, Full, Full (strict) )\n- 如果 Cloudflare 的 SSL 模式设置为 Flexible, Cloudflare 会尝试通过 HTTP 与 Vercel 通信，而 Vercel 强制 HTTPS, 这会导致循环重定向\n\n#### 解决方法\n1. 检查 Cloudflare 的 SSL/TLS 模式\n    1. 登陆 Cloudflare 控制面板\n    2. 选择你的域名\n    3. 点击 **SSL/TLS** 选项卡\n    4. 确保 SSL/TLS 模式设置为 **Full** 或 **Full (strict)**，而不是 **Flexible**\n\n## 参考\n\n- https://brume.top/p/solution-for-err-too-many-redirects-error/",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "bug",
+        "slug": "bug"
+      },
+      {
+        "depth": 3,
+        "value": "ERR_TOO_MANY_REDIRECTS",
+        "slug": "err_too_many_redirects"
+      },
+      {
+        "depth": 4,
+        "value": "问题原因分析",
+        "slug": "问题原因分析"
+      },
+      {
+        "depth": 5,
+        "value": "HTTPS 重定向冲突",
+        "slug": "https-重定向冲突"
+      },
+      {
+        "depth": 5,
+        "value": "Cloudflare 的 SSL/TLS 配置问题",
+        "slug": "cloudflare-的-ssl/tls-配置问题"
+      },
+      {
+        "depth": 4,
+        "value": "解决方法",
+        "slug": "解决方法"
+      },
+      {
+        "depth": 2,
+        "value": "参考",
+        "slug": "参考"
+      }
+    ]
+  },
+  {
+    "title": "vscode",
+    "description": "...",
+    "url": "/blog/2023/08/01/vscode.mdx",
+    "slug": "2023/08/01/vscode.mdx",
+    "segments": [
+      "2023",
+      "08",
+      "01",
+      "vscode.mdx"
+    ],
+    "filePath": "2023/08/01/vscode.mdx",
+    "meta": {
+      "title": "vscode",
+      "description": "...",
+      "created_at": "2023-08-01T05:31:57.000Z",
+      "updated_at": "2025-04-02T05:31:57.000Z",
+      "tags": [
+        "vscode"
+      ]
+    },
+    "content": "\n```sh\ncode ~/repos/env_ls/dotfiles\n```\n",
+    "toc": []
+  },
+  {
     "title": "css",
     "description": ":has()...",
     "url": "/blog/2023/08/02/css.mdx",
@@ -283,7 +663,7 @@
     "filePath": "2023/08/02/css.mdx",
     "meta": {
       "title": "css",
-      "description": null,
+      "description": ":has()...",
       "created_at": "2023-08-02T10:35:32.000Z",
       "updated_at": "2025-03-30T10:35:32.000Z",
       "tags": [
@@ -301,6 +681,36 @@
     ]
   },
   {
+    "title": "package manager",
+    "description": "包管理器是一种用于自动化安装、升级、配置和删除计算机程序的工具。主要可以分为两类：操作系统包管理器和编程语言包管理器。",
+    "url": "/blog/2023/12/13/packManager.mdx",
+    "slug": "2023/12/13/packManager.mdx",
+    "segments": [
+      "2023",
+      "12",
+      "13",
+      "packManager.mdx"
+    ],
+    "filePath": "2023/12/13/packManager.mdx",
+    "meta": {
+      "title": "package manager",
+      "description": "包管理器是一种用于自动化安装、升级、配置和删除计算机程序的工具。主要可以分为两类：操作系统包管理器和编程语言包管理器。",
+      "created_at": "2023-12-13T00:34:27.000Z",
+      "updated_at": "2025-04-01T00:34:27.000Z",
+      "tags": [
+        "package"
+      ]
+    },
+    "content": "\r\n| 环境 | 包管理器 | 说明 |\r\n| --- | --- | --- |\r\n| windows | [winget](https://winget.run/) | Windows 10 和 Windows 11 的包管理器 |\r\n| macOS | [Homebrew](https://brew.sh/) | macOS 的包管理器 |\r\n| Ubuntu\\debian | [apt](https://packages.debian.org/) | Debian 和 Ubuntu 的包管理器 |\r\n| Arch Linux\\Manjaro | [pacman](https://archlinux.org/) | Arch Linux 和 Manjaro 的包管理器 |\r\n| Fedora | [dnf](https://dnf.readthedocs.io/en/latest/) | Fedora 的包管理器 |\r\n| openSUSE\\CentOS\\RHEL | [yum](https://yum.baseurl.org/) | openSUSE、CentOS 和 RHEL 的包管理器 |\r\n| Python | [pip](https://pypi.org/) | Python 的包管理器 |\r\n| Conda | [conda](https://docs.conda.io/en/latest/) | Python 的包管理器 |\r\n| Nodejs | [npm](https://www.npmjs.com/) | Node.js 的包管理器 |\r\n| Nodejs | [yarn](https://yarnpkg.com/) | Node.js 的包管理器 |\r\n| Nodejs | [pnpm](https://pnpm.io/) | Node.js 的包管理器 |\r\n| Deno | [deno](https://deno.land/) | Deno 的包管理器 |\r\n| Bun | [bun](https://bun.sh/) | Bun 的包管理器 |\r\n| Rust | [cargo](https://doc.rust-lang.org/cargo/) | Rust 的包管理器 |\r\n| Go | [go](https://golang.org/) | Go 的包管理器 |\r\n| C\\C++ |[conan](https://conan.io/) | C\\C++ 的包管理器 |\r\n| Ruby | [gem](https://rubygems.org/) | Ruby 的包管理器 |\r\n| Java | [maven](https://maven.apache.org/) | Java 的包管理器 |\r\n| Java | [gradle](https://gradle.org/) | Java 的包管理器 |\r\n| PHP | [composer](https://getcomposer.org/) | PHP 的包管理器 |\r\n| C# | [nuget](https://www.nuget.org/) | C# 的包管理器 |\r\n| Elixir | [hex](https://hex.pm/) | Elixir 的包管理器 |\r\n| Elixir | [mix](https://hexdocs.pm/mix/) | Elixir 的包管理器 |\r\n\r\n## winget (Windows)\r\n\r\n```terminal\r\nAdministrator in ~ took 50s\r\n🪟 ❯ winget search miniconda\r\nThe `msstore` source requires that you view the following agreements before using.\r\nTerms of Transaction: https://aka.ms/microsoft-store-terms-of-transaction\r\nThe source requires the current machine's 2-letter geographic region to be sent to the backend service to function properly (ex. \"US\").\r\n\r\nDo you agree to all the source agreements terms?\r\n[Y] Yes  [N] No: yes\r\nName       Id                  Version        Match          Source\r\n-------------------------------------------------------------------\r\nMiniconda3 Anaconda.Miniconda3 py312_25.1.1-2 Tag: miniconda winget\r\n\r\n🪟 ❯ winget install Miniconda3\r\n# or \r\n🪟 ❯ winget install Anaconda.Miniconda3\r\n```\r\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "winget (Windows)",
+        "slug": "winget-(windows)"
+      }
+    ]
+  },
+  {
     "title": "微积分",
     "description": "...",
     "url": "/blog/2021/11/11/calculus.mdx",
@@ -314,7 +724,7 @@
     "filePath": "2021/11/11/calculus.mdx",
     "meta": {
       "title": "微积分",
-      "description": null,
+      "description": "...",
       "created_at": "2021-11-11T10:13:16.000Z",
       "updated_at": "2025-03-30T10:13:16.000Z",
       "tags": [
@@ -338,7 +748,7 @@
     "filePath": "2021/12/11/var.mdx",
     "meta": {
       "title": "var",
-      "description": null,
+      "description": "赋值 (Assignment) 引用 (Referen...",
       "created_at": "2021-12-11T10:11:52.000Z",
       "updated_at": "2025-03-30T10:11:52.000Z",
       "tags": [
@@ -361,6 +771,106 @@
         "depth": 4,
         "value": "解引用 (Dereference)",
         "slug": "解引用-(dereference)"
+      }
+    ]
+  },
+  {
+    "title": "git",
+    "description": "git 是一个分布式版本控制系统, 用于跟踪计算机文件的修改, 主要用于源代码管理 (SCM) 。",
+    "url": "/blog/2021/12/14/git.mdx",
+    "slug": "2021/12/14/git.mdx",
+    "segments": [
+      "2021",
+      "12",
+      "14",
+      "git.mdx"
+    ],
+    "filePath": "2021/12/14/git.mdx",
+    "meta": {
+      "title": "git",
+      "description": "git 是一个分布式版本控制系统, 用于跟踪计算机文件的修改, 主要用于源代码管理 (SCM) 。",
+      "created_at": "2021-11-14T20:18:40.000Z",
+      "updated_at": "2025-03-31T20:18:40.000Z",
+      "tags": [
+        "git",
+        "cli"
+      ]
+    },
+    "content": "\r\n## cli\r\n\r\n### git status\r\n\r\n显示当前工作目录和暂存区的状态。它可以帮助你了解哪些文件被修改、哪些文件被添加到暂存区、哪些文件未被跟踪等信息。\r\n\r\n```sh\r\n🪟 ❯ git status\r\nOn branch main\r\nYour branch is up to date with 'origin/main'.\r\n\r\nnothing to commit, working tree clean\r\n```\r\n>[!note]\r\n> `On branch main` : 当前所在的分支是 `main` 分支<br/>\r\n> `Your branch is up to date with 'origin/main'` : 当前分支与远程分支 `origin/main` 是同步的，没有新的提交。<br/>\r\n> `nothing to commit, working tree clean` : 没有需要提交的更改，工作目录是干净的。<br/>\r\n> `Your branch` : 你的分支<br/>\r\n> `is up to date` : 是最新的<br/>\r\n> `up to date` : 最新的<br/>\r\n> `with 'origin/main'` : 和 `origin/main` 一起<br/>\r\n> `is up to date with ...` : \r\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "cli",
+        "slug": "cli"
+      },
+      {
+        "depth": 3,
+        "value": "git status",
+        "slug": "git-status"
+      }
+    ]
+  },
+  {
+    "title": "paper.mdx",
+    "description": "",
+    "url": "/blog/2024/03/26/paper.mdx",
+    "slug": "2024/03/26/paper.mdx",
+    "segments": [
+      "2024",
+      "03",
+      "26",
+      "paper.mdx"
+    ],
+    "filePath": "2024/03/26/paper.mdx",
+    "meta": {
+      "title": "paper.mdx",
+      "description": ""
+    },
+    "content": "",
+    "toc": []
+  },
+  {
+    "title": "Java",
+    "description": "东西都被删除了吗 runtime function 重...",
+    "url": "/blog/2024/10/12/java.mdx",
+    "slug": "2024/10/12/java.mdx",
+    "segments": [
+      "2024",
+      "10",
+      "12",
+      "java.mdx"
+    ],
+    "filePath": "2024/10/12/java.mdx",
+    "meta": {
+      "title": "Java",
+      "description": "东西都被删除了吗 runtime function 重...",
+      "created_at": "2024-10-12T15:55:11.000Z",
+      "updated_at": "2025-03-30T15:55:11.000Z",
+      "tags": [
+        "java"
+      ]
+    },
+    "content": "\n东西都被删除了吗\n\n## runtime\n\n## function\n\n### 重写 (Override)\n\n### 重载 (Overload)\n\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "runtime",
+        "slug": "runtime"
+      },
+      {
+        "depth": 2,
+        "value": "function",
+        "slug": "function"
+      },
+      {
+        "depth": 3,
+        "value": "重写 (Override)",
+        "slug": "重写-(override)"
+      },
+      {
+        "depth": 3,
+        "value": "重载 (Overload)",
+        "slug": "重载-(overload)"
       }
     ]
   },
@@ -409,51 +919,6 @@
         "depth": 2,
         "value": "插入图片",
         "slug": "插入图片"
-      }
-    ]
-  },
-  {
-    "title": "Java",
-    "description": "东西都被删除了吗 runtime function 重...",
-    "url": "/blog/2024/10/12/java.mdx",
-    "slug": "2024/10/12/java.mdx",
-    "segments": [
-      "2024",
-      "10",
-      "12",
-      "java.mdx"
-    ],
-    "filePath": "2024/10/12/java.mdx",
-    "meta": {
-      "title": "Java",
-      "description": null,
-      "created_at": "2024-10-12T15:55:11.000Z",
-      "updated_at": "2025-03-30T15:55:11.000Z",
-      "tags": [
-        "java"
-      ]
-    },
-    "content": "\n东西都被删除了吗\n\n## runtime\n\n## function\n\n### 重写 (Override)\n\n### 重载 (Overload)\n\n",
-    "toc": [
-      {
-        "depth": 2,
-        "value": "runtime",
-        "slug": "runtime"
-      },
-      {
-        "depth": 2,
-        "value": "function",
-        "slug": "function"
-      },
-      {
-        "depth": 3,
-        "value": "重写 (Override)",
-        "slug": "重写-(override)"
-      },
-      {
-        "depth": 3,
-        "value": "重载 (Overload)",
-        "slug": "重载-(overload)"
       }
     ]
   }

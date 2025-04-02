@@ -4,7 +4,7 @@ import remarkFrontmatter from "remark-frontmatter";
 import remarkParse from "remark-parse";
 import remarkStringify from "remark-stringify";
 import { unified } from "unified";
-import { DocMeta, DocSearchValue, Toc } from "../types";
+import { DocBase, DocMeta, DocSearchValue, Toc } from "../types";
 import path from "path";
 import { getFileWithMetaWithToc } from "./get";
 import matter from "gray-matter";
@@ -26,6 +26,9 @@ export const content2meta = async (rawContent: string): Promise<ContentWithMeta>
     data: DocMeta;
     content: string
   }
+  metadata.description = metadata.description || `${cleanMarkdown(content).slice(0, 27)}...` // 取前27个字符 如果不够长则是取全部
+  // metadata.title = metadata.title || fileName
+  console.log("content2meta: ", metadata)
   return { metadata, content }
 }
 export const content2Toc = async (content: string): Promise<Toc[]> => {
@@ -57,9 +60,11 @@ export const path2segments = async (relativePath: string): Promise<string[]> => 
 }
 // 2025/10/01/xx.mdx -> /blog/2025/10/01/xx.mdx
 export const path2url = (relativePath: string): string => `/blog/${relativePath}`
-// 2025/10/01/xx.mdx -> xx
+// 2025/10/01/xx.mdx -> xx.mdx
 export const path2name = (filePath: string): string => {
-  return path.basename(filePath, path.extname(filePath));
+  // 2025/10/01/xx.mdx -> xx
+  // return path.basename(filePath, path.extname(filePath));
+  return path.basename(filePath);
 }
 
 // /home/aa/repo/docs/123/456/789.mdx , process.cwd()/docs
@@ -67,8 +72,8 @@ export const path2MdxJson = async (fullPath: string, contentDir: string): Promis
   const relativePath = path.relative(contentDir, fullPath);  // 123/456/789.mdx
   const { metadata, content, rawContent, toc } = await getFileWithMetaWithToc(fullPath)
   return {
-    title: metadata?.title||path2name(relativePath),
-    description: metadata?.description||`${cleanMarkdown(content).slice(0, 27)}...`, // 取前17个字符 如果不够长则是取全部
+    title: metadata.title,
+    description: metadata.description,
     url: `/blog/${relativePath}`,
     slug: relativePath,
     segments: relativePath.split("/"),
@@ -105,7 +110,7 @@ export const dir2MdxJsonLs = async (contentDir: string): Promise<DocSearchValue[
   return allDocs
 }
 
-export const sortDocsBy_updated_at =  (docs: DocSearchValue[]): DocSearchValue[] => {
+export const sortDocsBy_updated_at =  (docs: DocBase[]): DocBase[] => {
   return docs.sort((a, b) => {
     const aDate = a.meta?.updated_at ? new Date(a.meta.updated_at) : new Date(0);
     const bDate = b.meta?.updated_at ? new Date(b.meta.updated_at) : new Date(0);
@@ -115,18 +120,15 @@ export const sortDocsBy_updated_at =  (docs: DocSearchValue[]): DocSearchValue[]
 
 type DocTagValue = {
   count: number
-  docs: {
-    title: string
-    description: string
-    slug: string
-  }[]
+  docs: DocBase[]
 }
+export type DocTagsKV = Record<string, DocTagValue>
 
-export const getTagsData = (allDocs: DocSearchValue[]): Record<string, DocTagValue> => {
-  const tagsMap: Record<string, DocTagValue> = {};
+export const getTagsKV = (allDocsBase: DocBase[]): DocTagsKV => {
+  const tagsMap: DocTagsKV = {};
 
-  allDocs.forEach((doc) => {
-    const { title, description, slug, meta } = doc;
+  allDocsBase.forEach((doc) => {
+    const { url, meta } = doc;
 
     if (meta?.tags) {
       meta.tags.forEach((tag) => {
@@ -135,9 +137,8 @@ export const getTagsData = (allDocs: DocSearchValue[]): Record<string, DocTagVal
         }
         tagsMap[tag].count += 1;
         tagsMap[tag].docs.push({
-          title,
-          slug,
-          description,
+          url,
+          meta,
         });
       });
     }
