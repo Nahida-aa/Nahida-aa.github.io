@@ -107,10 +107,24 @@ graph LR
 ```py
 def climbStairs(n: int) -> int:
     if n <= 2:
-        return n # f(1)=1, f(2)=2
+        return n
     dp = [0] * (n + 1)
     dp[1], dp[2] = 1, 2
     for i in range(3, n + 1):
         dp[i] = dp[i - 1] + dp[i - 2]
     return dp[n]
+```
+### 解法4: DP + 状态压缩
+- 在这个 解法3 中, `dp[i]` 的值只依赖于 `dp[i-1]` 和 `dp[i-2]`
+- 因此，我们不需要存储整个 `dp` 数组，只需要用两个变量来保存最近的两个状态即可
+- 状态压缩的时间复杂度与普通动态规划相同，但它的 空间复杂度更低，从 $O(n)$ 降到了 $O(1)$
+- 在实际运行中，减少内存分配和访问的开销会使程序运行得更快
+```py
+def climbStairs(n: int) -> int:
+    if n <= 2:
+        return n
+    prev, curr = 1, 2  # 初始化 f(1) 和 f(2)
+    for i in range(3, n + 1):
+        prev, curr = curr, prev + curr  # 更新状态
+    return curr
 ```
