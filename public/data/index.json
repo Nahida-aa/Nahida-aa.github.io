@@ -300,7 +300,7 @@
         "tree"
       ]
     },
-    "content": "\n```mermaid\ngraph BT\n    2((2)) --\"fa[2]\"-->  1((1))\n    3((3)) --\"fa[3]\"-->  1\n    4((4)) --\"fa[4]\"-->  3\n    5((5)) --\"fa[5]\"-->  3\n    8((8)) -->  7((7))\n    7 -->  6((6))\n```\n\n## overview\n\n它可以高效地解决以下问题: \n1. 合并 (Union) ：将两个集合合并为一个集合 (合并对应的树)。\n2. 查询 (Find) ：查询某个元素属于哪个集合 (通常通过找到集合的代表元素, 即根节点)。 \n\n并查集的核心思想是用一个数组表示集合，通过路径压缩和按秩合并优化，使得查询和合并操作的时间复杂度接近常数 (摊还时间复杂度为 $O(\\alpha(n))$，其中 $\\alpha(n)$ 是反阿克曼函数，增长极慢) \n\n### find\n\n```math\n\\begin{align}\n& find(x) = x 所在集合的根节点的值 \\\\\n& if\\quad fa[x] = x : 表示 x 是根节点 \\\\\n& else : find(fa[x]) 递归调用, 沿着树向上找\n\\end{align}\n```\n通常在判断是否可达, 连通性问题时 进行查询, 如需要判断 u, v 是否属于同一个集合, 则可以判断 find(u) == find(v)\n```py\n# 例如 fa[4] = 3 -> fa[3] = 1 -> fa[1] = 1\ndef find(x):\n    if fa[x] != x:\n        fa[x] = find(fa[x]) # 路径压缩\n    return fa[x]\n```\n```py\n# or 如下写法\ndef find(x):\n    return x if fa[x] == x else find(fa[x])\n\nfind = lambda x: x if fa[x] == x else find(fa[x])\n```\n\n### union\n有时需要将两个集合合并(例如两个家庭结婚), 例如将 u, v 合并为同一个集合, 则可以将 u 的根节点的父节点设为 v 的根节点\n```math\n```\n> [!info]- python 的 `=` 操作是 **引用模型** (Reference Model)\n> `a = b{:py}` 是将 a 指向 b\n>```py\n> # 赋值语法: 变量 = 字面量; 实际上是\n> b = [1, 2, 3]\n> # 引用语法: 变量 = 变量\n> a = b\n> a[0] = 4\n> print(b) # [4, 2, 3]\n> ```\n",
+    "content": "```mermaid\ngraph BT\n    2((2)) --\"fa[2]\"-->  1((1))\n    3((3)) --\"fa[3]\"-->  1\n    4((4)) --\"fa[4]\"-->  3\n    5((5)) --\"fa[5]\"-->  3\n    8((8)) -->  7((7))\n    7 -->  6((6))\n```\n## overview\n\n它可以高效地解决以下问题: \n1. 合并 (Union) ：将两个集合合并为一个集合 (合并对应的树)。\n2. 查询 (Find) ：查询某个元素属于哪个集合 (通常通过找到集合的代表元素, 即根节点)。 \n\n并查集的核心思想是用一个数组表示集合，通过路径压缩和按秩合并优化，使得查询和合并操作的时间复杂度接近常数 (摊还时间复杂度为 $O(\\alpha(n))$，其中 $\\alpha(n)$ 是反阿克曼函数，增长极慢) \n\n### find\n\n```math\n\\begin{align}\n& find(x) = x 所在集合的根节点的值 \\\\\n& if\\quad fa[x] = x : 表示 x 是根节点 \\\\\n& else : find(fa[x]) 递归调用, 沿着树向上找\n\\end{align}\n```\n通常在判断是否可达, 连通性问题时 进行查询, 如需要判断 u, v 是否属于同一个集合, 则可以判断 find(u) == find(v)\n```py\n# 例如 fa[4] = 3 -> fa[3] = 1 -> fa[1] = 1\ndef find(x):\n    if fa[x] == x:\n        return x\n    return find(fa[x])\n```\n```py\n# or 如下写法\ndef find(x):\n    return x if fa[x] == x else find(fa[x])\n\nfind = lambda x: x if fa[x] == x else find(fa[x])\n```\n\n### union\n有时需要将两个集合合并(例如两个家庭结婚), 例如将 u, v 合并为同一个集合, 则可以将 u 的根节点的父节点设为 v 的根节点\n```mermaid\ngraph BT\n    1 --> 6\n    2((2)) -->  1((1))\n    3((3)) -->  1\n    4((4)) -->  3\n    5((5)) -->  3\n    8((8)) -->  7((7))\n    7 -->  6((6))\n```\n```py\ndef union(x, y):\n    x = find(x)\n    y = find(y)\n    if x != y:\n        fa[x] = y\n# or\ndef union(x, y):\n    if find(x) != find(y): fa[find(x)] = find(y)\n```\n> [!info]- python 的 `=` 操作是 **引用模型** (Reference Model)\n> `a = b{:py}` 是将 a 指向 b\n>```py\n> # 赋值语法: 变量 = 字面量; 实际上是\n> b = [1, 2, 3]\n> # 引用语法: 变量 = 变量\n> a = b\n> a[0] = 4\n> print(b) # [4, 2, 3]\n> ```\n\n### 路径压缩\n```mermaid\nflowchart LR\n    subgraph 第一阶段\n        2((2)) -->  1((1))\n        3((3)) -->  1\n        4((4)) -->  3\n        5((5)) -->  3\n    end\n\n    subgraph 第二阶段\n        2.2((2)) -->  2.1((1))\n        2.3((3)) -->  2.1\n        2.4((4)) -->  2.1\n        2.5((5)) -->  2.1\n    end\n\n    第一阶段 --路径压缩--> 第二阶段\n```\n路径压缩是指在查找过程中, 将访问过的节点的父节点直接指向根节点, 以减少树的高度, 提高查询效率\n```py {4}\ndef find(x):\n    if fa[x] == x: # 如果 x 是根节点\n        return x\n    fa[x] = find(fa[x]) # 路径压缩\n    return fa[x]\n```\n我们通过对查询操作引入路径压缩, 可以对比 [find](#find)\n\n### 模板总结\n\n```py title=\"递归模板\"\nfa = list(range(n)) # \ndef find(x):\n    if fa[x] == x: return x\n    fa[x] = find(fa[x]) # 路径压缩\n    return fa[x]\ndef union(x, y):\n    if find(x) != find(y):\n        fa[find(x)] = find(y)\n```\n可以不用考虑迭代模板, 一般不会爆栈的\n```py title=\"迭代模板\"\nfa = list(range(n)) #\ndef find(x):\n    root = x\n    while fa[root] != root:\n        root = fa[root]\n    while fa[x] != x: # 路径压缩\n        fa[x], x = root, fa[x]\n    return root\ndef union(x, y):\n    root_x = find(x)\n    root_y = find(y)\n    if root_x != root_y:\n        fa[root_x] = root_y\n```",
     "toc": [
       {
         "depth": 2,
@@ -316,6 +316,16 @@
         "depth": 3,
         "value": "union",
         "slug": "union"
+      },
+      {
+        "depth": 3,
+        "value": "路径压缩",
+        "slug": "路径压缩"
+      },
+      {
+        "depth": 3,
+        "value": "模板总结",
+        "slug": "模板总结"
       }
     ]
   },
@@ -384,67 +394,6 @@
         "depth": 3,
         "value": "2020 CHARLS Wave 5",
         "slug": "2020-charls-wave-5"
-      }
-    ]
-  },
-  {
-    "title": "IDLE",
-    "description": "IDLE 是 Python 的集成开发环境 (IDE)，它是用 Python 编写的，提供了一个简单的图形用户界面 (GUI) 来编写和运行 Python 代码。",
-    "url": "/blog/2023/06/12/IDLE.mdx",
-    "slug": "2023/06/12/IDLE.mdx",
-    "segments": [
-      "2023",
-      "06",
-      "12",
-      "IDLE.mdx"
-    ],
-    "filePath": "2023/06/12/IDLE.mdx",
-    "meta": {
-      "title": "IDLE",
-      "description": "IDLE 是 Python 的集成开发环境 (IDE)，它是用 Python 编写的，提供了一个简单的图形用户界面 (GUI) 来编写和运行 Python 代码。",
-      "created_at": "2023-06-12T23:35:44.000Z",
-      "updated_at": "2025-03-31T23:35:44.000Z",
-      "tags": [
-        "python",
-        "ide"
-      ]
-    },
-    "content": "\r\n```sh\r\nwhere idle\r\n```\r\n\r\n## use\r\n\r\n- 新建文件: `Ctrl + N`\r\n- 代码补全: `Ctrl + Space` (在 Mac 上是 `Control + Space`)\r\n- 运行: `F5`\r\n- 打开文档: `F1`\r\n- 字体: Options -> Configure IDLE > Fonts/Tabs, 推荐 Consolas, size=18\r\n- 注释: `Alt + 3` (在 Mac 上是 `Option + 3`)\r\n- 取消注释: `Alt + 4` (在 Mac 上是 `Option + 4`)\r\n- 缩进: `Tab`,  取消缩进: `Ctrl + [` (在 Mac 上是 `Command + [`)\r\n",
-    "toc": [
-      {
-        "depth": 2,
-        "value": "use",
-        "slug": "use"
-      }
-    ]
-  },
-  {
-    "title": "python",
-    "description": "Python 是一种广泛使用的高级编程语言，具有清晰的语法和强大的库支持。它适用于多种应用，包括数据分析、机器学习、Web 开发等。",
-    "url": "/blog/2023/06/12/python.mdx",
-    "slug": "2023/06/12/python.mdx",
-    "segments": [
-      "2023",
-      "06",
-      "12",
-      "python.mdx"
-    ],
-    "filePath": "2023/06/12/python.mdx",
-    "meta": {
-      "title": "python",
-      "description": "Python 是一种广泛使用的高级编程语言，具有清晰的语法和强大的库支持。它适用于多种应用，包括数据分析、机器学习、Web 开发等。",
-      "created_at": "2023-06-12T23:35:17.000Z",
-      "updated_at": "2025-03-31T23:35:17.000Z",
-      "tags": [
-        "python"
-      ]
-    },
-    "content": "\r\n## install\r\n\r\n1. 是否已经安装 python\r\n    1. 回想自己是否安装过 python, 下面是误装 `python` 的一些例子\r\n        - 安装 nodejs 时选择了某些选项\r\n    2. 检查当前环境中是否有 python\r\n        ```sh title=\"这些命令会在当前环境中查找 python 的位置\"\r\n        # Windows\r\n        where python\r\n        # 注意在 windows 中 C:\\Users\\aa\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe \r\n        # 这个位置有 python.exe 并不一定意味着你安装了 python, \r\n        # 你可以运行 python 查看有什么反应 可能会跳转到 Microsoft Store, \r\n        # 而不是进入 python 交互式命令行, 那么说明你没有安装 python\r\n        # Linux\r\n        which python\r\n        # MacOS\r\n        type python\r\n        ```\r\n    3. 如果你想的话可以 在所以文件中查找 python 的位置\r\n        ```sh title=\"这些命令会在所有文件中查找 python 的位置\"\r\n        # Windows `/s` 表示递归搜索子目录 `/b` 表示只显示文件名\r\n        dir C:\\python.exe /s /b # 在 C 盘中查找 python.exe\r\n        dir D:\\python.exe /s /b # 在 D 盘中查找 python.exe\r\n        # Linux\r\n        find / -name python\r\n        # MacOS\r\n        find / -name python\r\n        ```\r\n\r\n",
-    "toc": [
-      {
-        "depth": 2,
-        "value": "install",
-        "slug": "install"
       }
     ]
   },
@@ -540,6 +489,67 @@
     ]
   },
   {
+    "title": "IDLE",
+    "description": "IDLE 是 Python 的集成开发环境 (IDE)，它是用 Python 编写的，提供了一个简单的图形用户界面 (GUI) 来编写和运行 Python 代码。",
+    "url": "/blog/2023/06/12/IDLE.mdx",
+    "slug": "2023/06/12/IDLE.mdx",
+    "segments": [
+      "2023",
+      "06",
+      "12",
+      "IDLE.mdx"
+    ],
+    "filePath": "2023/06/12/IDLE.mdx",
+    "meta": {
+      "title": "IDLE",
+      "description": "IDLE 是 Python 的集成开发环境 (IDE)，它是用 Python 编写的，提供了一个简单的图形用户界面 (GUI) 来编写和运行 Python 代码。",
+      "created_at": "2023-06-12T23:35:44.000Z",
+      "updated_at": "2025-03-31T23:35:44.000Z",
+      "tags": [
+        "python",
+        "ide"
+      ]
+    },
+    "content": "\r\n```sh\r\nwhere idle\r\n```\r\n\r\n## use\r\n\r\n- 新建文件: `Ctrl + N`\r\n- 代码补全: `Ctrl + Space` (在 Mac 上是 `Control + Space`)\r\n- 运行: `F5`\r\n- 打开文档: `F1`\r\n- 字体: Options -> Configure IDLE > Fonts/Tabs, 推荐 Consolas, size=18\r\n- 注释: `Alt + 3` (在 Mac 上是 `Option + 3`)\r\n- 取消注释: `Alt + 4` (在 Mac 上是 `Option + 4`)\r\n- 缩进: `Tab`,  取消缩进: `Ctrl + [` (在 Mac 上是 `Command + [`)\r\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "use",
+        "slug": "use"
+      }
+    ]
+  },
+  {
+    "title": "python",
+    "description": "Python 是一种广泛使用的高级编程语言，具有清晰的语法和强大的库支持。它适用于多种应用，包括数据分析、机器学习、Web 开发等。",
+    "url": "/blog/2023/06/12/python.mdx",
+    "slug": "2023/06/12/python.mdx",
+    "segments": [
+      "2023",
+      "06",
+      "12",
+      "python.mdx"
+    ],
+    "filePath": "2023/06/12/python.mdx",
+    "meta": {
+      "title": "python",
+      "description": "Python 是一种广泛使用的高级编程语言，具有清晰的语法和强大的库支持。它适用于多种应用，包括数据分析、机器学习、Web 开发等。",
+      "created_at": "2023-06-12T23:35:17.000Z",
+      "updated_at": "2025-03-31T23:35:17.000Z",
+      "tags": [
+        "python"
+      ]
+    },
+    "content": "\r\n## install\r\n\r\n1. 是否已经安装 python\r\n    1. 回想自己是否安装过 python, 下面是误装 `python` 的一些例子\r\n        - 安装 nodejs 时选择了某些选项\r\n    2. 检查当前环境中是否有 python\r\n        ```sh title=\"这些命令会在当前环境中查找 python 的位置\"\r\n        # Windows\r\n        where python\r\n        # 注意在 windows 中 C:\\Users\\aa\\AppData\\Local\\Microsoft\\WindowsApps\\python.exe \r\n        # 这个位置有 python.exe 并不一定意味着你安装了 python, \r\n        # 你可以运行 python 查看有什么反应 可能会跳转到 Microsoft Store, \r\n        # 而不是进入 python 交互式命令行, 那么说明你没有安装 python\r\n        # Linux\r\n        which python\r\n        # MacOS\r\n        type python\r\n        ```\r\n    3. 如果你想的话可以 在所以文件中查找 python 的位置\r\n        ```sh title=\"这些命令会在所有文件中查找 python 的位置\"\r\n        # Windows `/s` 表示递归搜索子目录 `/b` 表示只显示文件名\r\n        dir C:\\python.exe /s /b # 在 C 盘中查找 python.exe\r\n        dir D:\\python.exe /s /b # 在 D 盘中查找 python.exe\r\n        # Linux\r\n        find / -name python\r\n        # MacOS\r\n        find / -name python\r\n        ```\r\n\r\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "install",
+        "slug": "install"
+      }
+    ]
+  },
+  {
     "title": "auth",
     "description": "...",
     "url": "/blog/2023/07/12/auth.mdx",
@@ -626,6 +636,36 @@
     ]
   },
   {
+    "title": "package manager",
+    "description": "包管理器是一种用于自动化安装、升级、配置和删除计算机程序的工具。主要可以分为两类：操作系统包管理器和编程语言包管理器。",
+    "url": "/blog/2023/12/13/packManager.mdx",
+    "slug": "2023/12/13/packManager.mdx",
+    "segments": [
+      "2023",
+      "12",
+      "13",
+      "packManager.mdx"
+    ],
+    "filePath": "2023/12/13/packManager.mdx",
+    "meta": {
+      "title": "package manager",
+      "description": "包管理器是一种用于自动化安装、升级、配置和删除计算机程序的工具。主要可以分为两类：操作系统包管理器和编程语言包管理器。",
+      "created_at": "2023-12-13T00:34:27.000Z",
+      "updated_at": "2025-04-01T00:34:27.000Z",
+      "tags": [
+        "package"
+      ]
+    },
+    "content": "\r\n| 环境 | 包管理器 | 说明 |\r\n| --- | --- | --- |\r\n| windows | [winget](https://winget.run/) | Windows 10 和 Windows 11 的包管理器 |\r\n| macOS | [Homebrew](https://brew.sh/) | macOS 的包管理器 |\r\n| Ubuntu\\debian | [apt](https://packages.debian.org/) | Debian 和 Ubuntu 的包管理器 |\r\n| Arch Linux\\Manjaro | [pacman](https://archlinux.org/) | Arch Linux 和 Manjaro 的包管理器 |\r\n| Fedora | [dnf](https://dnf.readthedocs.io/en/latest/) | Fedora 的包管理器 |\r\n| openSUSE\\CentOS\\RHEL | [yum](https://yum.baseurl.org/) | openSUSE、CentOS 和 RHEL 的包管理器 |\r\n| Python | [pip](https://pypi.org/) | Python 的包管理器 |\r\n| Conda | [conda](https://docs.conda.io/en/latest/) | Python 的包管理器 |\r\n| Nodejs | [npm](https://www.npmjs.com/) | Node.js 的包管理器 |\r\n| Nodejs | [yarn](https://yarnpkg.com/) | Node.js 的包管理器 |\r\n| Nodejs | [pnpm](https://pnpm.io/) | Node.js 的包管理器 |\r\n| Deno | [deno](https://deno.land/) | Deno 的包管理器 |\r\n| Bun | [bun](https://bun.sh/) | Bun 的包管理器 |\r\n| Rust | [cargo](https://doc.rust-lang.org/cargo/) | Rust 的包管理器 |\r\n| Go | [go](https://golang.org/) | Go 的包管理器 |\r\n| C\\C++ |[conan](https://conan.io/) | C\\C++ 的包管理器 |\r\n| Ruby | [gem](https://rubygems.org/) | Ruby 的包管理器 |\r\n| Java | [maven](https://maven.apache.org/) | Java 的包管理器 |\r\n| Java | [gradle](https://gradle.org/) | Java 的包管理器 |\r\n| PHP | [composer](https://getcomposer.org/) | PHP 的包管理器 |\r\n| C# | [nuget](https://www.nuget.org/) | C# 的包管理器 |\r\n| Elixir | [hex](https://hex.pm/) | Elixir 的包管理器 |\r\n| Elixir | [mix](https://hexdocs.pm/mix/) | Elixir 的包管理器 |\r\n\r\n## winget (Windows)\r\n\r\n```terminal\r\nAdministrator in ~ took 50s\r\n🪟 ❯ winget search miniconda\r\nThe `msstore` source requires that you view the following agreements before using.\r\nTerms of Transaction: https://aka.ms/microsoft-store-terms-of-transaction\r\nThe source requires the current machine's 2-letter geographic region to be sent to the backend service to function properly (ex. \"US\").\r\n\r\nDo you agree to all the source agreements terms?\r\n[Y] Yes  [N] No: yes\r\nName       Id                  Version        Match          Source\r\n-------------------------------------------------------------------\r\nMiniconda3 Anaconda.Miniconda3 py312_25.1.1-2 Tag: miniconda winget\r\n\r\n🪟 ❯ winget install Miniconda3\r\n# or \r\n🪟 ❯ winget install Anaconda.Miniconda3\r\n```\r\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "winget (Windows)",
+        "slug": "winget-(windows)"
+      }
+    ]
+  },
+  {
     "title": "vscode",
     "description": "...",
     "url": "/blog/2023/08/01/vscode.mdx",
@@ -679,60 +719,6 @@
         "slug": ":has()"
       }
     ]
-  },
-  {
-    "title": "package manager",
-    "description": "包管理器是一种用于自动化安装、升级、配置和删除计算机程序的工具。主要可以分为两类：操作系统包管理器和编程语言包管理器。",
-    "url": "/blog/2023/12/13/packManager.mdx",
-    "slug": "2023/12/13/packManager.mdx",
-    "segments": [
-      "2023",
-      "12",
-      "13",
-      "packManager.mdx"
-    ],
-    "filePath": "2023/12/13/packManager.mdx",
-    "meta": {
-      "title": "package manager",
-      "description": "包管理器是一种用于自动化安装、升级、配置和删除计算机程序的工具。主要可以分为两类：操作系统包管理器和编程语言包管理器。",
-      "created_at": "2023-12-13T00:34:27.000Z",
-      "updated_at": "2025-04-01T00:34:27.000Z",
-      "tags": [
-        "package"
-      ]
-    },
-    "content": "\r\n| 环境 | 包管理器 | 说明 |\r\n| --- | --- | --- |\r\n| windows | [winget](https://winget.run/) | Windows 10 和 Windows 11 的包管理器 |\r\n| macOS | [Homebrew](https://brew.sh/) | macOS 的包管理器 |\r\n| Ubuntu\\debian | [apt](https://packages.debian.org/) | Debian 和 Ubuntu 的包管理器 |\r\n| Arch Linux\\Manjaro | [pacman](https://archlinux.org/) | Arch Linux 和 Manjaro 的包管理器 |\r\n| Fedora | [dnf](https://dnf.readthedocs.io/en/latest/) | Fedora 的包管理器 |\r\n| openSUSE\\CentOS\\RHEL | [yum](https://yum.baseurl.org/) | openSUSE、CentOS 和 RHEL 的包管理器 |\r\n| Python | [pip](https://pypi.org/) | Python 的包管理器 |\r\n| Conda | [conda](https://docs.conda.io/en/latest/) | Python 的包管理器 |\r\n| Nodejs | [npm](https://www.npmjs.com/) | Node.js 的包管理器 |\r\n| Nodejs | [yarn](https://yarnpkg.com/) | Node.js 的包管理器 |\r\n| Nodejs | [pnpm](https://pnpm.io/) | Node.js 的包管理器 |\r\n| Deno | [deno](https://deno.land/) | Deno 的包管理器 |\r\n| Bun | [bun](https://bun.sh/) | Bun 的包管理器 |\r\n| Rust | [cargo](https://doc.rust-lang.org/cargo/) | Rust 的包管理器 |\r\n| Go | [go](https://golang.org/) | Go 的包管理器 |\r\n| C\\C++ |[conan](https://conan.io/) | C\\C++ 的包管理器 |\r\n| Ruby | [gem](https://rubygems.org/) | Ruby 的包管理器 |\r\n| Java | [maven](https://maven.apache.org/) | Java 的包管理器 |\r\n| Java | [gradle](https://gradle.org/) | Java 的包管理器 |\r\n| PHP | [composer](https://getcomposer.org/) | PHP 的包管理器 |\r\n| C# | [nuget](https://www.nuget.org/) | C# 的包管理器 |\r\n| Elixir | [hex](https://hex.pm/) | Elixir 的包管理器 |\r\n| Elixir | [mix](https://hexdocs.pm/mix/) | Elixir 的包管理器 |\r\n\r\n## winget (Windows)\r\n\r\n```terminal\r\nAdministrator in ~ took 50s\r\n🪟 ❯ winget search miniconda\r\nThe `msstore` source requires that you view the following agreements before using.\r\nTerms of Transaction: https://aka.ms/microsoft-store-terms-of-transaction\r\nThe source requires the current machine's 2-letter geographic region to be sent to the backend service to function properly (ex. \"US\").\r\n\r\nDo you agree to all the source agreements terms?\r\n[Y] Yes  [N] No: yes\r\nName       Id                  Version        Match          Source\r\n-------------------------------------------------------------------\r\nMiniconda3 Anaconda.Miniconda3 py312_25.1.1-2 Tag: miniconda winget\r\n\r\n🪟 ❯ winget install Miniconda3\r\n# or \r\n🪟 ❯ winget install Anaconda.Miniconda3\r\n```\r\n",
-    "toc": [
-      {
-        "depth": 2,
-        "value": "winget (Windows)",
-        "slug": "winget-(windows)"
-      }
-    ]
-  },
-  {
-    "title": "微积分",
-    "description": "...",
-    "url": "/blog/2021/11/11/calculus.mdx",
-    "slug": "2021/11/11/calculus.mdx",
-    "segments": [
-      "2021",
-      "11",
-      "11",
-      "calculus.mdx"
-    ],
-    "filePath": "2021/11/11/calculus.mdx",
-    "meta": {
-      "title": "微积分",
-      "description": "...",
-      "created_at": "2021-11-11T10:13:16.000Z",
-      "updated_at": "2025-03-30T10:13:16.000Z",
-      "tags": [
-        "math"
-      ]
-    },
-    "content": "",
-    "toc": []
   },
   {
     "title": "var",
@@ -807,6 +793,86 @@
         "depth": 3,
         "value": "git status",
         "slug": "git-status"
+      }
+    ]
+  },
+  {
+    "title": "微积分",
+    "description": "...",
+    "url": "/blog/2021/11/11/calculus.mdx",
+    "slug": "2021/11/11/calculus.mdx",
+    "segments": [
+      "2021",
+      "11",
+      "11",
+      "calculus.mdx"
+    ],
+    "filePath": "2021/11/11/calculus.mdx",
+    "meta": {
+      "title": "微积分",
+      "description": "...",
+      "created_at": "2021-11-11T10:13:16.000Z",
+      "updated_at": "2025-03-30T10:13:16.000Z",
+      "tags": [
+        "math"
+      ]
+    },
+    "content": "",
+    "toc": []
+  },
+  {
+    "title": "dp",
+    "description": "**动态规划(Dynamic Programming)** 是一种将复杂问题分解成更小的子问题的方法, 通过保存子问题的结果来避免重复计算",
+    "url": "/blog/2024/03/12/dp.mdx",
+    "slug": "2024/03/12/dp.mdx",
+    "segments": [
+      "2024",
+      "03",
+      "12",
+      "dp.mdx"
+    ],
+    "filePath": "2024/03/12/dp.mdx",
+    "meta": {
+      "title": "dp",
+      "description": "**动态规划(Dynamic Programming)** 是一种将复杂问题分解成更小的子问题的方法, 通过保存子问题的结果来避免重复计算",
+      "created_at": "2024-03-12T16:22:16.000Z",
+      "updated_at": "2025-04-03T16:22:16.000Z",
+      "tags": [
+        "alg",
+        "dp"
+      ]
+    },
+    "content": "\n## leetCode 70 爬楼梯\n\n假设你正在爬楼梯。需要 `n` 阶你才能到达楼顶。\n\n每次你可以爬 `1` 或 `2` 个台阶。你有多少种不同的方法可以爬到楼顶呢？\n\n**示例1:**\n> 输入：`n = 2`<br/>\n> 输出：`2`<br/>\n> 解释: 有两种方法可以爬到楼顶\n> 1. 1 阶 + 1 阶\n> 2. 2 阶\n\n**示例2:**\n> 输入：`n = 3`<br/>\n> 输出：`3`<br/>\n> 解释: 有三种方法可以爬到楼顶\n> 1. 1 阶 + 1 阶 + 1 阶\n> 2. 1 阶 + 2 阶\n> 3. 2 阶 + 1 阶\n\n**提示:**\n- $1 \\leq n \\leq 45$\n\n### 分析\n1. 爬 3 阶, 从 2 阶上来是一种方法, 从 1 阶上来是另外一种方法\n2. 因此爬 3 阶的方法数 = 爬 2 阶的方法数 + 爬 1 阶的方法数\n3. 也就是 `f(n) = f(n-1) + f(n-2)`, 发现此递推公式符合斐波那契数列\n### 解法1: 递归\n```py\ndef dfs(n: int) -> int:\n    if n <= 2:\n        return n # f(1)=1, f(2)=2\n    return dfs(n - 1) + dfs(n - 2)\n```\n**复杂度分析:**\n- 时间复杂度: $O(2^n)$, 这个递归解法相当于搜索一个课高为 `n` 的二叉树\n- 空间复杂度: $O(n)$, 递归栈的深度为 `n`\n\n例如 n=7\n```mermaid\ngraph TD\n    7((7)) --> 6.6((6))\n    7 --> 6.5((5))\n    6.6 --> 5.5((5))\n    6.6 --> 5.4((4))\n    6.5 --> 5.4.2((4))\n    6.5 --> 5.3((3))\n    5.5 --> 4.4((4))\n    5.5 --> 4.3((3))\n    5.4 --> 4.3.2((3))\n    5.4 --> 4.2((2))\n    5.4.2 --> 4.3.3((3))\n    5.4.2 --> 4.2.2((2))\n    5.3 --> 4.2.1((2))\n    5.3 --> 4.1((1))\n    4.4 --> 3.3((3))\n    4.4 --> 3.2((2))\n    4.3 --> 3.2.2((2))\n    4.3 --> 3.1((1))\n    4.3.2 --> 3.2.3((2))\n    4.3.2 --> 3.1.2((1))\n    4.2 --> 3.1.3((1))\n    4.3.3 --> 3.2.4((2))\n    4.3.3 --> 3.1.4((1))\n    4.2.2 --> 3.1.5((1))\n    3.3 --> 2.2((2))\n    3.3 --> 2.1((1))\n```\n> [!warning]\n> 发现计算了过多的重复子问题\n### 解法2: 递归 + 记录返回值 = 记忆化搜索\n> [!note]\n> 可以存储已经计算过的值, 以避免重复计算, 例如可以使用 array or hash_map 来存储<br/>\n> 不过 python 中内置了, `functools.lru_cache{:py}` 装饰器, 可以直接用于这个需求\n```py\nfrom functools import lru_cache\n\n@lru_cache(maxsize=None)\ndef dfs(n: int) -> int:\n    if n <= 2:\n        return n # f(1)=1, f(2)=2\n    return dfs(n - 1) + dfs(n - 2)\n```\n使用记忆化搜索后的复杂度是$O(n)$, 只需要计算每个子问题一次, 递归栈的深度为 `n`, 所以空间复杂度也是 $O(n)$<br/>\n图示如下:\n```mermaid\ngraph LR\n    7((7)) --> 6((6))\n    6 --> 5((5))\n    5 --> 4((4))\n    4 --> 3((3))\n    3 --> 2((2))\n    2 --> 1((1))\n```\n### 解法3: 动态规划\n> [!note]\n> **动态规划(Dynamic Programming, DP)** 可以被看作是将递归问题转化为迭代问题的一种算法，但它的核心思想不仅仅是简单的转化，而是通过 **分解问题** 和 **存储子问题的解** 来优化计算过程\n```py\ndef climbStairs(n: int) -> int:\n    if n <= 2:\n        return n\n    dp = [0] * (n + 1)\n    dp[1], dp[2] = 1, 2\n    for i in range(3, n + 1):\n        dp[i] = dp[i - 1] + dp[i - 2]\n    return dp[n]\n```\n### 解法4: DP + 状态压缩\n- 在这个 解法3 中, `dp[i]` 的值只依赖于 `dp[i-1]` 和 `dp[i-2]`\n- 因此，我们不需要存储整个 `dp` 数组，只需要用两个变量来保存最近的两个状态即可\n- 状态压缩的时间复杂度与普通动态规划相同，但它的 空间复杂度更低，从 $O(n)$ 降到了 $O(1)$\n- 在实际运行中，减少内存分配和访问的开销会使程序运行得更快\n```py\ndef climbStairs(n: int) -> int:\n    if n <= 2:\n        return n\n    prev, curr = 1, 2  # 初始化 f(1) 和 f(2)\n    for i in range(3, n + 1):\n        prev, curr = curr, prev + curr  # 更新状态\n    return curr\n```",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "leetCode 70 爬楼梯",
+        "slug": "leetcode-70-爬楼梯"
+      },
+      {
+        "depth": 3,
+        "value": "分析",
+        "slug": "分析"
+      },
+      {
+        "depth": 3,
+        "value": "解法1: 递归",
+        "slug": "解法1:-递归"
+      },
+      {
+        "depth": 3,
+        "value": "解法2: 递归 + 记录返回值 = 记忆化搜索",
+        "slug": "解法2:-递归-+-记录返回值-=-记忆化搜索"
+      },
+      {
+        "depth": 3,
+        "value": "解法3: 动态规划",
+        "slug": "解法3:-动态规划"
+      },
+      {
+        "depth": 3,
+        "value": "解法4: DP + 状态压缩",
+        "slug": "解法4:-dp-+-状态压缩"
       }
     ]
   },

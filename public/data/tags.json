@@ -75,7 +75,7 @@
     ]
   },
   "alg": {
-    "count": 5,
+    "count": 6,
     "docs": [
       {
         "url": "/blog/2025/04/01/time.mdx",
@@ -138,6 +138,19 @@
           "tags": [
             "alg",
             "tree"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2024/03/12/dp.mdx",
+        "meta": {
+          "title": "dp",
+          "description": "**动态规划(Dynamic Programming)** 是一种将复杂问题分解成更小的子问题的方法, 通过保存子问题的结果来避免重复计算",
+          "created_at": "2024-03-12T16:22:16.000Z",
+          "updated_at": "2025-04-03T16:22:16.000Z",
+          "tags": [
+            "alg",
+            "dp"
           ]
         }
       }
@@ -355,6 +368,19 @@
     "count": 3,
     "docs": [
       {
+        "url": "/blog/2023/06/18/conda.mdx",
+        "meta": {
+          "title": "conda",
+          "description": "Conda 是一个开源的包管理器和环境管理器，主要用于 Python 和 R 语言。它允许用户安装、更新和管理软件包及其依赖项，并创建和管理虚拟环境。",
+          "created_at": "2023-06-12T23:37:49.000Z",
+          "updated_at": "2025-03-31T23:37:49.000Z",
+          "tags": [
+            "python",
+            "env"
+          ]
+        }
+      },
+      {
         "url": "/blog/2023/06/12/IDLE.mdx",
         "meta": {
           "title": "IDLE",
@@ -378,7 +404,12 @@
             "python"
           ]
         }
-      },
+      }
+    ]
+  },
+  "env": {
+    "count": 1,
+    "docs": [
       {
         "url": "/blog/2023/06/18/conda.mdx",
         "meta": {
@@ -407,24 +438,6 @@
           "tags": [
             "python",
             "ide"
-          ]
-        }
-      }
-    ]
-  },
-  "env": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2023/06/18/conda.mdx",
-        "meta": {
-          "title": "conda",
-          "description": "Conda 是一个开源的包管理器和环境管理器，主要用于 Python 和 R 语言。它允许用户安装、更新和管理软件包及其依赖项，并创建和管理虚拟环境。",
-          "created_at": "2023-06-12T23:37:49.000Z",
-          "updated_at": "2025-03-31T23:37:49.000Z",
-          "tags": [
-            "python",
-            "env"
           ]
         }
       }
@@ -466,6 +479,23 @@
       }
     ]
   },
+  "package": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2023/12/13/packManager.mdx",
+        "meta": {
+          "title": "package manager",
+          "description": "包管理器是一种用于自动化安装、升级、配置和删除计算机程序的工具。主要可以分为两类：操作系统包管理器和编程语言包管理器。",
+          "created_at": "2023-12-13T00:34:27.000Z",
+          "updated_at": "2025-04-01T00:34:27.000Z",
+          "tags": [
+            "package"
+          ]
+        }
+      }
+    ]
+  },
   "vscode": {
     "count": 1,
     "docs": [
@@ -496,40 +526,6 @@
           "tags": [
             "css",
             "html"
-          ]
-        }
-      }
-    ]
-  },
-  "package": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2023/12/13/packManager.mdx",
-        "meta": {
-          "title": "package manager",
-          "description": "包管理器是一种用于自动化安装、升级、配置和删除计算机程序的工具。主要可以分为两类：操作系统包管理器和编程语言包管理器。",
-          "created_at": "2023-12-13T00:34:27.000Z",
-          "updated_at": "2025-04-01T00:34:27.000Z",
-          "tags": [
-            "package"
-          ]
-        }
-      }
-    ]
-  },
-  "math": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2021/11/11/calculus.mdx",
-        "meta": {
-          "title": "微积分",
-          "description": "...",
-          "created_at": "2021-11-11T10:13:16.000Z",
-          "updated_at": "2025-03-30T10:13:16.000Z",
-          "tags": [
-            "math"
           ]
         }
       }
@@ -583,6 +579,41 @@
           "tags": [
             "git",
             "cli"
+          ]
+        }
+      }
+    ]
+  },
+  "math": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2021/11/11/calculus.mdx",
+        "meta": {
+          "title": "微积分",
+          "description": "...",
+          "created_at": "2021-11-11T10:13:16.000Z",
+          "updated_at": "2025-03-30T10:13:16.000Z",
+          "tags": [
+            "math"
+          ]
+        }
+      }
+    ]
+  },
+  "dp": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2024/03/12/dp.mdx",
+        "meta": {
+          "title": "dp",
+          "description": "**动态规划(Dynamic Programming)** 是一种将复杂问题分解成更小的子问题的方法, 通过保存子问题的结果来避免重复计算",
+          "created_at": "2024-03-12T16:22:16.000Z",
+          "updated_at": "2025-04-03T16:22:16.000Z",
+          "tags": [
+            "alg",
+            "dp"
           ]
         }
       }

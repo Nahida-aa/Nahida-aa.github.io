@@ -103,7 +103,7 @@ graph LR
 ```
 ### 解法3: 动态规划
 > [!note]
-> **动态规划(Dynamic Programming, DP)** 可以被看作是将递归问题转化为迭代问题的一种算法，但它的核心思想不仅仅是简单的转化，而是通过 **分解问题** 和 **存储子问题的解** 来优化计算过程
+> **动态规划(Dynamic Programming, DP)** 可以被看作是将**递归问题**转化为**迭代问题**的一种算法，但它的核心思想不仅仅是简单的转化，而是通过 **分解问题** 和 **存储子问题的解** 来优化计算过程
 ```py
 def climbStairs(n: int) -> int:
     if n <= 2:
@@ -128,3 +128,111 @@ def climbStairs(n: int) -> int:
         prev, curr = curr, prev + curr  # 更新状态
     return curr
 ```
+### 解法5: 解通项公式
+```math
+\begin{align*}
+&f(n) = f(n-1) + f(n-2) \\
+&\rightarrow f(n) = \frac{1}{\sqrt{5}}(\phi^n - \psi^n) \\
+&\phi = \frac{1 + \sqrt{5}}{2} \quad （黄金比例） \\
+&\psi = \frac{1 - \sqrt{5}}{2} \\
+\end{align*}
+```
+```py
+from math import sqrt
+def climbStairs(n: int) -> int:
+    sqrt5 = math.sqrt(5)
+    phi = (1 + sqrt5) / 2
+    return round((phi**n - (1 - phi)**n) / sqrt5)
+```
+> [!note]
+> 这个解法的时间复杂度是 $O(1)$, 但是由于浮点数精度问题, 当 `n` 较大时可能会出现误差
+#### 证明
+```math
+f(n) = f(n-1) + f(n-2)
+```
+这是一个 **线性递推关系**, 并且它的系数是常数 (即 `1` 和 `1`) 。对于这种递推关, Binet's Formula 提供了一种通用的解法，可以直接推导出数列的通项公式
+
+##### 待定系数法 推导
+
+**1. 递推关系:**
+```math
+f(n) = f(n-1) + f(n-2)
+```
+这是一个二阶线性递推关系
+
+**2. 特征方程:**
+
+为了求解这个递推关系, 我们假设通解的形式为
+```math
+f(n) = x^n
+```
+- 将其代入递推关系中, 得到:
+```math
+x^n = x^{n-1} + x^{n-2}
+```
+- 除以 $x^{n-2}$ (假设 $x \neq 0$), 得到:
+```math
+x^2 = x + 1
+```
+这就是斐波那契数列的 **特征方程**
+
+**3. 求解特征方程:**
+
+- 解这个方程可以得到两个根:
+```math
+\begin{align*}
+&x_1 = \frac{1 + \sqrt{5}}{2} \quad (黄金比例) \quad\quad
+&x_2 = \frac{1 - \sqrt{5}}{2}
+\end{align*}
+```
+**4. 通解的形式:**
+
+根据线性递推关系，通解可以表示为特征根的线性组合：
+```math
+f(n) = A \cdot x_1^n + B \cdot x_2^n
+```
+**5. 确定系数:**
+- 通过初始条件来确定系数 `A` 和 `B`
+```math
+\begin{aligned}
+&\left\{
+\begin{aligned}
+f(0) &= A \cdot x_1^0 + B \cdot x_2^0 = 0, \\
+f(1) &= A \cdot x_1 + B \cdot x_2 = 1, \\
+f(2) &= A \cdot x_1^2 + B \cdot x_2^2 = 2.
+\end{aligned}
+\right. 
+\\
+&\left\{
+\begin{aligned}
+A + B &= 0, \\
+A \cdot x_1 + B \cdot x_2 &= 1.
+\end{aligned}
+\right.
+\end{aligned}
+```
+```math
+A \cdot \frac{1 + \sqrt{5}}{2} + (-A) \cdot \frac{1 - \sqrt{5}}{2} = 1 
+```
+解得
+```math
+\left\{
+\begin{aligned}
+&A \cdot \sqrt{5} = 1, \\
+&A = \frac{1}{\sqrt{5}}, \\
+&B = -\frac{1}{\sqrt{5}}.
+\end{aligned}
+\right.
+```
+- 斐波那契数列的通项公式为:
+```math
+f(n) = \frac{1}{\sqrt{5}}(x_1^n - x_2^n)
+```
+### 总结: 不同解法对比
+| 解法 | 时间复杂度 | 空间复杂度 | 优点 | 缺点 |
+|------|------------|------------|------|------|
+| 递归 | $O(2^n)$   | $O(n)$     | 简单易懂 | 重复计算, 效率低 |
+| 记忆化搜索 | $O(n)$   | $O(n)$     | 避免重复计算 | 需要额外的存储空间 |
+| 动态规划(数组) | $O(n)$   | $O(n)$     | 直观易懂 | 需要额外的数组存储空间 |
+| 动态规划(状态压缩) | $O(n)$   | $O(1)$     | 节省空间 | 代码稍复杂 |
+| 数学解法(斐波那契公式) | $O(1)$   | $O(1)$     | 理论最快，常数时间复杂度 | 浮点运算可能导致精度问题 |
