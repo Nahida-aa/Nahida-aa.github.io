@@ -1,12 +1,14 @@
 import { Suspense } from 'react';
 import { LoadingS } from '@/components/ui/loading/Loading';
-import tagsJson from '@/public/data/tags.json';
+// import tagsJson from '@/public/data/tags.json';
 import { DocLs } from '@/app/blog/_comp/DocLs';
-import { DocTagsKV } from '@/app/md/lib/to';
-const tagObjsKV: DocTagsKV = tagsJson
+import { DocTagsKV, getTagsKV } from '@/app/md/lib/to';
+import { toDocBaseList } from '@/app/md/lib/dirTo';
+import { contentDir } from '@/app/settings/path';
+// const tagObjsKV: DocTagsKV = tagsJson
 
 export const generateStaticParams = async() => {
-  
+  const tagObjsKV = getTagsKV(await toDocBaseList(contentDir))
   const params: { tag: string }[] = [
     ...Object.keys(tagObjsKV).map((tag) => ({ tag })),
   ];
@@ -20,6 +22,7 @@ export default async function Page ({
   // searchParams: Promise<{ [key: string]: string | string[] | undefined }>
 }) {
   const { tag } = await params
+  const tagObjsKV = getTagsKV(await toDocBaseList(contentDir))
   const { docs: docsBase} = tagObjsKV[tag]
   // const { page = '1', sort = 'asc', query = '' } = await searchParams
   return <Suspense fallback={<LoadingS />}>

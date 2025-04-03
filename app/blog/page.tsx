@@ -8,7 +8,7 @@ import { DocsToc } from "../md/comp/DocsToc";
 import { dir2MdxJsonLs, sortDocsBy_updated_at } from "../md/lib/to";
 import { contentDir } from "../settings/path";
 import { DocLs } from "./_comp/DocLs";
-import { toDocBaseList } from "../md/lib/ditTo";
+import { toDocBaseList } from "../md/lib/dirTo";
 
 
 export default async function BlogPage() {

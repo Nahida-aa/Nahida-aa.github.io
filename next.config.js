@@ -43,16 +43,16 @@ const nextConfig = {
   // Configure `pageExtensions` to include markdown and MDX files
   // pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'], // 不支持将 mdx 作为模块导入
   pageExtensions: ['js', 'jsx','ts', 'tsx'], // 不支持将 mdx 作为模块导入
-  webpack: (config) => {
-    // 启用 WebAssembly 支持 wasm
-    config.experiments = { 
-      asyncWebAssembly: true,
-      layers: true 
-    }
-    // 修复 WASM 文件路径问题
-    config.output.webassemblyModuleFilename = "static/wasm/[modulehash].wasm"
-    return config
-  },
+  // webpack: (config) => {
+  //   // 启用 WebAssembly 支持 wasm
+  //   config.experiments = { 
+  //     asyncWebAssembly: true,
+  //     layers: true 
+  //   }
+  //   // 修复 WASM 文件路径问题
+  //   config.output.webassemblyModuleFilename = "static/wasm/[modulehash].wasm"
+  //   return config
+  // },
   // Optionally, add any other Next.js config below
   // reactStrictMode: true,
   // webpack: (config, { isServer }) => {

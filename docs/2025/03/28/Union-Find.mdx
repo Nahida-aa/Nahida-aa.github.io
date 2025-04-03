@@ -5,7 +5,6 @@ created_at: 2025-03-28T19:28:35Z
 updated_at: 2025-03-30T02:10:58Z
 tags: [alg,tree]
 ---
-
 ```mermaid
 graph BT
     2((2)) --"fa[2]"-->  1((1))
@@ -15,7 +14,6 @@ graph BT
     8((8)) -->  7((7))
     7 -->  6((6))
 ```
-
 ## overview
 
 它可以高效地解决以下问题: 
@@ -37,9 +35,9 @@ graph BT
 ```py
 # 例如 fa[4] = 3 -> fa[3] = 1 -> fa[1] = 1
 def find(x):
-    if fa[x] != x:
-        fa[x] = find(fa[x]) # 路径压缩
-    return fa[x]
+    if fa[x] == x:
+        return x
+    return find(fa[x])
 ```
 ```py
 # or 如下写法
@@ -51,7 +49,25 @@ find = lambda x: x if fa[x] == x else find(fa[x])
 
 ### union
 有时需要将两个集合合并(例如两个家庭结婚), 例如将 u, v 合并为同一个集合, 则可以将 u 的根节点的父节点设为 v 的根节点
-```math
+```mermaid
+graph BT
+    1 --> 6
+    2((2)) -->  1((1))
+    3((3)) -->  1
+    4((4)) -->  3
+    5((5)) -->  3
+    8((8)) -->  7((7))
+    7 -->  6((6))
+```
+```py
+def union(x, y):
+    x = find(x)
+    y = find(y)
+    if x != y:
+        fa[x] = y
+# or
+def union(x, y):
+    if find(x) != find(y): fa[find(x)] = find(y)
 ```
 > [!info]- python 的 `=` 操作是 **引用模型** (Reference Model)
 > `a = b{:py}` 是将 a 指向 b
@@ -63,3 +79,61 @@ find = lambda x: x if fa[x] == x else find(fa[x])
 > a[0] = 4
 > print(b) # [4, 2, 3]
 > ```
+
+### 路径压缩
+```mermaid
+flowchart LR
+    subgraph 第一阶段
+        2((2)) -->  1((1))
+        3((3)) -->  1
+        4((4)) -->  3
+        5((5)) -->  3
+    end
+
+    subgraph 第二阶段
+        2.2((2)) -->  2.1((1))
+        2.3((3)) -->  2.1
+        2.4((4)) -->  2.1
+        2.5((5)) -->  2.1
+    end
+
+    第一阶段 --路径压缩--> 第二阶段
+```
+路径压缩是指在查找过程中, 将访问过的节点的父节点直接指向根节点, 以减少树的高度, 提高查询效率
+```py {4}
+def find(x):
+    if fa[x] == x: # 如果 x 是根节点
+        return x
+    fa[x] = find(fa[x]) # 路径压缩
+    return fa[x]
+```
+我们通过对查询操作引入路径压缩, 可以对比 [find](#find)
+
+### 模板总结
+
+```py title="递归模板"
+fa = list(range(n)) # 
+def find(x):
+    if fa[x] == x: return x
+    fa[x] = find(fa[x]) # 路径压缩
+    return fa[x]
+def union(x, y):
+    if find(x) != find(y):
+        fa[find(x)] = find(y)
+```
+可以不用考虑迭代模板, 一般不会爆栈的
+```py title="迭代模板"
+fa = list(range(n)) #
+def find(x):
+    root = x
+    while fa[root] != root:
+        root = fa[root]
+    while fa[x] != x: # 路径压缩
+        fa[x], x = root, fa[x]
+    return root
+def union(x, y):
+    root_x = find(x)
+    root_y = find(y)
+    if root_x != root_y:
+        fa[root_x] = root_y
+```

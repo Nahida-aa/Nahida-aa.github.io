@@ -1,17 +1,19 @@
 import { Suspense } from 'react';
 import { LoadingS } from '@/components/ui/loading/Loading';
-import tagsJson from '@/public/data/tags.json';
 import { DocLs } from '../blog/_comp/DocLs';
 import { DocsToc } from '../md/comp/DocsToc';
-import { DocTagsKV } from '../md/lib/to';
+import { DocTagsKV, getTagsKV } from '../md/lib/to';
 import { Toc } from '../md/types';
-const tagObjsKV: DocTagsKV = tagsJson
+import { toDocBaseList } from '../md/lib/dirTo';
+import { contentDir } from '../settings/path';
 
 export default async function Page ({
 }: {
 }) {
-  const tagsLs = Object.keys(tagsJson)
-  const toc: Toc[] = tagsLs.flatMap((tag) => {
+  const tagObjsKV = getTagsKV(await toDocBaseList(contentDir))
+  const sortedKeys = Object.keys(tagObjsKV).sort(); // ["api", "html", "web"]
+
+  const toc: Toc[] = sortedKeys.flatMap((tag) => {
     const { docs } = tagObjsKV[tag]
     return [
       {
@@ -29,7 +31,7 @@ export default async function Page ({
   return <Suspense fallback={<LoadingS />}>
     <article className="prose dark:prose-invert  col-span-12 lg:col-span-9 lg:px-4  xl:px-8
     mx-auto w-full min-w-0 max-w-full ">
-      {tagsLs.map((tag => (<div key={tag}>
+      {sortedKeys.map((tag => (<div key={tag}>
         <h2 key={tag} id={tag}>
           <a href={`/tags/${tag}`}>{tag}</a>
         </h2>

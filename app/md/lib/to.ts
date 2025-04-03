@@ -28,7 +28,7 @@ export const content2meta = async (rawContent: string): Promise<ContentWithMeta>
   }
   metadata.description = metadata.description || `${cleanMarkdown(content).slice(0, 27)}...` // 取前27个字符 如果不够长则是取全部
   // metadata.title = metadata.title || fileName
-  console.log("content2meta: ", metadata)
+  // console.log("content2meta: ", metadata)
   return { metadata, content }
 }
 export const content2Toc = async (content: string): Promise<Toc[]> => {

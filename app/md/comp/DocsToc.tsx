@@ -79,7 +79,7 @@ export const DocsToc = ({ toc }: DocsTocProps) => {
   const numberedToc = generateHeadingNumbers(toc);
   return <>
     <section className=' hidden space-y-2 lg:block lg:sticky lg:top-20 lg:col-span-3 xl:col-span-3  w-full pt-4 '>
-      <div className='fixed flex-col  h-[calc(100vh-5rem)]'>
+      <div className='fixed h-[calc(100vh-5rem)] mx-2'>
       <p className='font-medium'>在这个页面</p>
       <ScrollShadow 
       // hideScrollBar 

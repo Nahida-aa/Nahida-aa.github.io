@@ -9,7 +9,7 @@ export function indexMdxDocuments(mdxDocs: any[]): IndexedDocument[] {
 
     // 清理内容中的 Markdown 语法
     const cleanContent = cleanMarkdown(doc.content)
-    console.log("cleanContent:", cleanContent)
+    // console.log("cleanContent:", cleanContent)
     return {
       id: `${doc.locale}:${doc.slug}`,
       url: doc.url,
