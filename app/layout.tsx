@@ -21,7 +21,7 @@ import { SidebarConfigProvider } from "./settings/SidebarConfigContext";
 export const metadata: Metadata = {
   title: {
     default: siteMetadata.name,
-    template: `%s - ${siteMetadata.name}`,
+    template: `%s | ${siteMetadata.name}`,
   },
   description: siteMetadata.description,
   icons: {

@@ -1,0 +1,57 @@
+---
+title: time
+description: "时间 (Time) 是一种度量, 用于表示事件发生的顺序和持续时间"
+created_at: 2023-06-13T18:59:44Z
+updated_at: 2025-04-04T18:59:44Z
+tags: [time,python,alg]
+---
+
+```py
+from datetime import date, timedelta
+# 计算两个日期之间的天数
+start_date = date(2025, 4, 1)
+end_date = date(2025, 4, 17)
+delta = end_date - start_date
+print(delta)  # 输出: 16 days, 0:00:00
+print(delta.days)  # 输出: 16
+```
+
+## 例题
+
+### 第几天
+2000年的1月1日, 是那一年的第1天
+
+那么, 2000年5月4日, 是那一年的第几天
+```py
+from datetime import date
+print((date(2000, 5, 4)-date(2000, 1, 1)).days+1) # 输出: 125
+```
+
+### 星期一
+整个20世纪 (1901-01-01 ~ 2000-12-31) 中, 星期一的数量
+```py
+from datetime import date, timedelta
+t0 = date(1901, 1, 1)
+t1 = date(2000, 12, 31)
+res = 0
+while t0 <= t1:
+    if t0.weekday() == 0:  # 0=Monday, 1=Tuesday, ..., 6=Sunday
+        res += 1
+    t0 += timedelta(days=1)
+print(res)  # 输出: 5217
+```
+
+json 全称： JavaScript Object Notation, 是一种轻量级的数据交换格式，易于人阅读和编写，同时也易于机器解析和生成。它是基于文本的格式，使用键值对的方式来表示数据。
+
+xml, yml, json, toml
+
+```http
+GET https://api.github.com/repos/Nahida-aa/Nahida-aa HTTP/1.1
+Content-Type: application/json; charset=utf-8
+
+POST
+PATCH
+PUT
+DELETE
+OPTIONS
+```
