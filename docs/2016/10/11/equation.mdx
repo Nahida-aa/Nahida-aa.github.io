@@ -1,0 +1,58 @@
+---
+title: equation
+description: 
+created_at: 2016-10-11T18:14:10Z
+updated_at: 2025-04-06T18:14:10Z
+tags: [math, equation]
+---
+
+## 一元二次方程
+对于一元二次方程 有如下通用形式(组合式):
+```math
+\begin{align*}
+ax^2 + bx + c &= 0  \tag{1} \\
+\end{align*}
+```
+也有如下乘积形式: 
+```math
+\begin{align*}
+a(x - x_1)(x - x_2) &= 0 \tag{2} \\
+\end{align*}
+```
+对 (2) 进行展开, 可以得到:
+```math
+\begin{align*}
+ax^2 - a(x_1 + x_2)x + ax_1x_2 &= 0 \\
+\end{align*}
+```
+对 (1) 和 (2) 进行比较, 可以得到:
+```math
+\begin{align*}
+x_1 + x_2 &= -\frac{b}{a} \tag{3} \\
+x_1x_2 &= \frac{c}{a} \tag{4} \\
+\end{align*}
+```
+(3) 和 (4) 有许多用途, 例如: 用于求解一元二次方程的解集
+```math
+\begin{align*}
+(x_1 + x_2)^2 &= x_1^2 + 2x_1x_2 + x_2^2 \\
+(x_1 - x_2)^2 &= x_1^2 - 2x_1x_2 + x_2^2 \\
+&=(x_1 + x_2)^2 - 4x_1x_2 \\
+&= \left(-\frac{b}{a}\right)^2 - 4\frac{c}{a}
+\end{align*}
+```
+开平方得:
+```math
+\begin{align*}
+x_1 - x_2 &= \pm \sqrt{\left(-\frac{b}{a}\right)^2 - 4\frac{c}{a}} \\
+&=  \pm\frac{\sqrt{b^2 - 4ac}}{a} \\
+\end{align*}
+```
+带入 (3) 可以得到:
+```math
+\begin{align*}
+x_{1,2} &= [(x_1 + x_2) \pm (x_1 - x_2)]/2 \\
+    &= \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}  \tag{5} \\
+\end{align*}
+```
+(5) 称为求根公式, 用于求解一元二次方程的解集

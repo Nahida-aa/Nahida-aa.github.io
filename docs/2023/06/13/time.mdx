@@ -41,17 +41,21 @@ while t0 <= t1:
 print(res)  # 输出: 5217
 ```
 
-json 全称： JavaScript Object Notation, 是一种轻量级的数据交换格式，易于人阅读和编写，同时也易于机器解析和生成。它是基于文本的格式，使用键值对的方式来表示数据。
+### 含2天数
+小蓝特别喜欢2, 今年是公元2020年, 他特别高校, 因为每天都可以看到2
 
-xml, yml, json, toml
-
-```http
-GET https://api.github.com/repos/Nahida-aa/Nahida-aa HTTP/1.1
-Content-Type: application/json; charset=utf-8
-
-POST
-PATCH
-PUT
-DELETE
-OPTIONS
+如果日历中只显示年月日, 请问从公元 1900年1月1日 到公元 9999年12月31日, 一共有多少天日历上包含2
+```py
+from datetime import date, timedelta
+t0 = date(1900, 1, 1)
+t1 = date(9999, 12, 31)
+delta = timedelta(days=1)
+res = 0
+while t0 < t1:
+    if '2' in str(t0):
+        res += 1
+    t0 += delta
+print(res+1)  # 输出: 1994240
 ```
+
+numberTheory

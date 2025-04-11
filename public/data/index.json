@@ -1,5 +1,268 @@
 [
   {
+    "title": "dp",
+    "description": "**动态规划(Dynamic Programming)** 是一种将复杂问题分解成更小的子问题的方法, 通过保存子问题的结果来避免重复计算",
+    "url": "/blog/2024/03/12/dp.mdx",
+    "slug": "2024/03/12/dp.mdx",
+    "segments": [
+      "2024",
+      "03",
+      "12",
+      "dp.mdx"
+    ],
+    "filePath": "2024/03/12/dp.mdx",
+    "meta": {
+      "title": "dp",
+      "description": "**动态规划(Dynamic Programming)** 是一种将复杂问题分解成更小的子问题的方法, 通过保存子问题的结果来避免重复计算",
+      "created_at": "2024-03-12T16:22:16.000Z",
+      "updated_at": "2025-04-03T16:22:16.000Z",
+      "tags": [
+        "alg",
+        "dp"
+      ]
+    },
+    "content": "\n## leetCode 70 爬楼梯\n\n假设你正在爬楼梯。需要 `n` 阶你才能到达楼顶。\n\n每次你可以爬 `1` 或 `2` 个台阶。你有多少种不同的方法可以爬到楼顶呢？\n\n**示例1:**\n> 输入：`n = 2`<br/>\n> 输出：`2`<br/>\n> 解释: 有两种方法可以爬到楼顶\n> 1. 1 阶 + 1 阶\n> 2. 2 阶\n\n**示例2:**\n> 输入：`n = 3`<br/>\n> 输出：`3`<br/>\n> 解释: 有三种方法可以爬到楼顶\n> 1. 1 阶 + 1 阶 + 1 阶\n> 2. 1 阶 + 2 阶\n> 3. 2 阶 + 1 阶\n\n**提示:**\n- $1 \\leq n \\leq 45$\n\n### 分析\n1. 爬 3 阶, 从 2 阶上来是一种方法, 从 1 阶上来是另外一种方法\n2. 因此爬 3 阶的方法数 = 爬 2 阶的方法数 + 爬 1 阶的方法数\n3. 也就是 `f(n) = f(n-1) + f(n-2)`, 发现此递推公式符合斐波那契数列\n### 解法1: 递归\n```py\ndef dfs(n: int) -> int:\n    if n <= 2:\n        return n # f(1)=1, f(2)=2\n    return dfs(n - 1) + dfs(n - 2)\n```\n**复杂度分析:**\n- 时间复杂度: $O(2^n)$, 这个递归解法相当于搜索一个课高为 `n` 的二叉树\n- 空间复杂度: $O(n)$, 递归栈的深度为 `n`\n\n例如 n=7\n```mermaid\ngraph TD\n    7((7)) --> 6.6((6))\n    7 --> 6.5((5))\n    6.6 --> 5.5((5))\n    6.6 --> 5.4((4))\n    6.5 --> 5.4.2((4))\n    6.5 --> 5.3((3))\n    5.5 --> 4.4((4))\n    5.5 --> 4.3((3))\n    5.4 --> 4.3.2((3))\n    5.4 --> 4.2((2))\n    5.4.2 --> 4.3.3((3))\n    5.4.2 --> 4.2.2((2))\n    5.3 --> 4.2.1((2))\n    5.3 --> 4.1((1))\n    4.4 --> 3.3((3))\n    4.4 --> 3.2((2))\n    4.3 --> 3.2.2((2))\n    4.3 --> 3.1((1))\n    4.3.2 --> 3.2.3((2))\n    4.3.2 --> 3.1.2((1))\n    4.2 --> 3.1.3((1))\n    4.3.3 --> 3.2.4((2))\n    4.3.3 --> 3.1.4((1))\n    4.2.2 --> 3.1.5((1))\n    3.3 --> 2.2((2))\n    3.3 --> 2.1((1))\n```\n> [!warning]\n> 发现计算了过多的重复子问题\n### 解法2: 递归 + 记录返回值 = 记忆化搜索\n> [!note]\n> 可以存储已经计算过的值, 以避免重复计算, 例如可以使用 array or hash_map 来存储<br/>\n> 不过 python 中内置了, `functools.lru_cache{:py}` 装饰器, 可以直接用于这个需求\n```py\nfrom functools import lru_cache\n\n@lru_cache(maxsize=None)\ndef dfs(n: int) -> int:\n    if n <= 2:\n        return n # f(1)=1, f(2)=2\n    return dfs(n - 1) + dfs(n - 2)\n```\n使用记忆化搜索后的复杂度是$O(n)$, 只需要计算每个子问题一次, 递归栈的深度为 `n`, 所以空间复杂度也是 $O(n)$<br/>\n图示如下:\n```mermaid\ngraph LR\n    7((7)) --> 6((6))\n    6 --> 5((5))\n    5 --> 4((4))\n    4 --> 3((3))\n    3 --> 2((2))\n    2 --> 1((1))\n```\n### 解法3: 动态规划\n> [!note]\n> **动态规划(Dynamic Programming, DP)** 可以被看作是将**递归问题**转化为**迭代问题**的一种算法，但它的核心思想不仅仅是简单的转化，而是通过 **分解问题** 和 **存储子问题的解** 来优化计算过程\n```py\ndef climbStairs(n: int) -> int:\n    if n <= 2:\n        return n\n    dp = [0] * (n + 1)\n    dp[1], dp[2] = 1, 2\n    for i in range(3, n + 1):\n        dp[i] = dp[i - 1] + dp[i - 2]\n    return dp[n]\n```\n### 解法4: DP + 状态压缩(滚动数组)\n- 在这个 解法3 中, `dp[i]` 的值只依赖于 `dp[i-1]` 和 `dp[i-2]`\n- 因此，我们不需要存储整个 `dp` 数组，只需要用两个变量来保存最近的两个状态即可\n- 状态压缩的时间复杂度与普通动态规划相同，但它的 空间复杂度更低，从 $O(n)$ 降到了 $O(1)$\n- 在实际运行中，减少内存分配和访问的开销会使程序运行得更快\n```py\ndef climbStairs(n: int) -> int:\n    if n <= 2:\n        return n\n    prev, curr = 1, 2  # 初始化 f(1) 和 f(2)\n    for i in range(3, n + 1):\n        prev, curr = curr, prev + curr  # 更新状态\n    return curr\n```\n### 解法5: 解通项公式\n```math\n\\begin{align*}\n&f(n) = f(n-1) + f(n-2) \\\\\n&\\rightarrow f(n) = \\frac{1}{\\sqrt{5}}(\\phi^n - \\psi^n) \\\\\n&\\phi = \\frac{1 + \\sqrt{5}}{2} \\quad （黄金比例） \\\\\n&\\psi = \\frac{1 - \\sqrt{5}}{2} \\\\\n\\end{align*}\n```\n```py\nfrom math import sqrt\ndef climbStairs(n: int) -> int:\n    sqrt5 = sqrt(5)\n    phi = (1 + sqrt5) / 2\n    n += 1 # 注意这题求的是 f(n+1)\n    return round((phi**n - (1 - phi)**n) / sqrt5)\n```\n> [!note]\n> 这个解法的时间复杂度是 $O(1)$, 但是由于浮点数精度问题, 当 `n` 较大时可能会出现误差\n#### 证明\n```math\nf(n) = f(n-1) + f(n-2)\n```\n这是一个 **线性递推关系**, 并且它的系数是常数 (即 `1` 和 `1`) 。对于这种递推关, Binet's Formula 提供了一种通用的解法，可以直接推导出数列的通项公式\n\n##### 待定系数法 推导\n\n**1. 递推关系:**\n```math\nf(n) = f(n-1) + f(n-2)\n```\n这是一个二阶线性递推关系\n\n**2. 特征方程:**\n\n为了求解这个递推关系, 我们假设通解的形式为\n```math\nf(n) = x^n\n```\n- 将其代入递推关系中, 得到:\n```math\nx^n = x^{n-1} + x^{n-2}\n```\n- 除以 $x^{n-2}$ (假设 $x \\neq 0$), 得到:\n```math\nx^2 = x + 1\n```\n这就是斐波那契数列的 **特征方程**\n\n**3. 求解特征方程:**\n\n- 解这个方程可以得到两个根:\n```math\n\\begin{align*}\n&x_1 = \\frac{1 + \\sqrt{5}}{2} \\quad (黄金比例) \\quad\\quad\n&x_2 = \\frac{1 - \\sqrt{5}}{2}\n\\end{align*}\n```\n**4. 通解的形式:**\n\n根据线性递推关系，通解可以表示为特征根的线性组合：\n```math\nf(n) = A \\cdot x_1^n + B \\cdot x_2^n\n```\n**5. 确定系数:**\n- 通过初始条件来确定系数 `A` 和 `B`\n```math\n\\begin{aligned}\n&\\left\\{\n\\begin{aligned}\nf(0) &= A \\cdot x_1^0 + B \\cdot x_2^0 = 0, \\\\\nf(1) &= A \\cdot x_1 + B \\cdot x_2 = 1, \\\\\nf(2) &= A \\cdot x_1^2 + B \\cdot x_2^2 = 2.\n\\end{aligned}\n\\right. \n\\\\\n&\\left\\{\n\\begin{aligned}\nA + B &= 0, \\\\\nA \\cdot x_1 + B \\cdot x_2 &= 1.\n\\end{aligned}\n\\right.\n\\end{aligned}\n```\n```math\nA \\cdot \\frac{1 + \\sqrt{5}}{2} + (-A) \\cdot \\frac{1 - \\sqrt{5}}{2} = 1 \n```\n解得\n```math\n\\left\\{\n\\begin{aligned}\n&A \\cdot \\sqrt{5} = 1, \\\\\n&A = \\frac{1}{\\sqrt{5}}, \\\\\n&B = -\\frac{1}{\\sqrt{5}}.\n\\end{aligned}\n\\right.\n```\n- 斐波那契数列的通项公式为:\n```math\nf(n) = \\frac{1}{\\sqrt{5}}(x_1^n - x_2^n)\n```\n### 总结: 不同解法对比\n| 解法 | 时间复杂度 | 空间复杂度 | 优点 | 缺点 |\n|------|------------|------------|------|------|\n| 递归 | $O(2^n)$   | $O(n)$     | 简单易懂 | 重复计算, 效率低 |\n| 记忆化搜索 | $O(n)$   | $O(n)$     | 避免重复计算 | 需要额外的存储空间 |\n| 动态规划(数组) | $O(n)$   | $O(n)$     | 直观易懂 | 需要额外的数组存储空间 |\n| 动态规划(状态压缩) | $O(n)$   | $O(1)$     | 节省空间 | 代码稍复杂 |\n| 数学解法(斐波那契公式) | $O(1)$   | $O(1)$     | 理论最快，常数时间复杂度 | 浮点运算可能导致精度问题 |\n\n## leetCode 198 打家劫舍\n你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金，影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，**如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警**。\n\n给定一个代表每个房屋存放金额的非负整数数组，计算你 **不触动警报装置的情况下** ，一夜之内能够偷窃到的最高金额。\n\n**示例1:**\n> 输入：`nums = [1,2,3,1]`<br/>\n> 输出：`4`<br/>\n> 解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3) 。偷窃到的最高金额 = 1 + 3 = 4 。\n\n**示例2:**\n> 输入：`nums = [2,7,9,3,1]`<br/>\n> 输出：`12`<br/>\n> 解释：偷窃 1 号房屋 (金额 = 2)，然后偷窃 3 号房屋 (金额 = 9)，最后偷窃 5 号房屋 (金额 = 1)。偷窃到的最高金额 = 2 + 9 + 1 = 12 。\n\n**提示:**\n- `1 <= nums.length <= 100`\n- `0 <= nums[i] <= 400`\n\n```py\ndef rob(self, nums: List[int]) -> int:\n    n = len(nums)\n    if n == 0:\n        return 0\n    if n == 1:\n        return nums[0]\n    dp = [0] * n\n    dp[0] = nums[0]\n    dp[1] = max(nums[0], nums[1])\n    for i in range(2, n):\n        dp[i] = max(dp[i - 1], dp[i - 2] + nums[i])\n    return dp[-1]\n```\n易懂解法\n```py\ndef rob(self, nums: List[int]) -> int:\n    n = len(nums)\n    if n == 0:\n        return 0\n    if n == 1:\n        return nums[0]\n    dp = [[0, 0] for _ in range(n)]\n    dp[0][0] = 0\n    dp[0][1] = nums[0]\n    for i in range(1, n):\n        dp[i][0] = max(dp[i - 1][0], dp[i - 1][1])\n        dp[i][1] = dp[i - 1][0] + nums[i]\n    return max(dp[-1][0], dp[-1][1])\n```\n\n## 背包问题\n\n$N$ 个物品, 价值为 $v_i$, 重量为 $w_i$, 背包总容量为 $W$, 找到背包能装下的最大价值\n- 0-1背包问题: 每个物品只能选择 0 或 1 次\n- 完全背包问题: 每个物品可以选择多次\n- 多重背包问题: 每个物品最多选择 $s_i$ 次\n- 分组背包问题: 物品分为若干组, 每组只能选择 0 或 1 次\n\n### 0-1背包问题\n状态表示: `dp[i][j]{:py}` 表示前 `i` 个物品, 背包容量为 `j` 时的最大价值\n\n那么 `dp[N][W]{:py}` 就是我们要求的最大价值\n\n从 `i-1` 到 `i` 这个过程, 有两种情况, 即选第 `i` 个物品和不选第 `i` 个物品:\n- 如果不选第 `i` 个物品, 那么最大价值就是前 `i-1` 个物品的最大价值, 即 `dp[i-1][j]{:py}`\n- 如果选第 `i` 个物品, 那么最大价值就是前 `i-1` 个物品的最大价值加上第 `i` 个物品的价值, 即 `dp[i-1][j-w_i] + v_i{:py}`\n\n> [!note]\n> 这里需要注意, 如果选第 `i` 个物品, 那么背包的容量就要减去第 `i` 个物品的重量, 即 `j-w_i`<br/>\n> 因此 `dp[i][j]{:py}` 就是 `dp[i-1][j]{:py}` 和 `dp[i-1][j-w_i] + v_i{:py}` 的最大值<br/>\n> 注意: 需要判断 `j` 是否大于等于 `w_i`, 如果小于 `w_i`, 那么就不能选第 `i` 个物品, 也就是 `dp[i][j] = dp[i-1][j]{:py}`\n\n状态转移方程:\n```math\ndp[i][j] = \\left\\{\n\\begin{aligned}\n&dp[i-1][j] & j < w_i \\\\\n&max(dp[i-1][j], dp[i-1][j-w_i] + v_i) & j \\geq w_i\n\\end{aligned}\n\\right.\n```\ngraph",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "leetCode 70 爬楼梯",
+        "slug": "leetcode-70-爬楼梯"
+      },
+      {
+        "depth": 3,
+        "value": "分析",
+        "slug": "分析"
+      },
+      {
+        "depth": 3,
+        "value": "解法1: 递归",
+        "slug": "解法1:-递归"
+      },
+      {
+        "depth": 3,
+        "value": "解法2: 递归 + 记录返回值 = 记忆化搜索",
+        "slug": "解法2:-递归-+-记录返回值-=-记忆化搜索"
+      },
+      {
+        "depth": 3,
+        "value": "解法3: 动态规划",
+        "slug": "解法3:-动态规划"
+      },
+      {
+        "depth": 3,
+        "value": "解法4: DP + 状态压缩(滚动数组)",
+        "slug": "解法4:-dp-+-状态压缩(滚动数组)"
+      },
+      {
+        "depth": 3,
+        "value": "解法5: 解通项公式",
+        "slug": "解法5:-解通项公式"
+      },
+      {
+        "depth": 4,
+        "value": "证明",
+        "slug": "证明"
+      },
+      {
+        "depth": 5,
+        "value": "待定系数法 推导",
+        "slug": "待定系数法-推导"
+      },
+      {
+        "depth": 3,
+        "value": "总结: 不同解法对比",
+        "slug": "总结:-不同解法对比"
+      },
+      {
+        "depth": 2,
+        "value": "leetCode 198 打家劫舍",
+        "slug": "leetcode-198-打家劫舍"
+      },
+      {
+        "depth": 2,
+        "value": "背包问题",
+        "slug": "背包问题"
+      },
+      {
+        "depth": 3,
+        "value": "0-1背包问题",
+        "slug": "0-1背包问题"
+      }
+    ]
+  },
+  {
+    "title": "paper.mdx",
+    "description": "",
+    "url": "/blog/2024/03/26/paper.mdx",
+    "slug": "2024/03/26/paper.mdx",
+    "segments": [
+      "2024",
+      "03",
+      "26",
+      "paper.mdx"
+    ],
+    "filePath": "2024/03/26/paper.mdx",
+    "meta": {
+      "title": "paper.mdx",
+      "description": ""
+    },
+    "content": "",
+    "toc": []
+  },
+  {
+    "title": "graph",
+    "description": "图 (Graph) 是一种数据结构, 由节点 (Vertex) 和边 (Edge) 组成, 用于表示对象之间的关系",
+    "url": "/blog/2024/03/13/graph.mdx",
+    "slug": "2024/03/13/graph.mdx",
+    "segments": [
+      "2024",
+      "03",
+      "13",
+      "graph.mdx"
+    ],
+    "filePath": "2024/03/13/graph.mdx",
+    "meta": {
+      "title": "graph",
+      "description": "图 (Graph) 是一种数据结构, 由节点 (Vertex) 和边 (Edge) 组成, 用于表示对象之间的关系",
+      "created_at": "2024-03-13T16:39:24.000Z",
+      "updated_at": "2025-04-04T16:39:24.000Z",
+      "tags": [
+        "alg",
+        "graph"
+      ]
+    },
+    "content": "\n## 建图\n\n给定 `n` 个节点, `m` 条边, 用 $g(u,v)$ 表示 $u$, $v$ 的信息, 如 连通性, 边权\n```\n5 6\n0 1 2\n1 2 5\n0 3 3\n1 3 4\n3 4 7\n3 2 10\n```\n```mermaid\ngraph TD\n    0((0)) o--o|2| 1((1))\n    1 o--o|5| 2((2))\n    0 o--o|3| 3((3))\n    1 o--o|4| 3\n    3 o--o|7| 4((4))\n    3 o--o|10| 2\n```\n\n### 邻接矩阵\n\n- `g[i][j]` 表示 `i` 到 `j` 的信息\n- `g[i][i] = 0`, 表示到自己的距离为 0\n- 初始值为 `inf`, 表示不可达, 即距离为无穷大\n- 对于无向图, `g[u][v] = g[v][u]`\n\n```py\nfrom math import inf\nn, m = map(int, input().split())\ng = [[inf] * n for _ in range(n)]\nfor _ in range(m):\n    u, v, w = map(int, input().split())\n    g[u][v] = g[v][u] = w\n    g[u][u] = g[v][v] = 0 # 一般的题目中 不写这行 也是可以做对的\n```\n```py\ng = [\n  [0, 2, inf, 3, inf],\n  [2, 0, 5, 4, inf],\n  [inf, 5, 0, inf, inf],\n  [3, 4, inf, 0, 7],\n  [inf, inf, inf, 7, 0]\n]\n```\n\n对于稀疏图: 边数 `<<` 节点数, 邻接矩阵会浪费很多空间, 这时可以使用邻接表\n\n### 邻接表\n```py\nn ,m = map(int, input().split())\ne = [[] for _ in range(n)]\nfor _ in range(m):\n    u, v, w = map(int, input().split())\n    e[u].append((v, w))\n    e[v].append((u, w))\n```\n```math\ne[u][j] = (v, w_{u,v})\n```\n```py\ne = [\n  [(1, 2), (3, 3)],\n  [(0, 2), (2, 5), (3, 4)],\n  [(1, 5)],\n  [(0, 3), (1, 4), (4, 7), (2, 10)],\n  [(3, 7)]\n]\n```\n- 对于稀疏图, 可以节省空间, 另外 可以直接获取邻居数量\n- 注意: 空间复杂度依旧是 $O(n^2)$, 只是常数小了很多\n\n## 遍历\n\n### dfs序\n\n```py\ns = set() # 已经访问的节点\ndef dfs(u):\n    if u in s:\n        return\n    # 操作开始 ---\n    # 操作\n    # 操作结束 ---\n    s.add(u)\n    for v, w in e[u]:\n        dfs(v)\n```\n\n#### leetCode 1971 寻找图中是否存在路径\nhttps://leetcode.cn/problems/find-if-path-exists-in-graph/\n\n有一个具有 `n` 个顶点的 双向 图，其中每个顶点标记从 `0` 到 `n - 1` (包含 `0` 和 `n - 1`) 。图中的边用一个二维整数数组 `edges` 表示，其中 `edges[i] = [u_i, v_i]{:ts}`表示顶点 `u_i` 和顶点 `v_i` 之间的双向边。 每个顶点对由 最多一条 边连接，并且没有顶点存在与自身相连的边。\n\n请你确定是否存在从顶点 `source` 开始，到顶点 `destination` 结束的 有效路径 。\n\n给你数组 `edges` 和整数 `n`、`source` 和 `destination`,如果从 `source` 到 `destination` 存在 有效路径 ，则返回 `true{:ts}`, 否则返回 `false{:ts}` 。\n\n**示例1:**\n```mermaid\ngraph TD\n    0((0)) --- 1((1))\n    0 --- 2((2))\n    1 --- 2\n```\n\n> **输入：**n=3, edges = [[0,1],[1,2],[2,0]], source = 0, destination = 2<br/>\n> **输出：**true<br/>\n> **解释：**存在路径 0 -> 2<br/>\n> **示例2:**\n\n```mermaid\ngraph TD\n    0((0)) --- 1((1))\n    0 --- 2((2))\n    3((3)) --- 4((4))\n    3 --- 5((5))\n    4 --- 5\n```\n\n> **输入：** n=6, edges = [[0,1],[0,2],[3,4],[5,4],[5,3]], source = 0, destination = 5<br/>\n> **输出：** false<br/>\n> **解释：** 不存在路径 0 -> 5\n\n**提示:**\n- `1 <= n <= 2 * 10^4`\n- `0 <= edges.length <= 2 * 10^4`\n- `edges[i].length == 2`\n- `0 <= u_i, v_i <= n - 1`\n- `u_i != v_i`\n- `0 <= source, destination <= n - 1`\n- 不存在重复边\n- 不存在指向自身的边\n\n```py\ndef validPath(self, n: int, edges: List[List[int]], source: int, destination: int) -> bool:\n    e = [[] for _ in range(n)]\n    for u, v in edges:\n        e[u].append(v)\n        e[v].append(u)\n\n    s = set()\n    def dfs(u):\n        if u in s:\n            return False\n        if u == destination:\n            return True\n        s.add(u)\n        for v in e[u]:\n            if dfs(v):\n                return True\n        return False\n\n    return dfs(source)\n```\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "建图",
+        "slug": "建图"
+      },
+      {
+        "depth": 3,
+        "value": "邻接矩阵",
+        "slug": "邻接矩阵"
+      },
+      {
+        "depth": 3,
+        "value": "邻接表",
+        "slug": "邻接表"
+      },
+      {
+        "depth": 2,
+        "value": "遍历",
+        "slug": "遍历"
+      },
+      {
+        "depth": 3,
+        "value": "dfs序",
+        "slug": "dfs序"
+      },
+      {
+        "depth": 4,
+        "value": "leetCode 1971 寻找图中是否存在路径",
+        "slug": "leetcode-1971-寻找图中是否存在路径"
+      }
+    ]
+  },
+  {
+    "title": "Latex",
+    "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
+    "url": "/blog/2024/05/19/latex.mdx",
+    "slug": "2024/05/19/latex.mdx",
+    "segments": [
+      "2024",
+      "05",
+      "19",
+      "latex.mdx"
+    ],
+    "filePath": "2024/05/19/latex.mdx",
+    "meta": {
+      "title": "Latex",
+      "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
+      "created_at": "2024-05-19T19:35:46.000Z",
+      "updated_at": "2025-03-28T19:35:46.000Z",
+      "tags": [
+        "docs",
+        "math",
+        "latex"
+      ]
+    },
+    "content": "\n## 基本结构\n\n一个简单的 LaTeX 文档通常包含以下结构：\n\n```latex\n\\documentclass{article} % 文档类型\n\\usepackage{amsmath}    % 数学公式支持\n\\begin{document}\n\n\\section{引言}\n这是一个简单的 LaTeX 示例。\n\n\\subsection{数学公式}\n以下是一个数学公式示例：\n\\[\nE = mc^2\n\\]\n\n\\end{document}\n```\n\n## 数学公式\n\nLaTeX 对数学公式的支持非常强大。以下是一些常见的公式示例：\n\n行内公式：\n```latex\n这是一个行内公式 $a^2 + b^2 = c^2$。\n```\n\n块级公式：\n```latex\n\\[\n\\int_a^b f(x) \\, dx = F(b) - F(a)\n\\]\n```\n\n### 希腊字母\n```latex\n\\alpha, \\beta, \\gamma, \\delta, \\epsilon, \\pi, \\sigma\n```\n```math\n\\begin{align}\n&\\alpha \\quad A \\quad  \\text{希腊字母 alpha} \\quad   \\\\\n&\\beta \\quad B  \\text{希腊字母 beta} \\\\\n&\\gamma \\quad \\Gamma \\quad  \\text{希腊字母 gamma} \\\\\n&\\delta \\quad \\Delta \\quad  \\text{希腊字母 delta} \\\\\n&\\epsilon \\quad E  \\text{希腊字母 epsilon} \\\\\n&\\zeta \\quad Z \\quad  \\text{希腊字母 zeta} \\\\\n&\\eta \\quad H \\quad  \\text{希腊字母 eta} \\\\\n&\\theta \\quad \\Theta \\quad  \\text{希腊字母 theta} \\\\\n&\\iota \\quad I \\quad  \\text{希腊字母 iota} \\\\\n&\\kappa \\quad K \\quad  \\text{希腊字母 kappa} \\\\\n&\\lambda \\quad \\Lambda \\quad  \\text{希腊字母 lambda} \\\\\n&\\mu \\quad M \\quad  \\text{希腊字母 mu} \\\\\n&\\nu \\quad N \\quad  \\text{希腊字母 nu} \\\\\n&\\xi \\quad \\Xi \\quad  \\text{希腊字母 xi} \\\\\n&\\omicron \\quad O \\quad  \\text{希腊字母 omicron} \\\\\n&\\pi \\quad \\Pi \\quad  \\text{希腊字母 pi} \\\\\n&\\rho \\quad P  \\quad \\text{希腊字母 rho} \\\\\n&\\sigma \\quad \\Sigma \\quad  \\text{希腊字母 sigma}\\\\\n&\\tau \\quad T \\quad  \\text{希腊字母 tau} \\\\\n&\\upsilon \\quad \\Upsilon \\quad  \\text{希腊字母 upsilon} \\\\\n&\\phi \\quad \\Phi \\quad  \\text{希腊字母 phi} \\\\\n&\\chi \\quad X \\quad  \\text{希腊字母 chi} \\\\\n&\\psi \\quad \\Psi \\quad  \\text{希腊字母 psi} \\\\\n&\\omega \\quad \\Omega  \\quad  \\text{希腊字母 omega} \\\\\n&\\varepsilon \\ :varepsilon,\\ \\vartheta\\ :vartheta,\\ \\varpi\\ :varpi,\\ \\varrho\\ :varrho,\\ \\varsigma\\ :varsigma, \\varphi\\ :varphi \\\\\n\\end{align}\n```\n\n## 表格\n\n使用 `tabular` 环境可以创建表格：\n\n```latex\n\\begin{tabular}{|c|c|c|}\n\\hline\n列1 & 列2 & 列3 \\\\\n\\hline\n数据1 & 数据2 & 数据3 \\\\\n\\hline\n\\end{tabular}\n```\n\n## 插入图片\n\n使用 `graphicx` 包可以插入图片：\n\n```latex\n\\usepackage{graphicx}\n\n\\begin{figure}[h]\n\\centering\n\\includegraphics[width=0.5\\textwidth]{example.png}\n\\caption{示例图片}\n\\end{figure}\n```",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "基本结构",
+        "slug": "基本结构"
+      },
+      {
+        "depth": 2,
+        "value": "数学公式",
+        "slug": "数学公式"
+      },
+      {
+        "depth": 3,
+        "value": "希腊字母",
+        "slug": "希腊字母"
+      },
+      {
+        "depth": 2,
+        "value": "表格",
+        "slug": "表格"
+      },
+      {
+        "depth": 2,
+        "value": "插入图片",
+        "slug": "插入图片"
+      }
+    ]
+  },
+  {
+    "title": "Java",
+    "description": "东西都被删除了吗 runtime function 重...",
+    "url": "/blog/2024/10/12/java.mdx",
+    "slug": "2024/10/12/java.mdx",
+    "segments": [
+      "2024",
+      "10",
+      "12",
+      "java.mdx"
+    ],
+    "filePath": "2024/10/12/java.mdx",
+    "meta": {
+      "title": "Java",
+      "description": "东西都被删除了吗 runtime function 重...",
+      "created_at": "2024-10-12T15:55:11.000Z",
+      "updated_at": "2025-03-30T15:55:11.000Z",
+      "tags": [
+        "java"
+      ]
+    },
+    "content": "\n东西都被删除了吗\n\n## runtime\n\n## function\n\n### 重写 (Override)\n\n### 重载 (Overload)\n\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "runtime",
+        "slug": "runtime"
+      },
+      {
+        "depth": 2,
+        "value": "function",
+        "slug": "function"
+      },
+      {
+        "depth": 3,
+        "value": "重写 (Override)",
+        "slug": "重写-(override)"
+      },
+      {
+        "depth": 3,
+        "value": "重载 (Overload)",
+        "slug": "重载-(overload)"
+      }
+    ]
+  },
+  {
     "title": "websocket",
     "description": "v",
     "url": "/blog/2025/02/01/ws.mdx",
@@ -22,31 +285,6 @@
       ]
     },
     "content": "",
-    "toc": []
-  },
-  {
-    "title": "time",
-    "description": "...",
-    "url": "/blog/2025/04/01/time.mdx",
-    "slug": "2025/04/01/time.mdx",
-    "segments": [
-      "2025",
-      "04",
-      "01",
-      "time.mdx"
-    ],
-    "filePath": "2025/04/01/time.mdx",
-    "meta": {
-      "title": "time",
-      "description": "...",
-      "created_at": "2025-04-01T02:04:25.000Z",
-      "updated_at": "2025-04-01T02:04:25.000Z",
-      "tags": [
-        "alg",
-        "time"
-      ]
-    },
-    "content": "\r\n```py\r\nfrom datetime import date, timedelata\r\n# 计算两个日期之间的天数\r\nstart_date = date(2025, 4, 1)\r\nend_date = date(2025, 4, 17)\r\ndelta = end_date - start_date\r\nprint(delta)  # 输出: 16 days, 0:00:00\r\nprint(delta.days)  # 输出: 16\r\n```\r\n",
     "toc": []
   },
   {
@@ -498,6 +736,63 @@
     ]
   },
   {
+    "title": "numberTheory",
+    "description": "纯粹数学的分支之一，主要研究整数的性质。 整数可以是方程式的解（丢番图方程）。 有些解析函数（像黎曼ζ函数）中包括了一些整数、质数的性质，透过这些函数也可以了解一些数论的问题。 透过数论也可以建立实数和有理数之间的关系，并且用有理数来逼近实数（丢番图逼近）。",
+    "url": "/blog/2012/09/16/numberTheory.mdx",
+    "slug": "2012/09/16/numberTheory.mdx",
+    "segments": [
+      "2012",
+      "09",
+      "16",
+      "numberTheory.mdx"
+    ],
+    "filePath": "2012/09/16/numberTheory.mdx",
+    "meta": {
+      "title": "numberTheory",
+      "description": "纯粹数学的分支之一，主要研究整数的性质。 整数可以是方程式的解（丢番图方程）。 有些解析函数（像黎曼ζ函数）中包括了一些整数、质数的性质，透过这些函数也可以了解一些数论的问题。 透过数论也可以建立实数和有理数之间的关系，并且用有理数来逼近实数（丢番图逼近）。",
+      "created_at": "2012-09-12T20:39:52.000Z",
+      "updated_at": "2025-04-04T20:39:52.000Z",
+      "tags": [
+        "math",
+        "numberTheory",
+        "alg"
+      ]
+    },
+    "content": "\n## base\n\n### 质数与因数分解\n\n因数也称为约数, 是指能整除一个整数的数\n- 例如: $6$ 的因数有 $1, 2, 3, 6$\n- 例如: $12$ 的因数有 $1, 2, 3, 4, 6, 12$\n\n#### 分解一个数的所有因数\n\n##### 枚举解空间\n\n复杂度为: $O(n)$\n\n```py\ndef divisor(n):\n    res = [1, n]\n    for i in range(1, n + 1):\n        if n % i == 0:\n            res.append(i)\n```\n##### 试除法求所有因数\n找到一个 约数 $d$, 那么 $n/d$ 也是一个约数\n\n复杂度为: $O(\\sqrt{n})$\n```py\ndef divisor(n):\n    res = [1, n]\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            res.append(i) # 添加 $d$\n            if i != n // i:\n                res.append(n // i) # 添加 $n/d$\n    return res\n```\n\n#### 分解质因数\n\n例如:\n- $12 = 2\\times 2 \\times 3 = 2^2 \\times 3^1$, 即 有 2 和 3 两个质因数\n- $60 = 2^2 \\times 3^1 \\times 5^1$, 即 有 2, 3 和 5 三个质因数\n\n```py\n# 试除法\ndef prime_factorization(n):\n    res = []\n    for i in range(2, int(n**0.5) + 1):\n        if n % i == 0:\n            count = 0\n            while n % i == 0:\n                n //= i\n                count += 1\n            res.append((i, count))\n    if n > 1:\n        res.append((n, 1))\n    return res\nprint(prime_factorization(12))  # 输出: [(2, 2), (3, 1)]\n```\n\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": "base",
+        "slug": "base"
+      },
+      {
+        "depth": 3,
+        "value": "质数与因数分解",
+        "slug": "质数与因数分解"
+      },
+      {
+        "depth": 4,
+        "value": "分解一个数的所有因数",
+        "slug": "分解一个数的所有因数"
+      },
+      {
+        "depth": 5,
+        "value": "枚举解空间",
+        "slug": "枚举解空间"
+      },
+      {
+        "depth": 5,
+        "value": "试除法求所有因数",
+        "slug": "试除法求所有因数"
+      },
+      {
+        "depth": 4,
+        "value": "分解质因数",
+        "slug": "分解质因数"
+      }
+    ]
+  },
+  {
     "title": "IDLE",
     "description": "IDLE 是 Python 的集成开发环境 (IDE)，它是用 Python 编写的，提供了一个简单的图形用户界面 (GUI) 来编写和运行 Python 代码。",
     "url": "/blog/2023/06/12/IDLE.mdx",
@@ -650,57 +945,49 @@
     ]
   },
   {
-    "title": "vscode",
-    "description": "...",
-    "url": "/blog/2023/08/01/vscode.mdx",
-    "slug": "2023/08/01/vscode.mdx",
+    "title": "time",
+    "description": "时间 (Time) 是一种度量, 用于表示事件发生的顺序和持续时间",
+    "url": "/blog/2023/06/13/time.mdx",
+    "slug": "2023/06/13/time.mdx",
     "segments": [
       "2023",
-      "08",
-      "01",
-      "vscode.mdx"
+      "06",
+      "13",
+      "time.mdx"
     ],
-    "filePath": "2023/08/01/vscode.mdx",
+    "filePath": "2023/06/13/time.mdx",
     "meta": {
-      "title": "vscode",
-      "description": "...",
-      "created_at": "2023-08-01T05:31:57.000Z",
-      "updated_at": "2025-04-02T05:31:57.000Z",
+      "title": "time",
+      "description": "时间 (Time) 是一种度量, 用于表示事件发生的顺序和持续时间",
+      "created_at": "2023-06-13T18:59:44.000Z",
+      "updated_at": "2025-04-04T18:59:44.000Z",
       "tags": [
-        "vscode"
+        "time",
+        "python",
+        "alg"
       ]
     },
-    "content": "\n```sh\ncode ~/repos/env_ls/dotfiles\n```\n",
-    "toc": []
-  },
-  {
-    "title": "css",
-    "description": ":has()...",
-    "url": "/blog/2023/08/02/css.mdx",
-    "slug": "2023/08/02/css.mdx",
-    "segments": [
-      "2023",
-      "08",
-      "02",
-      "css.mdx"
-    ],
-    "filePath": "2023/08/02/css.mdx",
-    "meta": {
-      "title": "css",
-      "description": ":has()...",
-      "created_at": "2023-08-02T10:35:32.000Z",
-      "updated_at": "2025-03-30T10:35:32.000Z",
-      "tags": [
-        "css",
-        "html"
-      ]
-    },
-    "content": "\n## :has()\n```html\n<style>\n  div:has(.highlight) { /* 使用 :has() 选择包含 .highlight 的 div */\n    border: 2px solid red;\n    padding: 10px;\n    margin-bottom: 10px;\n  }\n  div { /* 普通 div 的样式 */\n    border: 2px solid gray;\n    padding: 10px;\n    margin-bottom: 10px;\n  }\n  .highlight { /* .highlight 的样式 */\n    background-color: yellow;\n    padding: 5px;\n  }\n</style>\n<div><!-- 不包含 .highlight 的 div -->\n  <p>这是一个普通的 div，没有 .highlight 元素。</p>\n</div>\n<div><!-- 包含 .highlight 的 div -->\n  <p>这是一个包含 <span class=\"highlight\">高亮内容</span> 的 div。</p>\n</div>\n<div><!-- 不包含 .highlight 的 div -->\n  <p>这是另一个普通的 div，没有 .highlight 元素。</p>\n</div>\n```\n",
+    "content": "\n```py\nfrom datetime import date, timedelta\n# 计算两个日期之间的天数\nstart_date = date(2025, 4, 1)\nend_date = date(2025, 4, 17)\ndelta = end_date - start_date\nprint(delta)  # 输出: 16 days, 0:00:00\nprint(delta.days)  # 输出: 16\n```\n\n## 例题\n\n### 第几天\n2000年的1月1日, 是那一年的第1天\n\n那么, 2000年5月4日, 是那一年的第几天\n```py\nfrom datetime import date\nprint((date(2000, 5, 4)-date(2000, 1, 1)).days+1) # 输出: 125\n```\n\n### 星期一\n整个20世纪 (1901-01-01 ~ 2000-12-31) 中, 星期一的数量\n```py\nfrom datetime import date, timedelta\nt0 = date(1901, 1, 1)\nt1 = date(2000, 12, 31)\nres = 0\nwhile t0 <= t1:\n    if t0.weekday() == 0:  # 0=Monday, 1=Tuesday, ..., 6=Sunday\n        res += 1\n    t0 += timedelta(days=1)\nprint(res)  # 输出: 5217\n```\n\n### 含2天数\n小蓝特别喜欢2, 今年是公元2020年, 他特别高校, 因为每天都可以看到2\n\n如果日历中只显示年月日, 请问从公元 1900年1月1日 到公元 9999年12月31日, 一共有多少天日历上包含2\n```py\nfrom datetime import date, timedelta\nt0 = date(1900, 1, 1)\nt1 = date(9999, 12, 31)\ndelta = timedelta(days=1)\nres = 0\nwhile t0 < t1:\n    if '2' in str(t0):\n        res += 1\n    t0 += delta\nprint(res+1)  # 输出: 1994240\n```\n\nnumberTheory",
     "toc": [
       {
         "depth": 2,
-        "value": ":has()",
-        "slug": ":has()"
+        "value": "例题",
+        "slug": "例题"
+      },
+      {
+        "depth": 3,
+        "value": "第几天",
+        "slug": "第几天"
+      },
+      {
+        "depth": 3,
+        "value": "星期一",
+        "slug": "星期一"
+      },
+      {
+        "depth": 3,
+        "value": "含2天数",
+        "slug": "含2天数"
       }
     ]
   },
@@ -791,6 +1078,61 @@
     ]
   },
   {
+    "title": "vscode",
+    "description": "...",
+    "url": "/blog/2023/08/01/vscode.mdx",
+    "slug": "2023/08/01/vscode.mdx",
+    "segments": [
+      "2023",
+      "08",
+      "01",
+      "vscode.mdx"
+    ],
+    "filePath": "2023/08/01/vscode.mdx",
+    "meta": {
+      "title": "vscode",
+      "description": "...",
+      "created_at": "2023-08-01T05:31:57.000Z",
+      "updated_at": "2025-04-02T05:31:57.000Z",
+      "tags": [
+        "vscode"
+      ]
+    },
+    "content": "\n```sh\ncode ~/repos/env_ls/dotfiles\n```\n",
+    "toc": []
+  },
+  {
+    "title": "css",
+    "description": ":has()...",
+    "url": "/blog/2023/08/02/css.mdx",
+    "slug": "2023/08/02/css.mdx",
+    "segments": [
+      "2023",
+      "08",
+      "02",
+      "css.mdx"
+    ],
+    "filePath": "2023/08/02/css.mdx",
+    "meta": {
+      "title": "css",
+      "description": ":has()...",
+      "created_at": "2023-08-02T10:35:32.000Z",
+      "updated_at": "2025-03-30T10:35:32.000Z",
+      "tags": [
+        "css",
+        "html"
+      ]
+    },
+    "content": "\n## :has()\n```html\n<style>\n  div:has(.highlight) { /* 使用 :has() 选择包含 .highlight 的 div */\n    border: 2px solid red;\n    padding: 10px;\n    margin-bottom: 10px;\n  }\n  div { /* 普通 div 的样式 */\n    border: 2px solid gray;\n    padding: 10px;\n    margin-bottom: 10px;\n  }\n  .highlight { /* .highlight 的样式 */\n    background-color: yellow;\n    padding: 5px;\n  }\n</style>\n<div><!-- 不包含 .highlight 的 div -->\n  <p>这是一个普通的 div，没有 .highlight 元素。</p>\n</div>\n<div><!-- 包含 .highlight 的 div -->\n  <p>这是一个包含 <span class=\"highlight\">高亮内容</span> 的 div。</p>\n</div>\n<div><!-- 不包含 .highlight 的 div -->\n  <p>这是另一个普通的 div，没有 .highlight 元素。</p>\n</div>\n```\n",
+    "toc": [
+      {
+        "depth": 2,
+        "value": ":has()",
+        "slug": ":has()"
+      }
+    ]
+  },
+  {
     "title": "package manager",
     "description": "包管理器是一种用于自动化安装、升级、配置和删除计算机程序的工具。主要可以分为两类：操作系统包管理器和编程语言包管理器。",
     "url": "/blog/2023/12/13/packManager.mdx",
@@ -817,194 +1159,6 @@
         "depth": 2,
         "value": "winget (Windows)",
         "slug": "winget-(windows)"
-      }
-    ]
-  },
-  {
-    "title": "dp",
-    "description": "**动态规划(Dynamic Programming)** 是一种将复杂问题分解成更小的子问题的方法, 通过保存子问题的结果来避免重复计算",
-    "url": "/blog/2024/03/12/dp.mdx",
-    "slug": "2024/03/12/dp.mdx",
-    "segments": [
-      "2024",
-      "03",
-      "12",
-      "dp.mdx"
-    ],
-    "filePath": "2024/03/12/dp.mdx",
-    "meta": {
-      "title": "dp",
-      "description": "**动态规划(Dynamic Programming)** 是一种将复杂问题分解成更小的子问题的方法, 通过保存子问题的结果来避免重复计算",
-      "created_at": "2024-03-12T16:22:16.000Z",
-      "updated_at": "2025-04-03T16:22:16.000Z",
-      "tags": [
-        "alg",
-        "dp"
-      ]
-    },
-    "content": "\n## leetCode 70 爬楼梯\n\n假设你正在爬楼梯。需要 `n` 阶你才能到达楼顶。\n\n每次你可以爬 `1` 或 `2` 个台阶。你有多少种不同的方法可以爬到楼顶呢？\n\n**示例1:**\n> 输入：`n = 2`<br/>\n> 输出：`2`<br/>\n> 解释: 有两种方法可以爬到楼顶\n> 1. 1 阶 + 1 阶\n> 2. 2 阶\n\n**示例2:**\n> 输入：`n = 3`<br/>\n> 输出：`3`<br/>\n> 解释: 有三种方法可以爬到楼顶\n> 1. 1 阶 + 1 阶 + 1 阶\n> 2. 1 阶 + 2 阶\n> 3. 2 阶 + 1 阶\n\n**提示:**\n- $1 \\leq n \\leq 45$\n\n### 分析\n1. 爬 3 阶, 从 2 阶上来是一种方法, 从 1 阶上来是另外一种方法\n2. 因此爬 3 阶的方法数 = 爬 2 阶的方法数 + 爬 1 阶的方法数\n3. 也就是 `f(n) = f(n-1) + f(n-2)`, 发现此递推公式符合斐波那契数列\n### 解法1: 递归\n```py\ndef dfs(n: int) -> int:\n    if n <= 2:\n        return n # f(1)=1, f(2)=2\n    return dfs(n - 1) + dfs(n - 2)\n```\n**复杂度分析:**\n- 时间复杂度: $O(2^n)$, 这个递归解法相当于搜索一个课高为 `n` 的二叉树\n- 空间复杂度: $O(n)$, 递归栈的深度为 `n`\n\n例如 n=7\n```mermaid\ngraph TD\n    7((7)) --> 6.6((6))\n    7 --> 6.5((5))\n    6.6 --> 5.5((5))\n    6.6 --> 5.4((4))\n    6.5 --> 5.4.2((4))\n    6.5 --> 5.3((3))\n    5.5 --> 4.4((4))\n    5.5 --> 4.3((3))\n    5.4 --> 4.3.2((3))\n    5.4 --> 4.2((2))\n    5.4.2 --> 4.3.3((3))\n    5.4.2 --> 4.2.2((2))\n    5.3 --> 4.2.1((2))\n    5.3 --> 4.1((1))\n    4.4 --> 3.3((3))\n    4.4 --> 3.2((2))\n    4.3 --> 3.2.2((2))\n    4.3 --> 3.1((1))\n    4.3.2 --> 3.2.3((2))\n    4.3.2 --> 3.1.2((1))\n    4.2 --> 3.1.3((1))\n    4.3.3 --> 3.2.4((2))\n    4.3.3 --> 3.1.4((1))\n    4.2.2 --> 3.1.5((1))\n    3.3 --> 2.2((2))\n    3.3 --> 2.1((1))\n```\n> [!warning]\n> 发现计算了过多的重复子问题\n### 解法2: 递归 + 记录返回值 = 记忆化搜索\n> [!note]\n> 可以存储已经计算过的值, 以避免重复计算, 例如可以使用 array or hash_map 来存储<br/>\n> 不过 python 中内置了, `functools.lru_cache{:py}` 装饰器, 可以直接用于这个需求\n```py\nfrom functools import lru_cache\n\n@lru_cache(maxsize=None)\ndef dfs(n: int) -> int:\n    if n <= 2:\n        return n # f(1)=1, f(2)=2\n    return dfs(n - 1) + dfs(n - 2)\n```\n使用记忆化搜索后的复杂度是$O(n)$, 只需要计算每个子问题一次, 递归栈的深度为 `n`, 所以空间复杂度也是 $O(n)$<br/>\n图示如下:\n```mermaid\ngraph LR\n    7((7)) --> 6((6))\n    6 --> 5((5))\n    5 --> 4((4))\n    4 --> 3((3))\n    3 --> 2((2))\n    2 --> 1((1))\n```\n### 解法3: 动态规划\n> [!note]\n> **动态规划(Dynamic Programming, DP)** 可以被看作是将**递归问题**转化为**迭代问题**的一种算法，但它的核心思想不仅仅是简单的转化，而是通过 **分解问题** 和 **存储子问题的解** 来优化计算过程\n```py\ndef climbStairs(n: int) -> int:\n    if n <= 2:\n        return n\n    dp = [0] * (n + 1)\n    dp[1], dp[2] = 1, 2\n    for i in range(3, n + 1):\n        dp[i] = dp[i - 1] + dp[i - 2]\n    return dp[n]\n```\n### 解法4: DP + 状态压缩\n- 在这个 解法3 中, `dp[i]` 的值只依赖于 `dp[i-1]` 和 `dp[i-2]`\n- 因此，我们不需要存储整个 `dp` 数组，只需要用两个变量来保存最近的两个状态即可\n- 状态压缩的时间复杂度与普通动态规划相同，但它的 空间复杂度更低，从 $O(n)$ 降到了 $O(1)$\n- 在实际运行中，减少内存分配和访问的开销会使程序运行得更快\n```py\ndef climbStairs(n: int) -> int:\n    if n <= 2:\n        return n\n    prev, curr = 1, 2  # 初始化 f(1) 和 f(2)\n    for i in range(3, n + 1):\n        prev, curr = curr, prev + curr  # 更新状态\n    return curr\n```\n### 解法5: 解通项公式\n```math\n\\begin{align*}\n&f(n) = f(n-1) + f(n-2) \\\\\n&\\rightarrow f(n) = \\frac{1}{\\sqrt{5}}(\\phi^n - \\psi^n) \\\\\n&\\phi = \\frac{1 + \\sqrt{5}}{2} \\quad （黄金比例） \\\\\n&\\psi = \\frac{1 - \\sqrt{5}}{2} \\\\\n\\end{align*}\n```\n```py\nfrom math import sqrt\ndef climbStairs(n: int) -> int:\n    sqrt5 = math.sqrt(5)\n    phi = (1 + sqrt5) / 2\n    return round((phi**n - (1 - phi)**n) / sqrt5)\n```\n> [!note]\n> 这个解法的时间复杂度是 $O(1)$, 但是由于浮点数精度问题, 当 `n` 较大时可能会出现误差\n#### 证明\n```math\nf(n) = f(n-1) + f(n-2)\n```\n这是一个 **线性递推关系**, 并且它的系数是常数 (即 `1` 和 `1`) 。对于这种递推关, Binet's Formula 提供了一种通用的解法，可以直接推导出数列的通项公式\n\n##### 待定系数法 推导\n\n**1. 递推关系:**\n```math\nf(n) = f(n-1) + f(n-2)\n```\n这是一个二阶线性递推关系\n\n**2. 特征方程:**\n\n为了求解这个递推关系, 我们假设通解的形式为\n```math\nf(n) = x^n\n```\n- 将其代入递推关系中, 得到:\n```math\nx^n = x^{n-1} + x^{n-2}\n```\n- 除以 $x^{n-2}$ (假设 $x \\neq 0$), 得到:\n```math\nx^2 = x + 1\n```\n这就是斐波那契数列的 **特征方程**\n\n**3. 求解特征方程:**\n\n- 解这个方程可以得到两个根:\n```math\n\\begin{align*}\n&x_1 = \\frac{1 + \\sqrt{5}}{2} \\quad (黄金比例) \\quad\\quad\n&x_2 = \\frac{1 - \\sqrt{5}}{2}\n\\end{align*}\n```\n**4. 通解的形式:**\n\n根据线性递推关系，通解可以表示为特征根的线性组合：\n```math\nf(n) = A \\cdot x_1^n + B \\cdot x_2^n\n```\n**5. 确定系数:**\n- 通过初始条件来确定系数 `A` 和 `B`\n```math\n\\begin{aligned}\n&\\left\\{\n\\begin{aligned}\nf(0) &= A \\cdot x_1^0 + B \\cdot x_2^0 = 0, \\\\\nf(1) &= A \\cdot x_1 + B \\cdot x_2 = 1, \\\\\nf(2) &= A \\cdot x_1^2 + B \\cdot x_2^2 = 2.\n\\end{aligned}\n\\right. \n\\\\\n&\\left\\{\n\\begin{aligned}\nA + B &= 0, \\\\\nA \\cdot x_1 + B \\cdot x_2 &= 1.\n\\end{aligned}\n\\right.\n\\end{aligned}\n```\n```math\nA \\cdot \\frac{1 + \\sqrt{5}}{2} + (-A) \\cdot \\frac{1 - \\sqrt{5}}{2} = 1 \n```\n解得\n```math\n\\left\\{\n\\begin{aligned}\n&A \\cdot \\sqrt{5} = 1, \\\\\n&A = \\frac{1}{\\sqrt{5}}, \\\\\n&B = -\\frac{1}{\\sqrt{5}}.\n\\end{aligned}\n\\right.\n```\n- 斐波那契数列的通项公式为:\n```math\nf(n) = \\frac{1}{\\sqrt{5}}(x_1^n - x_2^n)\n```\n### 总结: 不同解法对比\n| 解法 | 时间复杂度 | 空间复杂度 | 优点 | 缺点 |\n|------|------------|------------|------|------|\n| 递归 | $O(2^n)$   | $O(n)$     | 简单易懂 | 重复计算, 效率低 |\n| 记忆化搜索 | $O(n)$   | $O(n)$     | 避免重复计算 | 需要额外的存储空间 |\n| 动态规划(数组) | $O(n)$   | $O(n)$     | 直观易懂 | 需要额外的数组存储空间 |\n| 动态规划(状态压缩) | $O(n)$   | $O(1)$     | 节省空间 | 代码稍复杂 |\n| 数学解法(斐波那契公式) | $O(1)$   | $O(1)$     | 理论最快，常数时间复杂度 | 浮点运算可能导致精度问题 |",
-    "toc": [
-      {
-        "depth": 2,
-        "value": "leetCode 70 爬楼梯",
-        "slug": "leetcode-70-爬楼梯"
-      },
-      {
-        "depth": 3,
-        "value": "分析",
-        "slug": "分析"
-      },
-      {
-        "depth": 3,
-        "value": "解法1: 递归",
-        "slug": "解法1:-递归"
-      },
-      {
-        "depth": 3,
-        "value": "解法2: 递归 + 记录返回值 = 记忆化搜索",
-        "slug": "解法2:-递归-+-记录返回值-=-记忆化搜索"
-      },
-      {
-        "depth": 3,
-        "value": "解法3: 动态规划",
-        "slug": "解法3:-动态规划"
-      },
-      {
-        "depth": 3,
-        "value": "解法4: DP + 状态压缩",
-        "slug": "解法4:-dp-+-状态压缩"
-      },
-      {
-        "depth": 3,
-        "value": "解法5: 解通项公式",
-        "slug": "解法5:-解通项公式"
-      },
-      {
-        "depth": 4,
-        "value": "证明",
-        "slug": "证明"
-      },
-      {
-        "depth": 5,
-        "value": "待定系数法 推导",
-        "slug": "待定系数法-推导"
-      },
-      {
-        "depth": 3,
-        "value": "总结: 不同解法对比",
-        "slug": "总结:-不同解法对比"
-      }
-    ]
-  },
-  {
-    "title": "paper.mdx",
-    "description": "",
-    "url": "/blog/2024/03/26/paper.mdx",
-    "slug": "2024/03/26/paper.mdx",
-    "segments": [
-      "2024",
-      "03",
-      "26",
-      "paper.mdx"
-    ],
-    "filePath": "2024/03/26/paper.mdx",
-    "meta": {
-      "title": "paper.mdx",
-      "description": ""
-    },
-    "content": "",
-    "toc": []
-  },
-  {
-    "title": "Latex",
-    "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
-    "url": "/blog/2024/05/19/latex.mdx",
-    "slug": "2024/05/19/latex.mdx",
-    "segments": [
-      "2024",
-      "05",
-      "19",
-      "latex.mdx"
-    ],
-    "filePath": "2024/05/19/latex.mdx",
-    "meta": {
-      "title": "Latex",
-      "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
-      "created_at": "2024-05-19T19:35:46.000Z",
-      "updated_at": "2025-03-28T19:35:46.000Z",
-      "tags": []
-    },
-    "content": "\n## 基本结构\n\n一个简单的 LaTeX 文档通常包含以下结构：\n\n```latex\n\\documentclass{article} % 文档类型\n\\usepackage{amsmath}    % 数学公式支持\n\\begin{document}\n\n\\section{引言}\n这是一个简单的 LaTeX 示例。\n\n\\subsection{数学公式}\n以下是一个数学公式示例：\n\\[\nE = mc^2\n\\]\n\n\\end{document}\n```\n\n## 数学公式\n\nLaTeX 对数学公式的支持非常强大。以下是一些常见的公式示例：\n\n行内公式：\n```latex\n这是一个行内公式 $a^2 + b^2 = c^2$。\n```\n\n块级公式：\n```latex\n\\[\n\\int_a^b f(x) \\, dx = F(b) - F(a)\n\\]\n```\n\n### 希腊字母\n```latex\n\\alpha, \\beta, \\gamma, \\delta, \\epsilon, \\pi, \\sigma\n```\n```math\n\\begin{align}\n&\\alpha \\quad A \\quad  \\text{希腊字母 alpha} \\quad   \\\\\n&\\beta \\quad B  \\text{希腊字母 beta} \\\\\n&\\gamma \\quad \\Gamma \\quad  \\text{希腊字母 gamma} \\\\\n&\\delta \\quad \\Delta \\quad  \\text{希腊字母 delta} \\\\\n&\\epsilon \\quad E  \\text{希腊字母 epsilon} \\\\\n&\\zeta \\quad Z \\quad  \\text{希腊字母 zeta} \\\\\n&\\eta \\quad H \\quad  \\text{希腊字母 eta} \\\\\n&\\theta \\quad \\Theta \\quad  \\text{希腊字母 theta} \\\\\n&\\iota \\quad I \\quad  \\text{希腊字母 iota} \\\\\n&\\kappa \\quad K \\quad  \\text{希腊字母 kappa} \\\\\n&\\lambda \\quad \\Lambda \\quad  \\text{希腊字母 lambda} \\\\\n&\\mu \\quad M \\quad  \\text{希腊字母 mu} \\\\\n&\\nu \\quad N \\quad  \\text{希腊字母 nu} \\\\\n&\\xi \\quad \\Xi \\quad  \\text{希腊字母 xi} \\\\\n&\\omicron \\quad O \\quad  \\text{希腊字母 omicron} \\\\\n&\\pi \\quad \\Pi \\quad  \\text{希腊字母 pi} \\\\\n&\\rho \\quad P  \\quad \\text{希腊字母 rho} \\\\\n&\\sigma \\quad \\Sigma \\quad  \\text{希腊字母 sigma}\\\\\n&\\tau \\quad T \\quad  \\text{希腊字母 tau} \\\\\n&\\upsilon \\quad \\Upsilon \\quad  \\text{希腊字母 upsilon} \\\\\n&\\phi \\quad \\Phi \\quad  \\text{希腊字母 phi} \\\\\n&\\chi \\quad X \\quad  \\text{希腊字母 chi} \\\\\n&\\psi \\quad \\Psi \\quad  \\text{希腊字母 psi} \\\\\n&\\omega \\quad \\Omega  \\quad  \\text{希腊字母 omega} \\\\\n&\\varepsilon \\ :varepsilon,\\ \\vartheta\\ :vartheta,\\ \\varpi\\ :varpi,\\ \\varrho\\ :varrho,\\ \\varsigma\\ :varsigma, \\varphi\\ :varphi \\\\\n\\end{align}\n```\n\n## 表格\n\n使用 `tabular` 环境可以创建表格：\n\n```latex\n\\begin{tabular}{|c|c|c|}\n\\hline\n列1 & 列2 & 列3 \\\\\n\\hline\n数据1 & 数据2 & 数据3 \\\\\n\\hline\n\\end{tabular}\n```\n\n## 插入图片\n\n使用 `graphicx` 包可以插入图片：\n\n```latex\n\\usepackage{graphicx}\n\n\\begin{figure}[h]\n\\centering\n\\includegraphics[width=0.5\\textwidth]{example.png}\n\\caption{示例图片}\n\\end{figure}\n```",
-    "toc": [
-      {
-        "depth": 2,
-        "value": "基本结构",
-        "slug": "基本结构"
-      },
-      {
-        "depth": 2,
-        "value": "数学公式",
-        "slug": "数学公式"
-      },
-      {
-        "depth": 3,
-        "value": "希腊字母",
-        "slug": "希腊字母"
-      },
-      {
-        "depth": 2,
-        "value": "表格",
-        "slug": "表格"
-      },
-      {
-        "depth": 2,
-        "value": "插入图片",
-        "slug": "插入图片"
-      }
-    ]
-  },
-  {
-    "title": "Java",
-    "description": "东西都被删除了吗 runtime function 重...",
-    "url": "/blog/2024/10/12/java.mdx",
-    "slug": "2024/10/12/java.mdx",
-    "segments": [
-      "2024",
-      "10",
-      "12",
-      "java.mdx"
-    ],
-    "filePath": "2024/10/12/java.mdx",
-    "meta": {
-      "title": "Java",
-      "description": "东西都被删除了吗 runtime function 重...",
-      "created_at": "2024-10-12T15:55:11.000Z",
-      "updated_at": "2025-03-30T15:55:11.000Z",
-      "tags": [
-        "java"
-      ]
-    },
-    "content": "\n东西都被删除了吗\n\n## runtime\n\n## function\n\n### 重写 (Override)\n\n### 重载 (Overload)\n\n",
-    "toc": [
-      {
-        "depth": 2,
-        "value": "runtime",
-        "slug": "runtime"
-      },
-      {
-        "depth": 2,
-        "value": "function",
-        "slug": "function"
-      },
-      {
-        "depth": 3,
-        "value": "重写 (Override)",
-        "slug": "重写-(override)"
-      },
-      {
-        "depth": 3,
-        "value": "重载 (Overload)",
-        "slug": "重载-(overload)"
       }
     ]
   }

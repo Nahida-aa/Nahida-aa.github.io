@@ -1,0 +1,60 @@
+---
+title: max
+description: 
+created_at: 2018-11-10T17:32:07Z
+updated_at: 2025-04-06T17:32:07Z
+tags: [math, max]
+---
+
+## 例题
+
+### $f(x)_{min}=2\sin x + \sin 2x$
+(定义域为 R , 否则无解)
+
+#### 求导函数
+```math
+\begin{align*}
+f(x) &= 2\sin x + 2\sin x \cos x \\
+&= 2t + 2t\sqrt{1 - t^2}
+\end{align*}
+```
+求导:
+```math
+\begin{align*}
+f'(x) &= 2 + 2\sqrt{1 - t^2} - \frac{2t^2}{\sqrt{1 - t^2}} \\
+&= 2\left(\frac{\sqrt{1 - t^2}}{\sqrt{1 - t^2}} + \frac{1 - t^2}{\sqrt{1 - t^2}} + \frac{-t^2}{\sqrt{1 - t^2}}\right) \\
+&= \frac{2}{\sqrt{1 - t^2}} (\sqrt{1 - t^2} + 2 - 2t^2 - 1) \\
+&= \frac{2}{\sqrt{1 - t^2}} (2\sqrt{1 - t^2}-1)(\sqrt{1 - t^2}+1) \\
+
+\end{align*}
+```
+解: $f'(x) = 0$.
+```math
+\begin{align*}
+& \sqrt{1 - t^2} = \frac{1}{2}, -1  \\
+&\sqrt{1 - t^2}=-1\ 是一个驻点, 但不是极值点 \\
+\end{align*}
+```
+代入得:
+```math
+\begin{align*}
+f(x)_{min} &= -(\sqrt3 + \sqrt3 \cdot \frac{1}{2}) = -\frac{3\sqrt3}{2} \\
+\end{align*}
+```
+
+#### 琴生 inequality
+当 $f(x)$ 是一个上凸函数时, 有:
+```math
+\begin{align*}
+\frac{f(x_1)+f(x_2)+ ... +f(x_n)}{n} \leq f\left(\frac{x_1+x_2+...+x_n}{n}\right) \\
+\end{align*}
+```
+下凸函数反之.
+
+则此题最小值为:
+
+```math
+\begin{align*}
+f(x) = \sin x + \sin x + \sin (\pi - 2x) \geq -3\sin (\frac{x+x+\pi-2x}{3}) = -\frac{3\sqrt3}{2} \\
+\end{align*}
+```

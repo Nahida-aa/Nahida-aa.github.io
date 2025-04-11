@@ -8,6 +8,9 @@
     "usernamehw.erro", // 错误提示 到 line
     "humao.rest-client", // http client
     "christian-kohler.path-intellisense", // 路径补全
+    "zh9528.file-size", // 文件大小
+    "sharzyl.cjk-word-handler", // 中日韩字符计数, 选中
+    "ms-vscode.wordcount", // 全文单纯计数
     "wakatime.vscode-wakatime",
     "k--kato.intellij-idea-keybindings", // idea快捷键
     "bierner.github-markdown-preview", // markdown预览

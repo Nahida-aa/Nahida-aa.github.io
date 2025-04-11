@@ -1,6 +1,7 @@
 "use client"
 import * as React from "react"
-import tagsMap from "@/public/data/tags.json"
+import tagsJson from '@/public/data/tags.json';
+const tagObjsKV: DocTagsKV = tagsJson
 import {Chip} from "@heroui/chip";
 import {Tooltip} from "@heroui/tooltip";
 import { SearchForm } from "@/components/common/search-form"
@@ -29,6 +30,7 @@ import { SettingsIcon } from "@/components/common/button"
 import { navItems } from "@/app/settings/site"
 import { usePathname } from "next/navigation"
 import { useSidebarConfig } from "@/app/settings/SidebarConfigContext"
+import { DocTagsKV } from "@/app/md/lib/to";
 
 
 const sides = ["blog"]
@@ -44,6 +46,7 @@ export function AppSidebar({...props }: AppSidebarProps) {
   const pathname = usePathname()
   // const cookieStore = await cookies()
   // const type = cookieStore.get('type')?.value || types[0]
+  const sortedKeys = Object.keys(tagObjsKV).sort(); // ["api", "html", "web"]
   return (
     <Sidebar {...props} side={side} variant={variant} collapsible={collapsible} className="Sidebar bg-transparent justify-between h-screen">
       <SidebarHeader>
@@ -77,8 +80,8 @@ export function AppSidebar({...props }: AppSidebarProps) {
           <SidebarGroup>
           <SidebarGroupLabel>Tags</SidebarGroupLabel>
           <SidebarGroupContent className={`space-y-1 space-x-1 ${open||openMobile ? "":"hidden"}`}>
-          {Object.entries(tagsMap).map(([tag, data]) => (
-            <Tooltip key={tag} content={`该标签下有${data.count}篇文章`} showArrow={true}>
+          {sortedKeys.map((tag) => (
+            <Tooltip key={tag} content={`该标签下有${tagObjsKV[tag].count}篇文章`} showArrow={true}>
             <Link href={`/tags/${tag}`} key={tag}  className="inline-block" >
             <Chip key={tag} >
               {tag}

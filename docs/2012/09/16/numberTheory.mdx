@@ -1,0 +1,67 @@
+---
+title: numberTheory
+description: "纯粹数学的分支之一，主要研究整数的性质。 整数可以是方程式的解（丢番图方程）。 有些解析函数（像黎曼ζ函数）中包括了一些整数、质数的性质，透过这些函数也可以了解一些数论的问题。 透过数论也可以建立实数和有理数之间的关系，并且用有理数来逼近实数（丢番图逼近）。"
+created_at: 2012-09-12T20:39:52Z
+updated_at: 2025-04-04T20:39:52Z
+tags: [math, numberTheory, alg]
+---
+
+## base
+
+### 质数与因数分解
+
+因数也称为约数, 是指能整除一个整数的数
+- 例如: $6$ 的因数有 $1, 2, 3, 6$
+- 例如: $12$ 的因数有 $1, 2, 3, 4, 6, 12$
+
+#### 分解一个数的所有因数
+
+##### 枚举解空间
+
+复杂度为: $O(n)$
+
+```py
+def divisor(n):
+    res = [1, n]
+    for i in range(1, n + 1):
+        if n % i == 0:
+            res.append(i)
+```
+##### 试除法求所有因数
+找到一个 约数 $d$, 那么 $n/d$ 也是一个约数
+
+复杂度为: $O(\sqrt{n})$
+```py
+def divisor(n):
+    res = [1, n]
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            res.append(i) # 添加 $d$
+            if i != n // i:
+                res.append(n // i) # 添加 $n/d$
+    return res
+```
+
+#### 分解质因数
+
+例如:
+- $12 = 2\times 2 \times 3 = 2^2 \times 3^1$, 即 有 2 和 3 两个质因数
+- $60 = 2^2 \times 3^1 \times 5^1$, 即 有 2, 3 和 5 三个质因数
+
+```py
+# 试除法
+def prime_factorization(n):
+    res = []
+    for i in range(2, int(n**0.5) + 1):
+        if n % i == 0:
+            count = 0
+            while n % i == 0:
+                n //= i
+                count += 1
+            res.append((i, count))
+    if n > 1:
+        res.append((n, 1))
+    return res
+print(prime_factorization(12))  # 输出: [(2, 2), (3, 1)]
+```
+

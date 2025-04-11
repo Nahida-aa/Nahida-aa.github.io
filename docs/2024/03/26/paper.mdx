@@ -1,0 +1,1150 @@
+---
+title: paper
+description: 关于论文的记录
+created_at: 2024-03-26T20:55:25Z
+updated_at: 2025-04-05T17:34:39Z
+tags: [docs, paper]
+---
+
+我有数学建模竞赛经验和开发经验, 会使用 python, ts 等, 也有数学竞赛经验, 机器学习, 深度学习经验, 现在我需要编写本科论文, 在选题和初稿阶段, 就是题目还没选好, 我们的数据集以 Harmonized Data 为主
+
+多模态生物医学数据驱动的老年人健康画像构建与预测
+
+http://vgms.fanyu.com
+
+## 常规生物医学指标与中国老年人健康状况的相关性研究
+
+2020 CHARLS Wave 5
+
+- 第一章 dataset
+  - 第一节 介绍
+    - part 1 介绍
+    - part 2 Harmonized 概念
+    - part 3 Harmonized 问卷
+    - part 4 变量查询
+  - 第二节 Harmonized Core 问卷 与 选题
+    - part 1 问卷模块
+    - part 2 变量介绍 与 选题 思路
+    - part 3 Harmonized codebook
+  - 第三节 Harmonized end of life 问卷 与 选题
+    - part 1 临终访谈
+    - part 2 临终问卷模块
+    - part 3 变量介绍 与 选题 思路
+  - 第四节 Harmonized life history 问卷 与 选题
+    - part 1 生命历程访谈
+    - part 2 生命历程问卷模块
+    - part 3 变量介绍 与 选题 思路
+- 第二章 各 dataset 及选题
+  - 第一节 CHARLS
+    - part 1 介绍
+    - part 2 采集流程
+    - part 3 原始问卷
+    - part 4 变量 与 选题
+    - part 5 权重介绍
+  - 第二节 HRS
+  - 第三节 ELSA
+  - ...
+- 第三章 数据处理与分析
+  - 第一节 描述性统计
+    - part 1 应用场景
+    - part 2 实战
+    - part 3 结果解读
+  - 第二节 回归分析: 广义线性, logistic, KM曲线+Cox
+    - part 1 三大回归分析应用场景
+    - part 2 实战
+    - part 3 结果解读
+  - 第三节 交互作用与中介效应
+    - part 1 应用场景
+    - part 2 实战
+    - part 3 结果解读
+  - 第四节 限制性立方样条 RCS
+  - 第五节 亚组分析与森林图
+    - part 1 介绍
+    - part 2 实战
+    - part 3 结果解读
+  - 第六节 轨迹模型
+  - 第七节 混合线性模型
+  - 第八节 高分队列研究套路1: 累计平均暴露\累计暴露\累积暴露时间进程
+    - part 1 介绍, 文献示例
+    - part 2 适用条件
+    - part 3 实战
+  - 第九节 高分队列研究套路2: 访视期间变异性\年度变化百分比\绝对年变化率
+    - part 1 介绍, 文献示例
+    - part 2 适用条件
+    - part 3 实战
+  - 第十节 高分队列研究套路3: 新发年龄\早发人群
+    - part 1 介绍, 文献示例
+    - part 2 适用条件
+    - part 3 实战
+  - 第十一节 高分队列研究套路4: 交叉滞后
+    - part 1 介绍, 文献示例
+    - part 2 适用条件
+    - part 3 实战
+- 第四章 顶刊论文复现
+  - 第一节 如何进行研究设计及数据制备
+  - 第二节 如何进行数据分析
+  - 第三节 如何完成论文写作
+## 数据集 Global Aging
+
+| 数据集名称 | 数据集描述 | 
+| -------- | --------- |
+| CHARLS | 中国健康与养老追踪调查 (CHARLS) 是一项全国性、长期的纵向调查，旨在收集中国中老年人群体的健康、经济和社会信息。 |
+| Health and Retirement Study, HRS | 健康与退休调查 (HRS) 是一项针对美国中老年人群体的纵向调查，旨在研究健康、经济和社会因素对退休决策的影响。 |
+| English Longitudinal Study of Ageing, ELSA | 英国老年人纵向研究 (ELSA) 是一项针对英国中老年人群体的纵向调查，旨在研究健康、经济和社会因素对老年人生活质量的影响。 |
+| Survey of Health, Ageing and Retirement in Europe, SHARE | 欧洲健康、老龄化与退休调查 (SHARE) 是一项针对欧洲中老年人群体的纵向调查，旨在研究健康、经济和社会因素对老年人生活质量的影响。 |
+| Korea Longitudinal Study of Ageing, KLoSA | 韩国老龄化纵向研究 (KLoSA) 是一项针对韩国中老年人群体的纵向调查，旨在研究健康、经济和社会因素对老年人生活质量的影响。 |
+| The Irish Longitudinal Study on Ageing, TILDA | 爱尔兰老龄化纵向研究 (TILDA) 是一项针对爱尔兰中老年人群体的纵向调查，旨在研究健康、经济和社会因素对老年人生活质量的影响。 |
+| Mexico Health and Aging Study, MHAS | 墨西哥健康与老龄化研究 (MHAS) 是一项针对墨西哥中老年人群体的纵向调查，旨在研究健康、经济和社会因素对老年人生活质量的影响。 |
+| Indonesia Family Life Survey, IFLS | 印尼家庭生活调查 (IFLS) 是一项针对印尼中老年人群体的纵向调查，旨在研究健康、经济和社会因素对老年人生活质量的影响。 |
+| Japanese Study of Aging and Retirement, JSTAR | 日本老龄化与退休研究 (JSTAR) 是一项针对日本中老年人群体的纵向调查，旨在研究健康、经济和社会因素对老年人生活质量的影响。 |
+| Study on Global Ageing and Adult Health, SAGE | 全球老龄化与成人健康研究 (SAGE) 是一项针对全球中老年人群体的纵向调查，旨在研究健康、经济和社会因素对老年人生活质量的影响。 |
+| Global Ageing Data Repository, GADR | 全球老龄化数据存储库 (GADR) 是一项针对全球中老年人群体的纵向调查，旨在研究健康、经济和社会因素对老年人生活质量的影响。 |
+
+### Harmonized Data
+
+些数据集通常都有 Harmonized Data（标准化数据）。Harmonized Data 是对原始数据进行标准化和一致化处理后的数据集，目的是方便跨国家或跨地区的比较研究。这种数据处理方式特别适用于像你提到的这些关于老龄化、健康和退休的纵向调查数据
+
+Harmonized Data 是通过对不同数据集的变量进行标准化处理后生成的统一数据集。它的主要特点包括：
+1. 变量一致性
+2. 跨数据集的可比性
+3. 便于分析
+#### Gateway to Global Aging Data
+官网地址：https://g2aging.org/
+
+Gateway to Global Aging Data 是由 加州大学洛杉矶分校（UCLA） 提供的一个平台，专注于全球老龄化相关数据的整合和标准化。它为多个国家的老龄化研究数据（如 CHARLS、HRS、ELSA 等）提供了 Harmonized Data，以便研究者进行跨国家和跨地区的比较研究
+
+#### Preface 前言
+The China Health and Retirement Longitudinal Study (CHARLS) is a longitudinal study of
+individuals over age 45 in China. It was designed to better understand the socioeconomic
+determinants and consequences of aging. The survey includes a rich set of questions
+regarding economic standing, physical and psychological health, demographics, and social
+networks of aged persons. The survey is designed to ensure comparability with the Health and
+Retirement Survey (HRS) in the United States and related aging surveys, such as the English
+Longitudinal Study of Aging (ELSA) in England and the Survey of Health, Aging and Retirement
+in Europe (SHARE) in Europe and Israel. Part of the reason for the close connection is to allow
+cross-country comparisons using these data.
+> [!NOTE]- 翻译
+> 中国健康与退休纵向研究 (CHARLS) 是一项针对中国 45 岁以上人群的纵向研究。其目的是更好地了解老龄化的社会经济决定因素和后果。调查包括有关经济状况、身体和心理健康、人口统计学和老年人社会网络的一系列丰富问题。该调查旨在确保与美国健康与退休调查 (HRS) 以及相关的老龄化调查（例如英国的老龄化纵向研究 (ELSA) 和欧洲及以色列的健康、老龄化和退休调查 (SHARE)）之间的可比性。密切联系的部分原因是允许使用这些数据进行跨国比较。
+
+In order to make the data more accessible to researchers and to facilitate such comparisons,
+we the USC Gateway to Global Aging Data team, created the Harmonized CHARLS, a user-
+friendly version of a subset of the CHARLS interviews. The Harmonized CHARLS initiative is
+part of a larger set of projects. With funding and support from the National Institute on Aging,
+we have also created Harmonized HRS (USA), Harmonized MHAS (Mexico), Harmonized ELSA
+(England), Harmonized SHARE (Europe and Israel), Harmonized CRELES (Costa Rica),
+Harmonized KLoSA (South Korea), Harmonized JSTAR (Japan), Harmonized TILDA (Ireland),
+Harmonized LASI (India), and Harmonized MARS (Malaysia). Further information about these
+Harmonized data files with questionnaires and other searchable metadata is available on our
+website, https://g2aging.org/.
+> [!NOTE]- 翻译
+> 为了使数据更易于研究人员访问并促进此类比较，我们 USC 全球老龄化数据门户网站团队创建了 Harmonized CHARLS，这是 CHARLS 访谈子集的用户友好版本。Harmonized CHARLS 计划是更大项目集的一部分。在国家老龄化研究所的资助和支持下，我们还创建了 Harmonized HRS（美国）、Harmonized MHAS（墨西哥）、Harmonized ELSA（英国）、Harmonized SHARE（欧洲和以色列）、Harmonized CRELES（哥斯达黎加）、Harmonized KLoSA（韩国）、Harmonized JSTAR（日本）、Harmonized TILDA（爱尔兰）、Harmonized LASI（印度）和 Harmonized MARS（马来西亚）。有关这些 Harmonized 数据文件及其问卷和其他可搜索元数据的更多信息，请访问我们的网站 https://g2aging.org/。
+
+In creating the Harmonized data files, we have followed the RAND HRS and Harmonized HRS
+conventions of variable naming and data structure. The RAND HRS is a user-friendly version of
+a subset of the HRS that the RAND Center for the Study of Aging created to increase usability.
+The Harmonized HRS is a supplementary dataset to the RAND HRS, which also include a
+subset of the HRS data, that the Gateway to Global Aging Data team has created to increase
+usability of a greater number of HRS variables. The Harmonized CHARLS includes variables
+with a similar naming convention that mimics the RAND HRS, Harmonized HRS, and other
+Harmonized variables. This document describes these data.
+> [!NOTE]- 翻译
+> 在创建 Harmonized 数据文件时，我们遵循了 RAND HRS 和 Harmonized HRS 变量命名和数据结构的约定。RAND HRS 是 RAND 老龄化研究中心创建的 HRS 子集的用户友好版本，以提高可用性。Harmonized HRS 是 RAND HRS 的补充数据集，其中还包括一部分 HRS 数据，全球老龄化数据门户网站团队创建了该数据集，以提高更多 HRS 变量的可用性。Harmonized CHARLS 包括具有类似命名约定的变量，模仿 RAND HRS、Harmonized HRS 和其他 Harmonized 变量。本文档描述了这些数据。
+
+We are grateful for the continuing support of and funding from NIA. In working with the
+CHARLS data, we greatly benefited from the help from Dr. Yaohui Zhao, Dr. Yafeng Wang, Dr.
+John Strauss, Dr. Albert Park and the CHARLS team members. We have greatly benefited
+from discussions with and the suggestions from our colleagues Arie Kapteyn, Marco
+Angrisani, Erik Meijer, and Bas Weerman. We would also like to acknowledge our current
+and former colleagues at the Gateway to Global Aging Data: Sidney Beaumaster, Sandy
+Chien, Samuel Lau, and Ashley Lin.
+> [!NOTE]- 翻译
+> 我们感谢 NIA 的持续支持和资助。在使用 CHARLS 数据时，我们非常感谢赵耀辉博士、王亚峰博士、约翰·斯特劳斯博士、阿尔伯特·帕克博士和 CHARLS 团队成员的帮助。我们从与我们的同事 Arie Kapteyn、Marco Angrisani、Erik Meijer 和 Bas Weerman 的讨论和建议中受益匪浅。我们还要感谢全球老龄化数据门户网站的现任和前任同事：Sidney Beaumaster、Sandy Chien、Samuel Lau 和 Ashley Lin。
+
+#### Requested Acknowledgment 要求致谢
+We ask all users of the Harmonized CHARLS to please inform our team of any written analysis using data from the Harmonized CHARLS or information from the Harmonized CHARLS Codebook by sending an email to papers@g2aging.org. We also ask users to include the following acknowledgement in their written work:
+> [!NOTE]- 翻译
+> 我们要求所有 使用 《Harmonized CHARLS》 的用户, 请通过发送邮件至 papers@g2aging.org 的方式告知我们的团队任何使用 《Harmonized CHARLS》 数据或《Harmonized CHARLS Codebook》信息的书面分析。我们还要求用户在书面作品中包含以下致谢：
+
+"This analysis uses data or information from the Harmonized CHARLS dataset and Codebook, Version D as of June 2021 developed by the Gateway to Global Aging Data. The development of the Harmonized CHARLS was funded by the National Institute on Aging (R01 AG030153, RC2 AG036619, R03 AG043052). For more information, please refer to https://g2aging.org/.”
+> [!NOTE]- 翻译
+> “本分析使用了全球老龄化数据门户网站开发的截至 2021 年 6 月的 Harmonized CHARLS 数据集和代码手册版本 D 的数据或信息。Harmonized CHARLS 的开发得到了国家老龄化研究所 (R01 AG030153、RC2 AG036619、R03 AG043052) 的资助。有关更多信息，请访问 https://g2aging.org/。”
+
+#### CHARLS Version and Acknowledgment CHARLS 版本和致谢
+This document used CHARLS Waves 1 through 4 as of June 2021. CHARLS is supported by Peking University, the National Natural Science Foundation of China, the National Institute on Aging, and the World Bank.
+> [!NOTE]- 翻译
+> 本文档使用了截至 2021 年 6 月的 CHARLS 第 1 至第 4 波数据。CHARLS 得到了北京大学、中国国家自然科学基金、美国国家老龄化研究所和世界银行的支持。
+#### Contents
+- PREFACE ........... 1
+- REQUESTED ACKNOWLEDGMENT ............ 2
+- CHARLS VERSION AND ACKNOWLEDGMENT .... 2
+- WHAT’S NEW IN VERSION D OF THE HARMONIZED CHARLS? ................. 5
+1. INTRODUCTION AND OVERVIEW ... 9
+    - 1.1. Gateway to Global Aging Data ...................10
+    - 1.2. Unit of Observation ...........11
+    - 1.3. Data File Structure ............11
+    - 1.4. Variable Naming Convention .....................11
+    - 1.5. Missing Values, Nonresponse, and Imputations .....13
+    - 1.6. Weighting and Accounting for Survey Design .................13
+    - 1.7. Availability of Stress Measures ..................14
+2. WEALTH AND INCOME VARIABLES .................... 15
+    - 2.1 Units of Observation and financial respondent......15
+    - 2.2. Currency ..................16
+3. STRUCTURE OF CODEBOOK ..... 17
+4. DISTRIBUTION AND TECHNICAL NOTES ............ 21
+5. DATA CODEBOOK ... 22
+- SECTION A: DEMOGRAPHICS AND IDENTIFIERS ... 23
+- SECTION B: HEALTH .... 76
+- SECTION C: HEALTH CARE UTILIZATION AND INSURANCE ..... 173
+- SECTION D: COGNITION ............... 203
+- SECTION E: FINANCIAL AND HOUSING WEALTH ... 223
+- SECTION F: INCOME AND CONSUMPTION ........... 290
+- SECTION G: FAMILY STRUCTURE ......................... 383
+- SECTION H: EMPLOYMENT HISTORY ................... 496
+- SECTION I: RETIREMENT .............. 538
+- SECTION J: PENSION .................... 556
+
+#### What’s New in Version D of the Harmonized CHARLS?
+Version D incorporates the latest released version of CHARLS data, and adds variables for Wave 4. It contains 25,586 observations or rows. It is a Respondent-level file so each row represents a unique Respondent. It also adds new variables and makes adjustments and corrections.
+> [!NOTE]- 翻译
+> 版本 D 包含 CHARLS 数据的最新发布版本，并添加了第 4 波的变量。它包含 25,586 个观察值或行。它是一个受访者级别的文件，因此每一行代表一个唯一的受访者。它还添加了新变量并进行了调整和更正。
+  
+We have added the following new sections to the file:
+> [!NOTE]- 翻译
+> 我们在文件中添加了以下新部分：
+
+**Physical Measures:**
+> [!NOTE]- 翻译
+> 身体测量
+
+- We created the Physical Measures section, which contains variables pertaining to timed walk measurements, blood pressure measurements, hand grip strength measurements, height and weight measurements, waist measurements, lung function measurements, balance tests, and chair stand tests.
+> [!NOTE]- 翻译
+> 我们创建了身体测量部分，其中包含与计时步态测量、血压测量、握力测量、身高和体重测量、腰围测量、肺功能测量、平衡测试和椅子站立测试相关的变量。
+
+**Assistance and Caregiving:**
+- We created the Assistance and Caregiving section, which contains variables pertaining to receiving any care for individual ADLS, using assistive devices for ADLS, receiving any care for individual IADLS, future ADL needs, receiving any care for ADLs or IADLs, receiving any informal care, receiving informal care from spouse, receiving informal care from children or grandchildren, receiving informal care from non-relatives, receiving any formal care, receiving formal care from paid professionals, receiving formal care from unpaid professionals, paid help, providing care for parents and grandchildren (previously in Family Structure section), and providing informal care to sick or disabled persons.
+> [!NOTE]- 翻译
+> 我们创建了协助和护理部分，其中包含与接受个人 ADLS 护理、使用 ADLS 辅助设备、接受个人 IADLS 护理、未来 ADL 需求、接受 ADLs 或 IADLs 护理、接受任何非正式护理、接受配偶的非正式护理、接受来自子女或孙子女的非正式护理、接受来自非亲属的非正式护理、接受任何正式护理、接受来自付费专业人员的正式护理、接受来自非付费专业人员的正式护理、付费帮助、为父母和孙子女提供护理（以前在家庭结构部分）以及为生病或残疾人士提供非正式护理相关的变量。
+
+**Stress:**
+- We created the Stress section, which contains variables pertaining to
+childhood/lifetime stressful events and self-rated childhood health and finances.
+> [!NOTE]- 翻译
+> 我们创建了压力部分，其中包含与童年/终生压力事件和自我评估的童年健康和财务相关的变量。
+
+**Psychosocial:**
+- We created the Psychosocial section, which contains variables pertaining to depressive symptoms using CES-D (previously in the Health section) and single life satisfaction question. This work was done in collaboration with Jacqui Smith and Lindsay Ryan of the University of Michigan.
+> [!NOTE]- 翻译
+> 我们创建了心理社会部分，其中包含与使用 CES-D 的抑郁症状（以前在健康部分）和单一生活满意度问题相关的变量。这项工作是与密歇根大学的 Jacqui Smith 和 Lindsay Ryan 合作完成的。
+
+We have added the following variables to the file:
+
+**Demographics and Identifiers:**
+- We added HACOHORT_C, which is the cohort in which the household was
+originally sampled.
+- We added **RAFBYEAR**, **RAFBMONTH**, and **RAFBDAY**, indicating the wave at which the respondent reported the values used in **RABYEAR**, **RABMONTH**, and **RABDAY**, respectively.
+- We added **RwNHMLIV** for all available waves, indicating whether the respondent lives in an institution.
+- We added RwRXHIBP, RwRXHIBP_C, RwRXDIABI, RwRXDIAB, RwRXDIAB_C,
+RwCNCRMEDS, RwCNCRMEDS_C, RwCNCRCHEM, RwCNCRSURG,
+RwCNCRRADN, RwRXLUNG, RwRXLUNG_C, RwRXHEART, RwRXHEART_C,
+RwRXSTROK, RwRXSTROK_C, RwTRPSYCH, RwRXARTHR, RwRXARTHR_C,
+RwRXDYSLIP, RwRXDYSLIP_C, RwRXLIVER, RwRXLIVER_C, RwRXKIDNEY,
+RwRXKIDNEY_C, RwRXDIGEST, RwRXDIGEST_C, RwRXMEMRY, and
+RwRXMEMRY_C for all available waves, indicating whether and how the
+respondent was treated for high blood pressure, diabetes, cancer, lung
+condition, heart problems, stroke, psychiatric condition, arthritis, dyslipidemia,
+liver disease, kidney disease, digestive disease, and memory problems.
+- We added RwDRINKR_C at all available waves, indicating the highest range of the number of drinks per day that the respondent reports for any one of three types of alcohol (liquor, beer, or wine).
+- We added RwDRINKNR at all available waves, indicating whether the respondent has ever taken a drink first thing in the morning to steady nerves or get rig of a hangover.
+> [!NOTE]- 翻译
+> **人口统计资料和标识符:**
+> - 我们添加了 HACOHORT_C，它是最初抽样的家庭所在的队列。
+> - 我们添加了 **RAFBYEAR**、**RAFBMONTH** 和 **RAFBDAY**，分别表示受访者报告用于 **RABYEAR**、**RABMONTH** 和 **RABDAY** 的值的波次。
+> - 我们为所有可用波次添加了 **RwNHMLIV**，表示受访者是否住在机构中。
+> - 我们添加了 RwRXHIBP、RwRXHIBP_C、RwRXDIABI、RwRXDIAB、RwRXDIAB_C、RwCNCRMEDS、RwCNCRMEDS_C、RwCNCRCHEM、RwCNCRSURG、RwCNCRRADN、RwRXLUNG、RwRXLUNG_C、RwRXHEART、RwRXHEART_C、RwRXSTROK、RwRXSTROK_C、RwTRPSYCH、RwRXARTHR、RwRXARTHR_C、RwRXDYSLIP、RwRXDYSLIP_C、RwRXLIVER、RwRXLIVER_C、RwRXKIDNEY、RwRXKIDNEY_C、RwRXDIGEST 和 RwRXDIGEST_C，表示受访者是否以及如何治疗高血压、糖尿病、癌症、肺部疾病、心脏病、中风、精神病状况、关节炎、高脂血症、肝病、肾病和消化系统疾病。
+> - 我们添加了 RwRXMEMRY 和 RwRXMEMRY_C，表示受访者是否以及如何治疗记忆问题。
+> - 我们为所有可用波次添加了 RwDRINKR_C，表示受访者报告的三种类型的酒精（烈酒、啤酒或葡萄酒）中任何一种的每日饮酒数量的最高范围。
+> - 我们添加了 RwDRINKNR，表示受访者是否曾经在早上第一件事喝酒以稳定神经或摆脱宿醉。
+
+**Financial and Housing Wealth:**
+- We added HwABORR at all available waves, indicating the total amount of
+personal loans owed to others by the respondent and spouse.
+> [!NOTE]- 翻译
+> **金融和住房财富:**
+> - 我们在所有可用波添加了 HwABORR，表示受访者和配偶欠他人的个人贷款总额。
+
+**Family Structure:**
+- We added RAMOMEDUCL and RADADEDUCL, indicating the highest level of
+education completed by the respondent’s mother and father. These variables
+use a harmonized scale that is a simplified version of the 1997 International
+Standard Classification of Education (ISCED) codes.
+- We added RAMOMOCCUP_C and RADADOCCUP_C, indicating the occupation of
+the respondent’s mother and father before the respondent was age 17.
+> [!NOTE]- 翻译
+> **家庭结构:**
+> - 我们添加了 RAMOMEDUCL 和 RADADEDUCL，表示受访者母亲和父亲完成的最高教育水平。这些变量使用的是一个协调的量表，这是 1997 年国际教育分类标准 (ISCED) 代码的简化版本。
+> - 我们添加了 RAMOMOCCUP_C 和 RADADOCCUP_C，表示受访者 17 岁之前母亲和父亲的职业。
+
+**Employment History:**
+- We added RwJHOURTOT at all available waves, indicating the total number of
+hours the respondent works per week on their main job and other jobs.
+- We added RwJGOVTEMP at all available waves, indicating whether the
+respondent is employed by the government.
+- We added RwJSALARY_C at all available waves, indicating whether the
+respondent is paid salary or wages in their current job.
+- We added RwJBONUS at all available waves, indicating the amount of bonuses
+the respondent received in the past year.
+- We added RwJMSICK at all available waves, indicating whether the respondent
+missed work in the past year due to health problems.
+- We added RwJNSICKAGR, RwJNSICKEMP, and RwJNSICKSF at all available
+waves, indicating the number of days of agricultural work, employed work, and
+self-employed work the respondent missed in the past year due to health
+problems.
+- We added RwJBGYR and RwJBGMO at all available waves, indicating the year
+and month the respondent began their current job.
+- We added RwJRSLEFT and RwJRSLEFT_C at all available waves, indicating the
+reason the respondent left their last employer, if they are currently not working.
+> [!NOTE]- 翻译
+> **就业历史:**
+> - 我们在所有可用波次添加了 RwJHOURTOT，表示受访者每周在主要工作和其他工作上工作的总小时数。
+> - 我们在所有可用波次添加了 RwJGOVTEMP，表示受访者是否受雇于政府。
+> - 我们在所有可用波次添加了 RwJSALARY_C，表示受访者在当前工作中是否领取薪水或工资。
+> - 我们在所有可用波次添加了 RwJBONUS，表示受访者在过去一年中获得的奖金金额。
+> - 我们在所有可用波次添加了 RwJMSICK，表示受访者在过去一年中因健康问题缺勤。
+> - 我们在所有可用波次添加了 RwJNSICKAGR、RwJNSICKEMP 和 RwJNSICKSF，表示受访者因健康问题在过去一年中缺勤的农业工作、雇佣工作和自雇工作的天数。
+> - 我们在所有可用波次添加了 RwJBGYR 和 RwJBGMO，表示受访者开始当前工作的年份和月份。
+> - 我们在所有可用波次添加了 RwJRSLEFT 和 RwJRSLEFT_C，表示受访者离开上一个雇主的原因（如果他们目前没有工作）。
+
+**Retirement:**
+- We added RwFRETF_C at all available waves, indicating whether the
+respondent’s previous report that they completed retirement or receding
+position procedures is disputed at the current interview or a later interview.
+- We added RwWKAFTRET at all available waves, indicating whether the
+respondent worked after they completed the retirement process.
+- We added RwRETRS_C at all available waves, indicating the respondent’s main
+reason for processing early or internal retirement.
+> [!NOTE]- 翻译
+> **退休:**
+> - 我们在所有可用波次添加了 RwFRETF_C，表示受访者之前报告的完成退休或退位程序在当前访谈或后续访谈中是否存在争议。
+> - 我们在所有可用波次添加了 RwWKAFTRET，表示受访者在完成退休程序后是否工作。
+
+We have made the following adjustments, improvements, and corrections to the data and
+>  [!NOTE]- 翻译
+> 我们对数据和文档进行了以下调整、改进和更正：
+
+documentation:
+
+**All Sections:**
+- In version C of the Harmonized CHARLS, we had named the 2015 wave of
+CHARLS Wave 4, coinciding with that wave’s naming in the CHARLS
+documentation. Since CHARLS now refers to the 2015 wave as Wave 3 of
+CHARLS, we have renamed all variables for this wave to pertain to Wave 3, and
+now refer to the 2018 wave as Wave 4.
+> [!NOTE]- 翻译
+> **所有部分:**
+> 在 Harmonized CHARLS 的版本 C 中，我们将 2015 年的 CHARLS 第 4 波命名为与该波在 CHARLS 文档中的命名相一致。由于 CHARLS 现在将 2015 年的波称为 CHARLS 的第 3 波，我们已将该波的所有变量重命名为与第 3 波相关，并且现在将第 2018 波称为第 4 波。
+
+**Demographics and Identifiers:**
+- We renamed HHID_W1 to HOUSEHOLDID_W1, indicating the 9-character
+household identifier at Wave 1.
+- We adjusted RABYEAR, RABMONTH, and RABDAY so that Chinese lunar
+calendar birth dates are converted to solar (Gregorian) calendar birth dates. This
+change impacts the value of RwAGEY.
+- We adjusted RADYEAR and RADMONTH so that Chinese lunar calendar death
+dates are converted to solar (Gregorian) calendar death dates.
+> [!NOTE]- 翻译
+> **人口统计资料和标识符:**
+> - 我们将 HHID_W1 重命名为 HOUSEHOLDID_W1，表示第 1 波的 9 位字符家庭标识符。
+> - 我们调整了 RABYEAR、RABMONTH 和 RABDAY，以便将农历出生日期转换为阳历（公历）出生日期。此更改会影响 RwAGEY 的值。
+> - 我们调整了 RADYEAR 和 RADMONTH，以便将农历死亡日期转换为阳历（公历）死亡日期。
+
+**Health:**
+- We moved RwBMI, RwHEIGHT, and RwWEIGHT, indicating the respondent’s
+body mass index, height in meters, and weight in kilograms, respectively, to the
+new Physical Measures section. Also, we renamed RwBMI to RwMBMI,
+RwHEIGHT to RwMHEIGHT, and RwWEIGHT to RwMWEIGHT to identify that
+these values were derived from measurements conducted by CHARLS as
+opposed to self-reported values.
+- We renamed RwDRINK to RwDRINKEV to align better with ever drinking
+variables in other Harmonized dataets.
+> [!NOTE]- 翻译
+> **健康:**
+> - 我们将 RwBMI、RwHEIGHT 和 RwWEIGHT 移动到新的身体测量部分，分别表示受访者的身体质量指数、以米为单位的身高和以千克为单位的体重。此外，我们将 RwBMI 重命名为 RwMBMI，将 RwHEIGHT 重命名为 RwMHEIGHT，将 RwWEIGHT 重命名为 RwMWEIGHT，以识别这些值是由 CHARLS 进行测量得出的，而不是自我报告的值。
+> - 我们将 RwDRINK 重命名为 RwDRINKEV，以更好地与其他 Harmonized 数据集中的饮酒变量对齐。
+
+**Health Care Utilization and Insurance:**
+- We renamed RwORDOC1M to RwTRDMED1M, indicating whether the
+respondent visit a Chinese medicine hospital in the past month.
+- We renamed RwORDTIM1M to RwTRDMED1M, indicating the number of times
+the respondent visited a Chinese medicine hospital in the past month.
+> [!NOTE]- 翻译
+> **医疗保健利用和保险:**
+> - 我们将 RwORDOC1M 重命名为 RwTRDMED1M，表示受访者在过去一个月是否去过中医医院。
+> - 我们将 RwORDTIM1M 重命名为 RwTRDMED1M，表示受访者在过去一个月内去中医医院的次数。
+
+**Financial and Housing Wealth:**
+- We updated the values of CyyyyCPINDEX based on updated values from the
+OECD. We continue to use 2010 as the base year.
+> [!NOTE]- 翻译
+> **金融和住房财富:**
+> - 我们根据 OECD 的最新值更新了 CyyyyCPINDEX 的值。我们继续使用 2010 年作为基年。
+
+**Family Structure:**
+- We renamed HwPCNTF to HwPCNT, indicating whether the respondent and
+spouse had any weekly contact with parents/parents-lin-law in person, to avoid
+confusion with non-comparable HwPCNTF variables in other Harmonized
+datasets.
+- We moved HwGRCARE and HwGKCARE, indicating whether the respondent gave
+care to parents/parents-in-law and grandchildren, respectively, to the new
+Assistance and Caregiving section. Also, we renamed HwGRCARE to HwGPCARE.
+- Financial support to and from others at Wave 3, H3FOAMT, H3FOANY,
+H3TOAMT, and H3TOANY (previously named H4FOAMT, H4FOANY, H4TOAMT,
+and H4TOANY), were adjusted to also include support to and from siblings.
+> [!NOTE]- 翻译
+> **家庭结构:**
+> - 我们将 HwPCNTF 重命名为 HwPCNT，表示受访者和配偶是否与父母/岳父母有任何面对面的每周联系，以避免与其他 Harmonized 数据集中不可比较的 HwPCNTF 变量混淆。
+> - 我们将 HwGRCARE 和 HwGKCARE 移动到新的协助和护理部分，分别表示受访者是否照顾父母/岳父母和孙子女。此外，我们将 HwGRCARE 重命名为 HwGPCARE。
+> - 第 3 波对他人提供和接受的经济支持 H3FOAMT、H3FOANY、H3TOAMT 和 H3TOANY（以前命名为 H4FOAMT、H4FOANY、H4TOAMT 和 H4TOANY）进行了调整，以包括对兄弟姐妹的支持。
+
+**Employment History:**
+- We adjusted RwLBRF_C at all waves, indicating the respondent’s labor force
+status, to include both an agricultural employed work and an agricultural self-
+employed work category instead of one general agricultural work category.
+> [!NOTE]- 翻译
+> **就业历史:**
+> - 我们在所有波次调整了 RwLBRF_C，表示受访者的劳动参与状态，以包括农业雇佣工作和农业自雇工作类别，而不是一个一般的农业工作类别。
+
+**Retirement:**
+- We removed RwRPLYNR, indicating the year when the respondent plans to stop
+working.
+> [!NOTE]- 翻译
+> **退休:**
+> - 我们删除了 RwRPLYNR，表示受访者计划停止工作的年份。
+
+#### Introduction and Overview
+This report documents the Harmonized CHARLS data files, a streamlined collection of
+variables derived from the China Health and Retirement Longitudinal Study (CHARLS).
+CHARLS is a panel survey of people aged 45 and over and their partners regardless of age in
+China. The main goal is to provide a high quality nationally representative sample of
+Chinese residents’ data to serve the needs of scientific research on health, economic
+position, and quality of life as people age. The survey elicits information about
+demographics, income, assets, health, cognition, family structure and connections, health
+care use and costs, housing, job status and history, expectations, biomarkers, and insurance.
+> [!NOTE]- 翻译
+> 本报告记录了 Harmonized CHARLS 数据文件，这是从中国健康与退休纵向研究 (CHARLS) 派生的变量的精简集合。CHARLS 是一项针对 45 岁及以上人群及其伴侣（无论年龄）的面板调查。主要目标是提供高质量的全国代表性样本，以满足科学研究对健康、经济状况和生活质量的需求。调查收集有关人口统计、收入、资产、健康、认知、家庭结构和联系、医疗保健使用和成本、住房、工作状态和历史、预期、生物标志物和保险的信息。
+
+CHARLS is supported by Peking University, the National Natural Science Foundation of
+China, the Behavioral and Social Research Division of the National Institute on Aging, and
+the World Bank. CHARLS shares the same basic guidelines as the Health and Retirement
+Study (HRS) and related aging surveys, such as the English Longitudinal Study of Aging
+(ELSA) in England) and the Survey of Health, Aging and Retirement in Europe (SHARE) in
+Europe and Israel.
+> [!NOTE]- 翻译
+> CHARLS 得到了北京大学、中国国家自然科学基金、中国国家老龄化研究所行为与社会研究部和世界银行的支持。CHARLS 与健康与退休研究 (HRS) 和相关的老龄化调查（例如，英国的老龄化纵向研究 (ELSA) 和欧洲和以色列的健康、老龄化和退休调查 (SHARE)）具有相同的基本准则。
+
+The first wave of CHARLS was conducted between June 2011 and March 2012. The sample
+population was selected as part of a stratified, multistage probability design. The first
+component of this sampling framework was the probability proportion to size (PPS)
+sampling of all county-level unit except for Tibet after stratifying by region, characteristic of
+the county (urban or rural), and per-capita gross domestic product (GDP). Households were
+selected within PSUs using a CHARLS-designed mapping/listing software (CHARLS-GIS) that
+uses Google Earth images to list all dwelling units in all residential buildings to create
+sampling frames. If the sampled household had occupants older than 40, one of them was
+randomly selected. If the selected person was aged 45 or older, they became a respondent.
+If the selected person was between age 40 and 44, they were reserved as a refreshment
+sample. This initial sample included 17,708 respondents in 10,257 households in 450
+villages/urban communities in 150 counties/districts in 28 provinces. The second wave was
+conducted between July 2013 and January 2014 and included a refreshment sample
+consisting of individuals aged between 43 and 44 at Wave 1 and their partners. The third
+wave was conducted between July 2015 and January 2016 and included a refreshment
+sample consisting of individuals aged between 41 and 42 at Wave 1 and their partners. The
+fourth wave was conducted between July and November 2018 and included a refreshment
+sample consisting of individuals who were 40-years-old at Wave 1 and their partners.
+> [!NOTE]- 翻译
+> CHARLS 的第一波调查于 2011 年 6 月至 2012 年 3 月进行。样本人口是分层的多阶段概率设计的一部分。该抽样框架的第一个组成部分是在按地区、县的特征（城市或农村）和人均国内生产总值 (GDP) 分层后，对除西藏以外的所有县级单位进行按规模概率比例 (PPS) 抽样。使用 CHARLS 设计的映射/列表软件 (CHARLS-GIS) 在 PSU 内选择家庭，该软件使用 Google 地球图像列出所有住宅建筑中的所有居住单元以创建抽样框架。如果抽样家庭中有 40 岁以上的居民，则随机选择其中一人。如果选定的人年龄在 45 岁或以上，则他们成为受访者。如果选定的人年龄在 40 岁到 44 岁之间，则他们被保留为补充样本。该初始样本包括来自 28 个省份的 150 个县/区的 10,257 个家庭中的 17,708 名受访者。第二波调查于 2013 年 7 月至 2014 年 1 月进行，并包括由第 1 波中年龄在 43 岁和 44 岁之间的个人及其伴侣组成的补充样本。第三波调查于 2015 年 7 月至 2016 年 1 月进行，并包括由第 1 波中年龄在 41 岁和 42 岁之间的个人及其伴侣组成的补充样本。第四波调查于2018年7月至11月进行，包括由第1波中40岁的人及其伴侣组成的补充样本。
+
+The data include any individual interviewed at least once. This includes respondents and
+current and former spouses regardless of age.
+> [!NOTE]- 翻译
+> 数据包括至少接受过一次采访的任何个人。这包括受访者和当前和前配偶（无论年龄）。
+
+The Harmonized CHARLS data file incorporates the demographic background data, family
+information data, family transfer data, health care and insurance data, health status and
+function data, household income data, household roster data, housing characteristics data,
+individual income data, weight data, and work, retirement and pension data. It does not
+include any data which is not for public release.
+> [!NOTE]- 翻译
+> Harmonized CHARLS 数据文件包含人口统计背景数据、家庭信息数据、家庭转移数据、医疗保健和保险数据、健康状况和功能数据、家庭收入数据、家庭名册数据、住房特征数据、个人收入数据、权重数据以及工作、退休和养老金数据。它不包括任何不公开发布的数据。
+##### Gateway to Global Aging Data
+The Health and Retirement Study (HRS) has achieved remarkable scientific success, as
+demonstrated by an impressive number of users, research studies, and publications using it. Its
+success has generated substantial interest in collecting similar data as population aging has
+progressed in every region of the world.
+> [!NOTE]- 翻译
+> 健康与退休研究 (HRS) 取得了显著的科学成功，这一点通过大量用户、研究和使用它的出版物得到了证明。随着世界各地人口老龄化的加剧，它的成功引起了人们对收集类似数据的极大兴趣。
+
+The result has been a number of surveys designed to be comparable with the HRS: the Mexican
+Health & Aging Survey (MHAS), the English Longitudinal Study of Ageing (ELSA), the Survey of
+Health, Ageing and Retirement in Europe (SHARE), the Korean Longitudinal Study of Aging
+(KLoSA), the Japanese Study on Aging Retirement (JSTAR), the Irish Longitudinal Study on
+Ageing (TILDA), the China Health and Retirement Longitudinal Study (CHARLS), Health and
+Aging in Africa: A Longitudinal Study of an INDEPTH Community in South Africa (HAALSI), the
+Brazilian Longitudinal Study of Ageing (ELSI), Healthy Ageing in Scotland (HAGIS), the Northern
+Ireland Cohort Longitudinal Study of Ageing (NICOLA), the Longitudinal Aging Study in India
+(LASI), and the Malaysia Ageing and Retirement Survey (MARS). The overview of this family of
+surveys, including their research designs, samples, and key domains can be found in Lee,
+Phillips, and Wilkens (2019).
+> [!NOTE]- 翻译
+> 结果是一些旨在与 HRS 可比的调查：墨西哥健康与老龄化调查 (MHAS)、英国老龄化纵向研究 (ELSA)、欧洲健康、老龄化和退休调查 (SHARE)、韩国老龄化纵向研究 (KLoSA)、日本老龄化退休研究 (JSTAR)、爱尔兰老龄化纵向研究 (TILDA)、中国健康与退休纵向研究 (CHARLS)、南非 INDEPTH 社区的健康与非洲老龄化：纵向研究 (HAALSI)、巴西老龄化纵向研究 (ELSI)、苏格兰健康老龄化 (HAGIS)、北爱尔兰队列纵向研究 (NICOLA)、印度老龄化纵向研究 (LASI) 和马来西亚老龄化与退休调查 (MARS)。有关这组调查的概述，包括它们的研究设计、样本和关键领域，请参见 Lee、Phillips 和 Wilkens（2019 年）。
+
+As these surveys were designed with harmonization as a goal, they provide remarkable
+opportunities for cross-country studies. The value of comparative analyses, especially the
+opportunities they offer for learning lessons resulting from policies adopted elsewhere, is
+widely recognized. Yet there are only a limited number of empirical studies exploiting such
+opportunities. This is partly due to the difficulty associated with learning multiple surveys and
+the policies and institutions of each country.
+> [!NOTE]- 翻译
+> 由于这些调查的设计目标是协调，因此它们为跨国研究提供了显着的机会。比较分析的价值，尤其是它们为从其他地方采用的政策中吸取教训所提供的机会，得到了广泛认可。然而，利用这些机会的实证研究数量有限。这在一定程度上是由于学习多项调查以及每个国家的政策和制度所带来的困难。
+
+Identifying comparable questions across surveys is the first step toward cross-country analyses.
+The Gateway to Global Aging Data (Gateway) helps users understand and use these large-scale
+population surveys on health and retirement. The Gateway includes several tools to facilitate
+cross-national health and retirement research. It includes a digital library of survey questions
+for all participating surveys. Its search engine enables users to find relevant survey questions.
+The Gateway also includes a concordance with information comparing measures within and
+across surveys over time. Using these tools, researchers can identify all questions related to
+particular key words or within a domain. The Gateway also includes population and sub-
+population estimates for key harmonized variables and presents them in graphs and tables that
+can be downloaded.
+> [!NOTE]- 翻译
+> 确定调查中可比较的问题是跨国分析的第一步。全球老龄化数据门户 (Gateway) 帮助用户理解和使用这些大规模人口调查数据。该门户包括几个工具来促进跨国健康和退休研究。它包括所有参与调查的调查问题的数字图书馆。其搜索引擎使用户能够找到相关的调查问题。该门户还包括一个一致性表，其中包含有关随时间推移在调查中和调查之间比较措施的信息。使用这些工具，研究人员可以识别与特定关键字或领域相关的所有问题。该门户还包括关键协调变量的人口和子群体估计，并以图形和表格的形式呈现，可以下载。
+
+The Gateway can be accessed at https://g2aging.org/. For more information about using the
+Gateway visit the Help page. For more information about obtaining the Harmonized CHARLS or
+downloading the Stata file used to create the Harmonized CHARLS using the Gateway see
+“Chapter 4.Distribution and Technical Notes.”
+> [!NOTE]- 翻译
+> 可以通过 https://g2aging.org/ 访问 Gateway。有关使用 Gateway 的更多信息，请访问帮助页面。有关获取 Harmonized CHARLS 或下载用于使用 Gateway 创建 Harmonized CHARLS 的 Stata 文件的更多信息，请参阅“第 4 章。分发和技术说明。”
+##### Unit of Observation 
+Like in the HRS, an age-eligible individual is sampled and then this individual and their spouse or
+partner regardless of age is interviewed, but no other household members, even if they are
+age-eligible. We distinguish between three units of observation: individual, couple, and
+household. A “couple” is a “single individual or individual with his/her spouse. A “household”
+includes the single individual, spouse, and all other household members.
+> [!NOTE]- 翻译
+> 像 HRS 一样，选择一个符合年龄要求的个人进行抽样，然后采访该个人及其配偶或伴侣（无论年龄如何），但不采访其他家庭成员，即使他们符合年龄要求。我们区分三种观察单位：个人、夫妻和家庭。“夫妻”是“单个个人或与其配偶的个人”。“家庭”包括单个个人、配偶和所有其他家庭成员。
+##### Data File Structure
+The Harmonized CHARLS data contain four waves of CHARLS. The data are stored in a “fat
+format” where each observation represents one respondent. The unit of observation is the
+individual. Each individual is uniquely identified by the unique identifier “ID”. Households are
+identified by HHID. Couples are identified by wave-specific HwCOUPID where “w” refers to the
+specific wave. Households are identified by the unique identifier “HOUSEHOLDID”. It is
+important to note that unlike the HRS, households in the CHARLS might include multiple
+couples and other household members.
+> [!NOTE]- 翻译
+> Harmonized CHARLS 数据包含四波 CHARLS。数据以“胖格式”存储，其中每个观察值代表一个受访者。观察单位是个人。每个个体都由唯一标识符“ID”唯一标识。家庭由 HHID 标识。夫妻由特定波次的 HwCOUPID 标识，其中“w”指的是特定波次。家庭由唯一标识符“HOUSEHOLDID”标识。重要的是要注意，与 HRS 不同，CHARLS 中的家庭可能包括多个夫妻和其他家庭成员。
+##### Variable Naming Convention
+With few exceptions, variable names in the Harmonized CHARLS Data follow a consistent
+pattern. The first character indicates whether the variable refers to the reference person (“R”),
+spouse (“S”), a financial unit couple (“H”), and the full household (“HH”).1 2 The second
+character indicates the wave to which the variable pertains: “1”, “2”, “3”, “4”, or “A”. The “A”
+indicates “all,” i.e., the variable is not specific to any single wave. An example is RABDATE, the
+birth date of the respondent. The remaining characters describe the concept that the variable
+captures. For example:
+> [!NOTE]- 翻译
+> 变量命名约定
+> 除少数例外，Harmonized CHARLS 数据中的变量名称遵循一致的模式。第一个字符表示变量是指参考人（“R”）、配偶（“S”）、财务单位夫妻（“H”）还是整个家庭（“HH”）。第二个字符表示变量所涉及的波次：“1”、“2”、“3”、“4”或“A”。 “A”表示“全部”，即该变量不特定于任何单一波次。一个例子是 RABDATE，受访者的出生日期。其余字符描述变量捕获的概念。例如：
+
+S1HLTHLM
+> S: Spouse <br/>
+> 1: Wave 1 (2011) <br/>
+> HLTHLM: Health problem limiting work
+
+Variable S1HLTHLM captures whether the spouse of the reference person experiences an
+impairment or health problem that limits the kind or amount of paid work he/she can do. The
+name of the variable does not indicate who provided the information. For example, the
+spouse’s health problem may have been reported by the spouse himself or herself, or it may
+have been reported by the reference person as a proxy.
+> [!NOTE]- 翻译
+> 变量 S1HLTHLM 捕获参考人配偶是否经历了限制他/她可以做的有偿工作的种类或数量的损伤或健康问题。变量的名称没有指明谁提供了信息。例如，配偶的健康问题可能是由配偶本人报告的，也可能是由参考人作为代理人报告的。
+
+In the text below, we may refer to variables such as SwHLTHLM for example, without specifying
+the wave. This reference points at the group of variables S1HLTHLM, S2 HLTHLM, S3 HLTHLM,
+and S4 HLTHLM.
+> [!NOTE]- 翻译
+> 在下面的文本中，我们可能会引用变量，例如 SwHLTHLM，而不指定波次。此引用指向变量组 S1HLTHLM、S2 HLTHLM、S3 HLTHLM 和 S4 HLTHLM。
+
+Variable labels also follow a consistent pattern. The first characters denote the name of the
+variable, followed by a colon. The remainder of the label describes the concept that the
+variable captures. For example, the variable label of S1HLTHLM is:
+> [!NOTE]- 翻译
+> 变量标签也遵循一致的模式。前几个字符表示变量的名称，后跟冒号。标签的其余部分描述变量捕获的概念。例如，S1HLTHLM 的变量标签是：
+```math
+S1HLTHLM:W1\ Hlth\ problems\ limit\ work
+```
+It may seem duplicative to include the name of the variable and the wave in the variable label.
+However, statistical packages often suppresses the variable name and instead uses its label in
+the presentation of results.
+> [!NOTE]- 翻译
+> 在变量标签中包含变量名称和波次似乎是重复的。然而，统计软件包通常会抑制变量名称，而是使用其标签来呈现结果。
+
+Variable names in the Harmonized CHARLS are generally based on the variable name used in
+the RAND HRS (Bugliari et al, 2021) or Harmonized HRS (Beaumaster et al, 2018) for the same
+measure. Measures which are exactly or near-exactly comparable between the Harmonized
+CHARLS and RAND HRS or Harmonized HRS use the exact same name. For instance, RABYEAR is
+the variable name for the respondent birth year in both the Harmonized CHARLS, as well as the
+RAND HRS. If the Harmonized CHARLS measure is deemed only somewhat comparable with the
+RAND HRS or Harmonized HRS version of that measure, the variable name in the Harmonized
+CHARLS will often end in “_C.” This variable name suffix indicates some CHARLS-specific
+difference with the RAND HRS or Harmonized HRS version of this measure. For example, the
+Harmonized CHARLS variable for an ADL summary is named RwADLA_C, while the RAND HRS
+variable is named RwADLA. The reason for this difference in variable name is that the CHARLS
+used different components for this summary variable. Other reasons for Harmonized CHARLS-
+specific variable names include: differences in survey questions, differences in survey routing,
+and whether both sets of variables use imputed values. Harmonized CHARLS-specific variable
+names are used to notify users that there are substantial differences between the RAND HRS or
+Harmonized HRS and Harmonized CHARLS measures and comparability between these
+measures is not straight-forward.
+> [!NOTE]- 翻译
+> Harmonized CHARLS 中的变量名称通常基于 RAND HRS（Bugliari 等，2021 年）或 Harmonized HRS（Beaumaster 等，2018 年）中用于相同测量的变量名称。Harmonized CHARLS 和 RAND HRS 或 Harmonized HRS 之间完全或近乎完全可比的测量使用完全相同的名称。例如，RABYEAR 是受访者出生年份的变量名称，在 Harmonized CHARLS 和 RAND HRS 中都是如此。如果 Harmonized CHARLS 测量被认为仅与 RAND HRS 或 Harmonized HRS 版本的测量部分可比，则 Harmonized CHARLS 中的变量名称通常以“_C”结尾。此变量名称后缀表示与 RAND HRS 或 Harmonized HRS 版本之间存在一些 CHARLS 特定差异。 例如，Harmonized CHARLS 的 ADL 摘要变量名为 RwADLA_C，而 RAND HRS 变量名为 RwADLA。变量名称不同的原因是 CHARLS 使用了不同的组件来计算该摘要变量。Harmonized CHARLS 特定变量名称的其他原因包括：调查问题、调查路由和两个变量集是否使用插补值之间的差异。Harmonized CHARLS 特定变量名称用于通知用户 RAND HRS 或 Harmonized HRS 与 Harmonized CHARLS 测量之间存在实质性差异，并且这些测量之间的可比性并不简单。
+The Harmonized CHARLS includes some variables without Harmonized CHARLS-specific variable
+names even though the Harmonized CHARLS measure is significantly different from the RAND HRS or Harmonized HRS measure of the same name. In particular, wealth and income measures
+in the Harmonized CHARLS do not use Harmonized CHARLS-specific variable names even
+though wealth and income measures in the Harmonized CHARLS are expressed in Chinese Yuan,
+while income and wealth measures in the RAND HRS or Harmonized HRS are always expressed
+in nominal dollars. Users should always check the “Differences with RAND HRS/Harmonized
+HRS” section of each measure before comparing any Harmonized CHARLS measure to the RAND
+HRS version of the same measures or any other Harmonized Dataset version of the same
+measure.
+> [!NOTE]- 翻译
+> 尽管 Harmonized CHARLS 测量与 RAND HRS 或 Harmonized HRS 测量有显着不同，但 Harmonized CHARLS 中的一些变量没有 Harmonized CHARLS 特定的变量名称。特别是，Harmonized CHARLS 中的财富和收入测量没有使用 Harmonized CHARLS 特定的变量名称，即使 Harmonized CHARLS 中的财富和收入测量以人民币表示，而 RAND HRS 或 Harmonized HRS 中的收入和财富测量总是以名义美元表示。用户在将任何 Harmonized CHARLS 测量与 RAND HRS 版本或任何其他 Harmonized 数据集版本进行比较之前，应始终检查每个测量值的“与 RAND HRS/Harmonized HRS 的差异”部分。
+
+##### Missing Values, Nonresponse, and Imputations 缺失值、非响应和插补
+Variables may contain missing values for several reasons. Stata, SAS, and SPSS offer the
+capability to distinguish multiple types of missing values, and we have attempted to record as
+much information as possible. Generally, the codes adhere to the classification in Table 1.
+> [!NOTE]- 翻译
+> 变量可能由于多种原因而包含缺失值。Stata、SAS 和 SPSS 提供区分多种类型缺失值的功能，我们已尽力记录尽可能多的信息。通常，代码遵循表 1 中的分类。
+
+Table 1. Missing Codes
+| Code | Reason for Missing |
+| ---- | ------------------ |
+| .    | Missing            |
+| .a   | Age ineligible     |
+| .d   | Don’t know         |
+| .r   | Refused            |
+| .s   | Skipped due to routing |
+| .k   | No kids           |
+| .n   | Not applicable     |
+| .u   | Reference person is not married (for spouse variables) |
+| .v   | Spouse did not respond this wave (for spousal variables) |
+| .m   | Other missing      |
+> [!NOTE]- 翻译
+> | Code | Reason for Missing |
+> | ---- | ------------------ |
+>| .    | 缺失            |
+> | .a   | 年龄不合格     |
+>| .d   | 不知道         |
+>| .r   | 拒绝            |
+>| .s   | 跳过路由 |
+>| .k   | 没有孩子           |
+>| .n   | 不适用     |
+>| .u   | 参考人未婚（配偶变量） |
+>| .v   | 配偶在本波次未回应（配偶变量） |
+>| .m   | 其他缺失      |
+
+The coding scheme varies across variables. Consult the Data Codebook for details on individual
+variables.
+> [!NOTE]- 翻译
+> 编码方案因变量而异。有关单个变量的详细信息，请参阅 Data Codebook。
+
+##### Weighting and Accounting for Survey Design
+The Harmonized CHARLS includes variables to allow users to produce weighted estimates with
+survey design adjusted standard errors where provided by CHARLS.
+> [!NOTE]- 翻译
+> Harmonized CHARLS 包括变量，以允许用户在 CHARLS 提供的地方生成加权估计和调整过的标准误差。
+
+CHARLS produces seven different weights. There are two different weights at the household
+level: one is adjusted for non-response and the other is not adjusted for non-response. At the
+individual level, CHARLS produces three different weights: an individual weight without non-
+response adjustment, an individual weight with household non-response adjustment, and an
+individual weight with household and individual non-response adjustment. Finally, CHARLS
+provides two biomarker weights, one with household non-response adjustment and the other
+with household and individual non-response adjustment. Starting in Wave 2, CHARLS provides
+two additional longitudinal weights at both the household and individual level. Please note
+there is no individual biomarker weight with household non-response adjustment in the Wave
+2 data.
+> [!NOTE]- 翻译
+> CHARLS 产生七个不同的权重。家庭层面有两个不同的权重：一个是针对非响应进行调整，另一个则没有针对非响应进行调整。在个人层面，CHARLS 产生三个不同的权重：一个是没有非响应调整的个人权重，一个是经过家庭非响应调整的个人权重，以及一个经过家庭和个人非响应调整的个人权重。最后，CHARLS 提供两个生物标志物权重，一个经过家庭非响应调整，另一个经过家庭和个人非响应调整。从第 2 波开始，CHARLS 在家庭和个人层面提供两个额外的纵向权重。请注意，第 2 波数据中没有经过家庭非响应调整的个人生物标志物权重。
+
+In addition to weights, CHARLS uses a stratified (by per capita GDP of urban districts and rural
+counties) multistage (county/district-village/community-household) proportionate to
+population size (PPS) random sampling method to strictly control the quality of the samples.
+For more detail information about weight and survey design, please see
+http://charls.pku.edu.cn/en/page/documentation/2013_tracking-_survey at China Health and
+Retirement Longitudinal Study (CHARLS) website.
+> [!NOTE]- 翻译
+> 除了权重外，CHARLS 还使用分层（按城市地区和农村县的人均 GDP）多阶段（县/区-村/社区-家庭）与人口规模成比例 (PPS) 的随机抽样方法来严格控制样本质量。有关权重和调查设计的更多详细信息，请访问中国健康与退休纵向研究 (CHARLS) 网站 http://charls.pku.edu.cn/en/page/documentation/2013_tracking-_survey。
+##### Availability of Stress Measures
+In 2015, Drs. Elissa Epel and Wendy Mendes partnered with the Gateway to Global Aging Data
+team to form the Stress Measurement Network, funded by the National Institute on Aging
+(NIA/NIH R24 AG048024). The goal of the Stress Network is to promote better theory and
+measurement of psychosocial stress in population-based studies. One of the specific aims is to
+facilitate the use of stress measures in population based studies, which was led by Drs. Tara
+Gruenewald, Alexandra Crosswell, and Jinkook Lee. It is hoped that identification of such
+measures will facilitate examination of the association of stressor conditions with cognitive-
+affective and physiological distress experience and poor psychological and physical health
+states hypothesized to follow from stressor exposure.
+> [!NOTE]- 翻译
+> 2015 年，Elissa Epel 博士和 Wendy Mendes 与全球老龄化数据门户 (Gateway to Global Aging Data) 团队合作，成立了由国家老龄化研究所 (NIA/NIH R24 AG048024) 资助的压力测量网络。压力网络的目标是促进基于人群的研究中心理社会压力的更好理论和测量。具体目标之一是促进在人口基础研究中使用压力测量，由 Tara Gruenewald 博士、Alexandra Crosswell 博士和 Jinkook Lee 博士领导。希望识别这些措施将促进对压力条件与假设因压力暴露而导致的认知情感和生理痛苦体验以及心理和身体健康状况不佳之间关系的检查。
+
+As a result of the work of the NIA Stress Measurement Network, the Harmonized CHARLS
+provides harmonized stress measures beginning in 2011, CHARLS Wave 1, and through 2018,
+CHARLS Wave 4. The vast majority of the stress measures were collected in the 2014 life history
+interview. Those who did not participate in the interview are assigned a special missing .a for
+the applicable variables. A small number of measures are collected in the core interview.
+> [!NOTE]- 翻译
+> 由于 NIA 压力测量网络的工作，Harmonized CHARLS 提供了从 2011 年 CHARLS 第 1 波到 2018 年 CHARLS 第 4 波的协调压力测量。绝大多数压力测量是在 2014 年生活史访谈中收集的。那些没有参加采访的人在适用变量中被分配一个特殊的缺失值 .a。少量措施在核心访谈中收集。
+CHARLS queried information on discrete events that can be categorized as major life stressors
+or traumatic events (e.g., death of a child, serious traffic accident/injury). CHARLS asked
+respondents to compare their health condition and financial situation to others. CHARLS
+included measures of parental relationship quality.
+> [!NOTE]- 翻译
+> CHARLS 查询可以归类为重大生活压力源或创伤事件的信息（例如，儿童去世、严重交通事故/受伤）。CHARLS 要求受访者将他们的健康状况和财务状况与他人进行比较。CHARLS 包括父母关系质量的衡量。
+For more specific information about all stress measures included in the CHARLS, as well as
+comparable stress measures in HRS sister studies, please refer to the Measures of Stress in the
+Health and Retirement Study (HRS) and the HRS Family of Studies (2020) user guide available
+from https://g2aging.org/index.php?section=documentation.
+> [!NOTE]- 翻译
+> 有关 CHARLS 中包含的所有压力测量的更多具体信息，以及 HRS 姐妹研究中的可比压力测量，请参阅 https://g2aging.org/index.php?section=documentation 上提供的健康与退休研究 (HRS) 和 HRS 家族研究 (2020) 用户指南。
+#### Wealth and Income Variables 财富和收入变量
+##### Units of Observation and financial respondent 观察单位和财务受访者
+In CHARLS, financial questions are asked at three different levels:
+1. Individual level: all respondents and spouses answer about their own financial status
+that include the value of cash, savings accounts, stocks, mutual funds, government
+bond, debt, all other savings, individual earnings (wage and bonus), pension income,
+government transfer income, other income, and capital income. Please note that
+CAHRLS asks about individual wages, bonuses, and pensions in both the employment
+and income modules; in order to prevent double counting the value, we only report the
+higher value of the two as the corresponding income.
+2. Other household members (individual-based) level: the financial respondent answers
+the questions and reports every household member’s financial status, which includes
+the value of financial assets, debt, earnings income (wages and bonuses), pension
+income, government transfer, and other income.
+3. Household level: the financial respondent reports the whole household financial status,
+which includes the value of primary housing, mortgage for the primary house, other real
+estate, vehicles, non-financial household assets, fixed capital assets, irrigable land,
+agricultural assets, monetary assets, agricultural income, self-employed activities
+income, government and/or public transfer income, and capital income.
+> [!NOTE]- 翻译
+> 在 CHARLS 中，财务问题分三个不同的层次进行询问：
+> 1. 个人层面：所有受访者和配偶回答有关他们自己的财务状况的问题，包括现金、储蓄账户、股票、共同基金、政府债券、债务、其他所有储蓄、个人收入（工资和奖金）、养老金收入、政府转移收入、其他收入和资本收入的价值。请注意，CAHRLS 在就业和收入模块中询问个人工资、奖金和养老金；为了防止重复计算价值，我们仅报告两者中较高的值作为相应的收入。
+> 2. 其他家庭成员（基于个人）级别：财务受访者回答问题并报告每个家庭成员的财务状况，包括金融资产、债务、收入（工资和奖金）、养老金收入、政府转移和其他收入的价值。
+> 3. 家庭层面：财务受访者报告整个家庭的财务状况，包括主要住房的价值、主要住房的抵押贷款、其他房地产、车辆、非金融家庭资产、固定资本资产、可灌溉土地、农业资产、货币资产、农业收入、自雇活动收入、政府和/或公共转移收入以及资本收入。
+
+In order to distinguish whether a value corresponds to the respondent, the spouse, the
+respondent and spouse as a financial unit, or to the full household, financial variable names
+either begin with “R”, “S”, "H", or "HH". If the value corresponds to individual level, the variable
+names begin with “R” for respondent or “S” for spouse. If the value corresponds to the couple
+level, then the name of the variable will start with "H". On the other hand, if the value
+corresponds to the full household or other household members, then the name of the variable
+will start with "HH".
+> [!NOTE]- 翻译
+> 为了区分一个值是对应于受访者、配偶、作为财务单位的受访者和配偶，还是对应于整个家庭，财务变量名称要么以“R”、“S”、“H”或“HH”开头。如果值对应于个人级别，则变量名称以“R”表示受访者或“S”表示配偶开头。如果值对应于夫妻级别，则变量名称将以“H”开头。另一方面，如果值对应于整个家庭或其他家庭成员，则变量名称将以“HH”开头。
+
+For harmonization purposes, it is preferable to use the same unit of observation in different
+harmonized data sets. But since the HRS neither has information on wealth and income of
+household members outside the couple nor does the HRS have individual-level asset
+information, measures are provided at the individual level, such as earnings, pension, etc., at
+the couple level, and at the household level (e.g. asset income and wealth) where possible.
+Thus, in constructing our couple-level variables, we ignore income and wealth from household
+members outside the couple. These couple-level variables can be compared to the RAND HRS
+income and wealth household measures.
+> [!NOTE]- 翻译
+> 为了协调，最好在不同的协调数据集中使用相同的观察单位。但是，由于 HRS 既没有关于夫妻以外的家庭成员的财富和收入的信息，也没有 HRS 个人级别资产信息，因此在可能的情况下，在个人级别（例如收入、养老金等）、夫妻级别和家庭级别提供测量（例如资产收入和财富）。因此，在构建我们的夫妻级变量时，我们忽略了来自夫妻以外的家庭成员的收入和财富。这些夫妻级变量可以与 RAND HRS 收入和财富家庭措施进行比较。
+
+For more information, please visit CHARLS official website http://charls.pku.edu.cn/en.
+> [!NOTE]- 翻译
+> 有关更多信息，请访问 CHARLS 官方网站 http://charls.pku.edu.cn/en。
+
+### 2020 CHARLS Wave 5
+
+本次数据发布 (版本号: 20231106) 一共发布了八个主要数据集以及两个辅助数据集  (样本信息以及横截面权重) 。PSU信息与往期数据相同。下表给出了这十个数据集的详细
+说明
+
+| 问卷模块 | dataset | description |
+| ------- | ------- | ----------- |
+| B. 基本信息 | Demographic_Background | 主要受访者及其配偶的基本人口学信息 |
+| C. 家庭信息 |  Family_Information | 家庭以及家户成员信息 |
+| D. 健康状况与功能 | Health_Status_and_Functioning | 健康状态、健康行为以及认知能力 |
+| F. 工作与退休 | Work_Retirement | 工作以及退休状况 |
+| G1. 家户收入与支出 | Household_Income | 家户收入、支出以及住房情况 |
+| G2. 个人收入 | Individual_Income | 个人收入 |
+| V. 疫情 | COVID_Module | 受访者疫情期间的相关信息 |
+| EX. 退出问卷 | EXIT_Module | 去世受访者的信息 |
+|  | Weights | 横截面权重 |
+| | Sample_Infor | 样本信息 |
+
+所有的数据集均以Stata 14格式存储, 用户可以通过随数据发布的“codebook”获取
+数据的基本统计描述。
+
+### 选题
+自变量 --> 因变量
+
+- 自变量: 医学指标; 环境暴露; 社科变量
+- 因变量: 健康结局
+
+- 人群: 中老年人群体(一般人群); xx疾病人群(特定人群)
+- 研究类型: 队列研究; 横断面研究
+
+题目: xx人群自变量对因变量的影响
+
+ABSI, AIP， BFP, BRI, CCR, CVAI, LAP, eGDR, eGFR, ePWV, Frailty, non-HDL, NHHR, PHR, RC, TyG, WHtR
+| abbreviation | 英文 | 中文 | 变量类型 |
+| ------------ | --- | ---- | ------ |
+| TyG | Triglyceride-glucose | 甘油三酯葡萄糖 | 医学指标,自变量 |
+| TyG-WHtR | Triglyceride-glucose-waist height ratio | 甘油三酯葡萄糖-腰高比 | 医学指标,自变量 |
+| BMI | Body mass index | 体重指数 | 医学指标,自变量 |
+| Frailty | frailty | 虚弱 | 医学指标,自变量 |
+| non-HDL | non-HDL cholesterol | 非高密度脂蛋白胆固醇 | 医学指标,自变量 |
+| NHHR | Non-HDL/HDL cholesterol ratio | 非高密度脂蛋白胆固醇/高密度脂蛋白胆固醇比值 | 医学指标,自变量 |
+
+#### 医学指标
+
+| 论文题目| 翻译题目 | 自变量 | 因变量 | link |
+| ------ | ------ | ----- | ----- | ---- |
+| Association between triglyceride glucose-waist height ratio index and cardiovascular disease in middle-aged and older Chinese individuals: a nationwide cohort study | 甘油三酯葡萄糖-腰高比指数与中老年中国人群心血管疾病的关系：一项全国性队列研究 | 甘油三酯葡萄糖-腰高比指数 (TyG-WHtR index) | CVD: 心血管疾病 | [BMC](https://cardiab.biomedcentral.com/articles/10.1186/s12933-024-02336-6) |
+| Sarcopenia and mild cognitive impairment among elderly adults: The first longitudinal evidence from CHARLS | 老年人群肌少症与轻度认知障碍的关系：来自CHARLS的首个纵向证据 | 肌少症 | 轻度认知障碍 | [PubMed](https://pubmed.ncbi.nlm.nih.gov/36058563/) \ [PubMed](https://pmc.ncbi.nlm.nih.gov/articles/PMC9745544/) |
+| Association between atherogenic index of plasma and new-onset stroke in individuals with different glucose metabolism status: insights from CHARLS | 血浆动脉粥样硬化指数与不同糖代谢状态新发中风的关系：来自CHARLS的见解 | 血浆致动脉粥样硬化指数(AIP) | 新发卒中 | [BMC](https://cardiab.biomedcentral.com/articles/10.1186/s12933-024-02314-y) |
+
+#### 环境暴露
+因为 CHARLS 数据有地理信息(省市), 所以可以考虑一些环境暴露的指标, 且本身包含一些环境暴露变量
+
+| 论文题目| 翻译题目 | 自变量 | 因变量 | link | dataset | score |
+| ------ | ------ | ----- | ----- | ---- | ------- | ----- |
+| Comparison of Particulate Air Pollution From Different Emission sources and Incident Dementia in the US | 不同排放源的颗粒物空气污染与美国新发痴呆症的比较 | 颗粒物空气污染 | 新发痴呆症 |  | HRS | 22.3/Q1 |
+| Extreme temperature events, functional dependency,and cardio-metabolic multi-morbidity: Insights from a national cohort study in China | 极端温度事件、功能依赖性和心脏代谢共病：来自中国国家队列研究的见解 | 极端温度事件 | 功能依赖性和心脏代谢共病 |  | CHARLS | 6.2/Q1 |
+| Heatwave exposure in relation to decreased sleep duration in older adults | 热浪暴露与老年人睡眠时间减少的关系 | 热浪暴露 | 睡眠时间 |  | CHARLS |
+| Effect of  long-term exposure to PM2.5 on the risk of type 2 diabetes and arthritis in type 2 diabetes patients: Evidence from a national cohort in China | 长期暴露于PM2.5对2型糖尿病患者2型糖尿病和关节炎风险的影响：来自中国国家队列的证据 | PM2.5 | 2型糖尿病和关节炎 | |CHARLS |
+| Effect of indoor air pollution from household solid fuel use on the risk of gastrointestinal and liver disease in middle aged and elderly adults | 家庭固体燃料使用造成的室内空气污染对中老年人群胃肠道和肝脏疾病风险的影响 | 固体燃料使用 | 胃肠道和肝脏疾病 | | CHARLS |
+
+#### PGS (多基因评分)
+Global Aging 中有一些 基因数据
+
+health and retirement study PGS
+- 目前发文量低于 50
+
+| 论文题目| 翻译题目 | 自变量 | 因变量 | link | score |
+| ------ | ------ | ----- | ----- | ---- | ----- |
+| **Polygenic Risk and Social** Support in Predicting Depression Under Stress | 多基因风险和社会支持在压力下预测抑郁症 | 多基因评分(PRS, 也称遗传风险评分) | 抑郁症 |  | 15.1/Q1 |
+| Discriminating Heterogeneous Trajectories of Resilience and Depression After Major Life Stressors Using Polygenic Score | 使用多基因评分区分重大生活压力后韧性和抑郁症的异质轨迹 | 多基因评分(PGS) | 抑郁症 |  | 22.5/Q1 |
+
+#### 社科变量
+| 论文题目| 翻译题目 | 自变量 | 因变量 | link |
+| ------ | ------ | ----- | ----- | ---- |
+| Association of Adverse Childhood Experiences and Social Isolation with Later-Life Cognitive Function Among Adults in China | 童年不良经历与社会孤立对中国成年人晚年认知功能的影响 | 童年不良经历; 社会孤立 | 晚年认知功能 |  |
+| Determinants and inequalities in healthy working life expectancy in China | 中国健康工作生活预期的决定因素和不平等 | 慢性病, 健康生活方式... | 健康工作预期寿命 | |
+
+#### 多库联合
+
+| 论文题目| 翻译题目 | 自变量 | 因变量 | link | dataset | score |
+| ------ | ------ | ----- | ----- | ---- |  ------ | ----- |
+| **Changes in frailty** and incident **cardiovascular disease** in three prospective cohorts | 三项前瞻性队列研究中虚弱变化与新发心血管疾病的关系 | 虚弱变化 | CVD | [PubMed](https://pubmed.ncbi.nlm.nih.gov/38241094/)  | CHARLS, HRS, ELSA | 37.6/Q1 |
+| The association between adult child education and cognitive functioning among older parents: A cross-national comparison of diverse contexts | 成年子女教育与老年父母认知功能的关系：不同背景的跨国比较 | 成年子女教育 | 老年父母认知功能 |   | HRS, LASI, MHAS | 13.1/Q1 |
+| The associations of socioeconomic status, social activities, and loneliness with depressive symptoms in adults aged 50 years and older across 24 countries: findings from five prospective cohort studies | 24个国家50岁及以上成年人中社会经济地位、社会活动和孤独感与抑郁症状的关系：来自五项前瞻性队列研究的发现 | 社会经济地位; 社会活动; 孤独感 | 抑郁症状 |  | CHARLS, HRS, ELSA, SHARE, MHAS | 13.4/Q1 |
+
+#### 共病研究
+将患有多种疾病(慢性病为主)的患者称为共病患者。共病是指一个人同时患有两种或两种以上的疾病或健康状况。共病通常会增加患者的医疗需求和治疗复杂性，可能导致更高的医疗费用和更差的生活质量。
+- 心血管: 高血压 && 糖尿病
+- 骨关节: 骨关节炎 && 内风湿关节炎
+
+共病指标可以界定人群, 作为自变量
+
+| 论文题目| 翻译题目 | 自变量 | 因变量 | link | dataset | score |
+| ------ | ------ | ----- | ----- | ---- | ------- | ----- |
+|Association between the **triglyceride glucose-body mass index** and future cardiovascular disease risk in a population with Cardiovascular-Kidney-Metabolic syndrome stage 0-3: a nationwide prospective cohort study | **甘油三酯-葡萄糖-体重指数**与心血管-肾脏-代谢综合征0-3期人群未来心血管疾病风险的关系：一项全国性前瞻性队列研究 | 甘油三酯葡萄糖-体重指数(TyG-BMI), CKM 综合征人群 | 心血管疾病(CVD) | [PubMed](https://pubmed.ncbi.nlm.nih.gov/39113004/)  | CHARLS | 8.5/Q1 |
+| Long-Term Impact of Physical Activity on Mortality in Adults With Multi-morbidity: A 12-Year Cohort Longitudinal Study From the Survey on Health, Ageing and Retirement in Europe | 身体活动对多病成人死亡率的长期影响: 来自欧洲健康、老龄化和退休调查的12年队列纵向研究 | 身体活动, 共病指标 | 死亡率 |  | SHARE | 9.4/Q1 |
+| Cardio-metabolic multi-morbidity, lifestyle behaviours, and cognitive function: a multi-cohort study | 心脏代谢共病、生活方式行为和认知功能: 一项多队列研究 | 心脏代谢共病, 生活方式行为 | 认知功能 |  | HRS, SHARE, CHARLS, ELSA | 13.4/Q1 |
+#### 对已发布的论文进行优化
+
+例如: 
+- 随时间多次测量(纵向研究)的变量
+  - 连续变量: 单次暴露 -> 累积暴露
+  - 分类变量: 单次状态 -> 状态改变
+
+| 论文题目| 翻译题目 | 自变量 | 因变量 | link | 测量方式 | dataset | score |
+| ------ | ------ | ----- | ----- | ---- | ------- | ------- | ----- |
+| Non-linear associations of **atherogenic index** of plasma with prediabetes and type 2 diabetes mellitus among Chinese adults aged 45 years and above: a cross-sectional study from CHARLS | 45岁及以上中国成年人**血浆动脉粥样硬化指数**与糖尿病前期和2型糖尿病的非线性关系：来自CHARLS的一项横断面研究 | 血浆动脉粥样硬化指数(AIP) | 糖尿病前期和2型糖尿病 |  | 单次测量 | CHARLS | 3.9/Q2 |
+| Exposure of **cumulative atherogenic index** of plasma and the development of prediabetes in middle-aged and elderly individuals: evidence from the CHARLS cohort study | **累积血浆动脉粥样硬化指数**暴露与中老年人群糖尿病前期发展的关系：来自CHARLS队列研究的证据 | 血浆动脉粥样硬化指数(AIP) | 糖尿病前期 |  | 多次测量 |  CHARLS | 8.5/Q1 |
+| | **估计血糖 控制 水平** 与中老年人**脑卒中**发病率 的关系 | eGDR(延伸的糖代谢指标) | CVD的卒中  |  | 单次测量 | CHARLS | 3.0/Q2 |4636
+| | 中老年人 **估算血糖处理率 变化** 与 新发**心血管疾病**的关系: 中国全国前瞻性队列研究 | eGDR 变化 | 心血管系统疾病(CVD) |  | 多次测量 | CHARLS | 5.4/Q1 |
+| | 50岁以上非糖尿病个体中 **累积 估计葡萄糖处理率** 与 **心血管疾病发病率** 之间的关联: 来自中国和美国两个大型队列的数据 | eGDR 变化 | 心血管系统疾病 |  | 多次测量 | CHARLS, HRS | 8.5/Q1 |
+| | 估计的 **葡萄糖 处理 率** 和 **心血管 疾病 发病率** 的**变化**: 欧洲和亚洲的两个大型队列的数据 | eGDR 变化 | 心血管系统疾病 |  | 多次测量 | SHARE, ELSA | 8.5/Q1 |
+| Cross-sectional analysis of **non-HDL/HDL cholesterol ratio** as a marker for cardiovascular disease risk in middle-aged and older adults: Evidence from the CHARLS study | 中老年人群非高密度脂蛋白胆固醇/高密度脂蛋白胆固醇比值作为心血管疾病风险标志物的横断面分析: 来自CHARLS研究的证据 | 非高密度脂蛋白胆固醇/高密度脂蛋白胆固醇比值 | CVD |  | 单次测量 | CHARLS | 2.0/Q3 |
+
+## 数据处理与分析
+
+### 描述性统计
+
+## 论文分析
+1. 解读行文思路
+2. 解构研究设计
+3. 结果呈现的顺序逻辑
+4. 陈列研究包含的所有变量
+
+### Changes in frailty and incident cardiovascular disease in three prospective cohorts
+三项前瞻性队列研究中虚弱和心血管疾病发病率的变化
+#### Abstract
+##### Background and Aims 背景和目的
+Previous studies found that frailty was an important risk factor for cardiovascular disease (CVD). However, previous studies only focused on baseline frailty status, not taking into consideration the changes in frailty status during follow-up. The aim of this study was to investigate the associations of changes in frailty status with incident CVD.
+> [!info]- 翻译
+> 先前的研究发现，虚弱是心血管疾病 (CVD) 的一个重要危险因素。<br/>
+> 然而，以往的研究仅关注基线虚弱状态，而没有考虑随访期间虚弱状态的变化。<br/>
+> 本研究的目的是调查虚弱状态变化与新发 CVD 之间的关系。
+##### Methods
+This study used data of three prospective cohorts: China Health and Retirement Longitudinal Study (CHARLS), English Longitudinal Study of Ageing (ELSA), and Health and Retirement Study (HRS). Frailty status was evaluated by the Rockwood frailty index and classified as robust, pre-frail, or frail. Changes in frailty status were assessed by frailty status at baseline and the second survey which was two years after the baseline. Cardiovascular disease was ascertained by self-reported physician-diagnosed heart disease (including angina, heart attack, congestive heart failure, and other heart problems) or stroke. Cox proportional hazard models were used to calculate the hazard ratio (HR) and 95% confidence interval (95% CI) after adjusting for potential confounders.
+> [!info]- 翻译
+> 本研究使用了三个前瞻性队列的数据：中国健康与退休纵向研究 (CHARLS)、英国老龄化纵向研究 (ELSA) 和健康与退休研究 (HRS)。<br/>
+> **虚弱状态**通过 Rockwood 虚弱指数进行评估，分为健康、脆弱前期或脆弱。<br/>
+> **虚弱状态的变化**通过基线和第二次调查（基线后两年）时的虚弱状态进行评估。<br/>
+> **心血管疾病**通过自我报告的医生诊断的心脏病（包括心绞痛、心脏病发作、充血性心力衰竭和其他心脏问题）或中风来确定。<br/>
+> Cox 比例风险模型用于计算 风险比 (HR) 和 95% 置信区间 (95% CI)，并调整潜在混杂因素。
+##### Results
+A total of 7116 participants from CHARLS (female: 48.6%, mean age: 57.4 years), 5303 from ELSA (female: 57.7%, mean age: 63.7 years), and 7266 from HRS (female: 64.9%, mean age: 65.1 years) were included according to inclusion and exclusion criteria. The median follow-up periods were 5.0 years in the CHARLS, 10.7 years in the ELSA, and 9.5 years in the HRS. Compared with stable robust participants, robust participants who progressed to pre-frail or frail status had increased risks of incident CVD (CHARLS, HR = 1.84, 95% CI: 1.54–2.21; ELSA, HR = 1.53, 95% CI: 1.25–1.86; HRS, HR = 1.59, 95% CI: 1.31–1.92). In contrast, frail participants who recovered to robust or pre-frail status presented decreased risks of incident CVD (CHARLS, HR = 0.62, 95% CI: 0.47–0.81; ELSA, HR = 0.49, 95% CI: 0.34–0.69; HRS, HR = 0.70, 95% CI: 0.55–0.89) when compared with stable frail participants. These decreased risks of incident CVD were also observed in pre-frail participants who recovered to robust status (CHARLS, HR = 0.66, 95% CI: 0.52–0.83; ELSA, HR = 0.65, 95% CI: 0.49–0.85; HRS, HR = 0.71, 95% CI: 0.56–0.91) when compared with stable pre-frail participants.
+> [!info]- 翻译
+> 根据纳入和排除标准，共纳入 7116 名来自 CHARLS 的参与者（女性：48.6%，平均年龄：57.4 岁）、<br/>
+> 5303 名来自 ELSA 的参与者（女性：57.7%，平均年龄：63.7 岁）和7266名来自HRS的参与者（女性：64.9%，平均年龄：65.1岁）。<br/>
+> CHARLS 的中位随访时间为 5.0 年，ELSA 为 10.7 年，HRS 为 9.5 年。<br/>
+> 与稳定的健康参与者相比，<br/>
+> 进展为脆弱前期或脆弱状态的健康参与者发生新发 CVD 的风险增加 (CHARLS, HR = 1.84, 95% CI: 1.54–2.21; ELSA, HR = 1.53, 95% CI: 1.25–1.86; HRS, HR = 1.59, 95% CI: 1.31–1.92)。<br/>
+> 相反，与稳定的脆弱参与者相比，<br/>
+> 恢复为健康或脆弱前期状态的脆弱参与者发生新发 CVD 的风险降低 (CHARLS, HR = 0.62, 95% CI: 0.47–0.81; ELSA, HR = 0.49, 95% CI: 0.34–0.69; HRS, HR = 0.70, 95% CI: 0.55–0.89)。<br/>
+> 与稳定的脆弱前期参与者相比，<br/>
+> 恢复为健康状态的脆弱前期参与者发生新发 CVD 的风险也降低 (CHARLS, HR = 0.66, 95% CI: 0.52–0.83; ELSA, HR = 0.65, 95% CI: 0.49–0.85; HRS, HR = 0.71, 95% CI: 0.56–0.91)。
+##### Conclusion
+Different changes in frailty status are associated with different risks of incident CVD. Progression of frailty status increases incident CVD risks, while recovery of frailty status decreases incident CVD risks.
+> [!info]- 翻译
+> 虚弱状态的不同变化与新发 CVD 的不同风险相关。<br/>
+> 虚弱状态的进展增加了新发 CVD 风险，而虚弱状态的恢复降低了新发 CVD 风险。
+![图0](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/eurheartj/45/12/10.1093_eurheartj_ehad885/1/m_ehad885_ga1.jpeg?Expires=1746800142&Signature=j1xONush7iVJTXCEs90z73v0iUr90vsEyG7zefkNI3pAD80QfkajTHGMs9hu5E7k5KEQ63aREUeVvxYQOtRn7Zjkmp-FGOqkC1WesMjiPExyxT1uA2a6-HBoWIOYIjcMq1Q7aXHjfmdtDSM~5GSk159gGVwhFeziETuU49IfBQZlUv~NrVNYxjap82W9Cxfn9HjRdTwY8EB~LlDJYQBMukARU164sVNbvM3wJW9Uyl6F5GQvDJ7OttPpB7ueWBJzf~dz-~35wnxQ6VaN91EhspDp~zl6HFXosgx-yJrHAK3GpoXEc4WxSiVSIxjJn81pdWUTvqQNhNCrJpfRMxHuRw__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA)
+**Structured Graphical Abstract**
+Changes in frailty status and the risks of incident cardiovascular disease. CHARLS, China Health and Retirement Longitudinal Study; ELSA, English Longitudinal Study of Ageing; HRS, Health and Retirement Study; HR, hazard ratio; CI, confidence interval.
+> [!info]- 翻译
+> 虚弱状态的变化与新发心血管疾病的风险。<br/>
+> CHARLS，中国健康与退休纵向研究；<br/>
+> ELSA，英国老龄化纵向研究；<br/>
+> HRS，健康与退休研究；<br/>
+> HR，风险比；<br/>
+> CI，置信区间。
+
+**Keywords**: Frailty, Cardiovascular disease, Dynamic nature, Epidemiology
+> [!info]- 翻译
+> **关键词**：虚弱，心血管疾病，动态特征，流行病学
+
+**Topic**: cardiovascular diseases,  frailty,  frail elderly  
+**Issue Section**: Clinical Research
+#### Introduction
+With the ageing of the world's population, a common geriatric syndrome termed frailty is becoming an emerging health burden.[^1][^2][^3] Frailty is a state of increased vulnerability to the stressor because of decreased reserves across multiple physiological systems.[^2][^3] It is well documented that frailty increases the risks of adverse health outcomes and is a predictor of multiple age-related diseases, such as falls, disability, and all-cause mortality.[^4][^5][^6][^7] Recently, frailty has attracted great attention from cardiologists as the prevalence and incidence of cardiovascular disease (CVD) also increase with age.[^8][^9][^10][^11] Clarifying the association between frailty and CVD will provide new clues for the prevention and management of CVD in the ageing population.
+> [!info]- 翻译
+> 随着全球人口老龄化，一种称为虚弱的老年综合征正成为新兴的健康负担。<br/>
+> 虚弱是由于多个生理系统的储备减少而对压力源的脆弱状态。<br/>
+> 已有充分证据表明，虚弱增加了不良健康结果的风险，并且是多种与年龄相关的疾病的预测因子，例如跌倒、残疾和全因死亡率。<br/>
+> 最近，虚弱引起了心脏病学家的极大关注，因为心血管疾病 (CVD) 的患病率和发病率也随着年龄的增长而增加。<br/>
+> 阐明虚弱与 CVD 之间的关系将为老龄化人群中 CVD 的预防和管理提供新的线索。
+
+In prior studies, frailty and pre-frailty had been found to increase the risks of incident CVD.[^12][^13][^14] However, these studies only focused on baseline frailty status, not taking into consideration the changes in frailty status during follow-up. In comparison with a single assessment of frailty status at baseline, studying changes in frailty status can reflect more comprehensive biological associations, such as the associations of frailty progression with CVD. More importantly, there is growing evidence that frailty could be reversed after appropriate intervention.[^15][^16] Assessing incident CVD risks in individuals who recover from frailty will provide crucial evidence for the necessity to conduct interventions on frailty in cardiovascular practice. Therefore, it is urgent to investigate the associations of changes in frailty status with incident CVD risks.
+> [!info]- 翻译
+> 在先前的研究中，虚弱和脆弱前期被发现增加了新发 CVD 的风险。<br/>
+> 然而，这些研究仅关注基线虚弱状态，而没有考虑随访期间虚弱状态的变化。<br/>
+> 与基线单次评估的虚弱状态相比，研究虚弱状态的变化可以反映更全面的生物学关联，例如虚弱进展与 CVD 的关联。<br/>
+> 更重要的是，越来越多的证据表明，虚弱可以在适当的干预后逆转。<br/>
+> 评估从虚弱中恢复的个体的新发 CVD 风险将为在心血管实践中进行虚弱干预的必要性提供重要证据。<br/>
+> 因此，迫切需要研究虚弱状态变化与新发 CVD 风险之间的关系。
+
+In the current study, we used three prospective cohorts of China Health and Retirement Longitudinal Study (CHARLS), English Longitudinal Study of Ageing (ELSA), and Health and Retirement Study (HRS). We aimed to investigate the associations of changes in frailty status with incident CVD risks. We hypothesized that progression of frailty status would increase incident CVD risks, while recovery of frailty status would decrease incident CVD risks.
+> [!info]- 翻译
+> 在本研究中，我们使用了中国健康与退休纵向研究 (CHARLS)、<br/>
+> 英国老龄化纵向研究 (ELSA) 和健康与退休研究 (HRS) 的三个前瞻性队列。<br/>
+> 我们的目的是研究虚弱状态变化与新发 CVD 风险之间的关系。<br/>
+> 我们假设虚弱状态的进展会增加新发 CVD 风险，而虚弱状态的恢复会降低新发 CVD 风险。
+#### Methods
+##### Study design and population
+The CHARLS, ELSA, and HRS were all prospective and nationally representative cohorts conducted in China, the UK, and the USA, respectively.[^17][^18][^19] Detailed study designs on these three cohorts are summarized in Supplementary data online, Methods. In this study, wave 1 (2011) of CHARLS, wave 2 (2004–05) of ELSA, and wave 8 (2006) of HRS were regarded as the baseline. Wave 2 (2013) of CHARLS, wave 3 (2006–07) of ELSA, and wave 9 (2008) of HRS were regarded as the second survey. We used data from the baseline and the second survey to evaluate the dynamic nature of frailty status. Subsequent follow-up surveys were used to follow the outcome until the final follow-up survey which was wave 4 (2018) of CHARLS, wave 9 (2018–19) of ELSA, and wave 14 (2018) of HRS. The CHARLS, ELSA, and HRS were approved by the Ethics Review Committees of Peking University, London Multi-Centre Research, and the University of Michigan, respectively. Informed consent was obtained from each participant in these three cohorts.
+> [!info]- 翻译
+> CHARLS、ELSA 和 HRS 都是前瞻性和全国代表性的队列，分别在中国、英国和美国进行。<br/>
+> 详细的研究设计见补充数据在线方法。<br/>
+> 在本研究中，CHARLS 的第 1 波 (2011) 、ELSA 的第 2 波 (2004–05) 和 HRS 的第 8 波 (2006) 被视为基线。<br/>
+> CHARLS 的第 2 波 (2013) 、ELSA 的第 3 波 (2006–07) 和 HRS 的第 9 波 (2008) 被视为第二次调查。<br/>
+> 我们使用基线和第二次调查的数据来评估虚弱状态的动态特征。<br/>
+> 随后的随访调查用于跟踪结果，直到最后的随访调查，即 CHARLS 的第 4 波 (2018) 、ELSA 的第 9 波 (2018–19) 和 HRS 的第 14 波 (2018)。<br/>
+> CHARLS、ELSA 和 HRS 分别获得了北京大学、伦敦多中心研究和密歇根大学伦理审查委员会的批准。<br/>
+> 在这三个队列中均获得了每位参与者的知情同意。
+
+Figure 1 shows the selection process of the study population. Among 44 509 participants from the CHARLS, ELSA, and HRS, we first excluded 9315 participants with missing data on the frailty index (FI) calculation at baseline. Moreover, 9147 participants with CVD at baseline or loss to follow-up were also excluded. Finally, 26 047 eligible participants were included in baseline frailty status analyses. For changes in frailty status analyses, we further excluded 6362 participants according to similar criteria. The remaining 19 685 participants were included in the final analyses.
+> [!info]- 翻译
+> 图 1 显示了研究人群的选择过程。在 CHARLS、ELSA 和 HRS 的 44 509 名参与者中，<br/>
+> 我们首先排除了 基线时 **缺乏 FI** 数据的 9315 名参与者。<br/>
+> 此外，还排除了 基线时 **患有 CVD 或失访**的 9147 名参与者。<br/>
+> 最终，26 047 名符合条件的参与者被纳入 **基线虚弱状态** 分析。<br/>
+> 对于 **虚弱状态变化** 分析，我们根据类似标准进一步排除了 6362 名参与者。<br/> 
+> 剩余的 19 685 名参与者被纳入最终分析。
+
+![Figure1](https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/eurheartj/45/12/10.1093_eurheartj_ehad885/1/m_ehad885f1.jpeg?Expires=1746800142&Signature=CE4Q2hIVj7L38omfAZMTTISCIGWOJeCYaLLtnbHDlIQSg1cH67hfK00xSXC-hdb24zsUK20b1fzZbJZDP8CyWrvdjSRW-d3M3MZnwKo7ev6fX9nb55TJ~aimwr~MQCfHqKnKj1o-v8SEshoZLZnE-WymGBRrcdu1KwNJ-TJWquoT7iCDWe225zET9ORXdIW18730SvZtQ2tv2wdvO8giwtFaH6Wp7quEF63BpoH1ZSkTKGah~C789T6h84-iEBLnZRteefO5-N0dbuM7bEgJ0uCgFE49YziEzscdZBNAebcJbS3T0-VCcyS2W~mLZNvLISD1dDvRLsuWZQqGBVs9YQ__&Key-Pair-Id=APKAIE5G5CRDK6RD3PGA)
+Figure 1Selection process of the study population. CHARLS, China Health and Retirement Longitudinal Study; ELSA, English Longitudinal Study of Ageing; HRS, Health and Retirement Study; FI, frailty index; CVD, cardiovascular disease
+> [!info]- 翻译
+> 图 1 研究人群的选择过程。<br/>
+> CHARLS，中国健康与退休纵向研究；<br/>
+> ELSA，英国老龄化纵向研究；<br/>
+> HRS，健康与退休研究；<br/>
+> FI，虚弱指数；<br/>
+> CVD，心血管疾病
+
+##### Assessment of frailty
+Frailty was evaluated by the FI which was calculated by the accumulation of multiple age-related health deficits. In this study, we constructed the FI following standard procedures described previously. [^20][^21][^22] Based on the data of CHARLS, ELSA, and HRS, we selected 28 items for FI construction, involving disease (excluding heart disease and stroke), symptom, disability, physical function, depression, and cognition (see Supplementary data online, Table S1). Items 1–27 were dichotomized as 1 (presence of the deficit) or 0 (absence of the deficit) according to corresponding cut-off values, respectively. The item 28 (cognitive score) was a continuous variable which ranged from 0 to 1. A higher value of cognitive score indicated a worse cognition. For each participant, FI was calculated by the sum of the present health deficits divided by 28. Thus, the FI was a continuous variable ranging from 0 to 1, and a higher FI indicated a higher level of frailty. As suggested by previous studies,[^2][^23][^24] frailty status was classified into three categories: robust (FI ≤ 0.10), pre-frail (0.10 < FI < 0.25), and frail (FI ≥ 0.25). Changes in frailty status were evaluated by frailty status at baseline and the second survey which was conducted two years after the baseline (see Supplementary data online, Figure S1). We also used total FI and change in FI to assess the dynamic nature of frailty status. Total FI was calculated by the FI at baseline plus the FI at the second survey, while change in FI was calculated by the FI at the second survey minus the FI at baseline.
+> [!info]- 翻译
+> 虚弱通过 FI 进行评估，FI 是通过积累多种与年龄相关的健康缺陷计算得出的。<br/>
+> 在本研究中，我们按照先前描述的标准程序构建 FI。<br/>
+> 根据 CHARLS、ELSA 和 HRS 的数据，我们选择了 28 个项目用于 FI 构建，涉及疾病（不包括心脏病和中风）、症状、残疾、身体功能、抑郁和认知（见补充数据在线表 S1）。<br/>
+> 项目 1–27 根据相应的临界值二分为 1（缺陷存在）或 0（缺陷不存在）。<br/>
+> 项目 28（认知评分）是一个连续变量，范围从 0 到 1。<br/>
+> 较高的认知评分表示更差的认知。<br/>
+> 对于每个参与者，FI 通过现有健康缺陷的总和除以 28 来计算。<br/>
+> 因此，FI 是一个连续变量，范围从 0 到 1，<br/>
+> 较高的 FI 表示较高水平的虚弱。<br/>
+> 根据先前的研究，虚弱状态分为三类：<br/>
+> 健康 (FI ≤ 0.10)、脆弱前期 (0.10 < FI < 0.25) 和脆弱 (FI ≥ 0.25)。<br/>
+> 虚弱状态的变化通过基线和第二次调查（基线后两年）时的虚弱状态进行评估（见补充数据在线图 S1）。<br/>
+> 我们还使用总 FI 和 FI 变化来评估虚弱状态的动态特征。<br/>
+> 总 FI 由基线时的 FI 加上第二次调查时的 FI 计算得出，<br/>
+> 而 FI 变化由第二次调查时的 FI 减去基线时的 FI 计算得出。
+##### Covariates  协变量
+The covariates included age, sex, marital status, education, smoking status, drinking status, physical activity level, body mass index (BMI), glycated haemoglobin (HbA $_{1c}$), systolic blood pressure (SBP), high-density lipoprotein cholesterol (HDL-C), and C-reactive protein. For consistency among the CHARLS, ELSA, and HRS, marital status was divided into two categories: married or partnered and other marital status (separated, divorced, unmarried, or widowed). Education was classified into three levels: below high school, high school, and college or above. Smoking status was categorized as never smokers and ever smokers. Ever smokers included former and current smokers. Similarly, drinking status was categorized as never drinkers and ever drinkers. Physical activity level was divided into three categories: vigorous (vigorous activity more than once a week), moderate (moderate activity more than once a week), and inactive (the rest).
+> [!info]- 翻译
+> 协变量包括年龄、性别、婚姻状况、教育程度、吸烟状况、饮酒状况、身体活动水平、体重指数 (BMI)、糖化血红蛋白 (HbA $_{1c}$)、收缩压 (SBP)、高密度脂蛋白胆固醇 (HDL-C) 和 C 反应蛋白。<br/>
+> 为了在 CHARLS、ELSA 和 HRS 之间保持一致，<br/>
+> 婚姻状况分为两类：已婚或伴侣和其他婚姻状况（分居、离婚、未婚或丧偶）。<br/>
+> 教育分为三个等级：高中以下、高中和大学或以上。<br/>
+> 吸烟状况分为从不吸烟者和曾经吸烟者。 曾经吸烟者包括前吸烟者和当前吸烟者。<br/>
+> 同样，饮酒状况分为从不饮酒者和曾经饮酒者。<br/>
+> 身体活动水平分为三类：<br/>
+> 剧烈（每周剧烈活动超过一次）、中等（每周中等活动超过一次）和不活跃（其余）。
+##### Outcome ascertainment and follow-up 结果确认和随访
+The primary outcome for this study was incident CVD. In the CHARLS, ELSA, and HRS, CVD was ascertained based on self-reported physician-diagnosed heart disease (including angina, heart attack, congestive heart failure, and other heart problems) or stroke. Details of the CVD ascertainment were described in Supplementary data online, Methods. In brief, participants were inquired whether they were diagnosed with heart disease or stroke by doctors. Those who reported being diagnosed with heart disease or stroke were considered to have CVD.
+> [!info]- 翻译
+> 本研究的主要结局指标是 心血管疾病事件。<br/>
+> 在 CHARLS、ELSA 和 HRS 中，CVD 是根据自我报告的医生诊断的心脏病（包括心绞痛、心脏病发作、充血性心力衰竭和其他心脏问题）或中风来确定的。<br/>
+> 结果确认的详细信息见补充数据在线方法。<br/>
+> 简而言之，询问参与者是否被医生诊断为心脏病或中风。<br/>
+> 报告被诊断为心脏病或中风的参与者被认为患有 CVD。
+
+In the baseline frailty status analyses, follow-up was initiated from wave 1 of CHARLS, wave 2 of ELSA, and wave 8 of HRS. In the frailty status change analyses, follow-up was initiated from wave 2 of CHARLS, wave 3 of ELSA, and wave 9 of HRS. The endpoint of follow-up was at the first occurrence of CVD, death, or the censoring date, whichever came first. The censoring date was the date of the last survey in which each participant attended. Ideally, the last survey was wave 4 (2018) of CHARLS, wave 9 (2018–2019) of ELSA, and wave 14 (2018) of HRS, respectively. Death data were available up to the last survey in the CHARLS and HRS, while those were only available up to the wave 6 (2012–2013) in the ELSA. [^25][^26][^27]
+> [!info]- 翻译
+> 在基线虚弱状态分析中，随访从 CHARLS 的第 1 波、ELSA 的第 2 波和 HRS 的第 8 波开始。<br/>
+> 在虚弱状态变化分析中，随访从 CHARLS 的第 2 波、ELSA 的第 3 波和 HRS 的第 9 波开始。<br/>
+> 随访的终点是在第一次发生 CVD、死亡或审查日期时，以先发生者为准。<br/>
+> 审查日期是每个参与者参加的最后一次调查的日期。<br/>
+> 理想情况下，最后一次调查分别是 CHARLS 的第 4 波 (2018) 、ELSA 的第 9 波 (2018–2019) 和 HRS 的第 14 波 (2018)。<br/>
+> CHARLS 和 HRS 的死亡数据可用到最后一次调查，而 ELSA 仅可用到第 6 波 (2012–2013)。
+##### Statistical analyses 
+For descriptive statistics, continuous variables were expressed as mean [standard deviation (SD)] or median [interquartile range (IQR)], while categorical variables were expressed as number (percentage).
+
+> [!info]- 翻译
+> 对于描述性统计，连续变量表示为均值 [标准差 (SD)] 或中位数 [四分位数范围 (IQR)]，<br/>
+> 而分类变量表示为数量（百分比）。<br/>
+> 统计分析使用 R 4.2.2 进行。<br/>
+> 统计显著性水平设定为 0.05。
+
+To analyse the association of baseline frailty status with the risks of incident CVD, Cox proportional hazard regression was used to calculate the hazard ratio (HR) and its 95% confidence interval (95% CI). Two models were fitted for the Cox regression using robust participants as the reference. Model 1 was unadjusted. Model 2 was multivariable-adjusted controlling for age, sex, marital status, education, smoking status, drinking status, physical activity level, BMI, SBP, HbA1c HDL-C, and C-reactive protein. The missing rates of covariates were summarized in Supplementary data online, Tables S2 and S3. The missing data of covariates were imputed using the multiple imputation with chained equation, which was described in Supplementary data online, Methods. Using similar methods, we also analysed associations of changes in frailty status, total FI, and change in FI with incident CVD. Total FI and change in FI were divided into tertiles, respectively, with the lower tertile as the reference. In analyses of change in FI, we further controlled for the baseline FI in the multivariable-adjusted model. In addition, we performed the trend test by assigning the tertile as a continuous variable.[^28][^29] Proportional hazard assumptions for these Cox regression models were confirmed by the Schoenfeld residual.[^30][^31]
+> [!info]- 翻译
+> 为了分析基线虚弱状态与心血管疾病（CVD）发病风险之间的关联，使用 Cox 比例风险回归计算风险比 (HR) 及其 95% 置信区间 (95% CI)。<br/>
+> 使用健康参与者作为参考，对 Cox 回归进行了两个模型的拟合<br/>
+> 模型 1 未调整。<br/>
+> 模型 2 是多变量调整，控制年龄、性别、婚姻状况、教育程度、吸烟状况、饮酒状况、身体活动水平、BMI、SBP、HbA1c HDL-C 和 C 反应蛋白。<br/>
+> 协变量的缺失率见补充数据在线表 S2 和 S3。<br/>
+> 协变量的缺失数据使用链式方程的多重插补进行插补，<br/>
+> 该方法在补充数据在线方法中进行了描述。<br/>
+> 使用类似的方法，我们还分析了虚弱状态变化、总 FI 和 FI 变化与新发 CVD 的关系。<br/>
+> 总 FI 和 FI 变化分别分为三分位数，<br/>
+> 以较低的三分位数作为参考。在 FI 变化分析中，<br/>
+> 我们在多变量调整模型中进一步控制基线 FI。<br/>
+> 此外，我们通过将三分位数作为连续变量来进行趋势检验。<br/>
+> 比例风险假设通过 Schoenfeld 残差确认。<br/>
+> 统计分析使用 R 4.2.2 进行。<br/>
+
+
+[^1]: Big note.
+[^2]: Big note.
+[^3]: Big note.
+[^4]: Big note.
+[^5]: Big note.
+[^6]: Big note.
+[^7]: Big note.
+[^8]: Big note.
+[^9]: Big note.
+[^10]: Big note.
+[^11]: Big note.
+[^12]: Big note.
+[^13]: Big note.
+[^14]: Big note.
+[^15]: Big note.
+[^16]: Big note.
+[^17]: Big note.
+[^18]: Big note.
+[^19]: Big note.
+[^20]: Big note.
+[^21]: Big note.
+[^22]: Big note.
+[^23]: Big note.
+[^24]: Big note.
+[^25]: 25Big note.
+[^26]: 26Big note.
+[^27]: 27Big note.
+[^28]: 28Big note.
+[^29]: 29Big note.
+[^30]: 30Big note.
+[^31]: 31Big note.
+
+### Association between triglyceride glucose-waist height ratio index and cardiovascular disease in middle-aged and older Chinese individuals: a nationwide cohort study
+甘油三酯-血糖-腰围身高比指数与中年及老年人心血管疾病的相关性：一项全国性队列研究
+#### Abstract 摘要
+##### Background
+The triglyceride-glucose (TyG) index and its combination with obesity indicators can predict cardiovascular diseases (CVD). However, there is limited research on the relationship between changes in the triglyceride glucose-waist height ratio (TyG-WHtR) and CVD. Our study aims to investigate the relationship between the change in the TyG-WHtR and the risk of CVD.
+> [!info]- 翻译
+> 甘油三酯-葡萄糖 (TyG) 指数及其与肥胖指标的结合可以预测心血管疾病 (CVD)。然而，关于甘油三酯葡萄糖-腰围身高比 (TyG-WHtR) 变化与 CVD 之间关系的研究有限。本研究旨在探讨 TyG-WHtR 变化与 CVD 风险之间的关系。
+##### Methods
+Participants were from the China Health and Retirement Longitudinal Study (CHARLS). CVD was defined as self-reporting heart disease and stroke. Participants were divided into three groups based on changes in TyG-WHtR using K-means cluster analysis. Multivariable binary logistic regression analysis was used to examine the association between different groups (based on the change of TyG-WHtR) and CVD. A restricted cubic spline (RCS) regression model was used to explore the potential nonlinear association of the cumulative TyG-WHtR and CVD events.
+> [!info]- 翻译
+> 参与者来自中国健康与退休纵向研究 (CHARLS)。<br/>
+> 心血管疾病 (CVD) 定义为自我报告的心脏病和中风。<br/>
+> 根据 K 均值聚类分析，参与者根据 TyG-WHtR 的变化分为三组。<br/>
+> 使用 多变量二元逻辑回归分析 检查不同组（基于 TyG-WHtR 的变化）与 CVD 之间的关系。<br/>
+> 使用 限制立方样条 (RCS) 回归模型 探索累积 TyG-WHtR 与 CVD 事件之间 的 潜在非线性关系。
+##### Results
+During follow-up between 2015 and 2020, 623 (18.8%) of 3312 participants developed CVD. After adjusting for various potential confounders, compared to the participants with consistently low and stable TyG-WHtR, the risk of CVD was significantly higher in participants with moderate and increasing TyG-WHtR (OR 1.28, 95%CI 1.01–1.63) and participants with high TyG-WHtR with a slowly increasing trend (OR 1.58, 95%CI 1.16–2.15). Higher levels of cumulative TyG-WHtR were independently associated with a higher risk of CVD events (per SD, OR 1.27, 95%CI 1.12–1.43).
+> [!info]- 翻译
+> 在 2015 年至 2020 年的随访期间，3312 名参与者中有 623 名 (18.8%) 患上了 CVD。<br/>
+> 在调整了各种潜在混杂因素后，与 TyG-WHtR 始终处于低水平和稳定状态的参与者相比，  <br/>
+> TyG-WHtR 中等和增加的参与者 CVD 风险显著增加 (OR 1.28, 95%CI 1.01–1.63)，  <br/>
+> 而 TyG-WHtR 较高且缓慢上升的参与者 (OR 1.58, 95%CI 1.16–2.15)。  <br/>
+> 累积 TyG-WHtR 水平较高与 CVD 事件风险增加 独立相关 (每 SD, OR 1.27, 95%CI 1.12–1.43)。
+##### Conclusion
+For middle-aged and older adults, changes in the TyG-WHtR are independently associated with the risk of CVD. Maintaining a favorable TyG index, effective weight management, and a reasonable waist circumference contribute to preventing CVD.
+> [!info]- 翻译
+> 对于中老年人群，TyG-WHtR 的变化与 CVD 风险独立相关。<br/>
+> 维持良好的 TyG 指数、有效的体重管理和合理的腰围有助于预防 CVD。
+#### Introduction  引言
+#### Methods
+##### Study design and population 研究设计和人群
+##### Assessment of the change in TyG-WHtR TyG-WHtR 变化评估
+##### Assessment of CVD  心血管疾病评估
+##### Covariates  协变量
+##### Statistical analyses  统计分析
+#### Results
+##### Baseline characteristics of participants 参与者基线特征
+##### Odds ratios for incident CVD 发生心血管疾病的风险比
+##### Subgroup analyses and sensitivity analyses 亚组分析和敏感性分析
+#### Discussion
+#### Conclusion
+#### References
+11. Dang K, Wang X, Hu J, et al. The association between triglyceride-glucose index and its combination with obesity indicators and cardiovascular disease: NHANES 2003–2018. Cardiovasc Diabetol. 2024;23(1):8.
+  > [!info]- 翻译
+  > Dang K, Wang X, Hu J, et al. 三酰甘油-葡萄糖指数及其与肥胖指标结合与心血管疾病的关系：NHANES 2003–2018。心血管糖尿病杂志。2024;23(1):8。

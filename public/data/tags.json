@@ -1,4 +1,250 @@
 {
+  "alg": {
+    "count": 8,
+    "docs": [
+      {
+        "url": "/blog/2024/03/12/dp.mdx",
+        "meta": {
+          "title": "dp",
+          "description": "**动态规划(Dynamic Programming)** 是一种将复杂问题分解成更小的子问题的方法, 通过保存子问题的结果来避免重复计算",
+          "created_at": "2024-03-12T16:22:16.000Z",
+          "updated_at": "2025-04-03T16:22:16.000Z",
+          "tags": [
+            "alg",
+            "dp"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2024/03/13/graph.mdx",
+        "meta": {
+          "title": "graph",
+          "description": "图 (Graph) 是一种数据结构, 由节点 (Vertex) 和边 (Edge) 组成, 用于表示对象之间的关系",
+          "created_at": "2024-03-13T16:39:24.000Z",
+          "updated_at": "2025-04-04T16:39:24.000Z",
+          "tags": [
+            "alg",
+            "graph"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2025/03/25/alg.mdx",
+        "meta": {
+          "title": "alg",
+          "description": "算法竞赛学习路线 算法竞赛是一个需要扎实的数学基础和编...",
+          "created_at": "2025-03-28T19:55:10.000Z",
+          "updated_at": "2025-03-28T19:55:10.000Z",
+          "tags": [
+            "alg"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2025/03/26/bfs.mdx",
+        "meta": {
+          "title": "bfs",
+          "description": "通常是指 广度优先搜索 (Breadth-First Search)，一种经典的图算法，用于遍历或搜索树或图的数据结构",
+          "created_at": "2025-03-26T22:29:10.000Z",
+          "updated_at": "2025-03-27T20:40:13.000Z",
+          "tags": [
+            "alg",
+            "bfs"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2025/03/27/dfs.mdx",
+        "meta": {
+          "title": "dfs",
+          "description": "最大数字 lanqiao 2193 https://w...",
+          "created_at": "2025-03-27T20:41:55.000Z",
+          "updated_at": "2025-03-27T20:41:55.000Z",
+          "tags": [
+            "alg",
+            "dfs"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2025/03/28/Union-Find.mdx",
+        "meta": {
+          "title": "Union-Find",
+          "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 并查集通常实现为一个森林，其中每棵树表示一个集合 是一种用于处理动态连通性问题的数据结构。",
+          "created_at": "2025-03-28T19:28:35.000Z",
+          "updated_at": "2025-03-30T02:10:58.000Z",
+          "tags": [
+            "alg",
+            "tree"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2012/09/16/numberTheory.mdx",
+        "meta": {
+          "title": "numberTheory",
+          "description": "纯粹数学的分支之一，主要研究整数的性质。 整数可以是方程式的解（丢番图方程）。 有些解析函数（像黎曼ζ函数）中包括了一些整数、质数的性质，透过这些函数也可以了解一些数论的问题。 透过数论也可以建立实数和有理数之间的关系，并且用有理数来逼近实数（丢番图逼近）。",
+          "created_at": "2012-09-12T20:39:52.000Z",
+          "updated_at": "2025-04-04T20:39:52.000Z",
+          "tags": [
+            "math",
+            "numberTheory",
+            "alg"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2023/06/13/time.mdx",
+        "meta": {
+          "title": "time",
+          "description": "时间 (Time) 是一种度量, 用于表示事件发生的顺序和持续时间",
+          "created_at": "2023-06-13T18:59:44.000Z",
+          "updated_at": "2025-04-04T18:59:44.000Z",
+          "tags": [
+            "time",
+            "python",
+            "alg"
+          ]
+        }
+      }
+    ]
+  },
+  "dp": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2024/03/12/dp.mdx",
+        "meta": {
+          "title": "dp",
+          "description": "**动态规划(Dynamic Programming)** 是一种将复杂问题分解成更小的子问题的方法, 通过保存子问题的结果来避免重复计算",
+          "created_at": "2024-03-12T16:22:16.000Z",
+          "updated_at": "2025-04-03T16:22:16.000Z",
+          "tags": [
+            "alg",
+            "dp"
+          ]
+        }
+      }
+    ]
+  },
+  "graph": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2024/03/13/graph.mdx",
+        "meta": {
+          "title": "graph",
+          "description": "图 (Graph) 是一种数据结构, 由节点 (Vertex) 和边 (Edge) 组成, 用于表示对象之间的关系",
+          "created_at": "2024-03-13T16:39:24.000Z",
+          "updated_at": "2025-04-04T16:39:24.000Z",
+          "tags": [
+            "alg",
+            "graph"
+          ]
+        }
+      }
+    ]
+  },
+  "docs": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2024/05/19/latex.mdx",
+        "meta": {
+          "title": "Latex",
+          "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
+          "created_at": "2024-05-19T19:35:46.000Z",
+          "updated_at": "2025-03-28T19:35:46.000Z",
+          "tags": [
+            "docs",
+            "math",
+            "latex"
+          ]
+        }
+      }
+    ]
+  },
+  "math": {
+    "count": 3,
+    "docs": [
+      {
+        "url": "/blog/2024/05/19/latex.mdx",
+        "meta": {
+          "title": "Latex",
+          "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
+          "created_at": "2024-05-19T19:35:46.000Z",
+          "updated_at": "2025-03-28T19:35:46.000Z",
+          "tags": [
+            "docs",
+            "math",
+            "latex"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2021/11/11/calculus.mdx",
+        "meta": {
+          "title": "微积分",
+          "description": "...",
+          "created_at": "2021-11-11T10:13:16.000Z",
+          "updated_at": "2025-03-30T10:13:16.000Z",
+          "tags": [
+            "math"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2012/09/16/numberTheory.mdx",
+        "meta": {
+          "title": "numberTheory",
+          "description": "纯粹数学的分支之一，主要研究整数的性质。 整数可以是方程式的解（丢番图方程）。 有些解析函数（像黎曼ζ函数）中包括了一些整数、质数的性质，透过这些函数也可以了解一些数论的问题。 透过数论也可以建立实数和有理数之间的关系，并且用有理数来逼近实数（丢番图逼近）。",
+          "created_at": "2012-09-12T20:39:52.000Z",
+          "updated_at": "2025-04-04T20:39:52.000Z",
+          "tags": [
+            "math",
+            "numberTheory",
+            "alg"
+          ]
+        }
+      }
+    ]
+  },
+  "latex": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2024/05/19/latex.mdx",
+        "meta": {
+          "title": "Latex",
+          "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
+          "created_at": "2024-05-19T19:35:46.000Z",
+          "updated_at": "2025-03-28T19:35:46.000Z",
+          "tags": [
+            "docs",
+            "math",
+            "latex"
+          ]
+        }
+      }
+    ]
+  },
+  "java": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2024/10/12/java.mdx",
+        "meta": {
+          "title": "Java",
+          "description": "东西都被删除了吗 runtime function 重...",
+          "created_at": "2024-10-12T15:55:11.000Z",
+          "updated_at": "2025-03-30T15:55:11.000Z",
+          "tags": [
+            "java"
+          ]
+        }
+      }
+    ]
+  },
   "web": {
     "count": 4,
     "docs": [
@@ -69,106 +315,6 @@
           "tags": [
             "web",
             "ws"
-          ]
-        }
-      }
-    ]
-  },
-  "alg": {
-    "count": 6,
-    "docs": [
-      {
-        "url": "/blog/2025/04/01/time.mdx",
-        "meta": {
-          "title": "time",
-          "description": "...",
-          "created_at": "2025-04-01T02:04:25.000Z",
-          "updated_at": "2025-04-01T02:04:25.000Z",
-          "tags": [
-            "alg",
-            "time"
-          ]
-        }
-      },
-      {
-        "url": "/blog/2025/03/25/alg.mdx",
-        "meta": {
-          "title": "alg",
-          "description": "算法竞赛学习路线 算法竞赛是一个需要扎实的数学基础和编...",
-          "created_at": "2025-03-28T19:55:10.000Z",
-          "updated_at": "2025-03-28T19:55:10.000Z",
-          "tags": [
-            "alg"
-          ]
-        }
-      },
-      {
-        "url": "/blog/2025/03/26/bfs.mdx",
-        "meta": {
-          "title": "bfs",
-          "description": "通常是指 广度优先搜索 (Breadth-First Search)，一种经典的图算法，用于遍历或搜索树或图的数据结构",
-          "created_at": "2025-03-26T22:29:10.000Z",
-          "updated_at": "2025-03-27T20:40:13.000Z",
-          "tags": [
-            "alg",
-            "bfs"
-          ]
-        }
-      },
-      {
-        "url": "/blog/2025/03/27/dfs.mdx",
-        "meta": {
-          "title": "dfs",
-          "description": "最大数字 lanqiao 2193 https://w...",
-          "created_at": "2025-03-27T20:41:55.000Z",
-          "updated_at": "2025-03-27T20:41:55.000Z",
-          "tags": [
-            "alg",
-            "dfs"
-          ]
-        }
-      },
-      {
-        "url": "/blog/2025/03/28/Union-Find.mdx",
-        "meta": {
-          "title": "Union-Find",
-          "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 并查集通常实现为一个森林，其中每棵树表示一个集合 是一种用于处理动态连通性问题的数据结构。",
-          "created_at": "2025-03-28T19:28:35.000Z",
-          "updated_at": "2025-03-30T02:10:58.000Z",
-          "tags": [
-            "alg",
-            "tree"
-          ]
-        }
-      },
-      {
-        "url": "/blog/2024/03/12/dp.mdx",
-        "meta": {
-          "title": "dp",
-          "description": "**动态规划(Dynamic Programming)** 是一种将复杂问题分解成更小的子问题的方法, 通过保存子问题的结果来避免重复计算",
-          "created_at": "2024-03-12T16:22:16.000Z",
-          "updated_at": "2025-04-03T16:22:16.000Z",
-          "tags": [
-            "alg",
-            "dp"
-          ]
-        }
-      }
-    ]
-  },
-  "time": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2025/04/01/time.mdx",
-        "meta": {
-          "title": "time",
-          "description": "...",
-          "created_at": "2025-04-01T02:04:25.000Z",
-          "updated_at": "2025-04-01T02:04:25.000Z",
-          "tags": [
-            "alg",
-            "time"
           ]
         }
       }
@@ -364,23 +510,6 @@
       }
     ]
   },
-  "math": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2021/11/11/calculus.mdx",
-        "meta": {
-          "title": "微积分",
-          "description": "...",
-          "created_at": "2021-11-11T10:13:16.000Z",
-          "updated_at": "2025-03-30T10:13:16.000Z",
-          "tags": [
-            "math"
-          ]
-        }
-      }
-    ]
-  },
   "c": {
     "count": 1,
     "docs": [
@@ -434,8 +563,27 @@
       }
     ]
   },
+  "numberTheory": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2012/09/16/numberTheory.mdx",
+        "meta": {
+          "title": "numberTheory",
+          "description": "纯粹数学的分支之一，主要研究整数的性质。 整数可以是方程式的解（丢番图方程）。 有些解析函数（像黎曼ζ函数）中包括了一些整数、质数的性质，透过这些函数也可以了解一些数论的问题。 透过数论也可以建立实数和有理数之间的关系，并且用有理数来逼近实数（丢番图逼近）。",
+          "created_at": "2012-09-12T20:39:52.000Z",
+          "updated_at": "2025-04-04T20:39:52.000Z",
+          "tags": [
+            "math",
+            "numberTheory",
+            "alg"
+          ]
+        }
+      }
+    ]
+  },
   "python": {
-    "count": 3,
+    "count": 4,
     "docs": [
       {
         "url": "/blog/2023/06/12/IDLE.mdx",
@@ -472,6 +620,20 @@
           "tags": [
             "python",
             "env"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2023/06/13/time.mdx",
+        "meta": {
+          "title": "time",
+          "description": "时间 (Time) 是一种度量, 用于表示事件发生的顺序和持续时间",
+          "created_at": "2023-06-13T18:59:44.000Z",
+          "updated_at": "2025-04-04T18:59:44.000Z",
+          "tags": [
+            "time",
+            "python",
+            "alg"
           ]
         }
       }
@@ -513,36 +675,20 @@
       }
     ]
   },
-  "vscode": {
+  "time": {
     "count": 1,
     "docs": [
       {
-        "url": "/blog/2023/08/01/vscode.mdx",
+        "url": "/blog/2023/06/13/time.mdx",
         "meta": {
-          "title": "vscode",
-          "description": "...",
-          "created_at": "2023-08-01T05:31:57.000Z",
-          "updated_at": "2025-04-02T05:31:57.000Z",
+          "title": "time",
+          "description": "时间 (Time) 是一种度量, 用于表示事件发生的顺序和持续时间",
+          "created_at": "2023-06-13T18:59:44.000Z",
+          "updated_at": "2025-04-04T18:59:44.000Z",
           "tags": [
-            "vscode"
-          ]
-        }
-      }
-    ]
-  },
-  "css": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2023/08/02/css.mdx",
-        "meta": {
-          "title": "css",
-          "description": ":has()...",
-          "created_at": "2023-08-02T10:35:32.000Z",
-          "updated_at": "2025-03-30T10:35:32.000Z",
-          "tags": [
-            "css",
-            "html"
+            "time",
+            "python",
+            "alg"
           ]
         }
       }
@@ -584,6 +730,41 @@
       }
     ]
   },
+  "vscode": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2023/08/01/vscode.mdx",
+        "meta": {
+          "title": "vscode",
+          "description": "...",
+          "created_at": "2023-08-01T05:31:57.000Z",
+          "updated_at": "2025-04-02T05:31:57.000Z",
+          "tags": [
+            "vscode"
+          ]
+        }
+      }
+    ]
+  },
+  "css": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2023/08/02/css.mdx",
+        "meta": {
+          "title": "css",
+          "description": ":has()...",
+          "created_at": "2023-08-02T10:35:32.000Z",
+          "updated_at": "2025-03-30T10:35:32.000Z",
+          "tags": [
+            "css",
+            "html"
+          ]
+        }
+      }
+    ]
+  },
   "package": {
     "count": 1,
     "docs": [
@@ -596,41 +777,6 @@
           "updated_at": "2025-04-01T00:34:27.000Z",
           "tags": [
             "package"
-          ]
-        }
-      }
-    ]
-  },
-  "dp": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2024/03/12/dp.mdx",
-        "meta": {
-          "title": "dp",
-          "description": "**动态规划(Dynamic Programming)** 是一种将复杂问题分解成更小的子问题的方法, 通过保存子问题的结果来避免重复计算",
-          "created_at": "2024-03-12T16:22:16.000Z",
-          "updated_at": "2025-04-03T16:22:16.000Z",
-          "tags": [
-            "alg",
-            "dp"
-          ]
-        }
-      }
-    ]
-  },
-  "java": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2024/10/12/java.mdx",
-        "meta": {
-          "title": "Java",
-          "description": "东西都被删除了吗 runtime function 重...",
-          "created_at": "2024-10-12T15:55:11.000Z",
-          "updated_at": "2025-03-30T15:55:11.000Z",
-          "tags": [
-            "java"
           ]
         }
       }

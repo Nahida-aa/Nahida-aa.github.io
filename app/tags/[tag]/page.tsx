@@ -1,10 +1,10 @@
 import { Suspense } from 'react';
 import { LoadingS } from '@/components/ui/loading/Loading';
-// import tagsJson from '@/public/data/tags.json';
 import { DocLs } from '@/app/blog/_comp/DocLs';
 import { DocTagsKV, getTagsKV } from '@/app/md/lib/to';
 import { toDocBaseList } from '@/app/md/lib/dirTo';
 import { contentDir } from '@/app/settings/path';
+// import tagsJson from '@/public/data/tags.json';
 // const tagObjsKV: DocTagsKV = tagsJson
 
 export const generateStaticParams = async() => {
