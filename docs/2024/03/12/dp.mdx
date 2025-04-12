@@ -319,4 +319,220 @@ dp[i][j] = \left\{
 \end{aligned}
 \right.
 ```
-graph
+
+## 例题
+
+### 魔法巡游
+**问题描述**
+
+小蓝与小桥，肩负着维护时空秩序的使命。他们每人分别持有 N 个符文石，这些石头被赋予了强大的力量，每一块上都刻有一个介于 1 到 10^9 之间的数字符号。小蓝的符文石集合标记为 $s_1,s_2,…,s_N$​，小桥的则为 $t_1,t_2,…,t_N$​。
+
+两位魔法使者的任务是通过使用符文石，在各个时空节点间巡游。每次巡游遵循这样一条法则：当小蓝使用了符文石 $s_i$​ 到达新的节点后，小桥必须选用一个序号更大的符文石（即某个 $t_j$​ 满足 $j>i$）前往下一个节点。同理，小桥抵达之后，小蓝需要选择一个序号 $j>i$ 的符文石 $s_j$​ 继续他们的巡游。
+
+为了成功地穿梭时空，两个连续使用的符文石上的数字符号必须有共鸣，这种共鸣只有当数字符号中至少包含一个特定的元素——星火（数字 0）、水波（数字 2）或者风语（数字 4）时，才会发生。例如，符号序列 126,552,24,4 中的每对连续符文都包含了至少一个共鸣元素，则它们是一系列成功的巡游；而如果是 15,51,5，则不成立，因为它们之间的共鸣元素不包含星火、水波或风语中的任意一个。
+
+小蓝总是先启程，使用他的符文石开启巡游。
+
+你的任务是计算这对魔法使者能够执行的最长时空巡游序列的长度。这样的序列形式为 $s_{i_1},t_{i_2},s_{i_3},t_{i_4},…$，其中序列索引满足 $i_1<i_2<i_3<i_4<…$，并且序列中每一对相邻的符文石都至少包含一个共鸣元素。
+
+**输入格式**
+
+第一行包含一个整数 N，表示每位魔法使者持有的符文石数量。
+
+第二行包含 N 个由空格分隔的整数，表示小蓝的符文石上刻有的数字符号 $s_1,s_2,…,s_N$
+
+第三行包含 N 个由空格分隔的整数，表示小桥的符文石上刻有的数字符号 $t_1,t_2,…,t_N$
+
+**输出格式**
+
+输出一个整数，代表小蓝和小桥在遵守所有规则的情况下，最多能进行多少次时空巡游。
+
+**样例输入**
+```md
+5
+126 393 581 42 44
+204 990 240 46 52
+```
+
+**【样例输出】**
+```
+4
+```
+**【样例说明】**
+
+小蓝和小桥可以选择以下符文石序列进行巡游：
+$s_1(126)→t_3(240)→s_4(42)→t_5(52)$ 这里，数字 2 作为共鸣元素连接了 $s_1$​ 和 $t_3$​、$s_4$​ 和 $t_5$​，数字 2、4 作为共鸣元素连接了 $t_3$​ 和 $s_4$
+
+**评测用例规模与约定**
+
+对于 30% 的评测用例，$1≤N≤10^3$，$1≤s_i,t_i≤10^5 $
+
+对于所有评测用例，$1≤N≤10^5$ ，$1≤s_i,t_i≤10^9$
+
+**分析**:
+此题会诱导我们使用贪心, 但是朴素贪心 的 **局部最优** 不等于 **全局最优**, 而枚举 O(N^4)
+
+```py
+dp_s[i] = max(dp_t)
+```
+
+```py
+def contains_resonance(num):
+    """判断数字是否包含共鸣元素 0, 2, 4"""
+    return any(c in '024' for c in str(num))
+
+def longest_magic_tour(N, s, t):
+    # 预处理共鸣元素
+    s_resonance = [contains_resonance(x) for x in s]
+    t_resonance = [contains_resonance(x) for x in t]
+    
+    # 动态规划数组
+    dp_s = [0] * N
+    dp_t = [0] * N
+    
+    # 初始化
+    dp_s[0] = 1 if s_resonance[0] else 0
+    dp_t[0] = 1 if t_resonance[0] else 0
+    
+    # 记录最大长度
+    max_length = max(dp_s[0], dp_t[0])
+    
+    # 动态规划计算
+    for i in range(1, N):
+        # 更新 dp_s[i]
+        for j in range(i):
+            if t_resonance[j] and s_resonance[i]:
+                dp_s[i] = max(dp_s[i], dp_t[j] + 1)
+        
+        # 更新 dp_t[i]
+        for j in range(i):
+            if s_resonance[j] and t_resonance[i]:
+                dp_t[i] = max(dp_t[i], dp_s[j] + 1)
+        
+        # 更新最大长度
+        max_length = max(max_length, dp_s[i], dp_t[i])
+    
+    return max_length
+
+N = int(input())
+s = list(map(int, input().split()))
+t = list(map(int, input().split()))
+print(longest_magic_tour(N, s, t))
+```
+
+### 纯职业小组
+问题描述
+
+国王统治着一支由 n 个小队组成的强大军队。每个小队都由相同职业的士兵组成。具体地，第 i 个小队包含了 $b_i$​ 名职业为 $a_i$​ 的士兵。
+
+近日，国王计划在王宫广场举行一场盛大的士兵检阅仪式，以庆祝王国的繁荣昌盛。然而，在士兵们入场的过程中，一场突如其来的风暴打乱了他们的行列，使得不同小队的士兵混杂在一起，次序乱成一团，
+
+尽管国王无法知道每个士兵的具体职业，但为了确保仪式能顺利进行，国王打算从这些混乱的士兵中选出一部分，组成 k 个“纯职业小组”进行检阅。一个“纯职业小组”定义为由 3 名同职业的士兵组成的队伍。
+
+请问，国王至少需要选择多少名士兵，才能确保这些士兵可以组成 k 个“纯职业小组”。
+输入格式
+
+输入包含多组数据。
+
+第一行包含一个整数 T，表示有 T 组数据。
+
+对于每组数据：
+
+- 第一行包含两个整数 $n_t$​ 和 k，表示小队的数量和要组成的纯职业小组的数量。
+- 接下来的 $n_t$​ 行，每行包含两个整数 $a_i$​ 和 $b_i$ ​，表示第 i 个小队中士兵的职业和数量。
+
+输出格式
+
+对于每组数据，输出一个整数，表示为了组成 k 个“纯职业小组”，国王至少需要选择的士兵数量。如果无论如何也无法组成 k 个“纯职业小组”，则输出 −1。
+
+样例输入
+```md
+2
+3 2
+1 3
+2 3
+3 3
+3 5
+1 3
+2 3
+3 3
+```
+
+样例输出
+```md
+8
+-1
+```
+
+样例说明
+
+在第一个样例中，要想组成 2 个“纯职业小组”，国王至少需要选择 8 名士兵。若只选择了 7 名士兵，则这 7 名士兵的职业可能为 1,1,1,2,2,3,3, 无法组成 2 个“纯职业小组”。
+
+在第二个样例中，即使选择了所有士兵，也无法组成 5 个“纯职业小组”，因此输出 −1
+评测用例规模与约定
+
+对于 50% 的评测用例，1≤T≤10 ，1≤∑t=1Tnt≤2×10^3 ，1≤ai,bi≤10^5 1≤k≤10^7
+
+对于所有的评测用例，1≤T≤100 ，1≤∑t=1Tnt≤2×10^5 ，1≤ai,bi≤10^9 ，1≤k≤10^13 
+
+```py
+import sys
+
+def min_soldiers_to_form_groups(T, test_cases):
+    results = []
+    for t in range(T):
+        n, k = test_cases[t][0]
+        squads = test_cases[t][1]
+        
+        # 统计总士兵数量
+        total_soldiers = sum(b for _, b in squads)
+        
+        # 如果总士兵数量不足以组成 k 个小组，直接输出 -1
+        if total_soldiers < 3 * k:
+            results.append(-1)
+            continue
+        
+        # 二分查找
+        def can_form(x):
+            groups = 0
+            for _, b in squads:
+                # 当前职业能贡献的小组数量
+                groups += min(b, x) // 3
+                if groups >= k:
+                    return True
+            return groups >= k
+        
+        # 二分查找范围
+        left, right = 3 * k, total_soldiers
+        answer = -1
+        while left <= right:
+            mid = (left + right) // 2
+            if can_form(mid):
+                answer = mid
+                right = mid - 1
+            else:
+                left = mid + 1
+        
+        results.append(answer)
+    
+    return results
+
+T = int(input())
+test_cases = []
+idx = 1
+for _ in range(T):
+    n, k = map(int, input().split())
+    idx += 2
+    squads = []
+    for _ in range(n):
+        a, b = map(int, input().split())
+        squads.append((a, b))
+        idx += 2
+    test_cases.append(((n, k), squads))
+
+# 计算结果
+results = min_soldiers_to_form_groups(T, test_cases)
+
+# 输出结果
+print("\n".join(map(str, results)))
+```
