@@ -16,7 +16,7 @@ export default async function Page ({
   // const { page = '1', sort = 'asc', query = '' } = await searchParams
   const file_path = `app/md/mdx-page/test.mdx`
   
-  const {default: MdxDoc} = await import(`@/public/blog/alg.json`)
+  // const {default: MdxDoc} = await import(`@/public/blog/alg.json`)
   const { metadata, content, rawContent, toc } = await getFileWithMetaWithToc(file_path)
   // console.log("metadata:", metadata, "content:", content, "rawContent:", rawContent)
   if (!rawContent) return notFound()
