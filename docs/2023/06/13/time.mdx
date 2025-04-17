@@ -2,12 +2,12 @@
 title: time
 description: "时间 (Time) 是一种度量, 用于表示事件发生的顺序和持续时间"
 created_at: 2023-06-13T18:59:44Z
-updated_at: 2025-04-04T18:59:44Z
+updated_at: 2025-04-12T02:52:59Z
 tags: [time,python,alg]
 ---
 
 ```py
-from datetime import date, timedelta
+from datetime import date, datetime, timedelta
 # 计算两个日期之间的天数
 start_date = date(2025, 4, 1)
 end_date = date(2025, 4, 17)
@@ -58,4 +58,61 @@ while t0 < t1:
 print(res+1)  # 输出: 1994240
 ```
 
-numberTheory
+### 神奇闹钟
+
+小蓝发现了一个神奇的闹钟，从纪元时间（1970 年 1 月 1 日 00：00：00）开始，每经过 x 分钟，这个闹钟便会触发一次闹铃 (纪元时间也会响铃)。这引起了小蓝的兴趣，他想要好好研究下这个闹钟。
+
+对于给出的任意一个格式为 уууу-MM-ddHH:mm:ss 的时间，小蓝想要知道在这个时间点之前 (包含这个时间点) 的最近的一次闹铃时间是哪个时间?
+
+注意，你不必考虑时区问题。
+
+**输入格式**
+
+输入的第一行包含一个整数 T，表示每次输入包含 T 组数据。
+
+接下来依次描述 T 组数据。
+
+每组数据一行，包含一个时间（格式为 уууу-MM-ddHH:mm:ss）和一个整数 x，其中 x 表示闹铃时间间隔（单位为分钟）。
+
+**输出格式**
+
+输出 T 行，每行包含一个时间（格式为 уууу-MM-ddHH:mm:ss），依次表示每组数据的答案。
+
+**样例输入**
+```
+2
+2016-09-07 18:24:33 10
+2037-01-05 01:40:43 30
+```
+**样例输出**
+```
+2016-09-07 18:20:00
+2037-01-05 01:30:00
+```
+
+评测用例规模与约定
+
+对于所有评测用例，1≤T≤10,1≤x≤1000，保证所有的时间格式都是合法的。
+
+```py
+import sys
+input = lambda: sys.stdin.readline().strip()
+from datetime import date, datetime, timedelta
+
+t0 = datetime(1970, 1, 1, 0, 0, 0) # 纪元时间
+format = '%Y-%m-%d %H:%M:%S'
+def s(time_str, x):
+    # 解析时间字符串
+    dt = datetime.strptime(time_str, format)
+    # 计算最近的闹铃时间
+    delta = timedelta(minutes=x)
+    # 计算最近的闹铃时间
+    last_alarm_time = dt - (dt - t0) % delta
+    return last_alarm_time.strftime(format)
+
+n = int(input())
+for _ in range(n):
+    time_str1, time_str2, x = input().split()
+    time_str = time_str1 + ' ' + time_str2
+    print(s(time_str, int(x)))
+```

@@ -1,0 +1,35 @@
+---
+title: binary
+description: 
+created_at: 2021-12-12T22:00:52Z
+updated_at: 2025-04-11T22:00:52Z
+tags: [binary, alg]
+---
+
+```py
+def bin(number:int) -> str:
+    if number == 0:
+        return '0b0'
+    is_negative = number < 0
+    number = abs(number)
+    res = []
+
+    while number > 0:
+        # res.append(str(number % 2))
+        i = str(number % 2)  # 取余数
+        print(i)
+        # number //= 2
+        res.append(str(number & 1))  # 取最低位
+        number >>= 1  # 右移一位
+  
+    res.reverse()
+    binary = ''.join(res)
+
+    if is_negative:
+        return '-0b' + binary
+    return '0b' + binary
+```
+
+
+
+combinatorics

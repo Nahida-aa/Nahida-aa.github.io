@@ -2,7 +2,7 @@
 title: numberTheory
 description: "纯粹数学的分支之一，主要研究整数的性质。 整数可以是方程式的解（丢番图方程）。 有些解析函数（像黎曼ζ函数）中包括了一些整数、质数的性质，透过这些函数也可以了解一些数论的问题。 透过数论也可以建立实数和有理数之间的关系，并且用有理数来逼近实数（丢番图逼近）。"
 created_at: 2012-09-12T20:39:52Z
-updated_at: 2025-04-04T20:39:52Z
+updated_at: 2025-04-12T01:43:33Z
 tags: [math, numberTheory, alg]
 ---
 
@@ -65,3 +65,37 @@ def prime_factorization(n):
 print(prime_factorization(12))  # 输出: [(2, 2), (3, 1)]
 ```
 
+### 余与模运算
+
+
+#### 快速幂运算
+
+快速幂运算是计算 $a^n$ 的一种高效方法，时间复杂度为 $O(\log n)$
+
+```py
+def fast_pow(a, n):
+    res = 1
+    while n > 0:
+        if n & 1:  # 如果 n 的最低位是 1 (n % 2 == 1)
+            res *= a
+        a *= a
+        n >>= 1  # n //= 2
+    return res
+```
+
+##### 快速幂运算 + 模
+
+```math
+(a\times b) \mod m = ((a \mod m) \times (b \mod m)) \mod m
+```
+
+```py "% mod"/#y
+def fast_pow_mod(a, n, mod):
+    res = 1
+    while n > 0:
+        if n & 1:  # 如果 n 的最低位是 1 (n % 2 == 1)
+            res = (res * a) % mod
+        a = (a * a) % mod
+        n >>= 1  # n //= 2
+    return res
+```
