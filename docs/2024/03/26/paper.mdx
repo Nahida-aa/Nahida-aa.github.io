@@ -2,7 +2,7 @@
 title: paper
 description: 关于论文的记录
 created_at: 2024-03-26T20:55:25Z
-updated_at: 2025-04-05T17:34:39Z
+updated_at: 2025-04-17T16:19:32Z
 tags: [docs, paper]
 ---
 
@@ -765,6 +765,294 @@ income and wealth household measures.
 For more information, please visit CHARLS official website http://charls.pku.edu.cn/en.
 > [!NOTE]- 翻译
 > 有关更多信息，请访问 CHARLS 官方网站 http://charls.pku.edu.cn/en。
+##### Currency
+All CHARLS financial variables are expressed in current yuan. CHARLS asset questions are asked
+about current asset values.
+> [!NOTE]- 翻译
+> 所有 CHARLS 财务变量均以当前人民币表示。CHARLS 资产问题是关于当前资产价值的。
+
+For cross-country comparisons of financial variables, these values have to be converted to a
+single monetary unit. The Harmonized CHARLS dataset includes exchange rates for this
+purpose. It is the users’ responsibility to check what period a variable refers to and accordingly
+use the appropriate exchange rate.
+> [!NOTE]- 翻译
+> 对于金融变量的跨国比较，这些值必须转换为单一货币单位。Harmonized CHARLS 数据集包括用于此目的的汇率。用户有责任检查变量所指的时间段，并相应地使用适当的汇率。
+
+#### Structure of Codebook
+The Data Codebook contains the codebook documenting all variables in the Harmonized
+CHARLS Data. This section explains how to interpret the codebook entries. The figure below.
+shows a typical codebook page; the numbers in circles correspond to comments below.
+> [!NOTE]- 翻译
+> 数据代码簿包含记录 Harmonized CHARLS 数据中所有变量的代码簿。本节解释如何解释代码簿条目。下图显示了典型的代码簿页面；圆圈中的数字对应于下面的注释。
+
+[**Self-Report of Health**](#1-title)
+
+| Wave | Variable | Label | Type |
+| ----- | ------- | ----- | ---- |
+|[1](#2-variable-names) | R1SHLT | r1shlt:w1 r self-report of health | Categ |
+|2| R2SHLT| r2shlt:w2 r self-report of health| Categ|
+|3| R3SHLT| r3shlt:w3 r self-report of health| Categ|
+|1 |S1SHLT |s1shlt:w1 s self-report of health| Categ|
+|2| S2SHLT| s2shlt:w2 s self-report of health| Categ|
+|3| S3SHLT| s3shlt:w3 s self-report of health |Categ|
+|1| R1SHLTA| r1shlta:w1 r Self-report of health alt| Categ|
+|2| R2SHLTA| r2shlta:w2 r Self-report of health alt| Categ|
+|3| R3SHLTA| r3shlta:w3 r Self-report of health alt| Categ|
+|4| R4SHLTA| r4shlta:w4 r Self-report of health alt| Categ|
+|1| S1SHLTA| s1shlta:w1 s Self-report of health alt| Categ|
+|2| S2SHLTA| s2shlta:w2 s Self-report of health alt| Categ|
+|3| S3SHLTA| s3shlta:w3 s Self-report of health alt| Categ|
+|4| S4SHLTA| s4shlta:w4 s Self-report of health alt| Categ|
+
+[**Descriptive Statistics**](#5-descriptive-statistics)
+| Variable | N | Mean | Std Dev | Minimum | Maximum |
+| ------- | - | ---- | ------- | ------- | ------- |
+| R1SHLT | 12613 | 3.86 | 0.92 | 1.00 | 5.00 |
+| R2SHLT | 17591 | 3.83 | 0.93 | 1.00 | 5.00 |
+| R3SHLT | 19701 | 3.80 | 0.95 | 1.00 | 5.00 |
+| S1SHLT | 10725 | 3.85 | 0.92 | 1.00 | 5.00 |
+| S2SHLT | 14850 | 3.82 | 0.92 | 1.00 | 5.00 |
+| S3SHLT | 16749 | 3.77 | 0.95 | 1.00 | 5.00 |
+| R1SHLTA | 17561 | 3.03 | 0.92 | 1.00 | 5.00 |
+| R2SHLTA | 17603 | 2.97 | 0.96 | 1.00 | 5.00 |
+| R3SHLTA | 19698 | 2.89 | 0.99 | 1.00 | 5.00 |
+| R4SHLTA | 18278 | 2.95 | 1.03 | 1.00 | 5.00 |
+| S1SHLTA | 14846 | 3.01 | 0.92 | 1.00 | 5.00 |
+| S2SHLTA | 14844 | 2.95 | 0.95 | 1.00 | 5.00 |
+| S3SHLTA | 16751 | 2.87 | 0.98 | 1.00 | 5.00 |
+| S4SHLTA | 15266 | 2.92 | 1.02 | 1.00 | 5.00 |
+
+[**Categorical Variable Codes**](#6-categorical-value-codes)
+| Value | R1SHLT | R2SHLT | R3SHLT |
+| ----- | ------ | ------ | ------ |
+| .d:dk | 8 |  |  |
+| .m:missing | 5086 | 1021 | 1396 |
+| .r:refuse | 1 |  |  |
+| 1.Excellent | 106 | 241 | 279 |
+| 2.Very good | 1146 | 1774 | 2374 |
+| 3.Good | 2274 | 2512 | 2454 |
+| 4.Fair | 4080 | 4712 | 4687 |
+| 5.Poor | 3027 | 3278 | 3190 |
+
+| Value | S1SHLT | S2SHLT | S3SHLT |
+| ----- | ------ | ------ | ------ |
+| .d:dk |  7 |  |  |
+| .m:missing | 4178 | 730 | 975 |
+| .u:unmar | 2260 | 2401 | 2719 |
+| .v:sp nr | 538 | 622 | 650 |
+| 1.Excellent | 91 | 198 | 243 |
+| 2.Very good | 980 | 1520 | 2095 |
+| 3.Good | 1962 | 2128 | 2099 |
+| 4.Fair | 5072 | 7858 | 9064 |
+| 5.Poor | 2620 | 3146 | 3248 |
+
+| Value | R1SHLTA | R2SHLTA | R3SHLTA | R4SHLTA |
+| ----- | ------- | ------- | ------- | ------- |
+| .d:dk | 12 |  |  |  |
+| .m:missing | 134 | 1009 | 1399 | 1538 |
+| .r:refuse | 1 |  |  |  |
+| 1.Very good | 1099 | 1626 | 2439 | 2229 |
+| 2.Good | 3030 | 2530 | 2569 | 2348 |
+| 3.Fair | 8551 | 9126 | 10305 | 8938 |
+| 4.Poor | 4035 | 3399 | 3442 | 3687 |
+| 5.Very Poor | 846 | 922 | 943 | 1076 |
+
+| Value | S1SHLTA | S2SHLTA | S3SHLTA | S4SHLTA |
+| ----- | ------- | ------- | ------- | ------- |
+| .d:dk | 10 |  |  |  |
+| .m:missing | 53 | 736 | 973 | 1096 |
+| .r:refuse | 1 |  |  |  |
+| .u:unmar | 2260 | 2401 | 2719 | 2926 |
+| .v:sp nr | 538 | 622 | 650 | 517 |
+| 1.Very good | 959 | 1400 | 2143 | 1928 |
+| 2.Good | 2590 | 2144 | 2179 | 1966 |
+| 3.Fair | 7281 | 7809 | 8896 | 7589 |
+| 4.Poor | 3326 | 2771 | 2800 | 2947 |
+| 5.Very Poor | 690 | 720 | 733 | 836 |
+
+[**How Constructed**](#7-how-constructed)
+CHARLS has two scales for respondents to self-report their current health condition. One
+of the scales ranges from 1 for Excellent to 5 for Poor. The other scale ranges from 1
+for Very Good to 5 for Very Poor.
+> [!NOTE]- 翻译
+> CHARLS 有两个量表供受访者自我报告他们的健康状况。一个量表的范围是 1（优秀）到 5（差）。另一个量表的范围是 1（非常好）到 5（非常差）。
+
+At Waves 1 to 3, respondents were asked their health status twice, once at the beginning
+of the health module and again at the end of the health module. At the beginning of the
+health module, respondents are randomly assigned into two groups; the first group of
+respondents is asked the first scale at the beginning and second scale at the end. The
+second group of respondents is asked the second scale at the beginning and the first
+scale at the end. Starting at Wave 4, respondents were only asked to self-report their
+current health condition at the beginning of the health module. Respondents are asked the
+second scale.
+> [!NOTE]- 翻译
+> 在第 1 到第 3 波中，受访者被问到两次健康状况，一次是在健康模块的开始，另一次是在健康模块的结束。在健康模块开始时，受访者随机分为两组；第一组受访者在开始时被问到第一个量表，在结束时被问到第二个量表。第二组受访者在开始时被问到第二个量表，在结束时被问到第一个量表。从第 4 波开始，受访者只需在健康模块开始时自我报告当前的健康状况。受访者被问到第二个量表。
+
+At Waves 1 to 3, RwSHLT is the respondent's self-reported general health status using the
+scale ranging from 1 for Excellent to 5 for Poor. When respondents don’t know, are
+missing, or refuse to answer, RwSHLT is assigned special missing values (.d), (.m), or
+(.r), respectively. RwSHLT is set to plain missing (.) for respondents who did not
+respond to this wave.
+> [!NOTE]- 翻译
+> 在第 1 到第 3 波中，RwSHLT 是受访者自我报告的健康状况，使用的量表范围是 1（优秀）到 5（差）。当受访者不知道、缺失或拒绝回答时，RwSHLT 分别分配特殊缺失值 (.d)、(.m) 或 (.r)。对于未对该波次作出回应的受访者，RwSHLT 设置为普通缺失值 (.)。
+
+SwSHLT is the respondent’s spouse’s self-reported general health status taken directly
+from the spouse’s RwSHLT. In addition to the special missing codes used in RwSHLT, SwSHLT
+employs special missing (.u) if the respondent did not report being coupled in the
+current wave, and the special missing value (.v) if the respondent reports being coupled
+in the current wave but their spouse is not interviewed.
+> [!NOTE]- 翻译
+> SwSHLT 是受访者配偶的自我报告健康状况，直接取自配偶的 RwSHLT。除了 RwSHLT 中使用的特殊缺失代码外，如果受访者没有报告在当前波次中成对，则 SwSHLT 使用特殊缺失 (.u)，如果受访者在当前波次中报告成对但其配偶未接受采访，则使用特殊缺失值 (.v)。
+
+RwSHLTA is the respondent’s self-reported general health status ranging from 1 for Very
+Good to 5 for Very Poor. When respondents don’t know, are missing, or refuse to answer,
+RwSHLTA is assigned special missing values (.d), (.m), or (.r), respectively. RwSHLTA is
+set to plain missing (.) for respondents who did not respond to this wave.
+> [!NOTE]- 翻译
+> RwSHLTA 是受访者自我报告的健康状况，范围从 1（非常好）到 5（非常差）。当受访者不知道、缺失或拒绝回答时，RwSHLTA 分别分配特殊缺失值 (.d)、(.m) 或 (.r)。对于未对该波次作出回应的受访者，RwSHLTA 设置为普通缺失值 (.)。
+
+SwSHLTA is the respondent’s spouse’s self-reported general health status taken directly
+from the spouse’s RwSHLTA. In addition to the special missing codes used in RwSHLTA,
+SwSHLTA employs special missing (.u) if the respondent did not report being coupled in
+the current wave, and the special missing value (.v) if the respondent reports being
+coupled in the current wave but their spouse is not interviewed.
+> [!NOTE]- 翻译
+> SwSHLTA 是受访者配偶的自我报告健康状况，直接取自配偶的 RwSHLTA。除了 RwSHLTA 中使用的特殊缺失代码外，如果受访者没有报告在当前波次中成对，则 SwSHLTA 使用特殊缺失 (.u)，如果受访者在当前波次中报告成对但其配偶未接受采访，则使用特殊缺失值 (.v)。
+
+[**Cross-Wave Differences in CHARLS**](#8-cross-wave-differences-in-charls)
+Due to routing error that was happened in the wave 1 questionnaire, some respondents
+answered the second scale of self-reported general health status twice and did not answer
+the first scale of self-reported general health status. In the case that respondents have
+two reports of the second scale of self-reported health status only the first report at
+the beginning of the health module is used in RwSHLTA.
+> [!NOTE]- 翻译
+> 由于第 1 波问卷中发生的路由错误，一些受访者两次回答了第二个自我报告的健康状况量表，而没有回答第一个自我报告的健康状况量表。在受访者仅有第二个自我报告健康状况的两份报告的情况下，仅在健康模块开始时使用第一份报告中的 RwSHLTA。
+
+Starting at Wave 4, respondents were only asked to self-report their current health
+condition in the beginning of the health module. Respondents are asked the second scale.
+> [!NOTE]- 翻译
+> 从第 4 波开始，受访者只需在健康模块开始时自我报告当前的健康状况。受访者被问到第二个量表。
+
+[**Differences with the RAND HRS/Harmonized HRS**](#9-differences-with-the-rand-hrs-harmonized-hrs)
+Unlike the HRS, CHALRS respondents were assigned to either the beginning or end of the
+health module to answer RwSHLT. RwSHLTF indicates this timing.
+> [!NOTE]- 翻译
+> 与 HRS 不同，CHALRS 受访者被分配到健康模块的开始或结束，以回答 RwSHLT。RwSHLTF 表示此时间。
+
+Unlike the HRS, CHARLS also employs a second scale of self-reported general health
+status. RwSHLTA is the respondent’s self-reported general health status using a scale
+ranging from Very Good to Very Poor.
+> [!NOTE]- 翻译
+> 与 HRS 不同，CHARLS 还使用第二个自我报告的健康状况量表。RwSHLTA 是受访者自我报告的健康状况，使用的量表范围从非常好到非常差。
+
+[**CHARLS Variables Used**](#10-charls-variables-used)
+
+Wave 1:
+- DA001 Self Comment of Your Health
+- DA002 Self Comment of Your Health
+- DA079 Self Comment of Your Health By Comparing With Others
+- DA080 Self Comment of Your Health
+
+Wave 2:
+- DA001 Self Assessed Health Status (Excellent)
+- DA002 Self Assessed Health Status (Very Good)
+- DA079 Health Status(Self)
+- DA080 Self Comment of Your Health
+
+Wave 3:
+- DA001 Self Assessed Health Status (Excellent)
+- DA002 Self Assessed Health Status (Very Good)
+- DA079 Health Status(Self)
+- DA080 Self Comment of Your Health
+
+Wave 4:
+- DA002 Self-Reported Health Status
+
+##### 1 Title
+The variables are documented in groups according to the concept that
+they measure. For example, there are six variables related to self-reported
+health, corresponding to three waves and respondent/spouse, and eight
+variables related to self-reported health using an alternate scale,
+corresponding to four waves and respondent/spouse. The title is often
+followed by a short description of the concept that is captured.
+> [!NOTE]- 翻译
+> 变量根据它们测量的概念分组记录。例如，有六个与自我报告健康相关的变量，对应于三个波次和受访者/配偶，还有八个与自我报告健康相关的变量，使用替代量表，对应于四个波次和受访者/配偶。标题后通常会有一个简短的描述，说明所捕获的概念。
+
+##### 2 Variable Names
+ This entry shows the waves of variables in the group. Not all
+waves are present for all variables. For example, R1SHLT is available for the
+first three waves, but R4SHLT wasn’t created for the fourth wave because the
+US version of self-reported health wasn’t asked in CHARLS Wave 4.
+> [!NOTE]- 翻译
+> 此条目显示组中变量的波次。并非所有变量都存在于所有波次中。例如，R1SHLT 在前三个波次中可用，但 R4SHLT 在第四波次中没有创建，因为 CHARLS 第四波次没有询问自我报告健康的美国版本。
+
+##### 3 Variable Labels
+his entry shows the Stata variable labels. As discussed
+above, the labels typically include the name of the variable, the file on which it
+is present, and a description of its contents.
+> [!NOTE]- 翻译
+> 此条目显示 Stata 变量标签。如上所述，标签通常包括变量名称、变量所在的文件以及其内容的描述。
+
+##### 4 Variable Type
+This entry indicates the type of variable. It may be continuous
+(Cont), categorical (Categ), or character (Char).
+> [!NOTE]- 翻译
+> 此条目指示变量的类型。它可以是连续的 (Cont)、分类的 (Categ) 或字符的 (Char)。
+
+##### 5 Descriptive Statistics
+This entry shows descriptive statistics on each variable.
+They include the number of nonmissing values, the mean, standard deviation,
+minimum value, and maximum value.
+> [!NOTE]- 翻译
+> 此条目显示每个变量的描述性统计信息。它们包括非缺失值的数量、均值、标准差、最小值和最大值。
+
+##### 6 Categorical Value Codes
+This entry shows the value label codes. These are
+only relevant for categorical variables. The first character(s) of the value labels
+indicate the value to which each label has been assigned. For example, value
+“1” for R1SHLT is mapped into “1. Excellent” (not just “Excellent”). The entry
+also indicates which labels are assigned to which variables, and shows
+frequency tabulations for all categorical variables.
+> [!NOTE]- 翻译
+> 此条目显示值标签代码。这些仅与分类变量相关。值标签的第一个字符指示分配给每个标签的值。例如，R1SHLT 的值“1”映射到“1. 优秀”（而不仅仅是“优秀”）。该条目还指示哪些标签分配给哪些变量，并显示所有分类变量的频率制表。
+
+##### 7 How Constructed
+This entry provides background on the manner in which
+variables were constructed.
+> [!NOTE]- 翻译
+> 此条目提供有关变量构造方式的背景信息。
+##### 8 Cross-Wave Differences in CHARLS
+This entry briefly describes differences in
+question wording or contents between interview waves.
+> [!NOTE]- 翻译
+> 此条目简要描述了访谈波次之间问题措辞或内容的差异。
+
+##### 9 Differences with the RAND HRS/Harmonized HRS
+This entry describes any
+differences between the RAND HRS or Harmonized HRS version of the variable
+and the Harmonized CHARLS version of the variable. It is imperative these
+differences are understood when using harmonized measures.
+> [!NOTE]- 翻译
+> 此条目描述了 RAND HRS 或 Harmonized HRS 版本的变量与 Harmonized CHARLS 版本的变量之间的任何差异。使用协调测量时，必须理解这些差异。
+##### 10 CHARLS Variables Used
+This entry provides the names and labels of raw
+CHARLS variables that were used to construct the new variables.
+> [!NOTE]- 翻译
+> 此条目提供了用于构建新变量的原始 CHARLS 变量的名称和标签。
+
+#### Distribution and Technical Notes 分布和技术说明
+The Harmonized CHARLS Data file is distributed by the CHARLS team. The Harmonized CHARLS
+Data file is made available free of charge to users who register China Health and Retirement
+Longitudinal Study webiste http://charls.pku.edu.cn/en and agree to the standard conditions.
+For more information on obtaining access to the CHARLS data visit: http://charls.pku.edu.cn/en
+This is version D of the Harmonized CHARLS Data.
+> [!NOTE]- 翻译
+> Harmonized CHARLS 数据文件由 CHARLS 团队分发。Harmonized CHARLS 数据文件免费提供给注册中国健康与退休纵向研究网站 http://charls.pku.edu.cn/en 并同意标准条件的用户。有关获取 CHARLS 数据访问权限的更多信息，请访问：http://charls.pku.edu.cn/en 这是 Harmonized CHARLS 数据的 D 版本。
+
+A copy of this Harmonized CHARLS Codebook can be obtained on the Gateway to Global Aging
+Data (www.g2aging.org) under the Download tabs.
+> [!NOTE]- 翻译
+> 可以在全球老龄化数据门户网站 (www.g2aging.org) 的下载选项卡下获得此 Harmonized CHARLS 代码簿的副本。
 
 ### 2020 CHARLS Wave 5
 
@@ -774,7 +1062,7 @@ For more information, please visit CHARLS official website http://charls.pku.edu
 | 问卷模块 | dataset | description |
 | ------- | ------- | ----------- |
 | B. 基本信息 | Demographic_Background | 主要受访者及其配偶的基本人口学信息 |
-| C. 家庭信息 |  Family_Information | 家庭以及家户成员信息 |
+| C. 家庭信息 | Family_Information | 家庭以及家户成员信息 |
 | D. 健康状况与功能 | Health_Status_and_Functioning | 健康状态、健康行为以及认知能力 |
 | F. 工作与退休 | Work_Retirement | 工作以及退休状况 |
 | G1. 家户收入与支出 | Household_Income | 家户收入、支出以及住房情况 |

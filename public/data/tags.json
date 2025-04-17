@@ -1,7 +1,155 @@
 {
-  "alg": {
-    "count": 8,
+  "math": {
+    "count": 6,
     "docs": [
+      {
+        "url": "/blog/2018/11/10/max.mdx",
+        "meta": {
+          "title": "max",
+          "description": "例题 $f(x)_{min}=2\\sin x + \\s...",
+          "created_at": "2018-11-10T17:32:07.000Z",
+          "updated_at": "2025-04-06T17:32:07.000Z",
+          "tags": [
+            "math",
+            "max"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2013/06/12/coc.mdx",
+        "meta": {
+          "title": "coc",
+          "description": "例子 | l | h | exp | 是速 | 矿石 ...",
+          "created_at": "2013-06-12T20:35:23.000Z",
+          "updated_at": "2025-04-13T20:35:23.000Z",
+          "tags": [
+            "math"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2012/09/16/numberTheory.mdx",
+        "meta": {
+          "title": "numberTheory",
+          "description": "纯粹数学的分支之一，主要研究整数的性质。 整数可以是方程式的解（丢番图方程）。 有些解析函数（像黎曼ζ函数）中包括了一些整数、质数的性质，透过这些函数也可以了解一些数论的问题。 透过数论也可以建立实数和有理数之间的关系，并且用有理数来逼近实数（丢番图逼近）。",
+          "created_at": "2012-09-12T20:39:52.000Z",
+          "updated_at": "2025-04-04T20:39:52.000Z",
+          "tags": [
+            "math",
+            "numberTheory",
+            "alg"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2021/11/11/calculus.mdx",
+        "meta": {
+          "title": "微积分",
+          "description": "...",
+          "created_at": "2021-11-11T10:13:16.000Z",
+          "updated_at": "2025-03-30T10:13:16.000Z",
+          "tags": [
+            "math"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2024/05/19/latex.mdx",
+        "meta": {
+          "title": "Latex",
+          "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
+          "created_at": "2024-05-19T19:35:46.000Z",
+          "updated_at": "2025-03-28T19:35:46.000Z",
+          "tags": [
+            "docs",
+            "math",
+            "latex"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2016/10/11/equation.mdx",
+        "meta": {
+          "title": "equation",
+          "description": "一元二次方程 对于一元二次方程 有如下通用形式(组合式...",
+          "created_at": "2016-10-11T18:14:10.000Z",
+          "updated_at": "2025-04-06T18:14:10.000Z",
+          "tags": [
+            "math",
+            "equation"
+          ]
+        }
+      }
+    ]
+  },
+  "max": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2018/11/10/max.mdx",
+        "meta": {
+          "title": "max",
+          "description": "例题 $f(x)_{min}=2\\sin x + \\s...",
+          "created_at": "2018-11-10T17:32:07.000Z",
+          "updated_at": "2025-04-06T17:32:07.000Z",
+          "tags": [
+            "math",
+            "max"
+          ]
+        }
+      }
+    ]
+  },
+  "numberTheory": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2012/09/16/numberTheory.mdx",
+        "meta": {
+          "title": "numberTheory",
+          "description": "纯粹数学的分支之一，主要研究整数的性质。 整数可以是方程式的解（丢番图方程）。 有些解析函数（像黎曼ζ函数）中包括了一些整数、质数的性质，透过这些函数也可以了解一些数论的问题。 透过数论也可以建立实数和有理数之间的关系，并且用有理数来逼近实数（丢番图逼近）。",
+          "created_at": "2012-09-12T20:39:52.000Z",
+          "updated_at": "2025-04-04T20:39:52.000Z",
+          "tags": [
+            "math",
+            "numberTheory",
+            "alg"
+          ]
+        }
+      }
+    ]
+  },
+  "alg": {
+    "count": 9,
+    "docs": [
+      {
+        "url": "/blog/2012/09/16/numberTheory.mdx",
+        "meta": {
+          "title": "numberTheory",
+          "description": "纯粹数学的分支之一，主要研究整数的性质。 整数可以是方程式的解（丢番图方程）。 有些解析函数（像黎曼ζ函数）中包括了一些整数、质数的性质，透过这些函数也可以了解一些数论的问题。 透过数论也可以建立实数和有理数之间的关系，并且用有理数来逼近实数（丢番图逼近）。",
+          "created_at": "2012-09-12T20:39:52.000Z",
+          "updated_at": "2025-04-04T20:39:52.000Z",
+          "tags": [
+            "math",
+            "numberTheory",
+            "alg"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2023/06/13/time.mdx",
+        "meta": {
+          "title": "time",
+          "description": "时间 (Time) 是一种度量, 用于表示事件发生的顺序和持续时间",
+          "created_at": "2023-06-13T18:59:44.000Z",
+          "updated_at": "2025-04-04T18:59:44.000Z",
+          "tags": [
+            "time",
+            "python",
+            "alg"
+          ]
+        }
+      },
       {
         "url": "/blog/2024/03/12/dp.mdx",
         "meta": {
@@ -41,6 +189,19 @@
         }
       },
       {
+        "url": "/blog/2025/03/25/bisect.mdx",
+        "meta": {
+          "title": "bisect",
+          "description": "二分查找是一种高效的查找算法，适用于有序数组或列表。它的核心思想是通过比较中间元素和目标值的大小，缩小查找范围，直到找到目标值或范围为空。",
+          "created_at": "2025-03-25T04:40:00.000Z",
+          "updated_at": "2025-04-10T17:37:05.000Z",
+          "tags": [
+            "alg",
+            "bisect"
+          ]
+        }
+      },
+      {
         "url": "/blog/2025/03/26/bfs.mdx",
         "meta": {
           "title": "bfs",
@@ -76,435 +237,6 @@
           "tags": [
             "alg",
             "tree"
-          ]
-        }
-      },
-      {
-        "url": "/blog/2012/09/16/numberTheory.mdx",
-        "meta": {
-          "title": "numberTheory",
-          "description": "纯粹数学的分支之一，主要研究整数的性质。 整数可以是方程式的解（丢番图方程）。 有些解析函数（像黎曼ζ函数）中包括了一些整数、质数的性质，透过这些函数也可以了解一些数论的问题。 透过数论也可以建立实数和有理数之间的关系，并且用有理数来逼近实数（丢番图逼近）。",
-          "created_at": "2012-09-12T20:39:52.000Z",
-          "updated_at": "2025-04-04T20:39:52.000Z",
-          "tags": [
-            "math",
-            "numberTheory",
-            "alg"
-          ]
-        }
-      },
-      {
-        "url": "/blog/2023/06/13/time.mdx",
-        "meta": {
-          "title": "time",
-          "description": "时间 (Time) 是一种度量, 用于表示事件发生的顺序和持续时间",
-          "created_at": "2023-06-13T18:59:44.000Z",
-          "updated_at": "2025-04-04T18:59:44.000Z",
-          "tags": [
-            "time",
-            "python",
-            "alg"
-          ]
-        }
-      }
-    ]
-  },
-  "dp": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2024/03/12/dp.mdx",
-        "meta": {
-          "title": "dp",
-          "description": "**动态规划(Dynamic Programming)** 是一种将复杂问题分解成更小的子问题的方法, 通过保存子问题的结果来避免重复计算",
-          "created_at": "2024-03-12T16:22:16.000Z",
-          "updated_at": "2025-04-03T16:22:16.000Z",
-          "tags": [
-            "alg",
-            "dp"
-          ]
-        }
-      }
-    ]
-  },
-  "graph": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2024/03/13/graph.mdx",
-        "meta": {
-          "title": "graph",
-          "description": "图 (Graph) 是一种数据结构, 由节点 (Vertex) 和边 (Edge) 组成, 用于表示对象之间的关系",
-          "created_at": "2024-03-13T16:39:24.000Z",
-          "updated_at": "2025-04-04T16:39:24.000Z",
-          "tags": [
-            "alg",
-            "graph"
-          ]
-        }
-      }
-    ]
-  },
-  "docs": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2024/05/19/latex.mdx",
-        "meta": {
-          "title": "Latex",
-          "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
-          "created_at": "2024-05-19T19:35:46.000Z",
-          "updated_at": "2025-03-28T19:35:46.000Z",
-          "tags": [
-            "docs",
-            "math",
-            "latex"
-          ]
-        }
-      }
-    ]
-  },
-  "math": {
-    "count": 3,
-    "docs": [
-      {
-        "url": "/blog/2024/05/19/latex.mdx",
-        "meta": {
-          "title": "Latex",
-          "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
-          "created_at": "2024-05-19T19:35:46.000Z",
-          "updated_at": "2025-03-28T19:35:46.000Z",
-          "tags": [
-            "docs",
-            "math",
-            "latex"
-          ]
-        }
-      },
-      {
-        "url": "/blog/2021/11/11/calculus.mdx",
-        "meta": {
-          "title": "微积分",
-          "description": "...",
-          "created_at": "2021-11-11T10:13:16.000Z",
-          "updated_at": "2025-03-30T10:13:16.000Z",
-          "tags": [
-            "math"
-          ]
-        }
-      },
-      {
-        "url": "/blog/2012/09/16/numberTheory.mdx",
-        "meta": {
-          "title": "numberTheory",
-          "description": "纯粹数学的分支之一，主要研究整数的性质。 整数可以是方程式的解（丢番图方程）。 有些解析函数（像黎曼ζ函数）中包括了一些整数、质数的性质，透过这些函数也可以了解一些数论的问题。 透过数论也可以建立实数和有理数之间的关系，并且用有理数来逼近实数（丢番图逼近）。",
-          "created_at": "2012-09-12T20:39:52.000Z",
-          "updated_at": "2025-04-04T20:39:52.000Z",
-          "tags": [
-            "math",
-            "numberTheory",
-            "alg"
-          ]
-        }
-      }
-    ]
-  },
-  "latex": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2024/05/19/latex.mdx",
-        "meta": {
-          "title": "Latex",
-          "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
-          "created_at": "2024-05-19T19:35:46.000Z",
-          "updated_at": "2025-03-28T19:35:46.000Z",
-          "tags": [
-            "docs",
-            "math",
-            "latex"
-          ]
-        }
-      }
-    ]
-  },
-  "java": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2024/10/12/java.mdx",
-        "meta": {
-          "title": "Java",
-          "description": "东西都被删除了吗 runtime function 重...",
-          "created_at": "2024-10-12T15:55:11.000Z",
-          "updated_at": "2025-03-30T15:55:11.000Z",
-          "tags": [
-            "java"
-          ]
-        }
-      }
-    ]
-  },
-  "web": {
-    "count": 4,
-    "docs": [
-      {
-        "url": "/blog/2025/02/01/ws.mdx",
-        "meta": {
-          "title": "websocket",
-          "description": "v",
-          "created_at": "2025-02-01T17:34:03.000Z",
-          "updated_at": "2025-04-02T17:34:03.000Z",
-          "tags": [
-            "web",
-            "ws"
-          ]
-        }
-      },
-      {
-        "url": "/blog/2025/03/27/api.mdx",
-        "meta": {
-          "title": "api",
-          "description": "fastApi vs hono",
-          "created_at": "2025-03-27T23:15:42.000Z",
-          "updated_at": "2025-03-27T23:15:42.000Z",
-          "tags": [
-            "web",
-            "api"
-          ]
-        }
-      },
-      {
-        "url": "/blog/2023/07/12/auth.mdx",
-        "meta": {
-          "title": "auth",
-          "description": "...",
-          "created_at": "2023-07-12T05:59:58.000Z",
-          "updated_at": "2025-04-02T05:59:58.000Z",
-          "tags": [
-            "web",
-            "auth"
-          ]
-        }
-      },
-      {
-        "url": "/blog/2023/07/13/dns.mdx",
-        "meta": {
-          "title": "dns",
-          "description": "全称是 Domain Name System （域名系统），它是互联网的重要基础设施之一，用于将人类易于记忆的 域名（如 www.example.com) 转换为计算机可以识别的 IP 地址（如 192.168.1.1 或 2606:4700:4700::1111)",
-          "created_at": "2023-07-13T16:23:48.000Z",
-          "updated_at": "2025-04-02T16:23:48.000Z",
-          "tags": [
-            "web",
-            "dns"
-          ]
-        }
-      }
-    ]
-  },
-  "ws": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2025/02/01/ws.mdx",
-        "meta": {
-          "title": "websocket",
-          "description": "v",
-          "created_at": "2025-02-01T17:34:03.000Z",
-          "updated_at": "2025-04-02T17:34:03.000Z",
-          "tags": [
-            "web",
-            "ws"
-          ]
-        }
-      }
-    ]
-  },
-  "bfs": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2025/03/26/bfs.mdx",
-        "meta": {
-          "title": "bfs",
-          "description": "通常是指 广度优先搜索 (Breadth-First Search)，一种经典的图算法，用于遍历或搜索树或图的数据结构",
-          "created_at": "2025-03-26T22:29:10.000Z",
-          "updated_at": "2025-03-27T20:40:13.000Z",
-          "tags": [
-            "alg",
-            "bfs"
-          ]
-        }
-      }
-    ]
-  },
-  "nextjs": {
-    "count": 2,
-    "docs": [
-      {
-        "url": "/blog/2025/03/26/export.mdx",
-        "meta": {
-          "title": "export",
-          "description": "当想要将next.js项目导出为静态网站时, 可以使用next export命令。",
-          "created_at": "2025-03-26T03:42:29.000Z",
-          "updated_at": "2025-03-26T03:42:29.000Z",
-          "tags": [
-            "nextjs",
-            "export",
-            "html"
-          ]
-        }
-      },
-      {
-        "url": "/blog/2025/03/26/nextPwa.mdx",
-        "meta": {
-          "title": "Next PWA",
-          "description": "渐进式 Web 应用（PWA）结合了 Web 应用的覆盖范围和可访问性，以及原生移动应用的功能和用户体验。使用 Next.js，您可以创建提供无缝、类似应用体验的 PWA，无需多个代码库或应用商店审批",
-          "created_at": "2025-03-29T05:13:17.000Z",
-          "updated_at": "2025-03-29T05:13:17.000Z",
-          "tags": [
-            "nextjs",
-            "pwa"
-          ]
-        }
-      }
-    ]
-  },
-  "export": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2025/03/26/export.mdx",
-        "meta": {
-          "title": "export",
-          "description": "当想要将next.js项目导出为静态网站时, 可以使用next export命令。",
-          "created_at": "2025-03-26T03:42:29.000Z",
-          "updated_at": "2025-03-26T03:42:29.000Z",
-          "tags": [
-            "nextjs",
-            "export",
-            "html"
-          ]
-        }
-      }
-    ]
-  },
-  "html": {
-    "count": 2,
-    "docs": [
-      {
-        "url": "/blog/2025/03/26/export.mdx",
-        "meta": {
-          "title": "export",
-          "description": "当想要将next.js项目导出为静态网站时, 可以使用next export命令。",
-          "created_at": "2025-03-26T03:42:29.000Z",
-          "updated_at": "2025-03-26T03:42:29.000Z",
-          "tags": [
-            "nextjs",
-            "export",
-            "html"
-          ]
-        }
-      },
-      {
-        "url": "/blog/2023/08/02/css.mdx",
-        "meta": {
-          "title": "css",
-          "description": ":has()...",
-          "created_at": "2023-08-02T10:35:32.000Z",
-          "updated_at": "2025-03-30T10:35:32.000Z",
-          "tags": [
-            "css",
-            "html"
-          ]
-        }
-      }
-    ]
-  },
-  "pwa": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2025/03/26/nextPwa.mdx",
-        "meta": {
-          "title": "Next PWA",
-          "description": "渐进式 Web 应用（PWA）结合了 Web 应用的覆盖范围和可访问性，以及原生移动应用的功能和用户体验。使用 Next.js，您可以创建提供无缝、类似应用体验的 PWA，无需多个代码库或应用商店审批",
-          "created_at": "2025-03-29T05:13:17.000Z",
-          "updated_at": "2025-03-29T05:13:17.000Z",
-          "tags": [
-            "nextjs",
-            "pwa"
-          ]
-        }
-      }
-    ]
-  },
-  "api": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2025/03/27/api.mdx",
-        "meta": {
-          "title": "api",
-          "description": "fastApi vs hono",
-          "created_at": "2025-03-27T23:15:42.000Z",
-          "updated_at": "2025-03-27T23:15:42.000Z",
-          "tags": [
-            "web",
-            "api"
-          ]
-        }
-      }
-    ]
-  },
-  "dfs": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2025/03/27/dfs.mdx",
-        "meta": {
-          "title": "dfs",
-          "description": "最大数字 lanqiao 2193 https://w...",
-          "created_at": "2025-03-27T20:41:55.000Z",
-          "updated_at": "2025-03-27T20:41:55.000Z",
-          "tags": [
-            "alg",
-            "dfs"
-          ]
-        }
-      }
-    ]
-  },
-  "tree": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2025/03/28/Union-Find.mdx",
-        "meta": {
-          "title": "Union-Find",
-          "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 并查集通常实现为一个森林，其中每棵树表示一个集合 是一种用于处理动态连通性问题的数据结构。",
-          "created_at": "2025-03-28T19:28:35.000Z",
-          "updated_at": "2025-03-30T02:10:58.000Z",
-          "tags": [
-            "alg",
-            "tree"
-          ]
-        }
-      }
-    ]
-  },
-  "todo": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2025/03/30/todo.mdx",
-        "meta": {
-          "title": "todo",
-          "description": "paper | 时间 | 任务 | | ------ ...",
-          "created_at": "2025-03-30T20:54:11.000Z",
-          "updated_at": "2025-03-31T20:54:11.000Z",
-          "tags": [
-            "todo"
           ]
         }
       }
@@ -558,25 +290,6 @@
           "tags": [
             "git",
             "cli"
-          ]
-        }
-      }
-    ]
-  },
-  "numberTheory": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2012/09/16/numberTheory.mdx",
-        "meta": {
-          "title": "numberTheory",
-          "description": "纯粹数学的分支之一，主要研究整数的性质。 整数可以是方程式的解（丢番图方程）。 有些解析函数（像黎曼ζ函数）中包括了一些整数、质数的性质，透过这些函数也可以了解一些数论的问题。 透过数论也可以建立实数和有理数之间的关系，并且用有理数来逼近实数（丢番图逼近）。",
-          "created_at": "2012-09-12T20:39:52.000Z",
-          "updated_at": "2025-04-04T20:39:52.000Z",
-          "tags": [
-            "math",
-            "numberTheory",
-            "alg"
           ]
         }
       }
@@ -694,6 +407,80 @@
       }
     ]
   },
+  "biomedicine": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2023/06/13/venousThrombosis.mdx",
+        "meta": {
+          "title": "Venous Thrombosis",
+          "description": "静脉血栓形成是指血液在静脉内异常凝固，形成血栓，可能导致静脉阻塞和其他并发症。",
+          "created_at": "2023-06-13T04:12:31.000Z",
+          "updated_at": "2025-04-07T04:12:31.000Z",
+          "tags": [
+            "biomedicine"
+          ]
+        }
+      }
+    ]
+  },
+  "web": {
+    "count": 4,
+    "docs": [
+      {
+        "url": "/blog/2023/07/12/auth.mdx",
+        "meta": {
+          "title": "auth",
+          "description": "身份验证 (Authentication) 是一种安全机制, 用于验证用户的身份",
+          "created_at": "2023-07-12T05:59:58.000Z",
+          "updated_at": "2025-04-02T05:59:58.000Z",
+          "tags": [
+            "web",
+            "auth"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2023/07/13/dns.mdx",
+        "meta": {
+          "title": "dns",
+          "description": "全称是 Domain Name System （域名系统），它是互联网的重要基础设施之一，用于将人类易于记忆的 域名（如 www.example.com) 转换为计算机可以识别的 IP 地址（如 192.168.1.1 或 2606:4700:4700::1111)",
+          "created_at": "2023-07-13T16:23:48.000Z",
+          "updated_at": "2025-04-02T16:23:48.000Z",
+          "tags": [
+            "web",
+            "dns"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2025/02/01/ws.mdx",
+        "meta": {
+          "title": "websocket",
+          "description": "v",
+          "created_at": "2025-02-01T17:34:03.000Z",
+          "updated_at": "2025-04-02T17:34:03.000Z",
+          "tags": [
+            "web",
+            "ws"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2025/03/27/api.mdx",
+        "meta": {
+          "title": "api",
+          "description": "fastApi vs hono",
+          "created_at": "2025-03-27T23:15:42.000Z",
+          "updated_at": "2025-03-27T23:15:42.000Z",
+          "tags": [
+            "web",
+            "api"
+          ]
+        }
+      }
+    ]
+  },
   "auth": {
     "count": 1,
     "docs": [
@@ -701,12 +488,29 @@
         "url": "/blog/2023/07/12/auth.mdx",
         "meta": {
           "title": "auth",
-          "description": "...",
+          "description": "身份验证 (Authentication) 是一种安全机制, 用于验证用户的身份",
           "created_at": "2023-07-12T05:59:58.000Z",
           "updated_at": "2025-04-02T05:59:58.000Z",
           "tags": [
             "web",
             "auth"
+          ]
+        }
+      }
+    ]
+  },
+  "vscode": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2023/08/01/vscode.mdx",
+        "meta": {
+          "title": "vscode",
+          "description": "...",
+          "created_at": "2023-08-01T05:31:57.000Z",
+          "updated_at": "2025-04-02T05:31:57.000Z",
+          "tags": [
+            "vscode"
           ]
         }
       }
@@ -730,23 +534,6 @@
       }
     ]
   },
-  "vscode": {
-    "count": 1,
-    "docs": [
-      {
-        "url": "/blog/2023/08/01/vscode.mdx",
-        "meta": {
-          "title": "vscode",
-          "description": "...",
-          "created_at": "2023-08-01T05:31:57.000Z",
-          "updated_at": "2025-04-02T05:31:57.000Z",
-          "tags": [
-            "vscode"
-          ]
-        }
-      }
-    ]
-  },
   "css": {
     "count": 1,
     "docs": [
@@ -765,6 +552,38 @@
       }
     ]
   },
+  "html": {
+    "count": 2,
+    "docs": [
+      {
+        "url": "/blog/2023/08/02/css.mdx",
+        "meta": {
+          "title": "css",
+          "description": ":has()...",
+          "created_at": "2023-08-02T10:35:32.000Z",
+          "updated_at": "2025-03-30T10:35:32.000Z",
+          "tags": [
+            "css",
+            "html"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2025/03/26/export.mdx",
+        "meta": {
+          "title": "export",
+          "description": "当想要将next.js项目导出为静态网站时, 可以使用next export命令。",
+          "created_at": "2025-03-26T03:42:29.000Z",
+          "updated_at": "2025-03-26T03:42:29.000Z",
+          "tags": [
+            "nextjs",
+            "export",
+            "html"
+          ]
+        }
+      }
+    ]
+  },
   "package": {
     "count": 1,
     "docs": [
@@ -777,6 +596,371 @@
           "updated_at": "2025-04-01T00:34:27.000Z",
           "tags": [
             "package"
+          ]
+        }
+      }
+    ]
+  },
+  "dp": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2024/03/12/dp.mdx",
+        "meta": {
+          "title": "dp",
+          "description": "**动态规划(Dynamic Programming)** 是一种将复杂问题分解成更小的子问题的方法, 通过保存子问题的结果来避免重复计算",
+          "created_at": "2024-03-12T16:22:16.000Z",
+          "updated_at": "2025-04-03T16:22:16.000Z",
+          "tags": [
+            "alg",
+            "dp"
+          ]
+        }
+      }
+    ]
+  },
+  "docs": {
+    "count": 2,
+    "docs": [
+      {
+        "url": "/blog/2024/03/26/paper.mdx",
+        "meta": {
+          "title": "paper",
+          "description": "关于论文的记录",
+          "created_at": "2024-03-26T20:55:25.000Z",
+          "updated_at": "2025-04-05T17:34:39.000Z",
+          "tags": [
+            "docs",
+            "paper"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2024/05/19/latex.mdx",
+        "meta": {
+          "title": "Latex",
+          "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
+          "created_at": "2024-05-19T19:35:46.000Z",
+          "updated_at": "2025-03-28T19:35:46.000Z",
+          "tags": [
+            "docs",
+            "math",
+            "latex"
+          ]
+        }
+      }
+    ]
+  },
+  "paper": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2024/03/26/paper.mdx",
+        "meta": {
+          "title": "paper",
+          "description": "关于论文的记录",
+          "created_at": "2024-03-26T20:55:25.000Z",
+          "updated_at": "2025-04-05T17:34:39.000Z",
+          "tags": [
+            "docs",
+            "paper"
+          ]
+        }
+      }
+    ]
+  },
+  "graph": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2024/03/13/graph.mdx",
+        "meta": {
+          "title": "graph",
+          "description": "图 (Graph) 是一种数据结构, 由节点 (Vertex) 和边 (Edge) 组成, 用于表示对象之间的关系",
+          "created_at": "2024-03-13T16:39:24.000Z",
+          "updated_at": "2025-04-04T16:39:24.000Z",
+          "tags": [
+            "alg",
+            "graph"
+          ]
+        }
+      }
+    ]
+  },
+  "latex": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2024/05/19/latex.mdx",
+        "meta": {
+          "title": "Latex",
+          "description": "LaTeX 是一种基于排版的文档准备系统，广泛用于学术论文、书籍和演示文稿的编写。它以其强大的数学公式支持和高质量的排版效果而闻名。",
+          "created_at": "2024-05-19T19:35:46.000Z",
+          "updated_at": "2025-03-28T19:35:46.000Z",
+          "tags": [
+            "docs",
+            "math",
+            "latex"
+          ]
+        }
+      }
+    ]
+  },
+  "java": {
+    "count": 2,
+    "docs": [
+      {
+        "url": "/blog/2024/10/12/java.mdx",
+        "meta": {
+          "title": "Java",
+          "description": "东西都被删除了吗 runtime function 重...",
+          "created_at": "2024-10-12T15:55:11.000Z",
+          "updated_at": "2025-03-30T15:55:11.000Z",
+          "tags": [
+            "java"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2024/10/13/spring.mdx",
+        "meta": {
+          "title": "spring",
+          "description": "Spring 是一个开源的 Java 企业级应用程序框架, 提供了全面的基础设施支持. springBoot 是 spring 的一个子项目, 旨在简化 Spring 应用程序的开发和配置",
+          "created_at": "2025-04-05T23:20:49.000Z",
+          "updated_at": "2025-04-05T23:20:49.000Z",
+          "tags": [
+            "java",
+            "spring"
+          ]
+        }
+      }
+    ]
+  },
+  "spring": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2024/10/13/spring.mdx",
+        "meta": {
+          "title": "spring",
+          "description": "Spring 是一个开源的 Java 企业级应用程序框架, 提供了全面的基础设施支持. springBoot 是 spring 的一个子项目, 旨在简化 Spring 应用程序的开发和配置",
+          "created_at": "2025-04-05T23:20:49.000Z",
+          "updated_at": "2025-04-05T23:20:49.000Z",
+          "tags": [
+            "java",
+            "spring"
+          ]
+        }
+      }
+    ]
+  },
+  "equation": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2016/10/11/equation.mdx",
+        "meta": {
+          "title": "equation",
+          "description": "一元二次方程 对于一元二次方程 有如下通用形式(组合式...",
+          "created_at": "2016-10-11T18:14:10.000Z",
+          "updated_at": "2025-04-06T18:14:10.000Z",
+          "tags": [
+            "math",
+            "equation"
+          ]
+        }
+      }
+    ]
+  },
+  "ws": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2025/02/01/ws.mdx",
+        "meta": {
+          "title": "websocket",
+          "description": "v",
+          "created_at": "2025-02-01T17:34:03.000Z",
+          "updated_at": "2025-04-02T17:34:03.000Z",
+          "tags": [
+            "web",
+            "ws"
+          ]
+        }
+      }
+    ]
+  },
+  "bisect": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2025/03/25/bisect.mdx",
+        "meta": {
+          "title": "bisect",
+          "description": "二分查找是一种高效的查找算法，适用于有序数组或列表。它的核心思想是通过比较中间元素和目标值的大小，缩小查找范围，直到找到目标值或范围为空。",
+          "created_at": "2025-03-25T04:40:00.000Z",
+          "updated_at": "2025-04-10T17:37:05.000Z",
+          "tags": [
+            "alg",
+            "bisect"
+          ]
+        }
+      }
+    ]
+  },
+  "bfs": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2025/03/26/bfs.mdx",
+        "meta": {
+          "title": "bfs",
+          "description": "通常是指 广度优先搜索 (Breadth-First Search)，一种经典的图算法，用于遍历或搜索树或图的数据结构",
+          "created_at": "2025-03-26T22:29:10.000Z",
+          "updated_at": "2025-03-27T20:40:13.000Z",
+          "tags": [
+            "alg",
+            "bfs"
+          ]
+        }
+      }
+    ]
+  },
+  "nextjs": {
+    "count": 2,
+    "docs": [
+      {
+        "url": "/blog/2025/03/26/export.mdx",
+        "meta": {
+          "title": "export",
+          "description": "当想要将next.js项目导出为静态网站时, 可以使用next export命令。",
+          "created_at": "2025-03-26T03:42:29.000Z",
+          "updated_at": "2025-03-26T03:42:29.000Z",
+          "tags": [
+            "nextjs",
+            "export",
+            "html"
+          ]
+        }
+      },
+      {
+        "url": "/blog/2025/03/26/nextPwa.mdx",
+        "meta": {
+          "title": "Next PWA",
+          "description": "渐进式 Web 应用（PWA）结合了 Web 应用的覆盖范围和可访问性，以及原生移动应用的功能和用户体验。使用 Next.js，您可以创建提供无缝、类似应用体验的 PWA，无需多个代码库或应用商店审批",
+          "created_at": "2025-03-29T05:13:17.000Z",
+          "updated_at": "2025-03-29T05:13:17.000Z",
+          "tags": [
+            "nextjs",
+            "pwa"
+          ]
+        }
+      }
+    ]
+  },
+  "export": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2025/03/26/export.mdx",
+        "meta": {
+          "title": "export",
+          "description": "当想要将next.js项目导出为静态网站时, 可以使用next export命令。",
+          "created_at": "2025-03-26T03:42:29.000Z",
+          "updated_at": "2025-03-26T03:42:29.000Z",
+          "tags": [
+            "nextjs",
+            "export",
+            "html"
+          ]
+        }
+      }
+    ]
+  },
+  "pwa": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2025/03/26/nextPwa.mdx",
+        "meta": {
+          "title": "Next PWA",
+          "description": "渐进式 Web 应用（PWA）结合了 Web 应用的覆盖范围和可访问性，以及原生移动应用的功能和用户体验。使用 Next.js，您可以创建提供无缝、类似应用体验的 PWA，无需多个代码库或应用商店审批",
+          "created_at": "2025-03-29T05:13:17.000Z",
+          "updated_at": "2025-03-29T05:13:17.000Z",
+          "tags": [
+            "nextjs",
+            "pwa"
+          ]
+        }
+      }
+    ]
+  },
+  "api": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2025/03/27/api.mdx",
+        "meta": {
+          "title": "api",
+          "description": "fastApi vs hono",
+          "created_at": "2025-03-27T23:15:42.000Z",
+          "updated_at": "2025-03-27T23:15:42.000Z",
+          "tags": [
+            "web",
+            "api"
+          ]
+        }
+      }
+    ]
+  },
+  "dfs": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2025/03/27/dfs.mdx",
+        "meta": {
+          "title": "dfs",
+          "description": "最大数字 lanqiao 2193 https://w...",
+          "created_at": "2025-03-27T20:41:55.000Z",
+          "updated_at": "2025-03-27T20:41:55.000Z",
+          "tags": [
+            "alg",
+            "dfs"
+          ]
+        }
+      }
+    ]
+  },
+  "tree": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2025/03/28/Union-Find.mdx",
+        "meta": {
+          "title": "Union-Find",
+          "description": "并查集 (Disjoint Set Union, 简称 DSU 或 Union-Find) 并查集通常实现为一个森林，其中每棵树表示一个集合 是一种用于处理动态连通性问题的数据结构。",
+          "created_at": "2025-03-28T19:28:35.000Z",
+          "updated_at": "2025-03-30T02:10:58.000Z",
+          "tags": [
+            "alg",
+            "tree"
+          ]
+        }
+      }
+    ]
+  },
+  "todo": {
+    "count": 1,
+    "docs": [
+      {
+        "url": "/blog/2025/03/30/todo.mdx",
+        "meta": {
+          "title": "todo",
+          "description": "paper | 时间 | 任务 | | ------ ...",
+          "created_at": "2025-03-30T20:54:11.000Z",
+          "updated_at": "2025-03-31T20:54:11.000Z",
+          "tags": [
+            "todo"
           ]
         }
       }

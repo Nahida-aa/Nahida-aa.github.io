@@ -2,10 +2,37 @@
 title: vscode
 description: 
 created_at: 2023-08-01T05:31:57Z
-updated_at: 2025-04-02T05:31:57Z
+updated_at: 2025-04-17T16:11:20Z
 tags: [vscode]
 ---
 
 ```sh
 code ~/repos/env_ls/dotfiles
 ```
+
+## Custom_CSS_and_JS_Loader
+
+```md
+Run VS Code with admin privileges so the changes can be applied.
+```
+
+出现这个 建议 将 VS Code 的安装目录所有权更改为当前用户, 而不是以管理员权限打开 vscode, 这是 Custom_CSS_and_JS_Loader 的建议
+
+```sh
+# 将 VS Code 的安装目录所有权更改为当前用户
+sudo chown -R $(whoami) "$(which code)"
+sudo chown -R $(whoami) <vscode_installation_path>
+# Linux:
+sudo chown -R $(whoami) /usr/share/code
+# or
+sudo chown -R $(whoami) /usr/lib/code
+# or
+sudo chown -R $(whoami) /opt/visual-studio-code # arch linux
+```
+
+> [!note]
+> vscode 更新后, 可能需要重新 将 安装目录所有权更改为当前用户 
+
+### Variables
+
+- `${userHome}`：用户的主目录
