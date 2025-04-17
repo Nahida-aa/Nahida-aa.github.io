@@ -35,3 +35,7 @@ out
 out/
 
 certificates
+
+# gen data
+/public/data/index.json
+/public/data/tags.json
