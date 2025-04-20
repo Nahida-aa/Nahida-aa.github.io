@@ -86,6 +86,10 @@ http://vgms.fanyu.com
   - 第三节 如何完成论文写作
 ## 数据集 Global Aging
 
+```sh
+pip install pandas pyreadstat
+```
+
 | 数据集名称 | 数据集描述 | 
 | -------- | --------- |
 | CHARLS | 中国健康与养老追踪调查 (CHARLS) 是一项全国性、长期的纵向调查，旨在收集中国中老年人群体的健康、经济和社会信息。 |
@@ -100,7 +104,37 @@ http://vgms.fanyu.com
 | Study on Global Ageing and Adult Health, SAGE | 全球老龄化与成人健康研究 (SAGE) 是一项针对全球中老年人群体的纵向调查，旨在研究健康、经济和社会因素对老年人生活质量的影响。 |
 | Global Ageing Data Repository, GADR | 全球老龄化数据存储库 (GADR) 是一项针对全球中老年人群体的纵向调查，旨在研究健康、经济和社会因素对老年人生活质量的影响。 |
 
+### CHALRS
+
+
+
 ### Harmonized Data
+
+#### 队列研究
+
+CHARLS 的 Harmonized Data 包含 4 波数据，从流行病学统计的角度来看，它既可以被视为一个***队列研究***，也可以在某些情况下被视为多个**横断面研究**
+
+**队列研究的角度**
+- 定义: 队列研究是指对一组特定人群（队列）进行长期随访，观察其暴露因素与结局之间的关系
+- CHARLS 的特点:
+  - CHARLS 是一个纵向研究，对同一组受访者在多个时间点（波次）进行随访
+  - 通过多波数据，可以分析变量的动态变化（如健康状况、经济状况）以及这些变化与结局（如疾病发生）的关系
+  - 例如，研究 TyG-WHtR 的变化与 CVD 风险的关系时，CHARLS 的多波数据可以很好地支持这种动态分析
+
+**横断面研究的角度**
+- 定义: 横断面研究是在某一特定时间点对研究对象进行观察，分析暴露因素与结局的关系
+- CHARLS 的特点:
+  - 每一波数据（如 Wave 1、Wave 2 等）都可以被视为一个独立的横断面数据集
+  - 如果只分析某一波的数据（如 Wave 1 的健康状况与经济状况的关系），那么这实际上是一个横断面研究
+
+| 标题 | 翻译标题 | 自变量 | 因变量 | link | dataset | score |
+| :-: | :-----: | :---: | :---: | :--: | :-----: | :---: |
+| Association between triglyceride glucose body mass index and cardiovascular disease in adults: evidence from NHANES 2011-2020 | 甘油三酯葡萄糖体重指数与成人心血管疾病的关系：来自 NHANES 2011-2020 的证据 | TyG-bmi | CVD | | NHANES | 3.9/Q2 |
+| Association between the cumulative average triglyceride glucose-body mass index and cardiovascular disease incidence among the middle-aged and older population: a prospective nationwide cohort study in China | 中老年人群积累平均甘油三酯葡萄糖体重指数与心血管疾病发生率的关系：中国前瞻性全国性队列研究 | cumulative TyG-bmi | CVD | | CHARLS | 8.5/Q1 |
+
+```csv
+ID,householdID,communityID,hhid,hhidc,pnc,pn,ID_w1,householdID_w1,s1id,s2id,s3id,s4id,s1pn,s2pn,s3pn,s4pn,raspid1,raspid2,h1coupid,h2coupid,h3coupid,h4coupid,inw1,inw2,inw3,inw4,r1iwstat,r2iwstat,r3iwstat,r4iwstat,s1iwstat,s2iwstat,s3iwstat,s4iwstat,hacohort_c,r1wthh,r2wthh,r3wthh,r4wthh,r2wthhl,r1wthha,r2wthha,r3wthha,r4wthha,r1wtresp,r2wtresp,r3wtresp,r4wtresp,s1wtresp,s2wtresp,s3wtresp,s4wtresp,r2wtrespl,s2wtrespl,r1wtrespa,r2wtrespa,r3wtrespa,s1wtrespa,s2wtrespa,s3wtrespa,r1wtrespb,r2wtrespb,r3wtrespb,r4wtrespb,s1wtrespb,s2wtrespb,s3wtrespb,s4wtrespb,r1wtrespbioa,s1wtrespbioa,r1wtrespbiob,r2wtrespbiob,r3wtrespbiob,s1wtrespbiob,s2wtrespbiob,s3wtrespbiob,h1hhresp,h2hhresp,h3hhresp,h4hhresp,h1cpl,h2cpl,h3cpl,h4cpl,r1famr,r2famr,r3famr,r4famr,s1famr,s2famr,s3famr,s4famr,h1anyfam,h2anyfam,h3anyfam,h4anyfam,r1iwy,r2iwy,r3iwy,r4iwy,s1iwy,s2iwy,s3iwy,s4iwy,r1iwm,r2iwm,r3iwm,r4iwm,s1iwm,s2iwm,s3iwm,s4iwm,rabday,s1bday,s2bday,s3bday,s4bday,rafbday,s1fbday,s2fbday,s3fbday,s4fbday,rabmonth,s1bmonth,s2bmonth,s3bmonth,s4bmonth,rafbmonth,s1fbmonth,s2fbmonth,s3fbmonth,s4fbmonth,rabyear,s1byear,s2byear,s3byear,s4byear,rafbyear,s1fbyear,s2fbyear,s3fbyear,s4fbyear,rafbdate,s1fbdate,s2fbdate,s3fbdate,s4fbdate,raidbyear,s1idbyear,s2idbyear,s3idbyear,s4idbyear,raidbmonth,s1idbmonth,s2idbmonth,s3idbmonth,s4idbmonth,raidbday,s1idbday,s2idbday,s3idbday,s4idbday,rafidbdate,s1fidbdate,s2fidbdate,s3fidbdate,s4fidbdate,radyear,s1dyear,radmonth,s1dmonth,r1agey,r2agey,r3agey,r4agey,s1agey,s2agey,s3agey,s4agey,ragender,s1gender,s2gender,s3gender,s4gender,rafgendr,s2fgendr,s3fgendr,s4fgendr,raeduc_c,s1educ_c,s2educ_c,s3educ_c,s4educ_c,raeducl,s1educl,s2educl,s3educl,s4educl,r1mstat,r2mstat,r3mstat,r4mstat,s1mstat,s2mstat,s3mstat,s4mstat,r1mstath,r2mstath,r3mstath,r4mstath,s1mstath,s2mstath,s3mstath,s4mstath,r1mnev,r2mnev,r3mnev,r4mnev,s1mnev,s2mnev,s3mnev,s4mnev,r1mrct,r2mrct,s1mrct,s2mrct,r1mcurln,r2mcurln,s1mcurln,s2mcurln,rabplace_c,s1bplace_c,s2bplace_c,s3bplace_c,s4bplace_c,r1hukou,r2hukou,r3hukou,r4hukou,s1hukou,s2hukou,s3hukou,s4hukou,h1rural,h2rural,h3rural,h4rural,r1rural2,r2rural2,r3rural2,r4rural2,s1rural2,s2rural2,s3rural2,s4rural2,r2nhmliv,r3nhmliv,r4nhmliv,s2nhmliv,s3nhmliv,s4nhmliv,r1shlt,r2shlt,r3shlt,s1shlt,s2shlt,s3shlt,r1shltf,r2shltf,r3shltf,s1shltf,s2shltf,s3shltf,r1shlta,r2shlta,r3shlta,r4shlta,s1shlta,s2shlta,s3shlta,s4shlta,r1shltaf,r2shltaf,r3shltaf,s1shltaf,s2shltaf,s3shltaf,r1hlthlm_c,r2hlthlm_c,r3hlthlm_c,r4hlthlm_c,s1hlthlm_c,s2hlthlm_c,s3hlthlm_c,s4hlthlm_c,r3hlthlm,r4hlthlm,s3hlthlm,s4hlthlm,r1dressa,r2dressa,r3dressa,r4dressa,s1dressa,s2dressa,s3dressa,s4dressa,r1batha,r2batha,r3batha,r4batha,s1batha,s2batha,s3batha,s4batha,r1eata,r2eata,r3eata,r4eata,s1eata,s2eata,s3eata,s4eata,r1beda,r2beda,r3beda,r4beda,s1beda,s2beda,s3beda,s4beda,r1toilta,r2toilta,r3toilta,r4toilta,s1toilta,s2toilta,s3toilta,s4toilta,r1urina,r2urina,r3urina,r4urina,s1urina,s2urina,s3urina,s4urina,r2phonea,r3phonea,r4phonea,s2phonea,s3phonea,s4phonea,r1moneya,r2moneya,r3moneya,r4moneya,s1moneya,s2moneya,s3moneya,s4moneya,r1medsa,r2medsa,r3medsa,r4medsa,s1medsa,s2medsa,s3medsa,s4medsa,r1shopa,r2shopa,r3shopa,r4shopa,s1shopa,s2shopa,s3shopa,s4shopa,r1mealsa,r2mealsa,r3mealsa,r4mealsa,s1mealsa,s2mealsa,s3mealsa,s4mealsa,r1housewka,r2housewka,r3housewka,r4housewka,s1housewka,s2housewka,s3housewka,s4housewka,r1joga,r2joga,r3joga,r4joga,s1joga,s2joga,s3joga,s4joga,r1walk1kma,r2walk1kma,r3walk1kma,r4walk1kma,s1walk1kma,s2walk1kma,s3walk1kma,s4walk1kma,r1walk100a,r2walk100a,r3walk100a,r4walk100a,s1walk100a,s2walk100a,s3walk100a,s4walk100a,r1chaira,r2chaira,r3chaira,r4chaira,s1chaira,s2chaira,s3chaira,s4chaira,r1climsa,r2climsa,r3climsa,r4climsa,s1climsa,s2climsa,s3climsa,s4climsa,r1stoopa,r2stoopa,r3stoopa,r4stoopa,s1stoopa,s2stoopa,s3stoopa,s4stoopa,r1lifta,r2lifta,r3lifta,r4lifta,s1lifta,s2lifta,s3lifta,s4lifta,r1dimea,r2dimea,r3dimea,r4dimea,s1dimea,s2dimea,s3dimea,s4dimea,r1armsa,r2armsa,r3armsa,r4armsa,s1armsa,s2armsa,s3armsa,s4armsa,r1adla_c,r2adla_c,r3adla_c,r4adla_c,s1adla_c,s2adla_c,s3adla_c,s4adla_c,r1adlab_c,r2adlab_c,r3adlab_c,r4adlab_c,s1adlab_c,s2adlab_c,s3adlab_c,s4adlab_c,r1adlwa,r2adlwa,r3adlwa,r4adlwa,s1adlwa,s2adlwa,s3adlwa,s4adlwa,r1adlwam,r2adlwam,r3adlwam,r4adlwam,s1adlwam,s2adlwam,s3adlwam,s4adlwam,r1adlam_c,r2adlam_c,r3adlam_c,r4adlam_c,s1adlam_c,s2adlam_c,s3adlam_c,s4adlam_c,r1adlabm_c,r2adlabm_c,r3adlabm_c,r4adlabm_c,s1adlabm_c,s2adlabm_c,s3adlabm_c,s4adlabm_c,r1adlfive,r2adlfive,r3adlfive,r4adlfive,s1adlfive,s2adlfive,s3adlfive,s4adlfive,r1adlfivem,r2adlfivem,r3adlfivem,r4adlfivem,s1adlfivem,s2adlfivem,s3adlfivem,s4adlfivem,r2iadla,r3iadla,r4iadla,s2iadla,s3iadla,s4iadla,r2iadlam,r3iadlam,r4iadlam,s2iadlam,s3iadlam,s4iadlam,r2iadlza,r3iadlza,r4iadlza,s2iadlza,s3iadlza,s4iadlza,r2iadlzam,r3iadlzam,r4iadlzam,s2iadlzam,s3iadlzam,s4iadlzam,r1mobilsev,r2mobilsev,r3mobilsev,r4mobilsev,s1mobilsev,s2mobilsev,s3mobilsev,s4mobilsev,r1mobilsevm,r2mobilsevm,r3mobilsevm,r4mobilsevm,s1mobilsevm,s2mobilsevm,s3mobilsevm,s4mobilsevm,r1lowermob,r2lowermob,r3lowermob,r4lowermob,s1lowermob,s2lowermob,s3lowermob,s4lowermob,r1lowermobm,r2lowermobm,r3lowermobm,r4lowermobm,s1lowermobm,s2lowermobm,s3lowermobm,s4lowermobm,r1uppermob,r2uppermob,r3uppermob,r4uppermob,s1uppermob,s2uppermob,s3uppermob,s4uppermob,r1uppermobm,r2uppermobm,r3uppermobm,r4uppermobm,s1uppermobm,s2uppermobm,s3uppermobm,s4uppermobm,r1hibpe,r2hibpe,r3hibpe,r4hibpe,s1hibpe,s2hibpe,s3hibpe,s4hibpe,r1hibpf,r2hibpf,r3hibpf,r4hibpf,s1hibpf,s2hibpf,s3hibpf,s4hibpf,r1diabe,r2diabe,r3diabe,r4diabe,s1diabe,s2diabe,s3diabe,s4diabe,r1diabf,r2diabf,r3diabf,r4diabf,s1diabf,s2diabf,s3diabf,s4diabf,r1cancre,r2cancre,r3cancre,r4cancre,s1cancre,s2cancre,s3cancre,s4cancre,r1cancrf,r2cancrf,r3cancrf,r4cancrf,s1cancrf,s2cancrf,s3cancrf,s4cancrf,r1lunge,r2lunge,r3lunge,r4lunge,s1lunge,s2lunge,s3lunge,s4lunge,r1lungf,r2lungf,r3lungf,r4lungf,s1lungf,s2lungf,s3lungf,s4lungf,r1hearte,r2hearte,r3hearte,r4hearte,s1hearte,s2hearte,s3hearte,s4hearte,r1heartf,r2heartf,r3heartf,r4heartf,s1heartf,s2heartf,s3heartf,s4heartf,r1stroke,r2stroke,r3stroke,r4stroke,s1stroke,s2stroke,s3stroke,s4stroke,r1strokf,r2strokf,r3strokf,r4strokf,s1strokf,s2strokf,s3strokf,s4strokf,r1psyche,r2psyche,r3psyche,r4psyche,s1psyche,s2psyche,s3psyche,s4psyche,r1psychf,r2psychf,r3psychf,r4psychf,s1psychf,s2psychf,s3psychf,s4psychf,r1arthre,r2arthre,r3arthre,r4arthre,s1arthre,s2arthre,s3arthre,s4arthre,r1arthrf,r2arthrf,r3arthrf,r4arthrf,s1arthrf,s2arthrf,s3arthrf,s4arthrf,r1dyslipe,r2dyslipe,r3dyslipe,r4dyslipe,s1dyslipe,s2dyslipe,s3dyslipe,s4dyslipe,r1dyslipf,r2dyslipf,r3dyslipf,r4dyslipf,s1dyslipf,s2dyslipf,s3dyslipf,s4dyslipf,r1livere,r2livere,r3livere,r4livere,s1livere,s2livere,s3livere,s4livere,r1liverf,r2liverf,r3liverf,r4liverf,s1liverf,s2liverf,s3liverf,s4liverf,r1kidneye,r2kidneye,r3kidneye,r4kidneye,s1kidneye,s2kidneye,s3kidneye,s4kidneye,r1kidneyf,r2kidneyf,r3kidneyf,r4kidneyf,s1kidneyf,s2kidneyf,s3kidneyf,s4kidneyf,r1digeste,r2digeste,r3digeste,r4digeste,s1digeste,s2digeste,s3digeste,s4digeste,r1digestf,r2digestf,r3digestf,r4digestf,s1digestf,s2digestf,s3digestf,s4digestf,r1asthmae,r2asthmae,r3asthmae,r4asthmae,s1asthmae,s2asthmae,s3asthmae,s4asthmae,r1asthmaf,r2asthmaf,r3asthmaf,r4asthmaf,s1asthmaf,s2asthmaf,s3asthmaf,s4asthmaf,r1memrye,r2memrye,r3memrye,r4memrye,s1memrye,s2memrye,s3memrye,s4memrye,r1memryf,r2memryf,r3memryf,r4memryf,s1memryf,s2memryf,s3memryf,s4memryf,r1rxhibp,r2rxhibp,r3rxhibp,r4rxhibp,s1rxhibp,s2rxhibp,s3rxhibp,s4rxhibp,r1rxhibp_c,r2rxhibp_c,r3rxhibp_c,r4rxhibp_c,s1rxhibp_c,s2rxhibp_c,s3rxhibp_c,s4rxhibp_c,r1rxdiabi,r2rxdiabi,r3rxdiabi,r4rxdiabi,s1rxdiabi,s2rxdiabi,s3rxdiabi,s4rxdiabi,r1rxdiab,r2rxdiab,r3rxdiab,r4rxdiab,s1rxdiab,s2rxdiab,s3rxdiab,s4rxdiab,r1rxdiab_c,r2rxdiab_c,r3rxdiab_c,r4rxdiab_c,s1rxdiab_c,s2rxdiab_c,s3rxdiab_c,s4rxdiab_c,r1cncrmeds,r2cncrmeds,r3cncrmeds,r4cncrmeds,s1cncrmeds,s2cncrmeds,s3cncrmeds,s4cncrmeds,r1cncrmeds_c,r2cncrmeds_c,r3cncrmeds_c,r4cncrmeds_c,s1cncrmeds_c,s2cncrmeds_c,s3cncrmeds_c,s4cncrmeds_c,r1cncrchem,r2cncrchem,r3cncrchem,r4cncrchem,s1cncrchem,s2cncrchem,s3cncrchem,s4cncrchem,r1cncrsurg,r2cncrsurg,r3cncrsurg,r4cncrsurg,s1cncrsurg,s2cncrsurg,s3cncrsurg,s4cncrsurg,r1cncrradn,r2cncrradn,r3cncrradn,r4cncrradn,s1cncrradn,s2cncrradn,s3cncrradn,s4cncrradn,r1rxlung,r2rxlung,r3rxlung,r4rxlung,s1rxlung,s2rxlung,s3rxlung,s4rxlung,r1rxlung_c,r2rxlung_c,r3rxlung_c,r4rxlung_c,s1rxlung_c,s2rxlung_c,s3rxlung_c,s4rxlung_c,r1rxheart,r2rxheart,r3rxheart,r4rxheart,s1rxheart,s2rxheart,s3rxheart,s4rxheart,r1rxheart_c,r2rxheart_c,r3rxheart_c,r4rxheart_c,s1rxheart_c,s2rxheart_c,s3rxheart_c,s4rxheart_c,r1rxstrok,r2rxstrok,r3rxstrok,r4rxstrok,s1rxstrok,s2rxstrok,s3rxstrok,s4rxstrok,r1rxstrok_c,r2rxstrok_c,r3rxstrok_c,r4rxstrok_c,s1rxstrok_c,s2rxstrok_c,s3rxstrok_c,s4rxstrok_c,r1rxpsych,r2rxpsych,r3rxpsych,r4rxpsych,s1rxpsych,s2rxpsych,s3rxpsych,s4rxpsych,r1trpsych,r2trpsych,r3trpsych,r4trpsych,s1trpsych,s2trpsych,s3trpsych,s4trpsych,r1rxarthr,r2rxarthr,r3rxarthr,r4rxarthr,s1rxarthr,s2rxarthr,s3rxarthr,s4rxarthr,r1rxarthr_c,r2rxarthr_c,r3rxarthr_c,r4rxarthr_c,s1rxarthr_c,s2rxarthr_c,s3rxarthr_c,s4rxarthr_c,r1rxdyslip,r2rxdyslip,r3rxdyslip,r4rxdyslip,s1rxdyslip,s2rxdyslip,s3rxdyslip,s4rxdyslip,r1rxdyslip_c,r2rxdyslip_c,r3rxdyslip_c,r4rxdyslip_c,s1rxdyslip_c,s2rxdyslip_c,s3rxdyslip_c,s4rxdyslip_c,r1rxliver,r2rxliver,r3rxliver,r4rxliver,s1rxliver,s2rxliver,s3rxliver,s4rxliver,r1rxliver_c,r2rxliver_c,r3rxliver_c,r4rxliver_c,s1rxliver_c,s2rxliver_c,s3rxliver_c,s4rxliver_c,r1rxkidney,r2rxkidney,r3rxkidney,r4rxkidney,s1rxkidney,s2rxkidney,s3rxkidney,s4rxkidney,r1rxkidney_c,r2rxkidney_c,r3rxkidney_c,r4rxkidney_c,s1rxkidney_c,s2rxkidney_c,s3rxkidney_c,s4rxkidney_c,r1rxdigest,r2rxdigest,r3rxdigest,r4rxdigest,s1rxdigest,s2rxdigest,s3rxdigest,s4rxdigest,r1rxdigest_c,r2rxdigest_c,r3rxdigest_c,r4rxdigest_c,s1rxdigest_c,s2rxdigest_c,s3rxdigest_c,s4rxdigest_c,r1rxmemry,r2rxmemry,r3rxmemry,r4rxmemry,s1rxmemry,s2rxmemry,s3rxmemry,s4rxmemry,r1rxmemry_c,r2rxmemry_c,r3rxmemry_c,r4rxmemry_c,s1rxmemry_c,s2rxmemry_c,s3rxmemry_c,s4rxmemry_c,r1vgact_c,r2vgact_c,r3vgact_c,r4vgact_c,s1vgact_c,s2vgact_c,s3vgact_c,s4vgact_c,r1vgactx_c,r2vgactx_c,r3vgactx_c,r4vgactx_c,s1vgactx_c,s2vgactx_c,s3vgactx_c,s4vgactx_c,r1mdact_c,r2mdact_c,r3mdact_c,r4mdact_c,s1mdact_c,s2mdact_c,s3mdact_c,s4mdact_c,r1mdactx_c,r2mdactx_c,r3mdactx_c,r4mdactx_c,s1mdactx_c,s2mdactx_c,s3mdactx_c,s4mdactx_c,r1ltact_c,r2ltact_c,r3ltact_c,r4ltact_c,s1ltact_c,s2ltact_c,s3ltact_c,s4ltact_c,r1ltactx_c,r2ltactx_c,r3ltactx_c,r4ltactx_c,s1ltactx_c,s2ltactx_c,s3ltactx_c,s4ltactx_c,r1drinkev,r2drinkev,r3drinkev,r4drinkev,s1drinkev,s2drinkev,s3drinkev,s4drinkev,r1drinkl,r2drinkl,r3drinkl,r4drinkl,s1drinkl,s2drinkl,s3drinkl,s4drinkl,r1drinkn_c,r2drinkn_c,r3drinkn_c,r4drinkn_c,s1drinkn_c,s2drinkn_c,s3drinkn_c,s4drinkn_c,r1drinkr_c,r2drinkr_c,r3drinkr_c,r4drinkr_c,s1drinkr_c,s2drinkr_c,s3drinkr_c,s4drinkr_c,r1drinknr,r2drinknr,s1drinknr,s2drinknr,r1smokev,r2smokev,r3smokev,r4smokev,s1smokev,s2smokev,s3smokev,s4smokev,r1smoken,r2smoken,r3smoken,r4smoken,s1smoken,s2smoken,s3smoken,s4smoken,r1smokef,r2smokef,r3smokef,r4smokef,s1smokef,s2smokef,s3smokef,s4smokef,r1hosp1y,r2hosp1y,r3hosp1y,r4hosp1y,s1hosp1y,s2hosp1y,s3hosp1y,s4hosp1y,r1hsptim1y,r2hsptim1y,r3hsptim1y,r4hsptim1y,s1hsptim1y,s2hsptim1y,s3hsptim1y,s4hsptim1y,r1hspnite,r2hspnite,r3hspnite,r4hspnite,s1hspnite,s2hspnite,s3hspnite,s4hspnite,r1doctor1m,r2doctor1m,r3doctor1m,r4doctor1m,s1doctor1m,s2doctor1m,s3doctor1m,s4doctor1m,r1doctim1m,r2doctim1m,r3doctim1m,r4doctim1m,s1doctim1m,s2doctim1m,s3doctim1m,s4doctim1m,r1trdmed1m,r2trdmed1m,r3trdmed1m,r4trdmed1m,s1trdmed1m,s2trdmed1m,s3trdmed1m,s4trdmed1m,r1trdmdtim1m,r2trdmdtim1m,r3trdmdtim1m,r4trdmdtim1m,s1trdmdtim1m,s2trdmdtim1m,s3trdmdtim1m,s4trdmdtim1m,r2dentst1y,r3dentst1y,s2dentst1y,s3dentst1y,r2dentim1y,r3dentim1y,s2dentim1y,s3dentim1y,r1oophos1y,r2oophos1y,r3oophos1y,r4oophos1y,s1oophos1y,s2oophos1y,s3oophos1y,s4oophos1y,r1tothos1y,r2tothos1y,r3tothos1y,r4tothos1y,s1tothos1y,s2tothos1y,s3tothos1y,s4tothos1y,r1oopdoc1m,r2oopdoc1m,r3oopdoc1m,r4oopdoc1m,s1oopdoc1m,s2oopdoc1m,s3oopdoc1m,s4oopdoc1m,r1totdoc1m,r2totdoc1m,r3totdoc1m,r4totdoc1m,s1totdoc1m,s2totdoc1m,s3totdoc1m,s4totdoc1m,r2oopden1y,r3oopden1y,s2oopden1y,s3oopden1y,r2totden1y,r3totden1y,s2totden1y,s3totden1y,r1higov,r2higov,r3higov,r4higov,s1higov,s2higov,s3higov,s4higov,r1hipriv,r2hipriv,r3hipriv,r4hipriv,s1hipriv,s2hipriv,s3hipriv,s4hipriv,r1hiothp,r2hiothp,r3hiothp,r4hiothp,s1hiothp,s2hiothp,s3hiothp,s4hiothp,r1slfmem,r2slfmem,r3slfmem,r4slfmem,s1slfmem,s2slfmem,s3slfmem,s4slfmem,r1imrc,r2imrc,r3imrc,r4imrc,s1imrc,s2imrc,s3imrc,s4imrc,r1dlrc,r2dlrc,r3dlrc,r4dlrc,s1dlrc,s2dlrc,s3dlrc,s4dlrc,r1ser7,r2ser7,r3ser7,r4ser7,s1ser7,s2ser7,s3ser7,s4ser7,r1mo,r2mo,r3mo,r4mo,s1mo,s2mo,s3mo,s4mo,r1dy,r2dy,r3dy,r4dy,s1dy,s2dy,s3dy,s4dy,r1yr,r2yr,r3yr,r4yr,s1yr,s2yr,s3yr,s4yr,r1dw,r2dw,r3dw,r4dw,s1dw,s2dw,s3dw,s4dw,r1orient,r2orient,r3orient,r4orient,s1orient,s2orient,s3orient,s4orient,r1draw,r2draw,r3draw,r4draw,s1draw,s2draw,s3draw,s4draw,r1tr20,r2tr20,r3tr20,r4tr20,s1tr20,s2tr20,s3tr20,s4tr20,c2009cpindex,c2010cpindex,c2011cpindex,c2012cpindex,c2013cpindex,c2014cpindex,c2015cpindex,c2016cpindex,c2017cpindex,c2018cpindex,h1achck,h2achck,h3achck,h4achck,h1astck,h2astck,h3astck,h4astck,h1abond,h2abond,h3abond,h4abond,h1aothr,h2aothr,h3aothr,h4aothr,h1adebt,h2adebt,h3adebt,h4adebt,h1atotfa,h2atotfa,h3atotfa,h4atotfa,hh1arles,hh2arles,h3arles,h4arles,hh2arlfg,hh1ahousa,hh2ahousa,hh3ahousa,hh4ahousa,hh1ahrto,hh2ahrto,hh3ahrto,h4ahrto,hh1ahous,hh2ahous,hh3ahous,h4ahous,hh1afhousar,hh2afhousar,hh1amort,hh2amort,hh1atoth,hh2atoth,hh1atran,hh2atran,h3atran,h4atran,hh1adurbl,hh2adurbl,h3adurbl,h4adurbl,hh1afixc,hh2afixc,h3afixc,h4afixc,hh1aland,hh2aland,h3aland,h4aland,hh1aagri,hh2aagri,hh3aagri,hh4aagri,hh1alend,hh2alend,h3alend,h4alend,hh1aborr,hh2aborr,h2aborr,h3aborr,h4aborr,hh1aploan,hh2aploan,h3aploan,h4aploan,hh1afsst,hh2afsst,hh1afloa,hh2afloa,hh1afhhm,hh2afhhm,hh1atotf,hh2atotf,h3atotf,h4atotf,hh1atotb,hh2atotb,h3atotb,h4atotb,r1itearn,r2itearn,r3itearn,r4itearn,s1itearn,s2itearn,s3itearn,s4itearn,r1isftearn,r2isftearn,s1isftearn,s2isftearn,r1itsemp,r2itsemp,r3itsemp,s1itsemp,s2itsemp,s3itsemp,hh1itsemp,hh2itsemp,hh3itsemp,hh4itsemp,r1itrest,r2itrest,s1itrest,s2itrest,hh1itrest,hh2itrest,hh1irent,hh2irent,hh3irent,hh4irent,hh1icap,hh2icap,hh3icap,hh4icap,r1ipeni,r2ipeni,s1ipeni,s2ipeni,r1ipena,r2ipena,r3ipena,r4ipena,s1ipena,s2ipena,s3ipena,s4ipena,r1ipubpen,r2ipubpen,r3ipubpen,r4ipubpen,s1ipubpen,s2ipubpen,s3ipubpen,s4ipubpen,r1ipen,r2ipen,r3ipen,r4ipen,s1ipen,s2ipen,s3ipen,s4ipen,r1isfpen,r2isfpen,s1isfpen,s2isfpen,r1igxfr,r2igxfr,r3igxfr,r4igxfr,s1igxfr,s2igxfr,s3igxfr,s4igxfr,hh1igxfro,hh2igxfro,hh3igxfro,hh4igxfro,hh1igxfri,hh2igxfri,hh3igxfri,hh4igxfri,hh1igxfrh,hh2igxfrh,hh3igxfrh,hh4igxfrh,hh1igxfrt,hh2igxfrt,hh3igxfrt,hh4igxfrt,hh1igxfr,hh2igxfr,hh3igxfr,hh4igxfr,r1iothr,r2iothr,r3iothr,r4iothr,s1iothr,s2iothr,s3iothr,s4iothr,hh1iothhh,hh2iothhh,hh3iothhh,hh4iothhh,hh1itot,hh2itot,hh3itot,hh4itot,hh1cfood,hh2cfood,hh3cfood,hh4cfood,hh1cnf1m,hh2cnf1m,hh3cnf1m,hh4cnf1m,hh1cnf1y,hh2cnf1y,hh3cnf1y,hh4cnf1y,hh1ctot,hh2ctot,hh3ctot,hh4ctot,hh1cperc,hh2cperc,hh3cperc,hh4cperc,h1hhres,h2hhres,h3hhres,h4hhres,h1son,h2son,h3son,h4son,h1dau,h2dau,h3dau,h4dau,h1child,h2child,h3child,h4child,h1dson,h2dson,h3dson,h4dson,h1ddau,h2ddau,h3ddau,h4ddau,h1dchild,h2dchild,h3dchild,h4dchild,r1livbro,r2livbro,r3livbro,r4livbro,s1livbro,s2livbro,s3livbro,s4livbro,r1livsis,r2livsis,r3livsis,r4livsis,s1livsis,s2livsis,s3livsis,s4livsis,r1livsib,r2livsib,r3livsib,r4livsib,s1livsib,s2livsib,s3livsib,s4livsib,r1decbro,r2decbro,r3decbro,r4decbro,s1decbro,s2decbro,s3decbro,s4decbro,r1decsis,r2decsis,r3decsis,r4decsis,s1decsis,s2decsis,s3decsis,s4decsis,r1decsib,r2decsib,r3decsib,r4decsib,s1decsib,s2decsib,s3decsib,s4decsib,r1momliv,r2momliv,r3momliv,r4momliv,s1momliv,s2momliv,s3momliv,s4momliv,r1fmomliv,r2fmomliv,s1fmomliv,s2fmomliv,r1dadliv,r2dadliv,r3dadliv,r4dadliv,s1dadliv,s2dadliv,s3dadliv,s4dadliv,r1fdadliv,r2fdadliv,s1fdadliv,s2fdadliv,r1livpar,r2livpar,r3livpar,r4livpar,s1livpar,s2livpar,s3livpar,s4livpar,r1momage,r2momage,r3momage,r4momage,s1momage,s2momage,s3momage,s4momage,r1dadage,r2dadage,r3dadage,r4dadage,s1dadage,s2dadage,s3dadage,s4dadage,rameduc_c,s1meduc_c,s2meduc_c,s3meduc_c,s4meduc_c,rafeduc_c,s1feduc_c,s2feduc_c,s3feduc_c,s4feduc_c,ramomeducl,s1momeducl,s2momeducl,s3momeducl,s4momeducl,radadeducl,s1dadeducl,s2dadeducl,s3dadeducl,s4dadeducl,ramomoccup_c,s1momoccup_c,s2momoccup_c,s3momoccup_c,s4momoccup_c,radadoccup_c,s1dadoccup_c,s2dadoccup_c,s3dadoccup_c,s4dadoccup_c,h1coresd,h2coresd,h3coresd,h4coresd,h1lvnear,h2lvnear,h3lvnear,h4lvnear,h1pcnt,h2pcnt,h3pcnt,h4pcnt,h1kcntf,h2kcntf,h3kcntf,h4kcntf,h1kcntpm,h2kcntpm,h3kcntpm,h4kcntpm,h1kcnt,h2kcnt,h3kcnt,h4kcnt,r1socwk,r2socwk,r3socwk,r4socwk,s1socwk,s2socwk,s3socwk,s4socwk,h1fcany,h2fcany,h3fcany,h4fcany,h1fcamt,h2fcamt,h3fcamt,h4fcamt,h1tcany,h2tcany,h3tcany,h4tcany,h1tcamt,h2tcamt,h3tcamt,h4tcamt,h1fpany,h2fpany,h3fpany,h4fpany,h1fpamt,h2fpamt,h3fpamt,h4fpamt,h1tpany,h2tpany,h3tpany,h4tpany,h1tpamt,h2tpamt,h3tpamt,h4tpamt,h1foany,h2foany,h3foany,h4foany,h1foamt,h2foamt,h3foamt,h4foamt,h1toany,h2toany,h3toany,h4toany,h1toamt,h2toamt,h3toamt,h4toamt,h1frec,h2frec,h3frec,h4frec,h1tgiv,h2tgiv,h3tgiv,h4tgiv,h1ftot,h2ftot,h3ftot,h4ftot,r1work,r2work,r3work,r4work,s1work,s2work,s3work,s4work,r1work2,r2work2,r3work2,r4work2,s1work2,s2work2,s3work2,s4work2,r1lbrf_c,r2lbrf_c,r3lbrf_c,r4lbrf_c,s1lbrf_c,s2lbrf_c,s3lbrf_c,s4lbrf_c,r1slfemp,r2slfemp,r3slfemp,r4slfemp,s1slfemp,s2slfemp,s3slfemp,s4slfemp,r1jhours_c,r2jhours_c,r3jhours_c,r4jhours_c,s1jhours_c,s2jhours_c,s3jhours_c,s4jhours_c,r1jhour2,r2jhour2,r3jhour2,r4jhour2,s1jhour2,s2jhour2,s3jhour2,s4jhour2,r1jhourtot,r2jhourtot,r3jhourtot,r4jhourtot,s1jhourtot,s2jhourtot,s3jhourtot,s4jhourtot,r1jweeks_c,r2jweeks_c,r3jweeks_c,r4jweeks_c,s1jweeks_c,s2jweeks_c,s3jweeks_c,s4jweeks_c,r1jgovtemp,r2jgovtemp,r3jgovtemp,r4jgovtemp,s1jgovtemp,s2jgovtemp,s3jgovtemp,s4jgovtemp,r1jsalary_c,r2jsalary_c,r3jsalary_c,r4jsalary_c,s1jsalary_c,s2jsalary_c,s3jsalary_c,s4jsalary_c,r2jbonus,r3jbonus,r4jbonus,s2jbonus,s3jbonus,s4jbonus,r1jmsick,r2jmsick,r3jmsick,r4jmsick,s1jmsick,s2jmsick,s3jmsick,s4jmsick,r1jnsickagr,r2jnsickagr,r3jnsickagr,r4jnsickagr,s1jnsickagr,s2jnsickagr,s3jnsickagr,s4jnsickagr,r1jnsickemp,r2jnsickemp,r3jnsickemp,r4jnsickemp,s1jnsickemp,s2jnsickemp,s3jnsickemp,s4jnsickemp,r1jnsicksf,r2jnsicksf,r3jnsicksf,r4jnsicksf,s1jnsicksf,s2jnsicksf,s3jnsicksf,s4jnsicksf,r1jbgyr,r2jbgyr,r3jbgyr,r4jbgyr,s1jbgyr,s2jbgyr,s3jbgyr,s4jbgyr,r1jbgmo,r2jbgmo,r3jbgmo,r4jbgmo,s1jbgmo,s2jbgmo,s3jbgmo,s4jbgmo,r1jrsleft,r2jrsleft,r3jrsleft,s1jrsleft,s2jrsleft,s3jrsleft,r1jrsleft_c,r2jrsleft_c,r3jrsleft_c,r4jrsleft_c,s1jrsleft_c,s2jrsleft_c,s3jrsleft_c,s4jrsleft_c,r1retemp,r2retemp,r3retemp,r4retemp,s1retemp,s2retemp,s3retemp,s4retemp,r1fret_c,r2fret_c,r3fret_c,r4fret_c,s1fret_c,s2fret_c,s3fret_c,s4fret_c,r1fretf_c,r2fretf_c,r3fretf_c,r4fretf_c,s1fretf_c,s2fretf_c,s3fretf_c,s4fretf_c,r1retmon,r2retmon,r3retmon,r4retmon,s1retmon,s2retmon,s3retmon,s4retmon,r1retyr,r2retyr,r3retyr,r4retyr,s1retyr,s2retyr,s3retyr,s4retyr,r1rplnya,r2rplnya,r3rplnya,r4rplnya,s1rplnya,s2rplnya,s3rplnya,s4rplnya,r1wkaftret,r2wkaftret,r3wkaftret,r4wkaftret,s1wkaftret,s2wkaftret,s3wkaftret,s4wkaftret,r1retrs_c,r2retrs_c,r3retrs_c,r4retrs_c,s1retrs_c,s2retrs_c,s3retrs_c,s4retrs_c,r1pubpen,r2pubpen,r3pubpen,r4pubpen,s1pubpen,s2pubpen,s3pubpen,s4pubpen,r2fpubpen,r3fpubpen,r4fpubpen,s2fpubpen,s3fpubpen,s4fpubpen,r1pubage,r2pubage,r3pubage,r4pubage,s1pubage,s2pubage,s3pubage,s4pubage,r1peninc,r2peninc,r3peninc,r4peninc,s1peninc,s2peninc,s3peninc,s4peninc,r2fpeninc,r3fpeninc,r4fpeninc,s2fpeninc,s3fpeninc,s4fpeninc,r1othpen,r2othpen,r3othpen,r4othpen,s1othpen,s2othpen,s3othpen,s4othpen,r1jcpen,r2jcpen,r3jcpen,r4jcpen,s1jcpen,s2jcpen,s3jcpen,s4jcpen,r1wspeed1,r2wspeed1,r3wspeed1,s1wspeed1,s2wspeed1,s3wspeed1,r1wspeed2,r2wspeed2,r3wspeed2,s1wspeed2,s2wspeed2,s3wspeed2,r1wspeed,r2wspeed,r3wspeed,s1wspeed,s2wspeed,s3wspeed,r1walkcomp,r2walkcomp,r3walkcomp,s1walkcomp,s2walkcomp,s3walkcomp,r1walkflr_c,r2walkflr_c,r3walkflr_c,s1walkflr_c,s2walkflr_c,s3walkflr_c,r1walkaid,r2walkaid,r3walkaid,s1walkaid,s2walkaid,s3walkaid,r1walkcompl,r2walkcompl,r3walkcompl,s1walkcompl,s2walkcompl,s3walkcompl,r1walksft,r2walksft,r3walksft,s1walksft,s2walksft,s3walksft,r1walkref,r2walkref,r3walkref,s1walkref,s2walkref,s3walkref,r1walktryu,r2walktryu,r3walktryu,s1walktryu,s2walktryu,s3walktryu,r1walkequp,r2walkequp,r3walkequp,s1walkequp,s2walkequp,s3walkequp,r1walkothr,r2walkothr,r3walkothr,s1walkothr,s2walkothr,s3walkothr,r1systo1,r2systo1,r3systo1,s1systo1,s2systo1,s3systo1,r1systo2,r2systo2,r3systo2,s1systo2,s2systo2,s3systo2,r1systo3,r2systo3,r3systo3,s1systo3,s2systo3,s3systo3,r1systo,r2systo,r3systo,s1systo,s2systo,s3systo,r1diasto1,r2diasto1,r3diasto1,s1diasto1,s2diasto1,s3diasto1,r1diasto2,r2diasto2,r3diasto2,s1diasto2,s2diasto2,s3diasto2,r1diasto3,r2diasto3,r3diasto3,s1diasto3,s2diasto3,s3diasto3,r1diasto,r2diasto,r3diasto,s1diasto,s2diasto,s3diasto,r1pulse1,r2pulse1,r3pulse1,s1pulse1,s2pulse1,s3pulse1,r1pulse2,r2pulse2,r3pulse2,s1pulse2,s2pulse2,s3pulse2,r1pulse3,r2pulse3,r3pulse3,s1pulse3,s2pulse3,s3pulse3,r1pulse,r2pulse,r3pulse,s1pulse,s2pulse,s3pulse,r1bpcomp,r2bpcomp,r3bpcomp,s1bpcomp,s2bpcomp,s3bpcomp,r1bpact30,r2bpact30,r3bpact30,s1bpact30,s2bpact30,s3bpact30,r1bldpos,r2bldpos,r3bldpos,s1bldpos,s2bldpos,s3bldpos,r1bparm,r2bparm,r3bparm,s1bparm,s2bparm,s3bparm,r1bpcompl,r2bpcompl,r3bpcompl,s1bpcompl,s2bpcompl,s3bpcompl,r1bpsft,r2bpsft,r3bpsft,s1bpsft,s2bpsft,s3bpsft,r1bpref,r2bpref,r3bpref,s1bpref,s2bpref,s3bpref,r1bptryu,r2bptryu,r3bptryu,s1bptryu,s2bptryu,s3bptryu,r1bpequp,r2bpequp,r3bpequp,s1bpequp,s2bpequp,s3bpequp,r1bpothr,r2bpothr,r3bpothr,s1bpothr,s2bpothr,s3bpothr,r1domhand,r2domhand,r3domhand,s1domhand,s2domhand,s3domhand,r1lgrip1,r2lgrip1,r3lgrip1,s1lgrip1,s2lgrip1,s3lgrip1,r1lgrip2,r2lgrip2,r3lgrip2,s1lgrip2,s2lgrip2,s3lgrip2,r1lgrip,r2lgrip,r3lgrip,s1lgrip,s2lgrip,s3lgrip,r1rgrip1,r2rgrip1,r3rgrip1,s1rgrip1,s2rgrip1,s3rgrip1,r1rgrip2,r2rgrip2,r3rgrip2,s1rgrip2,s2rgrip2,s3rgrip2,r1rgrip,r2rgrip,r3rgrip,s1rgrip,s2rgrip,s3rgrip,r1gripsum,r2gripsum,r3gripsum,s1gripsum,s2gripsum,s3gripsum,r1gripcomp,r2gripcomp,r3gripcomp,s1gripcomp,s2gripcomp,s3gripcomp,r1gripeff,r2gripeff,r3gripeff,s1gripeff,s2gripeff,s3gripeff,r1grippos,r2grippos,r3grippos,s1grippos,s2grippos,s3grippos,r1griprsta,r2griprsta,r3griprsta,s1griprsta,s2griprsta,s3griprsta,r1gripsft,r2gripsft,r3gripsft,s1gripsft,s2gripsft,s3gripsft,r1gripref,r2gripref,r3gripref,s1gripref,s2gripref,s3gripref,r1griptryu,r2griptryu,r3griptryu,s1griptryu,s2griptryu,s3griptryu,r1gripequp,r2gripequp,r3gripequp,s1gripequp,s2gripequp,s3gripequp,r1gripothr,r2gripothr,r3gripothr,s1gripothr,s2gripothr,s3gripothr,r1mheight,r2mheight,r3mheight,s1mheight,s2mheight,s3mheight,r1mweight,r2mweight,r3mweight,s1mweight,s2mweight,s3mweight,r1mwaist,r2mwaist,r3mwaist,s1mwaist,s2mwaist,s3mwaist,r1mbmi,r2mbmi,r3mbmi,s1mbmi,s2mbmi,s3mbmi,r1mbmicata,r2mbmicata,r3mbmicata,s1mbmicata,s2mbmicata,s3mbmicata,r1htcomp,r2htcomp,r3htcomp,s1htcomp,s2htcomp,s3htcomp,r1wtcomp,r2wtcomp,r3wtcomp,s1wtcomp,s2wtcomp,s3wtcomp,r1watcomp,r2watcomp,r3watcomp,s1watcomp,s2watcomp,s3watcomp,r1htcompl,r2htcompl,r3htcompl,s1htcompl,s2htcompl,s3htcompl,r1wtcompl,r2wtcompl,r3wtcompl,s1wtcompl,s2wtcompl,s3wtcompl,r1watcompl,r2watcompl,r3watcompl,s1watcompl,s2watcompl,s3watcompl,r1wtflr_c,r2wtflr_c,r3wtflr_c,s1wtflr_c,s2wtflr_c,s3wtflr_c,r1shoew,r2shoew,r3shoew,s1shoew,s2shoew,s3shoew,r1bulky,r2bulky,r3bulky,s1bulky,s2bulky,s3bulky,r1hghtsft,r2hghtsft,r3hghtsft,s1hghtsft,s2hghtsft,s3hghtsft,r1hghtref,r2hghtref,r3hghtref,s1hghtref,s2hghtref,s3hghtref,r1hghttryu,r2hghttryu,r3hghttryu,s1hghttryu,s2hghttryu,s3hghttryu,r1hghtequp,r2hghtequp,r3hghtequp,s1hghtequp,s2hghtequp,s3hghtequp,r1hghtothr,r2hghtothr,r3hghtothr,s1hghtothr,s2hghtothr,s3hghtothr,r1wghtsft,r2wghtsft,r3wghtsft,s1wghtsft,s2wghtsft,s3wghtsft,r1wghtref,r2wghtref,r3wghtref,s1wghtref,s2wghtref,s3wghtref,r1wghttryu,r2wghttryu,r3wghttryu,s1wghttryu,s2wghttryu,s3wghttryu,r1wghtequp,r2wghtequp,r3wghtequp,s1wghtequp,s2wghtequp,s3wghtequp,r1wghtothr,r2wghtothr,r3wghtothr,s1wghtothr,s2wghtothr,s3wghtothr,r1wstsft,r2wstsft,r3wstsft,s1wstsft,s2wstsft,s3wstsft,r1wstref,r2wstref,r3wstref,s1wstref,s2wstref,s3wstref,r1wsttryu,r2wsttryu,r3wsttryu,s1wsttryu,s2wsttryu,s3wsttryu,r1wstequp,r2wstequp,r3wstequp,s1wstequp,s2wstequp,s3wstequp,r1wstothr,r2wstothr,r3wstothr,s1wstothr,s2wstothr,s3wstothr,r1puff1,r2puff1,r3puff1,s1puff1,s2puff1,s3puff1,r1puff2,r2puff2,r3puff2,s1puff2,s2puff2,s3puff2,r1puff3,r2puff3,r3puff3,s1puff3,s2puff3,s3puff3,r1puff,r2puff,r3puff,s1puff,s2puff,s3puff,r1puffcomp,r2puffcomp,r3puffcomp,s1puffcomp,s2puffcomp,s3puffcomp,r1puffpos,r2puffpos,r3puffpos,s1puffpos,s2puffpos,s3puffpos,r1puffeff,r2puffeff,r3puffeff,s1puffeff,s2puffeff,s3puffeff,r1puffsft,r2puffsft,r3puffsft,s1puffsft,s2puffsft,s3puffsft,r1puffref,r2puffref,r3puffref,s1puffref,s2puffref,s3puffref,r1pufftryu,r2pufftryu,r3pufftryu,s1pufftryu,s2pufftryu,s3pufftryu,r1puffequp,r2puffequp,r3puffequp,s1puffequp,s2puffequp,s3puffequp,r1puffothr,r2puffothr,r3puffothr,s1puffothr,s2puffothr,s3puffothr,r1semitan,r2semitan,r3semitan,s1semitan,s2semitan,s3semitan,r1semidone,r2semidone,r3semidone,s1semidone,s2semidone,s3semidone,r1semicomp,r2semicomp,r3semicomp,s1semicomp,s2semicomp,s3semicomp,r1semitanc,r2semitanc,r3semitanc,s1semitanc,s2semitanc,s3semitanc,r1fulltan,r2fulltan,r3fulltan,s1fulltan,s2fulltan,s3fulltan,r1fulldone,r2fulldone,r3fulldone,s1fulldone,s2fulldone,s3fulldone,r1fullcomp,r2fullcomp,r3fullcomp,s1fullcomp,s2fullcomp,s3fullcomp,r1fulltanc,r2fulltanc,r3fulltanc,s1fulltanc,s2fulltanc,s3fulltanc,r1sbstan,r2sbstan,r3sbstan,s1sbstan,s2sbstan,s3sbstan,r1sbsdone,r2sbsdone,r3sbsdone,s1sbsdone,s2sbsdone,s3sbsdone,r1sbscomp,r2sbscomp,r3sbscomp,s1sbscomp,s2sbscomp,s3sbscomp,r1sbstanc,r2sbstanc,r3sbstanc,s1sbstanc,s2sbstanc,s3sbstanc,r1balance,r2balance,r3balance,s1balance,s2balance,s3balance,r1balflr,r2balflr,r3balflr,s1balflr,s2balflr,s3balflr,r1balcompl,r2balcompl,r3balcompl,s1balcompl,s2balcompl,s3balcompl,r1balsft,r2balsft,r3balsft,s1balsft,s2balsft,s3balsft,r1balref,r2balref,r3balref,s1balref,s2balref,s3balref,r1baltryu,r2baltryu,r3baltryu,s1baltryu,s2baltryu,s3baltryu,r1balequp,r2balequp,r3balequp,s1balequp,s2balequp,s3balequp,r1balothr,r2balothr,r3balothr,s1balothr,s2balothr,s3balothr,r1chr5sec,r2chr5sec,r3chr5sec,s1chr5sec,s2chr5sec,s3chr5sec,r1chr5num,r2chr5num,r3chr5num,s1chr5num,s2chr5num,s3chr5num,r1chr5comp,r2chr5comp,r3chr5comp,s1chr5comp,s2chr5comp,s3chr5comp,r1chr5bmv,r2chr5bmv,r3chr5bmv,s1chr5bmv,s2chr5bmv,s3chr5bmv,r1chr5sft,r2chr5sft,r3chr5sft,s1chr5sft,s2chr5sft,s3chr5sft,r1chr5ref,r2chr5ref,r3chr5ref,s1chr5ref,s2chr5ref,s3chr5ref,r1chr5tryu,r2chr5tryu,r3chr5tryu,s1chr5tryu,s2chr5tryu,s3chr5tryu,r1chr5equp,r2chr5equp,r3chr5equp,s1chr5equp,s2chr5equp,s3chr5equp,r1chr5othr,r2chr5othr,r3chr5othr,s1chr5othr,s2chr5othr,s3chr5othr,r2dresshlp,r3dresshlp,r4dresshlp,s2dresshlp,s3dresshlp,s4dresshlp,r2bathehlp,r3bathehlp,r4bathehlp,s2bathehlp,s3bathehlp,s4bathehlp,r2eathlp,r3eathlp,r4eathlp,s2eathlp,s3eathlp,s4eathlp,r2bedhlp,r3bedhlp,r4bedhlp,s2bedhlp,s3bedhlp,s4bedhlp,r2toilethlp,r3toilethlp,r4toilethlp,s2toilethlp,s3toilethlp,s4toilethlp,r1walkre,r2walkre,r3walkre,r4walkre,s1walkre,s2walkre,s3walkre,s4walkre,r2toilte,r3toilte,r4toilte,s2toilte,s3toilte,s4toilte,r2shophlp,r3shophlp,r4shophlp,s2shophlp,s3shophlp,s4shophlp,r2medhlp,r3medhlp,r4medhlp,s2medhlp,s3medhlp,s4medhlp,r2hswkhlp,r3hswkhlp,r4hswkhlp,s2hswkhlp,s3hswkhlp,s4hswkhlp,r2mealhlp,r3mealhlp,r4mealhlp,s2mealhlp,s3mealhlp,s4mealhlp,r2phonehlp,r3phonehlp,r4phonehlp,s2phonehlp,s3phonehlp,s4phonehlp,r2moneyhlp,r3moneyhlp,r4moneyhlp,s2moneyhlp,s3moneyhlp,s4moneyhlp,r1ftrhlp,r2ftrhlp,r3ftrhlp,r4ftrhlp,s1ftrhlp,s2ftrhlp,s3ftrhlp,s4ftrhlp,r2ftrsp,r3ftrsp,r4ftrsp,s2ftrsp,s3ftrsp,s4ftrsp,r1ftrkids,r2ftrkids,r3ftrkids,r4ftrkids,s1ftrkids,s2ftrkids,s3ftrkids,s4ftrkids,r1ftrothr,r2ftrothr,r3ftrothr,r4ftrothr,s1ftrothr,s2ftrothr,s3ftrothr,s4ftrothr,r1ftrpro,r2ftrpro,r3ftrpro,r4ftrpro,s1ftrpro,s2ftrpro,s3ftrpro,s4ftrpro,r2racany,r3racany,r4racany,s2racany,s3racany,s4racany,r2ricany,r3ricany,r4ricany,s2ricany,s3ricany,s4ricany,r1rcany,r2rcany,r3rcany,r4rcany,s1rcany,s2rcany,s3rcany,s4rcany,r2racaany,s2racaany,r2ricaany,s2ricaany,r1rcaany,r2rcaany,r3rcaany,r4rcaany,s1rcaany,s2rcaany,s3rcaany,s4rcaany,r2rascare,s2rascare,r2riscare,s2riscare,r1rscare,r2rscare,r3rscare,r4rscare,s1rscare,s2rscare,s3rscare,s4rscare,r2rascaren,s2rascaren,r2riscaren,s2riscaren,r2rscaren,s2rscaren,r1rscaredpm,r3rscaredpm,r4rscaredpm,s1rscaredpm,s3rscaredpm,s4rscaredpm,r1rscarehr,r3rscarehr,r4rscarehr,s1rscarehr,s3rscarehr,s4rscarehr,r1rscarepd,r3rscarepd,s1rscarepd,s3rscarepd,r2raccare,s2raccare,r2riccare,s2riccare,r1rccare,r2rccare,r3rccare,r4rccare,s1rccare,s2rccare,s3rccare,s4rccare,r2raccaren_c,s2raccaren_c,r2riccaren_c,s2riccaren_c,r2rccaren_c,s2rccaren_c,r1rccaren,r3rccaren,r4rccaren,s1rccaren,s3rccaren,s4rccaren,r1rccaredpm,r3rccaredpm,r4rccaredpm,s1rccaredpm,s3rccaredpm,s4rccaredpm,r2rccaredpm_c,s2rccaredpm_c,r1rccarehr,r3rccarehr,r4rccarehr,s1rccarehr,s3rccarehr,s4rccarehr,r2rccarehr_c,s2rccarehr_c,r1rccarepd,r3rccarepd,s1rccarepd,s3rccarepd,r2rccarepd_c,s2rccarepd_c,r2rarcare,s2rarcare,r2rircare,s2rircare,r1rrcare,r2rrcare,r3rrcare,r4rrcare,s1rrcare,s2rrcare,s3rrcare,s4rrcare,r2rarcaren,s2rarcaren,r2rircaren,s2rircaren,r1rrcaren,r2rrcaren,r3rrcaren,r4rrcaren,s1rrcaren,s2rrcaren,s3rrcaren,s4rrcaren,r1rrcaredpm,r3rrcaredpm,r4rrcaredpm,s1rrcaredpm,s3rrcaredpm,s4rrcaredpm,r1rrcarehr,r3rrcarehr,r4rrcarehr,s1rrcarehr,s3rrcarehr,s4rrcarehr,r1rrcarepd,r3rrcarepd,s1rrcarepd,s3rrcarepd,r2rafcare,s2rafcare,r2rifcare,s2rifcare,r1rfcare,r2rfcare,r3rfcare,r4rfcare,s1rfcare,s2rfcare,s3rfcare,s4rfcare,r3rfcaren,r4rfcaren,s3rfcaren,s4rfcaren,r1rfcaredpm,r3rfcaredpm,s1rfcaredpm,s3rfcaredpm,r1rfcarehr,r3rfcarehr,s1rfcarehr,s3rfcarehr,r1rfcarepd,r3rfcarepd,s1rfcarepd,s3rfcarepd,r2rafaany,s2rafaany,r2rifaany,s2rifaany,r1rfaany,r2rfaany,r3rfaany,r4rfaany,s1rfaany,s2rfaany,s3rfaany,s4rfaany,r1rpfcare,s1rpfcare,r1rpfcaredpm,s1rpfcaredpm,r1rpfcarehr,s1rpfcarehr,r1rufcare,s1rufcare,r1rufcaredpm,s1rufcaredpm,r1rufcarehr,s1rufcarehr,r1hlppdn,s1hlppdn,r2hlppdn_c,s2hlppdn_c,r3hlppdni,s3hlppdni,r1hlppdamt,r3hlppdamt,s1hlppdamt,s3hlppdamt,r2hlppdamt_c,s2hlppdamt_c,h1gpcare,h2gpcare,h4gpcare,h1gkcare,h2gkcare,h3gkcare,h4gkcare,r1gcaresck,r2gcaresck,r3gcaresck,r4gcaresck,s1gcaresck,s2gcaresck,s3gcaresck,s4gcaresck,ramomdrug,s1momdrug,s2momdrug,s3momdrug,s4momdrug,radaddrug,s1daddrug,s2daddrug,s3daddrug,s4daddrug,rapadrug,s1padrug,s2padrug,s3padrug,s4padrug,r1lifethe,r2lifethe,r3lifethe,r4lifethe,s1lifethe,s2lifethe,s3lifethe,s4lifethe,r1chdeathe,r2chdeathe,r3chdeathe,r4chdeathe,s1chdeathe,s2chdeathe,s3chdeathe,s4chdeathe,rahltcom,s1hltcom,s2hltcom,s3hltcom,s4hltcom,ramischlth,s1mischlth,s2mischlth,s3mischlth,s4mischlth,rafinacom,s1finacom,s2finacom,s3finacom,s4finacom,ramomeft,s1momeft,s2momeft,s3momeft,s4momeft,ramomatt_c,s1momatt_c,s2momatt_c,s3momatt_c,s4momatt_c,ramomgrela,s1momgrela,s2momgrela,s3momgrela,s4momgrela,radadgrela,s1dadgrela,s2dadgrela,s3dadgrela,s4dadgrela,ramwarmm_c,s1mwarmm_c,s2mwarmm_c,s3mwarmm_c,s4mwarmm_c,ramwarm_c,s1mwarm_c,s2mwarm_c,s3mwarm_c,s4mwarm_c,r1depresl,r2depresl,r3depresl,r4depresl,s1depresl,s2depresl,s3depresl,s4depresl,r1effortl,r2effortl,r3effortl,r4effortl,s1effortl,s2effortl,s3effortl,s4effortl,r1sleeprl,r2sleeprl,r3sleeprl,r4sleeprl,s1sleeprl,s2sleeprl,s3sleeprl,s4sleeprl,r1whappyl,r2whappyl,r3whappyl,r4whappyl,s1whappyl,s2whappyl,s3whappyl,s4whappyl,r1flonel,r2flonel,r3flonel,r4flonel,s1flonel,s2flonel,s3flonel,s4flonel,r1botherl,r2botherl,r3botherl,r4botherl,s1botherl,s2botherl,s3botherl,s4botherl,r1goingl,r2goingl,r3goingl,r4goingl,s1goingl,s2goingl,s3goingl,s4goingl,r1mindtsl,r2mindtsl,r3mindtsl,r4mindtsl,s1mindtsl,s2mindtsl,s3mindtsl,s4mindtsl,r1fhopel,r2fhopel,r3fhopel,r4fhopel,s1fhopel,s2fhopel,s3fhopel,s4fhopel,r1fearll,r2fearll,r3fearll,r4fearll,s1fearll,s2fearll,s3fearll,s4fearll,r1cesd10,r2cesd10,r3cesd10,r4cesd10,s1cesd10,s2cesd10,s3cesd10,s4cesd10,r1cesd10m,r2cesd10m,r3cesd10m,r4cesd10m,s1cesd10m,s2cesd10m,s3cesd10m,s4cesd10m,r1satlife,r2satlife,r3satlife,r4satlife,s1satlife,s2satlife,s3satlife,s4satlife,r1satlifez,r2satlifez,r3satlifez,r4satlifez,s1satlifez,s2satlifez,s3satlifez,s4satlifez
+```
 
 些数据集通常都有 Harmonized Data（标准化数据）。Harmonized Data 是对原始数据进行标准化和一致化处理后的数据集，目的是方便跨国家或跨地区的比较研究。这种数据处理方式特别适用于像你提到的这些关于老龄化、健康和退休的纵向调查数据
 
@@ -420,7 +454,7 @@ working.
 > **退休:**
 > - 我们删除了 RwRPLYNR，表示受访者计划停止工作的年份。
 
-#### Introduction and Overview
+#### Introduction and Overview (介绍和概述)
 This report documents the Harmonized CHARLS data files, a streamlined collection of
 variables derived from the China Health and Retirement Longitudinal Study (CHARLS).
 CHARLS is a panel survey of people aged 45 and over and their partners regardless of age in
@@ -435,8 +469,7 @@ care use and costs, housing, job status and history, expectations, biomarkers, a
 CHARLS is supported by Peking University, the National Natural Science Foundation of
 China, the Behavioral and Social Research Division of the National Institute on Aging, and
 the World Bank. CHARLS shares the same basic guidelines as the Health and Retirement
-Study (HRS) and related aging surveys, such as the English Longitudinal Study of Aging
-(ELSA) in England) and the Survey of Health, Aging and Retirement in Europe (SHARE) in
+Study (HRS) and related aging surveys, (such as the English Longitudinal Study of Aging (ELSA) in England) and the Survey of Health, Aging and Retirement in Europe (SHARE) in
 Europe and Israel.
 > [!NOTE]- 翻译
 > CHARLS 得到了北京大学、中国国家自然科学基金、中国国家老龄化研究所行为与社会研究部和世界银行的支持。CHARLS 与健康与退休研究 (HRS) 和相关的老龄化调查（例如，英国的老龄化纵向研究 (ELSA) 和欧洲和以色列的健康、老龄化和退休调查 (SHARE)）具有相同的基本准则。
@@ -1056,6 +1089,256 @@ Data (www.g2aging.org) under the Download tabs.
 
 #### Date Codebook
 
+| abbr | full name | description |
+| :--: | :--: | :--: |
+| CVD  | cardiovascular disease | 心血管疾病,心血管疾病事件 |
+| bmi  | body mass index | 体重指数 |
+| wc   | waist circumference | 腰围 |
+| WHR   | waist-to-hip ratio | 腰臀比 |
+| WHtR | waist-to-height ratio | 腰围与身高比,$wc/height$ |
+| FBG | fasting blood glucose | 空腹血糖(全血血糖),采用指尖采血法 |
+| FPG | fasting plasma glucose | 空腹血糖(血浆血糖,需离心分离血浆) |
+| GLU | glucose | 葡萄糖,血浆葡萄糖 |
+| TC   | total cholesterol | 总胆固醇,包括血液中的所有脂蛋白结合的胆固醇总和 |
+| TG   | triglycerides | 甘油三酯,主要来源于饮食脂肪和肝脏合成 |
+| TyG | triglyceride-glucose index | 甘油三酯-葡萄糖指数,计算公式:$\ln(TG(mg/dl) *GLU(mg/dl)/2)$ |
+| TyG-WHtR | triglyceride-glucose waist-to-height ratio index | 甘油三酯-葡萄糖-腰围-身高比指数,计算公式:$TyG\times WHtR $ |
+| Cumulative TyG-WHtR | cumulative triglyceride-glucose waist-to-height ratio index | 累计甘油三酯-葡萄糖-腰围-身高比指数,计算公式:$\sum_{i=1}^{n}\text{TyG-WHtR}$ ,需要根据情况具体处理,即看作 n倍均值, 例如 将 2012和2015的数据加起来除以2 然后乘以 4,因为 n 应该是年份,但是 我们没有每年的数据 |
+| HDL  | high-density lipoprotein | 高密度脂蛋白(胆固醇),又称好胆固醇 |
+| HDL-C | high-density lipoprotein cholesterol | 同上 |
+| non-HDL | non-high-density lipoprotein  | 非高密度脂蛋白胆固醇,即总胆固醇减去高密度脂蛋白胆固醇, 计算公式:$TC-HDL$ |
+| AIP | atherogenic index of plasma | 血浆动脉粥样硬化指数,计算公式:$log_{10}(\frac{TG}{HDL})$ |
+| LDL  | low-density lipoprotein | 低密度脂蛋白(胆固醇),又称坏胆固醇 |
+| LDL-C | low-density lipoprotein cholesterol | 同上 |
+| HbA1c | glycosylated hemoglobin | 糖化血红蛋白,反映过去2-3个月的平均血糖水平 |
+
+#### Section A: Demographics and Identifiers (人口统计学和标识符)
+
+##### Identifiers (标识符)
+| Wave | Variable | Label | Type |
+| :--: | :------: | :---: | :--: |
+| 1 | ID | ID:person identifier/12-char | Char |
+| 1 | HOUSEHOLDID | householdID:hhold id /10-char | Char |
+| 1 | HHID | hhid:HHold ID /10-num | Cont |
+| 1 | PNC | pnc:person id /2-char | Char |
+| 1 | PN | pn:person id-num | Cont |
+| 1 | ID_W1 | ID_w1:Wave 1 person identifier/11-char | Char |
+| 1 | HOUSEHOLDID_W1 | householdID_w1:Wave 1 hhold identifier/9-char | Char |
+| 1 | COMMUNITYID | communityID:community ID/7-char | Char |
+
+> [!NOTE]- 翻译
+> 标识符
+> | 波 | 变量 | 标签 | 类型 |
+> | :--: | :------: | :---: | :--: |
+> | 1 | ID | ID:个人标识符/12-char | Char |
+> | 1 | HOUSEHOLDID | householdID:家庭id /10-char | Char |
+> | 1 | HHID | hhid:住户id /10-num | Cont |
+> | 1 | PNC | pnc:个人 id /2-char | Char |
+> | 1 | PN | pn:个人 id-数字 | Cont |
+> | 1 | ID_W1 | ID_w1:第一次调查时个人id/11-char | Char |
+> | 1 | HOUSEHOLDID_W1 | householdID_w1:第一次调查时家庭id/9-char | Char |
+> | 1 | COMMUNITYID | communityID:社区 ID/7-char | Char |
+
+**Descriptive Statistics**
+| Variable | N | Mean | Std Dev | Minimum | Maximum |
+| :--: | :--: | :--: | :--: | :--: | :--: |
+| HHID | 25586 | 658330425.76 | 921189254.62 | 10104101.00 | 3477633190.00 |
+| PN | 25586 | 1.47 | 0.53 | 1.00 | 5.00 |
+
+貌似没有意义, 略过
+
+**How Constructed:**
+
+ID is the 12-digit character identifier that uniquely identifies each respondent starting in Wave
+2. HouseholdID is a 10-digit character identifier that that uniquely identifies each household
+starting in Wave 2.
+
+ID consists of two separate parts, including:
+
+(1) HouseholdID, which is a 10-digit character household identifier to indicate the household each
+individual belonged to when entering the panel. HHID is the numeric version of the household
+identifier.
+
+(2) PNC, which is a 2-digit character person identifier used by CHARLS to indicate each participant
+within the household. PN is the numeric version of the person identifier.
+Please note that ID and HouseholdID are specific to the CHARLS Wave 2 and forward. Starting in wave
+2, CHARLS revised the ID and HouseholdID formats to account for splitting of households due to
+divorce. Wave 2 and following waves employ this 12-digit character individual identifier and this
+10-digit character household identifier.
+
+Wave 1 identifiers are ID_w1 and HouseholdID_w1. ID_w1 is an 11-digit character identifier for each
+Wave 1 respondent and HouseholdID_w1 is a 9-digit character identifier for each Wave 1 household.
+To merge with the original Wave 1 files requires first renaming ID_w1 to ID and HouseholdID_w1 to
+HouseholdID.
+
+CommunityID is a 7-digit character identifier that identifies which community each household
+belonged to.
+> [!NOTE]- 翻译
+> **如何构建**
+
+**Cross Wave Differences in CHARLS**
+
+Starting in wave 2, CHARLS revised the householdID into a 10-digit number and the 10th digit is an
+indicator for splitting household due to divorce. Also starting in wave 2, CHARLS revised the
+individual identifier ID to a 12-digit number, where the last two digits identify individuals
+within households, which is comparable to those in baseline individual ID.
+> [!NOTE]- 翻译
+> **CHARLS 中的跨波差异**
+> 从第 2 波开始，CHARLS 将 householdID 修订为 10 位数字，第 10 位数字是由于离婚而拆分家庭的指示符。从第 2 波开始，CHARLS 将个人标识符 ID 修订为 12 位数字，其中最后两位数字标识家庭中的个人，这与基线个人 ID 中的个人相当。
+
+##### Spouse Identifier (配偶标识符)
+
+##### Couple Identifier (夫妻标识符)
+
+##### Wave Status: Response Indicator (波次状态: 响应指示符)
+
+**How Constructed:**
+
+INWw indicates whether an individual in the CHARLS sample responded to a particular wave.
+Respondents identified as having either a full or partial interview either in person or through a
+proxy are considered to have responded and are coded as 1.
+> [!NOTE]- 翻译
+> INWw 指示 CHARLS 样本中的个人是否对特定波次做出回应。被认定为通过个人或代理人进行完整或部分访谈的受访者被视为已响应，并编码为 1。
+
+##### Wave Status: Interview Status (波次状态: 访谈状态)
+
+##### Sample Cohort (样本队列)
+
+##### Household Analysis Weight (家庭分析权重)
+
+##### Person-Level Analysis Weight (个人分析权重)
+
+##### Number of Household Respondents (家庭受访者人数)
+
+##### Whether Coupled Household (是否联合家庭)
+
+##### Family respondent (是否回答家庭信息)
+
+##### Interview Dates (访谈日期)
+
+##### Birth date: Month, and Year (出生日期: 月和年)
+
+##### Death: Month, and Year (死亡: 月和年)
+
+##### Age at interview (in months and years) (访谈时年龄(以月和年为单位))
+
+##### Gender (性别)
+
+##### Education: Categorical Summary (教育: 分类摘要)
+
+##### Current Marital Status: With partnership (当前婚姻状况: 有伴侣)
+
+##### Current Marital Status: Without Partnership (当前婚姻状况: 没有伴侣)
+
+##### Current Marital Status: Never Married (当前婚姻状况: 未婚)
+
+##### Number of Marriage (结婚次数)
+
+##### Length of Current Marriage (当前婚姻持续时间)
+
+##### Place of Birth (出生地)
+
+##### Hukou Region (户籍地区)
+
+##### Live in Urban or Rural (居住在城市或农村)
+
+#### Section B: Health (健康)
+
+##### Self-report of Health (健康自我报告)
+
+##### Whether health limits work (健康是否限制工作)
+
+##### Activities of daily living (ADLs): Some difficulty (日常生活活动 (ADLs): 一些困难)
+
+##### Instrumental activities of daily living (IADLs): Some difficulty (工具性日常生活活动 (IADLs): 一些困难)
+
+##### Other Functional Limitations: Some difficulty (其他功能限制: 一些困难)
+
+##### ADL Summary: sum ADLs where respondent reports any difficulty (ADL 摘要: 受访者报告任何困难的 ADLs 总和)
+
+##### IADL Summary: sum IADLs where respondent reports any difficulty (IADL 摘要: 受访者报告任何困难的 IADLs 总和)
+
+##### Mobility Summaries (移动摘要)
+
+##### Doctor diagnosed health problems: Ever Had Condition (医生诊断的健康问题: 曾经有过该疾病吗)
+
+##### Doctor diagnosed health problems: Memory-related disease (医生诊断的健康问题: 与记忆相关的疾病)
+
+##### Whether Receives Treatment or Medication for Disease (是否接受治疗或服用药物)
+
+##### Health behaviors: Physical Activity or Exercise (健康行为: 体育活动或锻炼)
+
+##### Health behaviors: Drinking (健康行为: 饮酒)
+
+##### Health behaviors: Smoking (cigarettes) (健康行为: 吸烟 (香烟))
+
+#### Section C: Health Care Utilization and Insurance (医疗保健利用和保险)
+
+##### Medical Care Utilization: Inpatient/Hospital Stay (医疗保健利用: 住院/医院停留)
+
+#### Section D: Cognition (认知)
+
+#### Section E: Financial and Housing Wealth (金融和住房财富)
+
+#### Section F: Income and Consumption (收入和消费)
+
+#### Section G: Family Structure (家庭结构)
+
+#### Section H: Employment History (就业历史)
+
+#### Section I: Retirement (退休)
+
+##### Whether Retired: Retired Employment Status (是否退休: 退休就业状态)
+
+#### Section J: Pension (养老金)
+
+#### Section K: Physical Measures (身体测量)
+
+##### Timed Walk Measurements (计时步行测量)
+
+##### Timed Walk Measurements: Reasons Didn’t Complete (计时步行测量: 未完成的原因)
+
+##### Blood Pressure Measurements (血压测量)
+
+##### Blood Pressure Measurements: Reasons Didn’t Complete (血压测量: 未完成的原因)
+
+##### Hand Grip Strength Measurements (握力测量)
+
+##### Hand Grip Strength Measurements: Reasons Didn’t Complete (握力测量: 未完成的原因)
+
+##### Height, Weight, and Waist Circumference Measurements (身高、体重和腰围测量)
+
+##### Height, Weight, and Waist Circumference Measurements: Reasons Didn’t Complete (身高、体重和腰围测量: 未完成的原因)
+
+##### Lung Function Measurements (Peak Flow) (肺功能测量 (峰值流量))
+
+##### Lung Function Measurements (Peak Flow): Reasons Didn’t Complete (肺功能测量 (峰值流量): 未完成的原因)
+
+##### Balance Tests (平衡测试)
+
+##### Balance Tests: Reasons Didn’t Complete (平衡测试: 未完成的原因)
+
+##### Chair Stand Tests (椅子站立测试)
+##### Chair Stand Tests: Reasons Didn’t Complete (椅子站立测试: 未完成的原因)
+
+#### Section L: Assistance and Caregiving (协助和护理)
+
+##### Activities of Daily Living: Whether Receives Care for ADLs (日常生活活动: 是否接受 ADLs 护理)
+
+#### Section M: Stress (压力)
+
+##### Childhood/Lifetime Stressful Events (童年/终生压力事件)
+
+##### Self-Rated Childhood Health and Finances (自评童年健康和财务)
+
+##### Parental Warmth (父母的温暖)
+
+#### Section Q: Psychosocial (心理社会)
+
+##### Mental Health (CESD score) (心理健康 (CESD 分数))
+
+##### Single Life Satisfaction Question (单身生活满意度问题)
+
 ### 2020 CHARLS Wave 5
 
 本次数据发布 (版本号: 20231106) 一共发布了八个主要数据集以及两个辅助数据集  (样本信息以及横截面权重) 。PSU信息与往期数据相同。下表给出了这十个数据集的详细
@@ -1068,7 +1351,7 @@ Data (www.g2aging.org) under the Download tabs.
 | D. 健康状况与功能 | Health_Status_and_Functioning | 健康状态、健康行为以及认知能力 |
 | F. 工作与退休 | Work_Retirement | 工作以及退休状况 |
 | G1. 家户收入与支出 | Household_Income | 家户收入、支出以及住房情况 |
-| G2. 个人收入 | Individual_Income | 个人收入 |
+| G2. 个人收入 | Individual_Income | 个人收入 |  
 | V. 疫情 | COVID_Module | 受访者疫情期间的相关信息 |
 | EX. 退出问卷 | EXIT_Module | 去世受访者的信息 |
 |  | Weights | 横截面权重 |
@@ -1078,7 +1361,30 @@ Data (www.g2aging.org) under the Download tabs.
 数据的基本统计描述。
 
 ### 选题
-自变量 --> 因变量
+
+- 关系探索
+  - 因果关系\类因果关系: 自变量 --> 因变量
+
+**因果关系**
+| 自变量 | 因变量 |
+| :---: | :---: |
+| TyG | CVD |
+| TyG-bmi | CVD |
+| TyG-WHtR | CVD |
+| cumulative TyG-bmi | CVD |
+| TyG-WC,TyG-WHtR,TyG-bmi | CVD |
+| TyG & 心血管-肾脏-代谢综合征 | CVD |
+| TyG, TG/HDL-C | CVD |
+| frailty Changes | CVD |
+| 经济地位、社会活动和孤独感 | 抑郁症 |
+| eGDR | CVD |
+| eGDR Changes | CVD |
+| NHHR | CVD |
+| cumulative NHHR | CVD |
+| NHHR Changes | CVD |
+| NHHR,2型糖尿病 | CVD |
+
+non-HDL
 
 - 自变量: 医学指标; 环境暴露; 社科变量
 - 因变量: 健康结局
@@ -1091,20 +1397,32 @@ Data (www.g2aging.org) under the Download tabs.
 ABSI, AIP， BFP, BRI, CCR, CVAI, LAP, eGDR, eGFR, ePWV, Frailty, non-HDL, NHHR, PHR, RC, TyG, WHtR
 | abbreviation | 英文 | 中文 | 变量类型 |
 | ------------ | --- | ---- | ------ |
+| ABSI | A body shape index | 身体形状指数 | 医学指标,自变量 |
+| AIP | Atherogenic index of plasma | 血浆动脉粥样硬化   指数 | 医学指标,自变量 |
+| BFP | Body fat percentage | 体脂百分比 | 医学指标,自变量 |
+| BRI | Body roundness index | 身体圆度指数 | 医学指标,自变量 |
+| CCR | Cardiometabolic risk | 心脏代谢风险 | 医学指标,自变量 |
+| CVAI | Cardiovascular risk | 心血管风险 | 医学指标,自变量 |
+| LAP | Lipid accumulation product | 脂质积累产物 | 医学指标,自变量 |
+| PHR | Platelet/High-density lipoprotein cholesterol ratio | 血小板/高密度脂蛋白胆固醇比值 | 医学指标,自变量 |
 | TyG | Triglyceride-glucose | 甘油三酯葡萄糖 | 医学指标,自变量 |
-| TyG-WHtR | Triglyceride-glucose-waist height ratio | 甘油三酯葡萄糖-腰高比 | 医学指标,自变量 |
-| BMI | Body mass index | 体重指数 | 医学指标,自变量 |
 | Frailty | frailty | 虚弱 | 医学指标,自变量 |
 | non-HDL | non-HDL cholesterol | 非高密度脂蛋白胆固醇 | 医学指标,自变量 |
 | NHHR | Non-HDL/HDL cholesterol ratio | 非高密度脂蛋白胆固醇/高密度脂蛋白胆固醇比值 | 医学指标,自变量 |
+| eGDR | Estimated glucose disposal rate | 估计葡萄糖处理率 | 医学指标,自变量 |
+| eGFR | Estimated glomerular filtration rate | 估计肾小管滤过率 | 医学指标,自变量 |
+| ePWV | Estimated pulse wave velocity | 估计脉搏波速度 | 医学指标,自变量 |
+| RC | Resistance index | 阻力指数 | 医学指标,自变量 |
+| WHtR | Waist-to-height ratio | 腰围与身高比 | 医学指标,自变量 |
+
 
 #### 医学指标
 
-| 论文题目| 翻译题目 | 自变量 | 因变量 | link |
-| ------ | ------ | ----- | ----- | ---- |
-| Association between triglyceride glucose-waist height ratio index and cardiovascular disease in middle-aged and older Chinese individuals: a nationwide cohort study | 甘油三酯葡萄糖-腰高比指数与中老年中国人群心血管疾病的关系：一项全国性队列研究 | 甘油三酯葡萄糖-腰高比指数 (TyG-WHtR index) | CVD: 心血管疾病 | [BMC](https://cardiab.biomedcentral.com/articles/10.1186/s12933-024-02336-6) |
-| Sarcopenia and mild cognitive impairment among elderly adults: The first longitudinal evidence from CHARLS | 老年人群肌少症与轻度认知障碍的关系：来自CHARLS的首个纵向证据 | 肌少症 | 轻度认知障碍 | [PubMed](https://pubmed.ncbi.nlm.nih.gov/36058563/) \ [PubMed](https://pmc.ncbi.nlm.nih.gov/articles/PMC9745544/) |
-| Association between atherogenic index of plasma and new-onset stroke in individuals with different glucose metabolism status: insights from CHARLS | 血浆动脉粥样硬化指数与不同糖代谢状态新发中风的关系：来自CHARLS的见解 | 血浆致动脉粥样硬化指数(AIP) | 新发卒中 | [BMC](https://cardiab.biomedcentral.com/articles/10.1186/s12933-024-02314-y) |
+| 论文题目| 翻译题目 | 自变量 | 因变量 | link | dataset |
+| ------ | ------ | ----- | ----- | ---- | :-----: |
+| Association between triglyceride glucose-waist height ratio index and cardiovascular disease in middle-aged and older Chinese individuals: a nationwide cohort study | 甘油三酯葡萄糖-腰高比指数与中老年中国人群心血管疾病的关系：一项全国性队列研究 | 甘油三酯葡萄糖-腰高比指数 (TyG-WHtR index) | CVD: 心血管疾病 | [BMC](https://cardiab.biomedcentral.com/articles/10.1186/s12933-024-02336-6) | CHARLS |
+| Sarcopenia and mild cognitive impairment among elderly adults: The first longitudinal evidence from CHARLS | 老年人群肌少症与轻度认知障碍的关系：来自CHARLS的首个纵向证据 | 肌少症 | 轻度认知障碍 | [PubMed](https://pubmed.ncbi.nlm.nih.gov/36058563/) \ [PubMed](https://pmc.ncbi.nlm.nih.gov/articles/PMC9745544/) | CHARLS |
+| Association between atherogenic index of plasma and new-onset stroke in individuals with different glucose metabolism status: insights from CHARLS | 血浆动脉粥样硬化指数与不同糖代谢状态新发中风的关系：来自CHARLS的见解 | 血浆致动脉粥样硬化指数(AIP) | 新发卒中 | [BMC](https://cardiab.biomedcentral.com/articles/10.1186/s12933-024-02314-y) | CHARLS |
 
 #### 环境暴露
 因为 CHARLS 数据有地理信息(省市), 所以可以考虑一些环境暴露的指标, 且本身包含一些环境暴露变量
@@ -1163,7 +1481,7 @@ health and retirement study PGS
 
 | 论文题目| 翻译题目 | 自变量 | 因变量 | link | 测量方式 | dataset | score |
 | ------ | ------ | ----- | ----- | ---- | ------- | ------- | ----- |
-| Non-linear associations of **atherogenic index** of plasma with prediabetes and type 2 diabetes mellitus among Chinese adults aged 45 years and above: a cross-sectional study from CHARLS | 45岁及以上中国成年人**血浆动脉粥样硬化指数**与糖尿病前期和2型糖尿病的非线性关系：来自CHARLS的一项横断面研究 | 血浆动脉粥样硬化指数(AIP) | 糖尿病前期和2型糖尿病 |  | 单次测量 | CHARLS | 3.9/Q2 |
+| Non-linear associations of **atherogenic index of plasma** with prediabetes and type 2 diabetes mellitus among Chinese adults aged 45 years and above: a cross-sectional study from CHARLS | 45岁及以上中国成年人**血浆动脉粥样硬化指数**与糖尿病前期和2型糖尿病的非线性关系：来自CHARLS的一项横断面研究 | 血浆动脉粥样硬化指数(AIP) | 糖尿病前期和2型糖尿病 |  | 单次测量 | CHARLS | 3.9/Q2 |
 | Exposure of **cumulative atherogenic index** of plasma and the development of prediabetes in middle-aged and elderly individuals: evidence from the CHARLS cohort study | **累积血浆动脉粥样硬化指数**暴露与中老年人群糖尿病前期发展的关系：来自CHARLS队列研究的证据 | 血浆动脉粥样硬化指数(AIP) | 糖尿病前期 |  | 多次测量 |  CHARLS | 8.5/Q1 |
 | | **估计血糖 控制 水平** 与中老年人**脑卒中**发病率 的关系 | eGDR(延伸的糖代谢指标) | CVD的卒中  |  | 单次测量 | CHARLS | 3.0/Q2 |4636
 | | 中老年人 **估算血糖处理率 变化** 与 新发**心血管疾病**的关系: 中国全国前瞻性队列研究 | eGDR 变化 | 心血管系统疾病(CVD) |  | 多次测量 | CHARLS | 5.4/Q1 |
@@ -1424,6 +1742,30 @@ For middle-aged and older adults, changes in the TyG-WHtR are independently asso
 #### Introduction  引言
 #### Methods
 ##### Study design and population 研究设计和人群
+Our study is based on data from the China Health and Retirement Longitudinal Study (CHARLS), a national population-based cohort study. The study design has been previously described [^14]. The CHARLS national baseline survey (Wave 1) spanned from June 2011 to March 2012, encompassing 17,708 individual participants. A multistage probability sampling technique selected participants from 150 counties or regions and 450 villages or urban communities in China. Up to date, four subsequent follow-up surveys were conducted every 2 years (Wave 2 in 2013, Wave 3 in 2015, Wave 4 in 2018, and Wave 5 in 2020).
+> [!note]- 翻译
+> 本研究基于中国健康与退休纵向研究 (CHARLS) 的数据， CHARLS 是一项国家人口基础的队列研究。研究设计已在之前进行过描述[^14]。<br/>
+> CHARLS 国家基线调查 (第 1 波) 从 2011 年 6 月到 2012 年 3 月，共涵盖 17,708 名参与者。<br/>
+> 采用多阶段概率抽样技术从中国的 150 个县或地区和 450 个村庄或城市社区中选择参与者。<br/>
+> 截至目前，已进行四次后续随访调查，每两年进行一次（第 2 波 2013 年、第 3 波 2015 年、第 4 波 2018 年和第 5 波 2020 年）。
+
+In this study, we included 11,847 participants who participated in blood tests. We excluded participants for reasons including (1) lack of fasting blood glucose (FBG) or triglycerides (TG) at Wave 1 or Wave 3. (2) Missing or abnormal height and waist measurements. (3) under 45 years of age. (4) People who had CVD events before Wave 3 (2015) or lacked information about CVD. The detailed inclusion and exclusion process is shown in Fig. 1.
+> [!note]- 翻译
+> 在本研究中，我们纳入了 11,847 名参与者，他们参加了血液检查。<br/>
+> 我们排除了以下原因的参与者：<br/>
+> （1）第 1 波或第 3 波缺乏空腹血糖 (FBG) 或甘油三酯 (TG)。<br/>
+> （2）缺少或异常的身高和腰围测量。<br/>
+> （3）年龄在 45 岁以下。<br/>
+> （4）在第 3 波 (2015) 之前发生 CVD 事件或缺乏 CVD 信息。<br/>
+> 详细的纳入和排除过程见图 1。
+
+```mermaid
+flowchart TD
+    1[11 847 participants had blood sample at both wave 1] --> 2[5789 participants had blood sample at both wave 1 and wave 3]
+    2 --> 3[4978 participants had blood sample and took physical examination at wave 1 and wave 3]
+    3 --> 4[3312 participants included analysis]
+```
+
 ##### Assessment of the change in TyG-WHtR TyG-WHtR 变化评估
 ##### Assessment of CVD  心血管疾病评估
 ##### Covariates  协变量
@@ -1460,6 +1802,8 @@ The results of logistic regression analyses for the association between the chan
 **Table 2.**
 
 Logistic regression analysis for the association between different classes of TyG-WHtR and CVD
+> [!note]- 翻译
+> 表 2. TyG-WHtR 不同类别与 CVD 之间的逻辑回归分析
 
 | |Model 1<br/> OR(95%CI)	P value |	Model 2<br/> OR(95%CI)	P value|	Model 3<br/> OR(95%CI)	P value|	Model 4<br/> OR(95%CI)	P value|
 | - | - | - | - | - |
@@ -1472,12 +1816,27 @@ Logistic regression analysis for the association between different classes of Ty
 |2 |1.43 (1.08–1.89)	0.012 | 1.44 (1.09–1.90)	0.011 |	1.32 (0.99–1.75)	0.057 |	1.28 (0.96–1.71)	0.093 |
 |3 |1.87 (1.42–2.45)	 < 0.001 | 1.88 (1.43–2.48)	 < 0.001 |	1.60 (1.20–2.13)	0.001 |	1.52 (1.13–2.06)	0.006 |
 |4 |2.39(1.82–3.14)	 < 0.001 | 2.39(1.81–3.14)	 < 0.001 |	1.77(1.30–2.41)	 < 0.001 |	1.67(1.19–2.34)	0.003 |
-| P for trend | | < 0.001 | < 0.001 | < 0.001 |	0.003 |
+| P for trend | < 0.001 | < 0.001 | < 0.001 |	0.003 |
 | Per SD | 1.41(1.29–1.55)	 < 0.001 | 1.41(1.28–1.54)	 < 0.001 |	1.27(1.14–1.42)	 < 0.001 |	1.27(1.12–1.43)	 < 0.001 |
 
 TyG-WHtR triglyceride glucose-waist height ratio, CVD cardiovascular diseases
+> [!note]- 翻译
+> TyG-WHtR 甘油三酯-葡萄糖-腰围身高比，CVD 心血管疾病
+
+Fig. 3.
+
+Cubic model of the association between cumulative TyG-WHtR index and (A) CVD; (B) heart disease; (C)stroke
+> [!note]- 翻译
+> 图 3. 累积 TyG-WHtR 指数与 (A) CVD；(B) 心脏病；(C) 中风之间的关系的立方模型
 
 The ROC curve indicated that cumulative TyG-WHtR (AUC 0.596, 95%CI 0.572–0.621) had the highest diagnostic efficacy for CVD, followed by TyG-WHtR at baseline (AUC 0.596, 95%CI 0.572–0.621), WHtR at baseline (AUC 0.584, 95%CI 0.559–0.609), and TyG at baseline (AUC 0.568, 95%CI 0.544–0.593).(Fig. 4) Cumulative TyG-WHtR also had the highest diagnostic efficacy for heart disease and stroke. (Additional file 1: Figures S2, S3).
+> [!note]- 翻译
+> ROC 曲线表明，累积 TyG-WHtR (AUC 0.596, 95%CI 0.572–0.621) 对 CVD 的诊断效能最高，<br/>
+> 其次是基线时的 TyG-WHtR (AUC 0.596, 95%CI 0.572–0.621)、<br/>
+> 基线时的 WHtR (AUC 0.584, 95%CI 0.559–0.609) 和基线时的 TyG (AUC 0.568, 95%CI 0.544–0.593)。<br/>
+> （图 4）累积 TyG-WHtR 对心脏病和中风的诊断效能也最高。<br/>
+> （附加文件 1：图 S2、S3）。
+
 ##### Subgroup analyses and sensitivity analyses 亚组分析和敏感性分析
 #### Discussion
 #### Conclusion

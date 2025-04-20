@@ -39,3 +39,5 @@ certificates
 # gen data
 /public/data/index.json
 /public/data/tags.json
+
+H_CHARLS_D_Data.csv
