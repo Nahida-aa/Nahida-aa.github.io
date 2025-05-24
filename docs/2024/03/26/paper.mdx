@@ -14,8 +14,6 @@ http://vgms.fanyu.com
 
 ## 常规生物医学指标与中国老年人健康状况的相关性研究
 
-2020 CHARLS Wave 5
-
 - 第一章 dataset
   - 第一节 介绍
     - part 1 介绍
@@ -103,9 +101,6 @@ pip install pandas pyreadstat
 | Japanese Study of Aging and Retirement, JSTAR | 日本老龄化与退休研究 (JSTAR) 是一项针对日本中老年人群体的纵向调查，旨在研究健康、经济和社会因素对老年人生活质量的影响。 |
 | Study on Global Ageing and Adult Health, SAGE | 全球老龄化与成人健康研究 (SAGE) 是一项针对全球中老年人群体的纵向调查，旨在研究健康、经济和社会因素对老年人生活质量的影响。 |
 | Global Ageing Data Repository, GADR | 全球老龄化数据存储库 (GADR) 是一项针对全球中老年人群体的纵向调查，旨在研究健康、经济和社会因素对老年人生活质量的影响。 |
-
-### CHALRS
-
 
 
 ### Harmonized Data
@@ -1339,26 +1334,7 @@ proxy are considered to have responded and are coded as 1.
 
 ##### Single Life Satisfaction Question (单身生活满意度问题)
 
-### 2020 CHARLS Wave 5
 
-本次数据发布 (版本号: 20231106) 一共发布了八个主要数据集以及两个辅助数据集  (样本信息以及横截面权重) 。PSU信息与往期数据相同。下表给出了这十个数据集的详细
-说明
-
-| 问卷模块 | dataset | description |
-| ------- | ------- | ----------- |
-| B. 基本信息 | Demographic_Background | 主要受访者及其配偶的基本人口学信息 |
-| C. 家庭信息 | Family_Information | 家庭以及家户成员信息 |
-| D. 健康状况与功能 | Health_Status_and_Functioning | 健康状态、健康行为以及认知能力 |
-| F. 工作与退休 | Work_Retirement | 工作以及退休状况 |
-| G1. 家户收入与支出 | Household_Income | 家户收入、支出以及住房情况 |
-| G2. 个人收入 | Individual_Income | 个人收入 |  
-| V. 疫情 | COVID_Module | 受访者疫情期间的相关信息 |
-| EX. 退出问卷 | EXIT_Module | 去世受访者的信息 |
-|  | Weights | 横截面权重 |
-| | Sample_Infor | 样本信息 |
-
-所有的数据集均以Stata 14格式存储, 用户可以通过随数据发布的“codebook”获取
-数据的基本统计描述。
 
 ### 选题
 
@@ -1767,9 +1743,26 @@ flowchart TD
 ```
 
 ##### Assessment of the change in TyG-WHtR TyG-WHtR 变化评估
+Fasting status, blood glucose, and triglyceride levels were obtained from the blood sample examinations at Wave 1 and Wave 3. Any height variation exceeding 10 cm between measurements taken at Wave 1 and Wave 3 was deemed an abnormal height measurement. Any waist measurement that deviates from the overall mean waist measurement by more than three standard deviations (either above or below) was classified as an abnormal waist measurement. TyG, WHtR, TyG-WHtR, and cumulative TyG-WHtR were calculated according to the following formulas [11, 15]: (1) TyG = ln [triglycerides (mg/dl) × glucose (mg/dl)/2]; (2) WHtR = waist circumference/height; (3) TyG-WHtR = TyG × WHtR; (3) Cumulative TyG-WHtR = (TyG-WHtR2012 + TyG-WHtR2015)/2 × time(2015–2012).
+> [!note]- 翻译
+> 空腹状态、血糖和甘油三酯水平来自第 1 波和第 3 波的血液样本检查。<br/>
+> 在第 1 波和第 3 波测量之间，任何超过 10 厘米的身高变化被视为异常身高测量。<br/>
+> 任何腰围测量值偏离整体平均腰围测量值超过三个标准差（无论是高于还是低于）<br/>
+> 被归类为异常腰围测量。<br/>
+> TyG、WHtR、TyG-WHtR 和累积 TyG-WHtR 根据以下公式计算 [11, 15]：<br/>
+> （1）TyG = ln [甘油三酯 (mg/dl) × 葡萄糖 (mg/dl)/2]；<br/>
+> （2）WHtR = 腰围/身高；<br/>
+> （3）TyG-WHtR = TyG × WHtR；<br/>
+> （3）累积 TyG-WHtR = (TyG-WHtR2012 + TyG-WHtR2015)/2 × 时间(2015–2012)。
+
 ##### Assessment of CVD  心血管疾病评估
 ##### Covariates  协变量
 ##### Statistical analyses  统计分析
+
+聚类分析使用了 2012年和2015年两次测量的TyG-WHtR值，即两个时间点的测量结果，构成二维数据。
+- 2012年 TyG-WHtR（变量1）
+- 2015年 TyG-WHtR（变量2）
+
 #### Results
 ##### Baseline characteristics of participants 参与者基线特征
 In this study, 3312 participants were included for analysis. The mean age at baseline was 58.30 ± 8.38 years, and 1499(45.3%) were men. The mean TyG-WHtR was 4.70 ± 0.76 in 2012 and 4.76 ± 0.78 in 2015, and the mean cumulative TyG-WHtR was 14.19 ± 2.19. Based on the cluster analysis, the baseline characteristics of participants in each group are presented in Table 1. Additionally, we described the baseline characteristics of participants in each group based on the cumulative TyG-WHtR (Additional file 1: Table S1).
@@ -1804,6 +1797,20 @@ The results of logistic regression analyses for the association between the chan
 Logistic regression analysis for the association between different classes of TyG-WHtR and CVD
 > [!note]- 翻译
 > 表 2. TyG-WHtR 不同类别与 CVD 之间的逻辑回归分析
+
+| |Model1/OR(95%CI)|Model1/P value |	Model 2 OR(95%CI) |Model 2	P value|Model 3 OR(95%CI) |Model 3	P value|Model 4 OR(95%CI) |Model 4 P value|
+| :--: | :--: | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Change in the TyG-WHtR | | | | | | | | |
+| 1  | Reference | Reference | Reference | Reference | Reference | Reference | Reference | Reference | Reference |
+| 2  | 1.51 (1.21–1.89) | < 0.001 | 1.52 (1.21–1.90) | < 0.001 | 1.33 (1.06–1.68) | 0.016 | 1.28 (1.01–1.63) | 0.042 |
+| 3  | 2.25 (1.76–2.87) | < 0.001 | 2.24 (1.75–2.87) | < 0.001 | 1.68 (1.27–2.23) | < 0.001 | 1.58 (1.16–2.15) | 0.004 |
+| Cumulative TyG-WHtR |
+| 1 | Reference | Reference | Reference | Reference | Reference | Reference | Reference | Reference | Reference |
+| 2 | 1.43 (1.08–1.89) | 0.012 | 1.44 (1.09–1.90) | 0.011 | 1.32 (0.99–1.75) | 0.057 | 1.28 (0.96–1.71) | 0.093 |
+| 3 | 1.87 (1.42–2.45) | < 0.001 | 1.88 (1.43–2.48) | < 0.001 | 1.60 (1.20–2.13) | 0.001 | 1.52 (1.13–2.06) | 0.006 |
+| 4 | 2.39 (1.82–3.14) | < 0.001 | 2.39 (1.81–3.14) | < 0.001 | 1.77 (1.30–2.41) | < 0.001 | 1.67 (1.19–2.34) | 0.003 |
+| P for trend || < 0.001 | | < 0.001 | | < 0.001 | | 0.003 | |
+| Per SD | 1.41 (1.29–1.55) | < 0.001 | 1.41 (1.28–1.54) | < 0.001 | 1.27 (1.14–1.42) | < 0.001 | 1.27 (1.12–1.43) | < 0.001 |
 
 | |Model 1<br/> OR(95%CI)	P value |	Model 2<br/> OR(95%CI)	P value|	Model 3<br/> OR(95%CI)	P value|	Model 4<br/> OR(95%CI)	P value|
 | - | - | - | - | - |

@@ -1,0 +1,56 @@
+<div class="out">
+  <input type="text" value="" onfocus="onFocus(event)" onblur="onBlur(event)" />
+  <img src="./static/chicken.gif" class="pic" id="chicken" />
+</div>
+
+<div id="preview">预览：</div>
+
+<script>
+  const iptValue = { value: "" };
+  const isActive = { value: false };
+
+  function onFocus(e) {
+    console.log(e);
+    isActive.value = true;
+    document.getElementById("chicken").classList.add("active");
+  }
+
+  function onBlur(e) {
+    console.log(e);
+    isActive.value = false;
+    document.getElementById("chicken").classList.remove("active");
+  }
+
+  document.querySelector('input[type="text"]').addEventListener("input", function (e) {
+    iptValue.value = e.target.value;
+    document.getElementById("preview").innerText = `预览：${iptValue.value}`;
+  });
+</script>
+
+<style>
+  .out {
+    padding: 0 20px;
+    margin-top: 40px;
+    position: relative;
+  }
+  .out input {
+    width: 100%;
+    border: 1px solid #ccc;
+    height: 40px;
+    position: relative;
+    z-index: 2;
+    background: #fff;
+  }
+  .out .pic {
+    width: 24px;
+    height: 24px;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: calc(50% - 12px);
+    transition: top 0.3s;
+  }
+  .out .pic.active {
+    top: -24px;
+  }
+</style>

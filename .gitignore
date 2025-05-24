@@ -41,3 +41,5 @@ certificates
 /public/data/tags.json
 
 H_CHARLS_D_Data.csv
+
+*.csv
