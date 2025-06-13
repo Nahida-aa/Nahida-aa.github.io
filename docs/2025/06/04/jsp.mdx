@@ -1,0 +1,70 @@
+---
+title: jsp
+description: 
+created_at: 2025-06-04T12:17:46Z
+updated_at: 2025-06-04T12:17:46Z
+tags: [jsp,java,web]
+---
+JSP（JavaServer Pages）考试通常会考察以下内容：
+
+1.  **JSP 基础语法**
+    *   JSP 指令（`page`, `include`, `taglib`）
+    *   JSP 脚本元素（声明 `<%! %>`, 表达式 `<%= %>`, Scriptlet `<% %>`）
+    *   JSP 注释
+
+2.  **JSP 内置对象**
+    *   `request`：处理客户端请求
+    *   `response`：向客户端发送响应
+    *   `session`：会话管理
+    *   `application`：Web 应用上下文
+    *   `out`：向客户端输出内容
+    *   `pageContext`：页面上下文
+    *   `config`：Servlet 配置
+    *   `page`：当前 JSP 页面实例 (不常用)
+    *   `exception`：处理错误页面中的异常 (仅在错误页面中可用)
+
+3.  **JSP 动作标签 (Standard Actions)**
+    *   `<jsp:include>`：包含其他资源
+    *   `<jsp:forward>`：请求转发
+    *   `<jsp:param>`：传递参数给 `include` 或 `forward`
+    *   `<jsp:useBean>`：查找或实例化 JavaBean
+    *   `<jsp:setProperty>`：设置 JavaBean 属性
+    *   `<jsp:getProperty>`：获取 JavaBean 属性
+
+4.  **JavaBean 在 JSP 中的应用**
+    *   JavaBean 的规范和使用
+    *   通过动作标签操作 JavaBean
+
+5.  **EL (Expression Language) 表达式语言**
+    *   EL 语法和运算符
+    *   访问 JavaBean 属性、集合、请求参数等
+    *   EL 内置对象
+
+6.  **JSTL (JSP Standard Tag Library) 标准标签库**
+    *   核心标签库 (c:)：如 `c:out`, `c:set`, `c:if`, `c:forEach`, `c:url` 等
+    *   格式化标签库 (fmt:)
+    *   SQL 标签库 (sql:) (较少考察)
+    *   XML 标签库 (x:) (较少考察)
+    *   函数标签库 (fn:)
+
+7.  **Servlet 与 JSP 的关系和交互**
+    *   MVC 设计模式
+    *   Servlet 作为控制器，JSP 作为视图
+    *   请求转发和重定向
+
+8.  **会话管理 (Session Management)**
+    *   使用 `session` 内置对象
+    *   Cookie 和 URL 重写
+
+9.  **JSP 的生命周期**
+
+10. **自定义标签 (Custom Tags)**
+    *   简单标签 (Simple Tag)
+    *   传统标签 (Classic Tag) (较少考察)
+    *   TLD (Tag Library Descriptor) 文件配置
+
+11. **过滤器 (Filter) 和监听器 (Listener)** (可能会涉及，作为 Web 开发的一部分)
+
+12. **Web 应用程序部署描述符 (`web.xml`)** (与 JSP 相关的配置)
+
+具体的考试内容会根据教学大纲和考试级别有所不同，但以上是 JSP 学习和考试的核心知识点。
