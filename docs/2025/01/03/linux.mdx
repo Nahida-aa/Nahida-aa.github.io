@@ -20,4 +20,28 @@ tags: [linux]
 ```bash
 # update system
 sudo pacman -Syu
+# install package
+sudo pacman -S <package_name>
+# uninstall package
+sudo pacman -R <package_name>
+# search package
+pacman -Ss <package_name>
+
+# AUR, Arch User Repository
+# install yay
+sudo pacman -S yay
+# install package from AUR
+yay -S <package_name>
+# uninstall package from AUR
+yay -R <package_name>
+# search package in AUR
+yay -Ss <package_name>
+# update all packages from AUR
+yay -Syu
+# clean up unused packages
+yay -Rns $(pacman -Qdtq)
+# clean up cache
+yay -Sc
+# clean up all cache
+yay -Scc
 ```

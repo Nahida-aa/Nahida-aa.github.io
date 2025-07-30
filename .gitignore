@@ -11,6 +11,8 @@ node_modules
 # dist
 dist-ssr
 *.local
+# cache
+__pycache__
 
 # Editor directories and files
 .vscode/*
@@ -28,6 +30,9 @@ dist-ssr
 # env
 .env*
 !.env.example
+
+# key
+/certificates
 
 # next
 .next

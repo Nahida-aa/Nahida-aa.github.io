@@ -401,6 +401,51 @@ type StringType = ReturnType<typeof getString>;  // string
 
 ## ts
 
+### ts_var
+
+```ts
+// 写法 1
+interface UpdateData {
+    name?: string;
+    changelog?: string;
+    version_type?: string;
+    game_versions?: string[];
+    loaders?: string[];
+}
+const fieldsToUpdate: Partial<UpdateData> = {
+};
+if (updateData.name !== undefined) fieldsToUpdate.name = updateData.name;
+if (updateData.changelog !== undefined) fieldsToUpdate.changelog = updateData.changelog;
+if (updateData.version_type !== undefined) fieldsToUpdate.version_type = updateData.version_type;
+if (updateData.game_versions !== undefined) fieldsToUpdate.game_versions = updateData.game_versions;
+if (updateData.loaders !== undefined) fieldsToUpdate.loaders = updateData.loaders;
+// 写法 2
+const fieldsToUpdate = {
+    name: updateData?.name,
+    changelog: updateData?.changelog,
+    version_type: updateData?.version_type,
+    game_versions: updateData?.game_versions,
+    loaders: updateData?.loaders,
+}
+// 写法 2 的结果  
+{
+    name: "test",
+    changelog: undefined,  // 属性存在但值为 undefined
+    version_type: "release",
+    game_versions: undefined,
+    loaders: undefined
+}
+```
+
+### ts_iterate
+```ts
+// for len
+// 使用 for...of 遍历数组
+const numbers = [1, 2, 3, 4, 5];
+for (const num of numbers) {
+    console.log(num);  // 输出每个数字
+}
+
 ### ts/class
 ```ts
 class MyClass {
