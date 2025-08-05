@@ -16,7 +16,7 @@
     "bierner.github-markdown-preview", // markdown预览
     "unifiedjs.vscode-mdx",
     "pkief.material-icon-theme", // 图标主题
-    "robbowen.synthwave-vscode", // 主题
+    // "robbowen.synthwave-vscode", // 主题
     "be5invis.vscode-custom-css", // 自定义css
     "oderwat.indent-rainbow", // 缩进彩虹
   ]
