@@ -51,13 +51,27 @@ eula=true
 enforce-secure-profile=false # 1.21+ 新增安全协议，必须关闭
 level-seed=1063292310985219505
 online-mode=false          # 关闭正版验证，允许非正版玩家加入
+# 玩家体验设置
+keep-inventory=true      # 死亡不掉落
+accepts-transfers=false  # 关闭玩家转移
+
+# 游戏规则优化
+gamemode=survival       # 默认生存模式
+difficulty=normal       # 难度
+max-players=20
+```
+
+#### command
+
+```sh
+/gamerule keepInventory true
 ```
 
 ### cpolar
 
 ```sh
 # 1. install cpolar
-yay -S cpolar
+yay -S cpolar`
 # 2. 登录
 # 3. 穿透 tcp
 cpolar tcp 25565 
@@ -72,6 +86,7 @@ cpolar tcp 25565
 # Avg Conn Time       0.00ms 
 
 # 其他玩家使用 地址: 31.tcp.cpolar.top:10219 连接即可
+17.tcp.vip.cpolar.cn:11666
 ```
 
 ### 补充
@@ -102,6 +117,8 @@ cpolar tcp 25565
 
 投影建筑蓝图
 
+依赖: MaLiLib
+
 ### info
 
 #### Mod Menu | 1.21.x |fabric,quilt|client|
@@ -117,6 +134,9 @@ Jade 是现代 Minecraft 版本的信息 HUD 模组 - Hwyla/Waila。专为更好
 
 #### MiniHUD | 1.21.x | ....|client|
 有各种“迷你 F3”信息行供您选择
+
+依赖: MaLiLib
+
 ### map
 
 #### xaero_s_minimap | no 1.21.2 | ....|client|
@@ -128,6 +148,12 @@ Jade 是现代 Minecraft 版本的信息 HUD 模组 - Hwyla/Waila。专为更好
 #### yes_steve_model | 1.21.1 |...| and | https://ysm.cfpa.team/ |
 
 允许玩家根据需要自定义玩家模型和动画
+
+#### carry-on
+
+允许你拾取方块实体和生物，并将它们带在身边！
+
+按住 Shift（可重新绑定）并在任意 Tile Entities 或生物上右键点击（使用空手）来拾取和携带
 
 ### base
 
