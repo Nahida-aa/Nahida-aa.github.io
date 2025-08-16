@@ -6,6 +6,48 @@ updated_at: 2025-07-14T01:58:16Z
 tags: [cs, programming]
 ---
 
+## var
+
+```c
+int a = 1; // C 年份: 1972
+```
+```python
+a = 1  # Python 年份: 1991
+b: int = 2  # Python 3.6+ 显式类型注解 年份: 2016
+global c = 3  # Python 3.8+ 全局变量  年份: 2019
+```
+```java
+class Main {
+    public static void main(String[] args) {
+        int a = 1; // Java 年份: 1995
+        // Java 10 引入的 var
+        var b = 2; // 自动推断类型为 int 年份: 2017
+        System.out.println(a + b);
+    }
+}
+```
+```js
+a = 1; // JavaScript 年份: 1995
+var b = 2; // ES5 年份: 2009
+let c = 3; // ES6 年份: 2015
+const d = 4; // ES6 年份: 2015
+```
+```ts
+let a = 1; // TypeScript 类型推断 年份: 2012
+let b: number = 2; // 显式类型注解 年份: 2012
+const c: number = 3; // 常量 年份: 2012
+```
+```go
+a := 1 // Go 类型推断 年份: 2009
+var b int = 2 // 显式类型注解 年份: 2009
+const c = 3 // 常量 年份: 2009
+```
+```rust
+let a = 1; // Rust 类型推断 年份: 2010
+let b: i32 = 2; // 显式类型注解 年份: 2010
+const C: i32 = 3; // 常量 年份: 2010
+```
+
 ## object-oriented programming {~1967}
 
 - 符合人类思维模式
@@ -292,6 +334,38 @@ void move_point(struct Point* p, int dx, int dy) {
     p->x += dx;
     p->y += dy;
 }
+```
+
+### function syntax
+```c
+void function_name(int param1, float param2) {} // C 1972
+```
+```python
+def function_name(param1: int, param2: float) -> None: # Python 1991, type hints 2016
+    pass
+```
+```java
+public class ClassName {
+    public void functionName(int param1, float param2) {} // java 1995
+}
+```
+```js
+function functionName(param1, param2) {} // JavaScript 1995
+// const functionName = (param1, param2) => {} // ES6
+```
+```ts
+function functionName(param1: number, param2: number): void {} // TypeScript
+
+const functionName = (param1: number, param2: number): void => {}
+
+type FunctionName = (param1: number, param2: number) => void; // 定义类型
+const functionName2: FunctionName = (param1, param2) => {}
+```
+```go
+func functionName(param1 int, param2 float64) int {} // go 2009
+```
+```rust
+fn function_name(param1: i32, param2: f64) -> i32 {} // rust 2010
 ```
 
 ## Type System

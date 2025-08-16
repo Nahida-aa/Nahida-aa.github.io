@@ -1,0 +1,44 @@
+<script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+<!-- <fruit-list></fruit-list>
+
+<script>
+  class FruitList extends HTMLElement {
+    //当自定义元素首次连接到文档的 DOM 时调用。
+    connectedCallback() { // Invoked when the custom element is first connected to the document's DOM.
+      const data = ['苹果', '香蕉', '橙子']
+      this.innerHTML = `
+        <ul>
+          ${data.map(item => `<li class="text-purple-500">${item}</li>`).join('')}
+        </ul>
+      `
+    }
+  }
+  customElements.define('fruit-list', FruitList)
+</script>
+
+<output id="out">
+</output>
+
+
+
+<script>
+const n = 10
+for (let i = 1; i < n; i++) {
+  const m = Math.floor(n/2);
+  if (i >= m) {
+    const start = '*'.repeat(n-i);
+    console.log(`${start}`);
+    continue;
+  }
+  const start = ' '.repeat(m - i);
+  const end = '*'.repeat(i);
+  console.log(`${start}${end}`);
+}
+</script> -->
+
+<div aria-label="container" class=" w-40 flex">
+  <div class="item flex-1">1</div>
+  <div class="item">2</div>
+  <div class="item">3</div>
+</div>

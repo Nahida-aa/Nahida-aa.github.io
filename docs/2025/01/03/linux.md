@@ -45,3 +45,13 @@ yay -Sc
 # clean up all cache
 yay -Scc
 ```
+
+### kde
+
+```
+catppuccin: cat 主题 支持 kde, vscode ...
+klassy: KDE Plasma 桌面的高度可定制的二进制窗口装饰、应用程序样式和全局主题插件
+plasma-panel-colorizer: KDE Plasma 面板颜色化插件
+kwin-effects-forceblur: Better Blur 是 Plasma 6 模糊效果的一个分支，具有附加功能和错误修复。
+KDE-Rounded-Corners: 桌面特效来实现 窗口圆角
+```
