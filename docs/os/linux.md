@@ -1,9 +1,9 @@
 ---
 title: linux
 description: 
-created_at: 2025-07-05T03:05:30Z
+created_at: 2022-03-07T19:15:38Z
 updated_at: 2025-07-05T03:05:30Z
-tags: [linux]
+tags: [os]
 ---
 
 ## Classify

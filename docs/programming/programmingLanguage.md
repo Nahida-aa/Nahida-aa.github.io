@@ -48,6 +48,30 @@ let b: i32 = 2; // 显式类型注解 年份: 2010
 const C: i32 = 3; // 常量 年份: 2010
 ```
 
+### array
+```c
+int arr[5] = {1, 2, 3, 4, 5}; // C 数组 年份: 1972
+```
+```python
+arr = [1, 2, 3, 4, 5]  # Python 列表 年份: 1991
+```
+```java
+int[] arr = {1, 2, 3, 4, 5}; // Java 数组 年份: 1995
+```
+```js
+let arr = [1, 2, 3, 4, 5]; // JavaScript 数组 年份: 1995
+```
+```ts
+let arr = [1, 2, 3, 4, 5]; // TypeScript 数组 年份: 2012
+```
+```go
+var arr = []int{1, 2, 3, 4, 5} // Go 切片 年份: 2009
+```
+```rust
+let arr = [1, 2, 3, 4, 5]; // Rust 数组 年份: 2010
+let vec = vec![1, 2, 3, 4, 5]; // Rust 向量 年份: 2010
+```
+
 ## object-oriented programming {~1967}
 
 - 符合人类思维模式
@@ -155,6 +179,7 @@ class LocalFileHandler extends FileHandler {
         this.fileSize = data.length;
     }
 }
+
 ```
 
 ```python
@@ -629,6 +654,17 @@ function handleAPICall(endpoint: APIEndpoint) {
 }
 ```
 枚举在 TypeScript 中是组织常量和提供类型安全的强大工具
+
+### ts_type
+```typescript
+// 修改 type 的 字段的 type
+type User = {
+    id: number;
+    name: string;
+    email: string;
+};
+type UserWithAge = Omit<User, 'email'> & { age: number }; // 去掉 email 字段并添加 age 字段
+```
 
 ## java
 
