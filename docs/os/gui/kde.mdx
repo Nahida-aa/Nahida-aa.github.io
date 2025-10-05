@@ -1,0 +1,35 @@
+---
+title: kde
+description: "KDE (Plasma / KWin) 是一个开源的桌面环境，提供了丰富的功能和高度的可定制性。"
+created_at: 2025-09-13T12:19:13Z
+updated_at: 2025-09-13T12:19:13Z
+tags: [os]
+---
+
+## issue
+```sh
+# 
+kscreen-doctor --help
+kscreen-doctor -o
+kscreen-doctor --dpms show
+# 重新唤醒所有显示器
+kscreen-doctor --dpms on
+
+# 当屏幕卡住时的恢复命令
+# 强制重新激活所有显示器
+kscreen-doctor --dpms off && sleep 1 && kscreen-doctor --dpms on
+
+# 重置显示器配置
+kscreen-doctor --output eDP-1 --enable --output HDMI-A-1 --enable
+
+# 如果还不行，重启 KWin 混成器
+systemctl --user restart plasma-kwin_wayland.service
+```
+
+## self shortcutKey
+
+## ini
+
+### keyboard
+#### shortcutKey
+##### navigation

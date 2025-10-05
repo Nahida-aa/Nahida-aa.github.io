@@ -64,3 +64,6 @@ socket.emit("chat", "hello");
 42["chat","hello"]
 ```
 如果服务端只是用 `ws`，它会看到 `"42["chat","hello"]"` 这样的原始字符串，完全不知道是什么意思。
+
+## ably
+

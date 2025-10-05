@@ -48,28 +48,70 @@ let b: i32 = 2; // 显式类型注解 年份: 2010
 const C: i32 = 3; // 常量 年份: 2010
 ```
 
-### array
+### array\vector\list\slice
 ```c
 int arr[5] = {1, 2, 3, 4, 5}; // C 数组 年份: 1972
+vector<int> vec = {1, 2, 3, 4, 5}; // C++ 向量(动态数组) 年份: 1991
 ```
 ```python
-arr = [1, 2, 3, 4, 5]  # Python 列表 年份: 1991
+lst: list[int] = [1, 2, 3, 4, 5]  # Python 列表(list, 动态数组) 年份: 1991
 ```
 ```java
 int[] arr = {1, 2, 3, 4, 5}; // Java 数组 年份: 1995
+java.util.List<Integer> list = java.util.Arrays.asList(1, 2, 3, 4, 5); // 列表(动态数组) 
 ```
 ```js
-let arr = [1, 2, 3, 4, 5]; // JavaScript 数组 年份: 1995
+let arr = [1, 2, 3, 4, 5]; // js 数组(动态数组) 年份: 1995
 ```
 ```ts
-let arr = [1, 2, 3, 4, 5]; // TypeScript 数组 年份: 2012
+let arr: number[] = [1, 2, 3, 4, 5]; // ts 数组(动态数组) 年份: 2012
 ```
 ```go
-var arr = []int{1, 2, 3, 4, 5} // Go 切片 年份: 2009
+var arr [5]int = [5]int{1, 2, 3, 4, 5} // Go 年份: 2009
+var slice []int = []int{1, 2, 3, 4, 5} // 切片(动态数组)
 ```
 ```rust
-let arr = [1, 2, 3, 4, 5]; // Rust 数组 年份: 2010
-let vec = vec![1, 2, 3, 4, 5]; // Rust 向量 年份: 2010
+let arr: [i32; 5] = [1, 2, 3, 4, 5]; // Rust 数组 年份: 2010
+let vec: Vec<i32> = vec![1, 2, 3, 4, 5]; // 向量(动态数组) 
+```
+### tuple
+```py
+tup: tuple[int, float, str] = (1, 3.14, "hello") 
+```
+```ts
+let tup: [number, number, string] = [1, 3.14, "hello"]; 
+```
+```rust
+let tup: (i32, f64, &str) = (42, 3.14, "hello");
+```
+### set
+```py
+s: set[int] = {1, 2, 3} 
+```
+```ts
+let s: Set<number> = new Set([1, 2, 3]); 
+```
+```rust
+use std::collections::HashSet;
+let mut set: HashSet<i32> = HashSet::from([1, 2, 3]);
+```
+### map\dict\hash\json
+```py
+d: dict[str, int] = {"one": 1, "two": 2} # dict
+```
+```java
+import java.util.Map;
+Map<String, Integer> map = Map.of("one", 1, "two", 2); // Java 9+
+```
+```ts
+let obj = { one: 1, two: 2 }; // json
+```
+```rust
+use std::collections::HashMap;
+let mut map: HashMap<String, i32> = HashMap::from([
+    ("one".to_string(), 1),
+    ("two".to_string(), 2),
+]);
 ```
 
 ## object-oriented programming {~1967}

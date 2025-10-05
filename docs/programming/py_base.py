@@ -34,3 +34,5 @@ while count < max_attempts:
         break
 else:
     print(f"很遗憾，机会用完了。正确的数字是 {number}。")
+
+

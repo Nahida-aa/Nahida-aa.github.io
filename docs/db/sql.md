@@ -6,6 +6,114 @@ updated_at: 2025-08-25T01:44:06Z
 tags: [db]
 ---
 
+## install
+
+### Arch\Garuda
+```bash
+# https://archlinux.org/packages/?sort=&q=postgresql&maintainer=&flagged=
+sudo pacman -S postgresql
+# 初始化数据库
+# 确保目录权限正确
+sudo chown postgres:postgres /var/lib/postgres/data
+sudo chmod 700 /var/lib/postgres/data
+# 切换到 postgres 用户并初始化
+sudo -iu postgres # -i: 模拟登录（创建完整的登录环境，加载用户的环境变量）; -u postgres: 切换到 postgres 用户身份
+initdb --locale=C -E UTF8 -D /var/lib/postgres/data # --locale=C: 设置数据库的区域设置为 C（POSIX 标准），这是最通用的设置; -E UTF8: 设置数据库的默认字符编码为 UTF-8，支持多语言字符; -D /var/lib/postgres/data: 指定数据库文件存储目录
+# 成功后会显示：成功。你现在可以用下面的命令开启数据库服务器: pg_ctl -D /var/lib/postgres/data -l logfile start
+exit # 退出 postgres 用户
+# 启动服务
+sudo systemctl start postgresql # 启动 PostgreSQL 服务
+sudo systemctl enable postgresql # 设置 PostgreSQL 服务开机自启
+
+```
+### Debian\Ubuntu
+```bash
+sudo apt update
+sudo apt install postgresql
+# 启动服务
+sudo systemctl start postgresql
+sudo systemctl enable postgresql
+```
+### Windows
+
+## use
+### user
+默认自带用户 postgres
+```sh
+# 使用 postgres 超级用户创建一个名为 "aa" 的用户，并赋予其创建数据库、角色和超级用户权限
+sudo -u postgres createuser -d -r -s aa
+# 创建用户并设置密码
+sudo -u postgres psql -c "CREATE USER myuser WITH PASSWORD 'mypassword';"
+# 或修改已有用户密码
+sudo -u postgres psql -c "ALTER USER myuser WITH PASSWORD 'mypassword';"
+```
+### create
+```sh
+# 创建数据库 (使用 createdb 工具，推荐)
+## 以 postgres 用户身份运行
+sudo -u postgres createdb mcc # postgresql://postgres@localhost:5432/mcc
+sudo -u postgres createdb -O labrinth labrinth # postgresql://labrinth:labrinth@localhost/labrinth
+# 验证
+psql -U labrinth -d labrinth -h localhost -W
+
+# 连接到指定数据库
+sudo -u postgres psql -d mcc
+```
+### delete
+```sh
+sudo -u postgres dropdb labrinth
+```
+
+## migration
+```sh
+for f in $(ls migrations/*.sql | sort); do
+  psql -U labrinth -d labrinth -f "$f"
+done
+```
+### text -> text 1 (text[])
+```sql
+-- 1. 去掉旧的默认值
+ALTER TABLE "project_member"
+ALTER COLUMN "permissions" DROP DEFAULT;
+
+-- 2. 修改类型，并把已有数据转换为数组
+ALTER TABLE "project_member"
+ALTER COLUMN "permissions" SET DATA TYPE text[]
+USING CASE
+  WHEN permissions = '[]' THEN '{}'::text[]     -- 把 '[]' 映射为空数组
+  ELSE (SELECT jsonb_array_elements_text(permissions::jsonb))                   -- '["read","write"]' -> ["read","write"]
+END;
+
+-- 3. 设置新的默认值为空数组
+ALTER TABLE "project_member"
+ALTER COLUMN "permissions" SET DEFAULT '{}'::text[];
+```
+### jsonb -> text[]
+```sql
+-- 1. 删除默认值
+ALTER TABLE project
+ALTER COLUMN game_versions DROP DEFAULT;
+-- 2. 创建转换函数
+CREATE OR REPLACE FUNCTION jsonb_to_text_array(input jsonb) RETURNS text[] AS $$
+BEGIN
+  -- 如果是空 jsonb 数组，返回空 text[]；否则展开聚合成 text[]
+  IF input = '[]'::jsonb OR input IS NULL THEN
+    RETURN '{}'::text[];
+  ELSE
+    RETURN ARRAY(SELECT jsonb_array_elements_text(input));
+  END IF;
+END;
+$$ LANGUAGE plpgsql IMMUTABLE;
+-- 3. 修改列类型并转换已有数据
+ALTER TABLE project
+ALTER COLUMN game_versions
+SET DATA TYPE text[]
+USING jsonb_to_text_array(game_versions);
+-- 4. 添加默认值
+ALTER TABLE project
+ALTER COLUMN game_versions
+SET DEFAULT '{}'::text[];
+```
 ## PostgreSQL ID 类型
 
 ### 1. 自增ID类型

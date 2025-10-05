@@ -16,4 +16,14 @@
   ],
   "typescript.tsdk": "node_modules/typescript/lib",
   "python.analysis.typeCheckingMode": "basic",
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    ".env": ".env, .env.*",
+    "tsconfig.json": "tsconfig.*.json, next-env.d.ts, env.d.ts",
+    "next.config.*": "components.json, postcss.config.*, tailwind.config.*",
+    "vite.config.*": "jsconfig*, vitest.config.*, cypress.config.*, playwright.config.*",
+    "package.json": "package-lock.json, pnpm*, .yarnrc*, yarn*, bun.lock, tsconfig.json, .eslint*, eslint*, biome.json, .oxlint*, oxlint*, .prettier*,  prettier*, .editorconfig, .npmrc",
+    "README.md": "CHANGELOG.md, LICENSE, CONTRIBUTING.md, CODE_OF_CONDUCT.md, SECURITY.md, readme.*"
+  },
+  "markdown.validate.enabled": false,
 }
