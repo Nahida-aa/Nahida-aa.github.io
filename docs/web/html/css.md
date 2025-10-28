@@ -1269,6 +1269,17 @@ Flex 有两条轴：
 
 ### gap
 
+## grid
+`grid-cols-[1fr_auto]`
+
+解释: `grid-template-columns: 1fr auto;`
+
+也就是说这是一个两列的 Grid 布局：第一列占剩余可用空间（1fr），第二列按内容宽度自适应（auto）
+
+1fr 与 auto 的区别
+- 1fr：表示弹性份额，分配剩余可用空间（常用作主列，拉伸填充）。
+- auto：宽度由内容和内边距等决定，不会拉伸去占剩余空间（常用作按钮、工具栏、侧栏等宽度随内容变化的列）
+
 ## :has()
 ```html
 <style>

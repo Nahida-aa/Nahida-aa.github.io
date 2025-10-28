@@ -1,0 +1,36 @@
+
+GET https://api.github.com/users
+
+### 普通用户 API 测试
+GET http://localhost:3000/api/hono/users
+Authorization: Bearer your-user-token
+
+### 管理员 API 测试
+GET http://localhost:3000/api/admin/users
+Authorization: Bearer your-admin-token
+
+### 管理员 - 更新用户状态
+PATCH http://localhost:3000/api/admin/users/user-uuid-here/status
+Authorization: Bearer your-admin-token
+Content-Type: application/json
+
+{
+  "status": "suspended"
+}
+
+### 管理员 - 获取系统统计
+GET http://localhost:3000/api/admin/dashboard/stats
+Authorization: Bearer your-admin-token
+
+### 管理员 - 分配角色 (如果使用 RBAC)
+POST http://localhost:3000/api/admin/users/user-uuid-here/roles
+Authorization: Bearer your-admin-token
+Content-Type: application/json
+
+{
+  "role": "moderator"
+}
+
+POST http://localhost:3000/api/aa/bau/wd
+
+POST http://localhost:3001/api/auth/signin

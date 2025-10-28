@@ -3,7 +3,7 @@ title: sql
 description: 以postgres为例，介绍sql的基本用法
 created_at: 2022-06-21T01:44:06Z
 updated_at: 2025-08-25T01:44:06Z
-tags: [db]
+tags: [db,sql]
 ---
 
 ## install
