@@ -3,9 +3,9 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "npm run gen && next dev --turbopack",
+    "dev": "pnpm run gen && next dev --turbopack",
     "dev-pwa": "next dev --experimental-https",
-    "build": "npm run gen && next build",
+    "build": "pnpm run gen && next build",
     "start": "next start",
     "lint": "eslint . --ext .ts,.tsx -c .eslintrc.json --fix",
     "gen": "ts-node --project tsconfig.node.json scripts/gen.ts"
