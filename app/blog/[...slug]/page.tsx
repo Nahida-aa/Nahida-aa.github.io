@@ -41,7 +41,11 @@ export const generateStaticParams = async() => {
   })
   return params
 }
-
+const typeMap = {
+  'mdx': 'mdx',
+  'md': 'md',
+} as const
+type ExtensionType = 'mdx' |'md'
 export default async function Page ({
   params,
 }: {
@@ -49,9 +53,16 @@ export default async function Page ({
 }) {
   const { slug } = await params
   const dSlug = slug.join('/')
+  const extension = (dSlug.split('.').pop() || 'md') as ExtensionType
+  const format = typeMap[extension]
   const { metadata, content, rawContent, toc } = await getFileWithMetaWithToc(`docs/${dSlug}`)
   if (!rawContent) return notFound()
-  const {content: JSXContent, frontmatter} = await CustomMDX({ source: rawContent })
+  const {content: JSXContent, frontmatter} = await CustomMDX({ source: rawContent,
+options: {
+  mdxOptions: {
+    format
+  }
+} })
   const Content = (): JSX.Element => JSXContent;
   return <Suspense fallback={<LoadingS />}>
   <section className='px-4 sm:px-6 w-full min-w-0  flex-1 grid grid-cols-12'>

@@ -4,7 +4,7 @@ description: Enable fast client-side navigation with the built-in `next/link` co
 ---
 
 {/* The content of this doc is shared between the app and pages router. You can
-use the `<PagesOnly>Content</PagesOnly>` component to add content that is
+use the `Content` component to add content that is
 specific to the Pages Router. Any shared content should not be wrapped in a
 component. */}
 
@@ -43,7 +43,7 @@ The following props can be passed to the `<Link>` component:
 
 The path or URL to navigate to.
 
-<AppOnly>
+
 
 ```tsx filename="app/page.tsx" switcher
 import Link from "next/link";
@@ -81,9 +81,9 @@ export default function Page() {
 }
 ```
 
-</AppOnly>
 
-<PagesOnly>
+
+
 
 ```tsx filename="pages/index.tsx" switcher
 import Link from "next/link";
@@ -121,7 +121,7 @@ export default function Home() {
 }
 ```
 
-</PagesOnly>
+
 
 ### `replace`
 
@@ -130,7 +130,7 @@ history state instead of adding a new URL into the
 [browser's history](https://developer.mozilla.org/docs/Web/API/History_API)
 stack.
 
-<AppOnly>
+
 
 ```tsx filename="app/page.tsx" switcher
 import Link from "next/link";
@@ -156,9 +156,9 @@ export default function Page() {
 }
 ```
 
-</AppOnly>
 
-<PagesOnly>
+
+
 
 ```tsx filename="pages/index.tsx" switcher
 import Link from "next/link";
@@ -184,7 +184,7 @@ export default function Home() {
 }
 ```
 
-</PagesOnly>
+
 
 ### `scroll`
 
@@ -207,7 +207,7 @@ element.
 > `getBoundingClientRect`. Next.js then continues through siblings until it
 > identifies a scrollable element that is visible in the viewport.
 
-<AppOnly>
+
 
 ```tsx filename="app/page.tsx" switcher
 import Link from "next/link";
@@ -233,9 +233,9 @@ export default function Page() {
 }
 ```
 
-</AppOnly>
 
-<PagesOnly>
+
+
 
 ```tsx filename="pages/index.tsx" switcher
 import Link from "next/link";
@@ -261,11 +261,11 @@ export default function Home() {
 }
 ```
 
-</PagesOnly>
+
 
 ### `prefetch`
 
-<AppOnly>
+
 
 Prefetching happens when a `<Link />` component enters the user's viewport
 (initially or through scroll). Next.js prefetches and loads the linked route
@@ -310,9 +310,9 @@ export default function Page() {
 }
 ```
 
-</AppOnly>
 
-<PagesOnly>
+
+
 
 Prefetching happens when a `<Link />` component enters the user's viewport
 (initially or through scroll). Next.js prefetches and loads the linked route
@@ -447,7 +447,7 @@ When this path differs from the one provided in `href` the previous `href`/`as`
 behavior is used as shown in the
 [previous docs](https://github.com/vercel/next.js/blob/v9.5.2/docs/api-reference/next/link.md#dynamic-routes).
 
-</PagesOnly>
+
 
 ### `onNavigate`
 
@@ -513,7 +513,7 @@ export default function Page() {
 The following examples demonstrate how to use the `<Link>` component in
 different scenarios.
 
-<AppOnly>
+
 
 ### Linking to dynamic route segments
 
@@ -619,9 +619,9 @@ export function Links() {
 }
 ```
 
-</AppOnly>
 
-<PagesOnly>
+
+
 
 ### Linking to dynamic route segments
 
@@ -666,7 +666,7 @@ function Posts({ posts }) {
 export default Posts;
 ```
 
-</PagesOnly>
+
 
 ### Scrolling to an `id`
 
@@ -681,7 +681,7 @@ possible since `<Link>` renders to an `<a>` element.
 <a href="/dashboard#settings">Settings</a>
 ```
 
-<AppOnly>
+
 
 > **Good to know**:
 >
@@ -689,9 +689,9 @@ possible since `<Link>` renders to an `<a>` element.
 >   [Page](/docs/app/api-reference/file-conventions/page) if it is not visible
 >   in the viewport upon navigation.
 
-</AppOnly>
 
-<PagesOnly>
+
+
 
 ### Passing a URL Object
 
@@ -774,7 +774,7 @@ The above example has a link to:
 You can use every property as defined in the
 [Node.js URL module documentation](https://nodejs.org/api/url.html#url_url_strings_and_url_objects).
 
-</PagesOnly>
+
 
 ### Replace the URL instead of push
 
@@ -782,7 +782,7 @@ The default behavior of the `Link` component is to `push` a new URL into the
 `history` stack. You can use the `replace` prop to prevent adding a new entry,
 as in the following example:
 
-<AppOnly>
+
 
 ```tsx filename="app/page.js" switcher
 import Link from "next/link";
@@ -808,9 +808,9 @@ export default function Page() {
 }
 ```
 
-</AppOnly>
 
-<PagesOnly>
+
+
 
 ```tsx filename="pages/index.js" switcher
 import Link from "next/link";
@@ -836,11 +836,11 @@ export default function Home() {
 }
 ```
 
-</PagesOnly>
+
 
 ### Disable scrolling to the top of the page
 
-<AppOnly>
+
 
 The default scrolling behavior of `<Link>` in Next.js **is to maintain scroll
 position**, similar to how browsers handle back and forwards navigation. When
@@ -888,9 +888,9 @@ const router = useRouter();
 router.push("/dashboard", { scroll: false });
 ```
 
-</AppOnly>
 
-<PagesOnly>
+
+
 
 The default behavior of `Link` is to scroll to the top of the page. When there
 is a hash defined it will scroll to the specific id, like a normal `<a>` tag. To
@@ -920,7 +920,7 @@ export default function Home() {
 }
 ```
 
-</PagesOnly>
+
 
 ### Prefetching links in Proxy
 
@@ -968,7 +968,7 @@ export function proxy(request) {
 In this case, you would want to use the following code in your `<Link />`
 component:
 
-<AppOnly>
+
 
 ```tsx filename="app/page.tsx" switcher
 "use client";
@@ -1004,9 +1004,9 @@ export default function Page() {
 }
 ```
 
-</AppOnly>
 
-<PagesOnly>
+
+
 
 ```tsx filename="pages/index.tsx" switcher
 "use client";
@@ -1049,9 +1049,9 @@ export default function Home() {
 > differently via proxy, you would write:
 > `<Link href={{ pathname: '/dashboard/authed/[user]', query: { user: username } }} as="/dashboard/[user]">Profile</Link>`.
 
-</PagesOnly>
 
-<AppOnly>
+
+
 
 ### Blocking navigation
 
@@ -1337,7 +1337,7 @@ export default function Page() {
 When a user tries to navigate away using `CustomLink` while the form has unsaved
 changes, they'll be prompted to confirm before leaving.
 
-</AppOnly>
+
 
 ## Version history
 

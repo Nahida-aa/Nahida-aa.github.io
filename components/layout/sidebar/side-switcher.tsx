@@ -1,19 +1,15 @@
-"use client"
+'use client'
 
-import * as React from "react"
-import { Check, ChevronsUpDown, GalleryVerticalEnd } from "lucide-react"
+import * as React from 'react'
+import { Check, ChevronsUpDown, GalleryVerticalEnd } from 'lucide-react'
 
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import {
-  SidebarMenu,
-  SidebarMenuButton,
-  SidebarMenuItem,
-} from "@/components/ui/sidebar"
+} from '@/components/ui/dropdown-menu'
+import { SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar'
 
 export function SideSwitcher({
   list,
@@ -46,17 +42,14 @@ export function SideSwitcher({
               <ChevronsUpDown className="ml-auto" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
-          <DropdownMenuContent
-            className="w-[--radix-dropdown-menu-trigger-width]"
-            align="start"
-          >
-            {list.map((item) => (
+          <DropdownMenuContent className="w-full " align="start">
+            {list.map(item => (
               <DropdownMenuItem
                 key={item}
                 onSelect={() => onSelectedItem(item)}
+                className="w-full"
               >
-                {item}{" "}
-                {item === selectedItem && <Check className="ml-auto" />}
+                {item} {item === selectedItem && <Check className="ml-auto" />}
               </DropdownMenuItem>
             ))}
           </DropdownMenuContent>
