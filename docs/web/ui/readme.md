@@ -146,3 +146,10 @@ const button = tv({
 | **完全自建 UI 系统**     | **Headless UI + tailwind-variants**               |
 
 
+### code block
+- shiki
+- bette-code
+
+```sh
+bun add -D shiki
+```
