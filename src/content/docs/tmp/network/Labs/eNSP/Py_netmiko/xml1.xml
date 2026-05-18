@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog xmlns="book" message-id="1024">
+    <book id="bk101">
+        <author>Gambardella, Matthew</author>
+        <title>XML Developer's Guide</title>
+    </book>
+    <book id="bk202">
+        <author>zhangsan</author>
+        <title>Java coding</title>
+    </book>
+</catalog>

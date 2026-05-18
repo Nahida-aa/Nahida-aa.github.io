@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UNICODE" ?>
+<topo version="1.3.00.100">
+    <devices>
+        <dev id="A26372C3-9FC7-43a0-B3F1-8B59DA48C424" name="Cloud1" poe="0" model="Cloud" settings="" system_mac="" com_port="0" bootmode="0" cx="114.500000" cy="181.500000" edit_left="157" edit_top="266">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="Ethernet" count="2" />
+                <interface sztype="Ethernet" interfacename="GE" count="0" />
+                <interface sztype="Serial" interfacename="Serial" count="0" />
+                <interfaceMap sztype="Ethernet" interfacename="Ethernet" displayNo="1" remoteDisplayNo="2" adapterUid="" isOpen="0" udpPort="0" peerIPAdd="0.0.0.0" peerIP="0" peerPort="0" />
+                <interfaceMap sztype="Ethernet" interfacename="Ethernet" displayNo="2" remoteDisplayNo="1" adapterUid="\Device\NPF_{66DFFE14-C1D9-4563-BDEA-94C0B2BF5968}" isOpen="1" udpPort="0" peerIPAdd="0.0.0.0" peerIP="0" peerPort="0" />
+            </slot>
+        </dev>
+        <dev id="CF82A93D-7EDE-44da-8DAE-46EEB7D57E2C" name="CE1" poe="0" model="CE12800" settings="" system_mac="70-7B-E8-FC-74-6C" com_port="2001" bootmode="0" cx="620.500000" cy="202.500000" edit_left="643" edit_top="249">
+            <slot id="1">
+                <interface category="Ethernet" type="GE" slotIndex="1" cardIndex="0" interfaceIndex="0" />
+                <interface category="Ethernet" type="GE" slotIndex="1" cardIndex="0" interfaceIndex="1" />
+                <interface category="Ethernet" type="GE" slotIndex="1" cardIndex="0" interfaceIndex="2" />
+                <interface category="Ethernet" type="GE" slotIndex="1" cardIndex="0" interfaceIndex="3" />
+                <interface category="Ethernet" type="GE" slotIndex="1" cardIndex="0" interfaceIndex="4" />
+                <interface category="Ethernet" type="GE" slotIndex="1" cardIndex="0" interfaceIndex="5" />
+                <interface category="Ethernet" type="GE" slotIndex="1" cardIndex="0" interfaceIndex="6" />
+                <interface category="Ethernet" type="GE" slotIndex="1" cardIndex="0" interfaceIndex="7" />
+                <interface category="Ethernet" type="GE" slotIndex="1" cardIndex="0" interfaceIndex="8" />
+                <interface category="Ethernet" type="GE" slotIndex="1" cardIndex="0" interfaceIndex="9" />
+            </slot>
+        </dev>
+        <dev id="672E4B7F-1B74-4954-BF78-B0AF511D4D24" name="LSW1" poe="0" model="S5700" settings="" system_mac="4C-1F-CC-73-18-C1" com_port="2000" bootmode="0" cx="377.000000" cy="200.000000" edit_left="404" edit_top="254">
+            <slot number="slot17" isMainBoard="1">
+                <interface sztype="Ethernet" interfacename="GE" count="24" />
+            </slot>
+        </dev>
+    </devices>
+    <lines>
+        <line srcDeviceID="672E4B7F-1B74-4954-BF78-B0AF511D4D24" destDeviceID="A26372C3-9FC7-43a0-B3F1-8B59DA48C424">
+            <interfacePair lineName="Copper" srcIndex="0" srcBoundRectIsMoved="1" srcBoundRect_X="360.819427" srcBoundRect_Y="226.475540" srcOffset_X="-35.000000" srcOffset_Y="9.000000" tarIndex="0" tarBoundRectIsMoved="1" tarBoundRect_X="221.392227" tarBoundRect_Y="224.782089" tarOffset_X="-19.000000" tarOffset_Y="11.000000" />
+        </line>
+        <line srcDeviceID="672E4B7F-1B74-4954-BF78-B0AF511D4D24" destDeviceID="CF82A93D-7EDE-44da-8DAE-46EEB7D57E2C">
+            <interfacePair lineName="Copper" srcIndex="1" srcBoundRectIsMoved="0" srcBoundRect_X="447.183380" srcBoundRect_Y="226.819321" srcOffset_X="0.000000" srcOffset_Y="0.000000" tarIndex="0" tarBoundRectIsMoved="0" tarBoundRect_X="606.172668" tarBoundRect_Y="226.154083" tarOffset_X="0.000000" tarOffset_Y="0.000000" />
+        </line>
+    </lines>
+    <shapes />
+    <txttips>
+        <txttip left="610" top="178" right="667" bottom="195" content="CE12800" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="399" top="181" right="441" bottom="198" content="S5700" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+        <txttip left="121" top="154" right="253" bottom="171" content="192.168.11.200/24" fontname="Consolas" fontstyle="0" editsize="100" txtcolor="-16777216" txtbkcolor="-7278960" charset="1" />
+    </txttips>
+</topo>
