@@ -1,0 +1,11 @@
+---
+import Default from '@astrojs/starlight/components/PageFrame.astro';
+import Default1 from '@astrojs/starlight/components/TwoColumnContent.astro';
+import BgP from '../app/bg/BgP.astro';
+---
+
+<Default><slot />
+<slot name="header" slot="header" />
+<slot name="sidebar" slot="sidebar" />
+</Default>
+<BgP />

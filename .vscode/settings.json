@@ -26,4 +26,5 @@
     "README.md": "CHANGELOG.md, LICENSE, CONTRIBUTING.md, CODE_OF_CONDUCT.md, SECURITY.md, readme.*"
   },
   "markdown.validate.enabled": false,
+  "python-envs.defaultEnvManager": "ms-python.python:system"
 }

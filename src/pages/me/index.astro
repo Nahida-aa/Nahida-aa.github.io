@@ -1,0 +1,11 @@
+---
+import StarlightPage from '@astrojs/starlight/components/StarlightPage.astro';
+import {UserInfo} from '#/components/hooks/user-info.tsx';
+import { AppLayout } from '#/layouts/appLayout.tsx';
+---
+
+<StarlightPage frontmatter={{ title: 'about' }}>
+  <!-- Custom page content -->
+  <img src="https://count.getloli.com/get/@Nahida-aa?theme=gelbooru" alt="count" />
+    <UserInfo client:only />
+</StarlightPage>

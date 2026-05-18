@@ -1,0 +1,26 @@
+---
+import { Icon } from '@astrojs/starlight/components';
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'a'> {
+	title: string;
+	href: string;
+	description?: string;
+	icon?: 'external' | 'right-caret';
+}
+
+const {
+	title,
+	description,
+	href,
+	icon = 'right-caret',
+	...attributes
+} = Astro.props;
+---
+
+<a class="flex justify-between py-3 relative  items-center group animate-[fade-in-up_.6s_cubic-bezier(.16,1,.3,1)_forwards]" {...attributes} href={href}>
+			<span class="title text-muted-foreground group-hover:text-foreground" set:html={title} />
+	<Icon name={icon} class='text-accent! opacity-0 group-hover:opacity-100' />
+	<span class="bg-primary absolute bottom-2 left-0 h-px w-0 transition-all duration-300 ease-out group-hover:w-full"></span>
+</a>
+

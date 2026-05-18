@@ -1,0 +1,13 @@
+---
+import { Image, Picture } from 'astro:assets';
+import image1 from '../../../assets/images/t1.png';
+import image2 from '../../../assets/images/t1_dark.png';
+---
+
+<div class="absolute z-20 top-0 inset-x-0 flex justify-center overflow-hidden pointer-events-none">
+  <div class="w-432 flex-none flex justify-end">
+    <Picture src={image1} format='avif' alt="t1" width={574} height={167} class="w-287 flex-none max-w-none dark:hidden" decoding="async" />
+    <Picture src={image2} format='avif' alt="t1" width={720} height={308} class="w-360 flex-none max-w-none hidden dark:block" decoding="async" />
+  </div>
+</div>
+
