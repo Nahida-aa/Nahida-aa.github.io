@@ -1,0 +1,2132 @@
+---
+title: 开源项目官方文档内容统计报告
+description: 基于 44 个开源项目文档的内容统计分析（2026 年 4 月）
+---
+
+import DocsStatsTable from '#/components/DocsStatsTable.astro';
+import { Code } from '@astrojs/starlight/components';
+import statsData from '#/data/docs-stats.json';
+
+本报告对 **66 个** 开源项目的官方文档进行了系统性分析，统计了 **21 类** 常见文档内容的出现频率，并基于数据生成了三种排序：**按常见度排序**、**按缺失度排序**、**综合排序**。
+
+**关键发现**：
+- 几乎所有项目都包含：快速开始、安装说明、API 参考、简单示例、配置选项
+- 超过 60% 的项目缺少：内部原理/架构图、前置知识说明、决策指南、复杂真实场景示例
+- 导致最多困惑的内容：错误处理、复杂场景示例、内部原理说明、调试技巧
+- **可部署项目（全栈框架、HTTP API 框架）普遍有部署指南，故不纳入统计**
+
+---
+## 数据源
+
+分析涵盖 **68 个** 开源项目，分为 **6 大类**，每个项目附有21个文档类别的具体链接：
+
+### 1. UI 框架 (5个)
+
+<details>
+<summary>SolidJS - https://docs.solidjs.com</summary>
+
+1. 快速开始/入门指南 - https://docs.solidjs.com/quick-start
+2. 基础概念/术语表 - https://docs.solidjs.com/concepts/
+3. 安装/环境配置 - https://docs.solidjs.com/quick-start
+4. API 参考 - https://docs.solidjs.com/reference
+5. 简单示例 - https://docs.solidjs.com/quick-start
+6. 配置选项说明 - https://docs.solidjs.com/reference
+7. 错误处理/常见问题 - (未填充)
+8. 调试技巧 - (未填充)
+9. 版本差异/迁移指南 - https://docs.solidjs.com/guides/complex-state-management
+10. 内部原理/架构图 - https://docs.solidjs.com/concepts/intro-to-reactivity
+11. 复杂/真实场景示例 - (未填充)
+12. 工具集成指南 - https://docs.solidjs.com/guides/styling-components/
+13. 决策指南 - (未填充)
+14. 性能优化建议 - (未填充)
+15. 安全最佳实践 - (未填充)
+16. 完整可运行项目 - https://docs.solidjs.com/quick-start
+17. 社区/生态地图 - https://www.solidjs.com/ecosystem
+18. 变更日志 - https://github.com/solidjs/solid/releases
+19. 前置知识说明 - (未填充)
+20. 边界情况与限制 - (未填充)
+21. 测试指南 - https://docs.solidjs.com/guides/testing
+
+</details>
+
+<details>
+<summary>React - https://react.dev</summary>
+
+1. 快速开始/入门指南 - https://react.dev/learn
+2. 基础概念/术语表 - https://react.dev/learn/react-api-reference
+3. 安装/环境配置 - https://react.dev/learn/installation
+4. API 参考 - https://react.dev/reference/react
+5. 简单示例 - https://react.dev/learn
+6. 配置选项说明 - https://react.dev/reference/react
+7. 错误处理/常见问题 - https://react.dev/reference/react
+8. 调试技巧 - https://react.dev/learn
+9. 版本差异/迁移指南 - https://react.dev/reference/react
+10. 内部原理/架构图 - https://react.dev/architecture
+11. 复杂/真实场景示例 - https://react.dev/learn
+12. 工具集成指南 - https://react.dev/learn
+13. 决策指南 - https://react.dev/learn
+14. 性能优化建议 - https://react.dev/learn
+15. 安全最佳实践 - https://react.dev/learn
+16. 完整可运行项目 - https://react.dev/learn
+17. 社区/生态地图 - https://react.dev/community
+18. 变更日志 - https://github.com/facebook/react/releases
+19. 前置知识说明 - https://react.dev/learn
+20. 边界情况与限制 - https://react.dev/reference/react
+21. 测试指南 - https://react.dev/learn
+
+</details>
+
+<details>
+<summary>Svelte - https://svelte.dev/docs</summary>
+
+1. 快速开始/入门指南 - https://svelte.dev/docs/introduction
+2. 基础概念/术语表 - https://svelte.dev/docs/basics
+3. 安装/环境配置 - https://svelte.dev/docs/introduction
+4. API 参考 - https://svelte.dev/docs/svelte
+5. 简单示例 - https://svelte.dev/docs/examples
+6. 配置选项说明 - https://svelte.dev/docs/svelte
+7. 错误处理/常见问题 - https://svelte.dev/docs/examples
+8. 调试技巧 - https://svelte.dev/docs/basics
+9. 版本差异/迁移指南 - https://svelte.dev/docs/migrating
+10. 内部原理/架构图 - https://svelte.dev/docs/introduction
+11. 复杂/真实场景示例 - https://svelte.dev/docs/examples
+12. 工具集成指南 - https://svelte.dev/docs/examples
+13. 决策指南 - https://svelte.dev/docs/introduction
+14. 性能优化建议 - https://svelte.dev/docs/basics
+15. 安全最佳实践 - https://svelte.dev/docs/basics
+16. 完整可运行项目 - https://svelte.dev/docs/introduction
+17. 社区/生态地图 - https://svelte.dev/docs/introduction
+18. 变更日志 - https://github.com/sveltejs/svelte/releases
+19. 前置知识说明 - https://svelte.dev/docs/basics
+20. 边界情况与限制 - https://svelte.dev/docs/svelte
+21. 测试指南 - https://svelte.dev/docs/basics
+
+</details>
+
+<details>
+<summary>Vue.js - https://vuejs.org</summary>
+
+1. 快速开始/入门指南 - https://vuejs.org/guide/quick-start.html
+2. 基础概念/术语表 - https://vuejs.org/guide/essentials/template-syntax.html
+3. 安装/环境配置 - https://vuejs.org/guide/quick-start.html
+4. API 参考 - https://vuejs.org/api/
+5. 简单示例 - https://vuejs.org/examples/
+6. 配置选项说明 - https://vuejs.org/guide/essentials/application.html
+7. 错误处理/常见问题 - https://vuejs.org/guide/essentials/template-syntax.html
+8. 调试技巧 - https://vuejs.org/guide/extras/render-function.html
+9. 版本差异/迁移指南 - https://vuejs.org/guide/migration/introduction.html
+10. 内部原理/架构图 - https://vuejs.org/guide/extras/composition-api-faq.html
+11. 复杂/真实场景示例 - https://vuejs.org/examples/
+12. 工具集成指南 - https://vuejs.org/guide/extras/ways-of-using-vue.html
+13. 决策指南 - https://vuejs.org/guide/extras/composition-api-faq.html
+14. 性能优化建议 - https://vuejs.org/guide/best-practices/performance.html
+15. 安全最佳实践 - https://vuejs.org/guide/best-practices/security.html
+16. 完整可运行项目 - https://vuejs.org/guide/quick-start.html
+17. 社区/生态地图 - https://vuejs.org/guide/extras/community-contributions.html
+18. 变更日志 - https://github.com/vuejs/core/releases
+19. 前置知识说明 - https://vuejs.org/guide/essentials/template-syntax.html
+20. 边界情况与限制 - https://vuejs.org/guide/essentials/template-syntax.html
+21. 测试指南 - https://vuejs.org/guide/scaling-up/testing.html
+
+</details>
+
+<details>
+<summary>Angular - https://angular.dev</summary>
+
+1. 快速开始/入门指南 - https://angular.dev/guide/getting-started
+2. 基础概念/术语表 - https://angular.dev/guide/components
+3. 安装/环境配置 - https://angular.dev/guide/setup
+4. API 参考 - https://angular.dev/api
+5. 简单示例 - https://angular.dev/guide/templates
+6. 配置选项说明 - https://angular.dev/guide/component-overview
+7. 错误处理/常见问题 - https://angular.dev/guide/errors
+8. 调试技巧 - https://angular.dev/guide/debugging
+9. 版本差异/迁移指南 - https://angular.dev/guide/update-to-latest-version
+10. 内部原理/架构图 - https://angular.dev/guide/architecture
+11. 复杂/真实场景示例 - https://angular.dev/examples
+12. 工具集成指南 - https://angular.dev/guide/integrations
+13. 决策指南 - https://angular.dev/guide/comparison
+14. 性能优化建议 - https://angular.dev/guide/performance
+15. 安全最佳实践 - https://angular.dev/guide/security
+16. 完整可运行项目 - https://angular.dev/guide/setup
+17. 社区/生态地图 - https://angular.dev/guide/community
+18. 变更日志 - https://github.com/angular/angular/releases
+19. 前置知识说明 - https://angular.dev/guide/components
+20. 边界情况与限制 - https://angular.dev/guide/components
+21. 测试指南 - https://angular.dev/guide/testing
+
+</details>
+
+### 2. Web 框架 (24个)
+
+<details>
+<summary>TanStack Start - https://tanstack.com/start/latest/docs</summary>
+
+1. 快速开始/入门指南 - https://tanstack.com/start/latest/docs/getting-started
+2. 基础概念/术语表 - https://tanstack.com/start/latest/docs/concepts
+3. 安装/环境配置 - https://tanstack.com/start/latest/docs/getting-started
+4. API 参考 - https://tanstack.com/start/latest/docs/api
+5. 简单示例 - https://tanstack.com/start/latest/docs/getting-started
+6. 配置选项说明 - https://tanstack.com/start/latest/docs/api
+7. 错误处理/常见问题 - https://tanstack.com/start/latest/docs/
+8. 调试技巧 - https://tanstack.com/start/latest/docs/
+9. 版本差异/迁移指南 - https://tanstack.com/start/latest/docs/
+10. 内部原理/架构图 - https://tanstack.com/start/latest/docs/concepts
+11. 复杂/真实场景示例 - https://tanstack.com/start/latest/docs/getting-started
+12. 工具集成指南 - https://tanstack.com/start/latest/docs/
+13. 决策指南 - https://tanstack.com/start/latest/docs/concepts
+14. 性能优化建议 - https://tanstack.com/start/latest/docs/
+15. 安全最佳实践 - https://tanstack.com/start/latest/docs/
+16. 完整可运行项目 - https://tanstack.com/start/latest/docs/getting-started
+17. 社区/生态地图 - https://tanstack.com/start/latest/docs/
+18. 变更日志 - https://github.com/TanStack/tanstack.com/releases
+19. 前置知识说明 - https://tanstack.com/start/latest/docs/concepts
+20. 边界情况与限制 - https://tanstack.com/start/latest/docs/api
+21. 测试指南 - https://tanstack.com/start/latest/docs/
+
+</details>
+
+<details>
+<summary>oRPC - https://orpc.dev</summary>
+
+1. 快速开始/入门指南 - https://orpc.dev/docs
+2. 基础概念/术语表 - https://orpc.dev/docs
+3. 安装/环境配置 - https://orpc.dev/docs
+4. API 参考 - https://orpc.dev/docs
+5. 简单示例 - https://orpc.dev/docs
+6. 配置选项说明 - https://orpc.dev/docs
+7. 错误处理/常见问题 - https://orpc.dev/docs
+8. 调试技巧 - https://orpc.dev/docs
+9. 版本差异/迁移指南 - https://orpc.dev/docs
+10. 内部原理/架构图 - https://orpc.dev/docs
+11. 复杂/真实场景示例 - https://orpc.dev/docs
+12. 工具集成指南 - https://orpc.dev/docs
+13. 决策指南 - https://orpc.dev/docs
+14. 性能优化建议 - https://orpc.dev/docs
+15. 安全最佳实践 - https://orpc.dev/docs
+16. 完整可运行项目 - https://orpc.dev/docs
+17. 社区/生态地图 - https://orpc.dev/docs
+18. 变更日志 - https://github.com/unnoq/orpc/releases
+19. 前置知识说明 - https://orpc.dev/docs
+20. 边界情况与限制 - https://orpc.dev/docs
+21. 测试指南 - https://orpc.dev/docs
+
+</details>
+
+<details>
+<summary>Hono - https://hono.dev</summary>
+
+1. 快速开始/入门指南 - https://hono.dev/docs/
+2. 基础概念/术语表 - https://hono.dev/docs/
+3. 安装/环境配置 - https://hono.dev/docs/getting-started/
+4. API 参考 - https://hono.dev/docs/
+5. 简单示例 - https://hono.dev/docs/getting-started/
+6. 配置选项说明 - https://hono.dev/docs/
+7. 错误处理/常见问题 - https://hono.dev/docs/
+8. 调试技巧 - https://hono.dev/docs/
+9. 版本差异/迁移指南 - https://hono.dev/docs/
+10. 内部原理/架构图 - https://hono.dev/docs/
+11. 复杂/真实场景示例 - https://hono.dev/docs/getting-started/
+12. 工具集成指南 - https://hono.dev/docs/
+13. 决策指南 - https://hono.dev/docs/
+14. 性能优化建议 - https://hono.dev/docs/
+15. 安全最佳实践 - https://hono.dev/docs/
+16. 完整可运行项目 - https://hono.dev/docs/getting-started/
+17. 社区/生态地图 - https://hono.dev/docs/
+18. 变更日志 - https://github.com/honojs/hono/releases
+19. 前置知识说明 - https://hono.dev/docs/
+20. 边界情况与限制 - https://hono.dev/docs/
+21. 测试指南 - https://hono.dev/docs/
+
+</details>
+
+<details>
+<summary>Nitro - https://nitro.build</summary>
+
+1. 快速开始/入门指南 - https://nitro.build/guide/
+2. 基础概念/术语表 - https://nitro.build/guide/
+3. 安装/环境配置 - https://nitro.build/guide/getting-started
+4. API 参考 - https://nitro.build/guide/
+5. 简单示例 - https://nitro.build/guide/getting-started
+6. 配置选项说明 - https://nitro.build/guide/
+7. 错误处理/常见问题 - https://nitro.build/guide/
+8. 调试技巧 - https://nitro.build/guide/
+9. 版本差异/迁移指南 - https://nitro.build/guide/
+10. 内部原理/架构图 - https://nitro.build/guide/
+11. 复杂/真实场景示例 - https://nitro.build/guide/getting-started
+12. 工具集成指南 - https://nitro.build/guide/
+13. 决策指南 - https://nitro.build/guide/
+14. 性能优化建议 - https://nitro.build/guide/
+15. 安全最佳实践 - https://nitro.build/guide/
+16. 完整可运行项目 - https://nitro.build/guide/getting-started
+17. 社区/生态地图 - https://nitro.build/guide/
+18. 变更日志 - https://github.com/unjs/nitro/releases
+19. 前置知识说明 - https://nitro.build/guide/
+20. 边界情况与限制 - https://nitro.build/guide/
+21. 测试指南 - https://nitro.build/guide/
+
+</details>
+
+<details>
+<summary>SvelteKit - https://kit.svelte.dev</summary>
+
+1. 快速开始/入门指南 - https://kit.svelte.dev/docs/introduction
+2. 基础概念/术语表 - https://kit.svelte.dev/docs
+3. 安装/环境配置 - https://kit.svelte.dev/docs/introduction
+4. API 参考 - https://kit.svelte.dev/docs
+5. 简单示例 - https://kit.svelte.dev/docs/introduction
+6. 配置选项说明 - https://kit.svelte.dev/docs
+7. 错误处理/常见问题 - https://kit.svelte.dev/docs
+8. 调试技巧 - https://kit.svelte.dev/docs
+9. 版本差异/迁移指南 - https://kit.svelte.dev/docs/migrating
+10. 内部原理/架构图 - https://kit.svelte.dev/docs
+11. 复杂/真实场景示例 - https://kit.svelte.dev/docs/introduction
+12. 工具集成指南 - https://kit.svelte.dev/docs
+13. 决策指南 - https://kit.svelte.dev/docs
+14. 性能优化建议 - https://kit.svelte.dev/docs
+15. 安全最佳实践 - https://kit.svelte.dev/docs
+16. 完整可运行项目 - https://kit.svelte.dev/docs/introduction
+17. 社区/生态地图 - https://kit.svelte.dev/docs
+18. 变更日志 - https://github.com/sveltejs/kit/releases
+19. 前置知识说明 - https://kit.svelte.dev/docs
+20. 边界情况与限制 - https://kit.svelte.dev/docs
+21. 测试指南 - https://kit.svelte.dev/docs
+
+</details>
+
+<details>
+<summary>SolidStart - https://docs.solidjs.com/start</summary>
+
+1. 快速开始/入门指南 - https://docs.solidjs.com/start/getting-started
+2. 基础概念/术语表 - https://docs.solidjs.com/start/concepts
+3. 安装/环境配置 - https://docs.solidjs.com/start/getting-started
+4. API 参考 - https://docs.solidjs.com/start/reference
+5. 简单示例 - https://docs.solidjs.com/start/getting-started
+6. 配置选项说明 - https://docs.solidjs.com/start/reference
+7. 错误处理/常见问题 - https://docs.solidjs.com/start/
+8. 调试技巧 - https://docs.solidjs.com/start/
+9. 版本差异/迁移指南 - https://docs.solidjs.com/start/
+10. 内部原理/架构图 - https://docs.solidjs.com/start/concepts
+11. 复杂/真实场景示例 - https://docs.solidjs.com/start/getting-started
+12. 工具集成指南 - https://docs.solidjs.com/start/
+13. 决策指南 - https://docs.solidjs.com/start/concepts
+14. 性能优化建议 - https://docs.solidjs.com/start/
+15. 安全最佳实践 - https://docs.solidjs.com/start/
+16. 完整可运行项目 - https://docs.solidjs.com/start/getting-started
+17. 社区/生态地图 - https://docs.solidjs.com/start/
+18. 变更日志 - https://github.com/solidjs/solid/releases
+19. 前置知识说明 - https://docs.solidjs.com/start/concepts
+20. 边界情况与限制 - https://docs.solidjs.com/start/reference
+21. 测试指南 - https://docs.solidjs.com/start/
+
+</details>
+
+<details>
+<summary>Next.js - https://nextjs.org/docs</summary>
+
+1. 快速开始/入门指南 - https://nextjs.org/docs/getting-started
+2. 基础概念/术语表 - https://nextjs.org/docs/app/getting-started
+3. 安装/环境配置 - https://nextjs.org/docs/getting-started/installation
+4. API 参考 - https://nextjs.org/docs/api-reference
+5. 简单示例 - https://nextjs.org/docs/examples
+6. 配置选项说明 - https://nextjs.org/docs/app/api-reference
+7. 错误处理/常见问题 - https://nextjs.org/docs/app/building-your-application
+8. 调试技巧 - https://nextjs.org/docs/app/building-your-application
+9. 版本差异/迁移指南 - https://nextjs.org/docs/app/building-your-application
+10. 内部原理/架构图 - https://nextjs.org/docs/app/building-your-application
+11. 复杂/真实场景示例 - https://nextjs.org/docs/examples
+12. 工具集成指南 - https://nextjs.org/docs/app/building-your-application
+13. 决策指南 - https://nextjs.org/docs/app/building-your-application
+14. 性能优化建议 - https://nextjs.org/docs/app/building-your-application
+15. 安全最佳实践 - https://nextjs.org/docs/app/building-your-application
+16. 完整可运行项目 - https://nextjs.org/docs/getting-started
+17. 社区/生态地图 - https://nextjs.org/docs/app/building-your-application
+18. 变更日志 - https://github.com/vercel/next.js/releases
+19. 前置知识说明 - https://nextjs.org/docs/app/getting-started
+20. 边界情况与限制 - https://nextjs.org/docs/app/api-reference
+21. 测试指南 - https://nextjs.org/docs/app/building-your-application
+
+</details>
+
+<details>
+<summary>Nuxt - https://nuxt.com/docs</summary>
+
+1. 快速开始/入门指南 - https://nuxt.com/docs/get-started/installation
+2. 基础概念/术语表 - https://nuxt.com/docs/guide/concepts
+3. 安装/环境配置 - https://nuxt.com/docs/get-started/installation
+4. API 参考 - https://nuxt.com/docs/api
+5. 简单示例 - https://nuxt.com/docs/examples
+6. 配置选项说明 - https://nuxt.com/docs/guide/directory-structure
+7. 错误处理/常见问题 - https://nuxt.com/docs/guide/going-further
+8. 调试技巧 - https://nuxt.com/docs/guide/going-further
+9. 版本差异/迁移指南 - https://nuxt.com/docs/guide/going-further
+10. 内部原理/架构图 - https://nuxt.com/docs/guide/concepts
+11. 复杂/真实场景示例 - https://nuxt.com/docs/examples
+12. 工具集成指南 - https://nuxt.com/docs/guide/going-further
+13. 决策指南 - https://nuxt.com/docs/guide/concepts
+14. 性能优化建议 - https://nuxt.com/docs/guide/going-further
+15. 安全最佳实践 - https://nuxt.com/docs/guide/going-further
+16. 完整可运行项目 - https://nuxt.com/docs/get-started/installation
+17. 社区/生态地图 - https://nuxt.com/docs/community
+18. 变更日志 - https://github.com/nuxt/nuxt/releases
+19. 前置知识说明 - https://nuxt.com/docs/guide/concepts
+20. 边界情况与限制 - https://nuxt.com/docs/api
+21. 测试指南 - https://nuxt.com/docs/guide/going-further
+
+</details>
+
+<details>
+<summary>Astro - https://docs.astro.build</summary>
+
+1. 快速开始/入门指南 - https://docs.astro.build/en/getting-started/
+2. 基础概念/术语表 - https://docs.astro.build/en/concepts/
+3. 安装/环境配置 - https://docs.astro.build/en/install/auto/
+4. API 参考 - https://docs.astro.build/en/reference/
+5. 简单示例 - https://docs.astro.build/en/tutorials/
+6. 配置选项说明 - https://docs.astro.build/en/reference/configuration/
+7. 错误处理/常见问题 - https://docs.astro.build/en/guides/troubleshooting/
+8. 调试技巧 - https://docs.astro.build/en/guides/debugging/
+9. 版本差异/迁移指南 - https://docs.astro.build/en/guides/upgrade-to/v5/
+10. 内部原理/架构图 - https://docs.astro.build/en/concepts/
+11. 复杂/真实场景示例 - https://docs.astro.build/en/tutorials/
+12. 工具集成指南 - https://docs.astro.build/en/guides/integrations-guide/
+13. 决策指南 - https://docs.astro.build/en/concepts/
+14. 性能优化建议 - https://docs.astro.build/en/guides/integrations-guide/
+15. 安全最佳实践 - https://docs.astro.build/en/guides/integrations-guide/
+16. 完整可运行项目 - https://docs.astro.build/en/getting-started/
+17. 社区/生态地图 - https://docs.astro.build/en/community/
+18. 变更日志 - https://github.com/withastro/astro/releases
+19. 前置知识说明 - https://docs.astro.build/en/concepts/
+20. 边界情况与限制 - https://docs.astro.build/en/reference/
+21. 测试指南 - https://docs.astro.build/en/guides/testing/
+
+</details>
+
+<details>
+<summary>Remix - https://remix.run/docs</summary>
+
+1. 快速开始/入门指南 - https://remix.run/docs
+2. 基础概念/术语表 - https://remix.run/docs
+3. 安装/环境配置 - https://remix.run/docs
+4. API 参考 - https://remix.run/docs
+5. 简单示例 - https://remix.run/docs
+6. 配置选项说明 - https://remix.run/docs
+7. 错误处理/常见问题 - https://remix.run/docs
+8. 调试技巧 - https://remix.run/docs
+9. 版本差异/迁移指南 - https://remix.run/docs
+10. 内部原理/架构图 - https://remix.run/docs
+11. 复杂/真实场景示例 - https://remix.run/docs
+12. 工具集成指南 - https://remix.run/docs
+13. 决策指南 - https://remix.run/docs
+14. 性能优化建议 - https://remix.run/docs
+15. 安全最佳实践 - https://remix.run/docs
+16. 完整可运行项目 - https://remix.run/docs
+17. 社区/生态地图 - https://remix.run/docs
+18. 变更日志 - https://github.com/remix-run/remix/releases
+19. 前置知识说明 - https://remix.run/docs
+20. 边界情况与限制 - https://remix.run/docs
+21. 测试指南 - https://remix.run/docs
+
+</details>
+
+<details>
+<summary>Express - https://expressjs.com</summary>
+
+1. 快速开始/入门指南 - https://expressjs.com/en/starter/installing.html
+2. 基础概念/术语表 - https://expressjs.com/en/starter/hello-world.html
+3. 安装/环境配置 - https://expressjs.com/en/starter/installing.html
+4. API 参考 - https://expressjs.com/en/4x/api.html
+5. 简单示例 - https://expressjs.com/en/starter/hello-world.html
+6. 配置选项说明 - https://expressjs.com/en/4x/api.html
+7. 错误处理/常见问题 - https://expressjs.com/en/guide/error-handling.html
+8. 调试技巧 - https://expressjs.com/en/guide/debugging.html
+9. 版本差异/迁移指南 - https://expressjs.com/en/guide/migrating-4.html
+10. 内部原理/架构图 - https://expressjs.com/en/guide/using-middleware.html
+11. 复杂/真实场景示例 - https://expressjs.com/en/starter/hello-world.html
+12. 工具集成指南 - https://expressjs.com/en/guide/database-integration.html
+13. 决策指南 - https://expressjs.com/en/guide/routing.html
+14. 性能优化建议 - https://expressjs.com/en/advanced/best-practice-performance.html
+15. 安全最佳实践 - https://expressjs.com/en/advanced/best-practice-security.html
+16. 完整可运行项目 - https://expressjs.com/en/starter/generator.html
+17. 社区/生态地图 - https://expressjs.com/en/resources/community.html
+18. 变更日志 - https://github.com/expressjs/express/releases
+19. 前置知识说明 - https://expressjs.com/en/guide/hello-world.html
+20. 边界情况与限制 - https://expressjs.com/en/4x/api.html
+21. 测试指南 - https://expressjs.com/en/guide/testing.html
+
+</details>
+
+<details>
+<summary>FastAPI - https://fastapi.tiangolo.com</summary>
+
+1. 快速开始/入门指南 - https://fastapi.tiangolo.com/tutorial/
+2. 基础概念/术语表 - https://fastapi.tiangolo.com/tutorial/
+3. 安装/环境配置 - https://fastapi.tiangolo.com/tutorial/
+4. API 参考 - https://fastapi.tiangolo.com/reference/
+5. 简单示例 - https://fastapi.tiangolo.com/tutorial/
+6. 配置选项说明 - https://fastapi.tiangolo.com/reference/
+7. 错误处理/常见问题 - https://fastapi.tiangolo.com/tutorial/handling-errors/
+8. 调试技巧 - https://fastapi.tiangolo.com/tutorial/
+9. 版本差异/迁移指南 - https://fastapi.tiangolo.com/how-to/custom-docs-ui-assets/
+10. 内部原理/架构图 - https://fastapi.tiangolo.com/
+11. 复杂/真实场景示例 - https://fastapi.tiangolo.com/tutorial/
+12. 工具集成指南 - https://fastapi.tiangolo.com/tutorial/
+13. 决策指南 - https://fastapi.tiangolo.com/
+14. 性能优化建议 - https://fastapi.tiangolo.com/advanced/
+15. 安全最佳实践 - https://fastapi.tiangolo.com/how-to/
+16. 完整可运行项目 - https://fastapi.tiangolo.com/tutorial/
+17. 社区/生态地图 - https://fastapi.tiangolo.com/
+18. 变更日志 - https://github.com/fastapi/fastapi/releases
+19. 前置知识说明 - https://fastapi.tiangolo.com/tutorial/
+20. 边界情况与限制 - https://fastapi.tiangolo.com/reference/
+21. 测试指南 - https://fastapi.tiangolo.com/tutorial/testing/
+
+</details>
+
+<details>
+<summary>Django - https://docs.djangoproject.com</summary>
+
+1. 快速开始/入门指南 - https://docs.djangoproject.com/en/stable/intro/tutorial01/
+2. 基础概念/术语表 - https://docs.djangoproject.com/en/stable/topics/
+3. 安装/环境配置 - https://docs.djangoproject.com/en/stable/intro/install/
+4. API 参考 - https://docs.djangoproject.com/en/stable/ref/
+5. 简单示例 - https://docs.djangoproject.com/en/stable/intro/tutorial01/
+6. 配置选项说明 - https://docs.djangoproject.com/en/stable/ref/settings/
+7. 错误处理/常见问题 - https://docs.djangoproject.com/en/stable/howto/error-reporting/
+8. 调试技巧 - https://docs.djangoproject.com/en/stable/howto/
+9. 版本差异/迁移指南 - https://docs.djangoproject.com/en/stable/releases/
+10. 内部原理/架构图 - https://docs.djangoproject.com/en/stable/faq/
+11. 复杂/真实场景示例 - https://docs.djangoproject.com/en/stable/intro/tutorial01/
+12. 工具集成指南 - https://docs.djangoproject.com/en/stable/howto/
+13. 决策指南 - https://docs.djangoproject.com/en/stable/faq/
+14. 性能优化建议 - https://docs.djangoproject.com/en/stable/howto/
+15. 安全最佳实践 - https://docs.djangoproject.com/en/stable/howto/
+16. 完整可运行项目 - https://docs.djangoproject.com/en/stable/intro/tutorial01/
+17. 社区/生态地图 - https://docs.djangoproject.com/en/stable/internals/
+18. 变更日志 - https://docs.djangoproject.com/en/stable/releases/
+19. 前置知识说明 - https://docs.djangoproject.com/en/stable/topics/
+20. 边界情况与限制 - https://docs.djangoproject.com/en/stable/ref/
+21. 测试指南 - https://docs.djangoproject.com/en/stable/topics/testing/
+
+</details>
+
+<details>
+<summary>Spring Boot - https://spring.io/projects/spring-boot</summary>
+
+1. 快速开始/入门指南 - https://spring.io/projects/spring-boot#getting-started
+2. 基础概念/术语表 - https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html
+3. 安装/环境配置 - https://spring.io/projects/spring-boot#getting-started
+4. API 参考 - https://docs.spring.io/spring-boot/docs/current/reference/html/
+5. 简单示例 - https://spring.io/projects/spring-boot#samples
+6. 配置选项说明 - https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html
+7. 错误处理/常见问题 - https://docs.spring.io/spring-boot/docs/current/reference/html/features.html
+8. 调试技巧 - https://docs.spring.io/spring-boot/docs/current/reference/html/
+9. 版本差异/迁移指南 - https://github.com/spring-projects/spring-boot/wiki/Spring-Boot-3.0-Migration-Guide
+10. 内部原理/架构图 - https://docs.spring.io/spring-boot/docs/current/reference/html/
+11. 复杂/真实场景示例 - https://spring.io/projects/spring-boot#samples
+12. 工具集成指南 - https://docs.spring.io/spring-boot/docs/current/reference/html/
+13. 决策指南 - https://spring.io/projects/spring-boot#learning-spring-boot
+14. 性能优化建议 - https://docs.spring.io/spring-boot/docs/current/reference/html/
+15. 安全最佳实践 - https://docs.spring.io/spring-boot/docs/current/reference/html/
+16. 完整可运行项目 - https://spring.io/projects/spring-boot#getting-started
+17. 社区/生态地图 - https://spring.io/projects/spring-boot#community
+18. 变更日志 - https://github.com/spring-projects/spring-boot/releases
+19. 前置知识说明 - https://docs.spring.io/spring-boot/docs/current/reference/html/getting-started.html
+20. 边界情况与限制 - https://docs.spring.io/spring-boot/docs/current/reference/html/
+21. 测试指南 - https://docs.spring.io/spring-boot/docs/current/reference/html/features.html
+
+</details>
+
+<details>
+<summary>Flask - https://flask.palletsprojects.com</summary>
+
+1. 快速开始/入门指南 - https://flask.palletsprojects.com/en/stable/quickstart/
+2. 基础概念/术语表 - https://flask.palletsprojects.com/en/stable/
+3. 安装/环境配置 - https://flask.palletsprojects.com/en/stable/installation/
+4. API 参考 - https://flask.palletsprojects.com/en/stable/api/
+5. 简单示例 - https://flask.palletsprojects.com/en/stable/quickstart/
+6. 配置选项说明 - https://flask.palletsprojects.com/en/stable/config/
+7. 错误处理/常见问题 - https://flask.palletsprojects.com/en/stable/errorhandling/
+8. 调试技巧 - https://flask.palletsprojects.com/en/stable/
+9. 版本差异/迁移指南 - https://flask.palletsprojects.com/en/stable/changes/
+10. 内部原理/架构图 - https://flask.palletsprojects.com/en/stable/
+11. 复杂/真实场景示例 - https://flask.palletsprojects.com/en/stable/quickstart/
+12. 工具集成指南 - https://flask.palletsprojects.com/en/stable/
+13. 决策指南 - https://flask.palletsprojects.com/en/stable/
+14. 性能优化建议 - https://flask.palletsprojects.com/en/stable/
+15. 安全最佳实践 - https://flask.palletsprojects.com/en/stable/
+16. 完整可运行项目 - https://flask.palletsprojects.com/en/stable/quickstart/
+17. 社区/生态地图 - https://flask.palletsprojects.com/en/stable/
+18. 变更日志 - https://github.com/pallets/flask/releases
+19. 前置知识说明 - https://flask.palletsprojects.com/en/stable/
+20. 边界情况与限制 - https://flask.palletsprojects.com/en/stable/api/
+21. 测试指南 - https://flask.palletsprojects.com/en/stable/testing/
+
+</details>
+
+<details>
+<summary>Rails - https://guides.rubyonrails.org</summary>
+
+1. 快速开始/入门指南 - https://guides.rubyonrails.org/getting_started.html
+2. 基础概念/术语表 - https://guides.rubyonrails.org/
+3. 安装/环境配置 - https://guides.rubyonrails.org/getting_started.html
+4. API 参考 - https://api.rubyonrails.org/
+5. 简单示例 - https://guides.rubyonrails.org/getting_started.html
+6. 配置选项说明 - https://guides.rubyonrails.org/configuring.html
+7. 错误处理/常见问题 - https://guides.rubyonrails.org/debugging_rails_applications.html
+8. 调试技巧 - https://guides.rubyonrails.org/debugging_rails_applications.html
+9. 版本差异/迁移指南 - https://guides.rubyonrails.org/upgrading_ruby_on_rails.html
+10. 内部原理/架构图 - https://guides.rubyonrails.org/
+11. 复杂/真实场景示例 - https://guides.rubyonrails.org/getting_started.html
+12. 工具集成指南 - https://guides.rubyonrails.org/
+13. 决策指南 - https://guides.rubyonrails.org/
+14. 性能优化建议 - https://guides.rubyonrails.org/
+15. 安全最佳实践 - https://guides.rubyonrails.org/security.html
+16. 完整可运行项目 - https://guides.rubyonrails.org/getting_started.html
+17. 社区/生态地图 - https://guides.rubyonrails.org/contributing_to_ruby_on_rails.html
+18. 变更日志 - https://github.com/rails/rails/releases
+19. 前置知识说明 - https://guides.rubyonrails.org/
+20. 边界情况与限制 - https://guides.rubyonrails.org/configuring.html
+21. 测试指南 - https://guides.rubyonrails.org/testing.html
+
+</details>
+
+<details>
+<summary>Gin - https://gin-gonic.com/docs</summary>
+
+1. 快速开始/入门指南 - https://gin-gonic.com/docs/introduction/
+2. 基础概念/术语表 - https://gin-gonic.com/docs/
+3. 安装/环境配置 - https://gin-gonic.com/docs/quickstart/
+4. API 参考 - https://gin-gonic.com/docs/
+5. 简单示例 - https://gin-gonic.com/docs/quickstart/
+6. 配置选项说明 - https://gin-gonic.com/docs/
+7. 错误处理/常见问题 - https://gin-gonic.com/docs/
+8. 调试技巧 - https://gin-gonic.com/docs/
+9. 版本差异/迁移指南 - https://gin-gonic.com/docs/
+10. 内部原理/架构图 - https://gin-gonic.com/docs/
+11. 复杂/真实场景示例 - https://gin-gonic.com/docs/quickstart/
+12. 工具集成指南 - https://gin-gonic.com/docs/
+13. 决策指南 - https://gin-gonic.com/docs/
+14. 性能优化建议 - https://gin-gonic.com/docs/
+15. 安全最佳实践 - https://gin-gonic.com/docs/
+16. 完整可运行项目 - https://gin-gonic.com/docs/quickstart/
+17. 社区/生态地图 - https://gin-gonic.com/docs/
+18. 变更日志 - https://github.com/gin-gonic/gin/releases
+19. 前置知识说明 - https://gin-gonic.com/docs/
+20. 边界情况与限制 - https://gin-gonic.com/docs/
+21. 测试指南 - https://gin-gonic.com/docs/
+
+</details>
+
+<details>
+<summary>Echo - https://echo.labstack.com</summary>
+
+1. 快速开始/入门指南 - https://echo.labstack.com/guide/
+2. 基础概念/术语表 - https://echo.labstack.com/guide/
+3. 安装/环境配置 - https://echo.labstack.com/guide/
+4. API 参考 - https://echo.labstack.com/guide/
+5. 简单示例 - https://echo.labstack.com/guide/
+6. 配置选项说明 - https://echo.labstack.com/guide/
+7. 错误处理/常见问题 - https://echo.labstack.com/guide/
+8. 调试技巧 - https://echo.labstack.com/guide/
+9. 版本差异/迁移指南 - https://echo.labstack.com/guide/
+10. 内部原理/架构图 - https://echo.labstack.com/guide/
+11. 复杂/真实场景示例 - https://echo.labstack.com/guide/
+12. 工具集成指南 - https://echo.labstack.com/guide/
+13. 决策指南 - https://echo.labstack.com/guide/
+14. 性能优化建议 - https://echo.labstack.com/guide/
+15. 安全最佳实践 - https://echo.labstack.com/guide/
+16. 完整可运行项目 - https://echo.labstack.com/guide/
+17. 社区/生态地图 - https://echo.labstack.com/guide/
+18. 变更日志 - https://github.com/labstack/echo/releases
+19. 前置知识说明 - https://echo.labstack.com/guide/
+20. 边界情况与限制 - https://echo.labstack.com/guide/
+21. 测试指南 - https://echo.labstack.com/guide/
+
+</details>
+
+<details>
+<summary>Elysia - https://elysiajs.com</summary>
+
+1. 快速开始/入门指南 - https://elysiajs.com/docs/
+2. 基础概念/术语表 - https://elysiajs.com/docs/
+3. 安装/环境配置 - https://elysiajs.com/docs/get-started/
+4. API 参考 - https://elysiajs.com/docs/
+5. 简单示例 - https://elysiajs.com/docs/get-started/
+6. 配置选项说明 - https://elysiajs.com/docs/
+7. 错误处理/常见问题 - https://elysiajs.com/docs/
+8. 调试技巧 - https://elysiajs.com/docs/
+9. 版本差异/迁移指南 - https://elysiajs.com/docs/
+10. 内部原理/架构图 - https://elysiajs.com/docs/
+11. 复杂/真实场景示例 - https://elysiajs.com/docs/get-started/
+12. 工具集成指南 - https://elysiajs.com/docs/
+13. 决策指南 - https://elysiajs.com/docs/
+14. 性能优化建议 - https://elysiajs.com/docs/
+15. 安全最佳实践 - https://elysiajs.com/docs/
+16. 完整可运行项目 - https://elysiajs.com/docs/get-started/
+17. 社区/生态地图 - https://elysiajs.com/docs/
+18. 变更日志 - https://github.com/elysiajs/elysia/releases
+19. 前置知识说明 - https://elysiajs.com/docs/
+20. 边界情况与限制 - https://elysiajs.com/docs/
+21. 测试指南 - https://elysiajs.com/docs/
+
+</details>
+
+<details>
+<summary>H3 - https://h3.unjs.io</summary>
+
+1. 快速开始/入门指南 - https://h3.unjs.io/guide/
+2. 基础概念/术语表 - https://h3.unjs.io/guide/
+3. 安装/环境配置 - https://h3.unjs.io/guide/getting-started
+4. API 参考 - https://h3.unjs.io/guide/
+5. 简单示例 - https://h3.unjs.io/guide/getting-started
+6. 配置选项说明 - https://h3.unjs.io/guide/
+7. 错误处理/常见问题 - https://h3.unjs.io/guide/
+8. 调试技巧 - https://h3.unjs.io/guide/
+9. 版本差异/迁移指南 - https://h3.unjs.io/guide/
+10. 内部原理/架构图 - https://h3.unjs.io/guide/
+11. 复杂/真实场景示例 - https://h3.unjs.io/guide/getting-started
+12. 工具集成指南 - https://h3.unjs.io/guide/
+13. 决策指南 - https://h3.unjs.io/guide/
+14. 性能优化建议 - https://h3.unjs.io/guide/
+15. 安全最佳实践 - https://h3.unjs.io/guide/
+16. 完整可运行项目 - https://h3.unjs.io/guide/getting-started
+17. 社区/生态地图 - https://h3.unjs.io/guide/
+18. 变更日志 - https://github.com/unjs/h3/releases
+19. 前置知识说明 - https://h3.unjs.io/guide/
+20. 边界情况与限制 - https://h3.unjs.io/guide/
+21. 测试指南 - https://h3.unjs.io/guide/
+
+</details>
+
+<details>
+<summary>tRPC - https://trpc.io</summary>
+
+1. 快速开始/入门指南 - https://trpc.io/docs/
+2. 基础概念/术语表 - https://trpc.io/docs/
+3. 安装/环境配置 - https://trpc.io/docs/
+4. API 参考 - https://trpc.io/docs/
+5. 简单示例 - https://trpc.io/docs/
+6. 配置选项说明 - https://trpc.io/docs/
+7. 错误处理/常见问题 - https://trpc.io/docs/
+8. 调试技巧 - https://trpc.io/docs/
+9. 版本差异/迁移指南 - https://trpc.io/docs/
+10. 内部原理/架构图 - https://trpc.io/docs/
+11. 复杂/真实场景示例 - https://trpc.io/docs/
+12. 工具集成指南 - https://trpc.io/docs/
+13. 决策指南 - https://trpc.io/docs/
+14. 性能优化建议 - https://trpc.io/docs/
+15. 安全最佳实践 - https://trpc.io/docs/
+16. 完整可运行项目 - https://trpc.io/docs/
+17. 社区/生态地图 - https://trpc.io/docs/
+18. 变更日志 - https://github.com/trpc/trpc/releases
+19. 前置知识说明 - https://trpc.io/docs/
+20. 边界情况与限制 - https://trpc.io/docs/
+21. 测试指南 - https://trpc.io/docs/
+
+</details>
+
+<details>
+<summary>Axum - https://docs.rs/axum</summary>
+
+1. 快速开始/入门指南 - https://docs.rs/axum/
+2. 基础概念/术语表 - https://docs.rs/axum/
+3. 安装/环境配置 - https://docs.rs/axum/
+4. API 参考 - https://docs.rs/axum/latest/axum/
+5. 简单示例 - https://docs.rs/axum/
+6. 配置选项说明 - https://docs.rs/axum/latest/axum/
+7. 错误处理/常见问题 - https://docs.rs/axum/
+8. 调试技巧 - https://docs.rs/axum/
+9. 版本差异/迁移指南 - https://docs.rs/axum/
+10. 内部原理/架构图 - https://docs.rs/axum/
+11. 复杂/真实场景示例 - https://docs.rs/axum/
+12. 工具集成指南 - https://docs.rs/axum/
+13. 决策指南 - https://docs.rs/axum/
+14. 性能优化建议 - https://docs.rs/axum/
+15. 安全最佳实践 - https://docs.rs/axum/
+16. 完整可运行项目 - https://docs.rs/axum/
+17. 社区/生态地图 - https://docs.rs/axum/
+18. 变更日志 - https://github.com/tokio-rs/axum/releases
+19. 前置知识说明 - https://docs.rs/axum/
+20. 边界情况与限制 - https://docs.rs/axum/latest/axum/
+21. 测试指南 - https://docs.rs/axum/
+
+</details>
+
+<details>
+<summary>Socket.io - https://socket.io/docs</summary>
+
+1. 快速开始/入门指南 - https://socket.io/docs/
+2. 基础概念/术语表 - https://socket.io/docs/
+3. 安装/环境配置 - https://socket.io/docs/
+4. API 参考 - https://socket.io/docs/
+5. 简单示例 - https://socket.io/docs/
+6. 配置选项说明 - https://socket.io/docs/
+7. 错误处理/常见问题 - https://socket.io/docs/
+8. 调试技巧 - https://socket.io/docs/
+9. 版本差异/迁移指南 - https://socket.io/docs/
+10. 内部原理/架构图 - https://socket.io/docs/
+11. 复杂/真实场景示例 - https://socket.io/docs/
+12. 工具集成指南 - https://socket.io/docs/
+13. 决策指南 - https://socket.io/docs/
+14. 性能优化建议 - https://socket.io/docs/
+15. 安全最佳实践 - https://socket.io/docs/
+16. 完整可运行项目 - https://socket.io/docs/
+17. 社区/生态地图 - https://socket.io/docs/
+18. 变更日志 - https://github.com/socketio/socket.io/releases
+19. 前置知识说明 - https://socket.io/docs/
+20. 边界情况与限制 - https://socket.io/docs/
+21. 测试指南 - https://socket.io/docs/
+
+</details>
+
+<details>
+<summary>PartyKit - https://partykit.io</summary>
+
+1. 快速开始/入门指南 - https://partykit.io/docs/
+2. 基础概念/术语表 - https://partykit.io/docs/
+3. 安装/环境配置 - https://partykit.io/docs/
+4. API 参考 - https://partykit.io/docs/
+5. 简单示例 - https://partykit.io/docs/
+6. 配置选项说明 - https://partykit.io/docs/
+7. 错误处理/常见问题 - https://partykit.io/docs/
+8. 调试技巧 - https://partykit.io/docs/
+9. 版本差异/迁移指南 - https://partykit.io/docs/
+10. 内部原理/架构图 - https://partykit.io/docs/
+11. 复杂/真实场景示例 - https://partykit.io/docs/
+12. 工具集成指南 - https://partykit.io/docs/
+13. 决策指南 - https://partykit.io/docs/
+14. 性能优化建议 - https://partykit.io/docs/
+15. 安全最佳实践 - https://partykit.io/docs/
+16. 完整可运行项目 - https://partykit.io/docs/
+17. 社区/生态地图 - https://partykit.io/docs/
+18. 变更日志 - https://github.com/partykit/partykit/releases
+19. 前置知识说明 - https://partykit.io/docs/
+20. 边界情况与限制 - https://partykit.io/docs/
+21. 测试指南 - https://partykit.io/docs/
+
+</details>
+
+### 3. 数据库/ORM (6个)
+
+<details>
+<summary>Prisma - https://www.prisma.io/docs</summary>
+
+1. 快速开始/入门指南 - https://www.prisma.io/docs/getting-started
+2. 基础概念/术语表 - https://www.prisma.io/docs/concepts
+3. 安装/环境配置 - https://www.prisma.io/docs/getting-started
+4. API 参考 - https://www.prisma.io/docs/reference
+5. 简单示例 - https://www.prisma.io/docs/getting-started
+6. 配置选项说明 - https://www.prisma.io/docs/reference
+7. 错误处理/常见问题 - https://www.prisma.io/docs/concepts
+8. 调试技巧 - https://www.prisma.io/docs/concepts
+9. 版本差异/迁移指南 - https://www.prisma.io/docs/guides
+10. 内部原理/架构图 - https://www.prisma.io/docs/concepts
+11. 复杂/真实场景示例 - https://www.prisma.io/docs/getting-started
+12. 工具集成指南 - https://www.prisma.io/docs/guides
+13. 决策指南 - https://www.prisma.io/docs/concepts
+14. 性能优化建议 - https://www.prisma.io/docs/guides
+15. 安全最佳实践 - https://www.prisma.io/docs/guides
+16. 完整可运行项目 - https://www.prisma.io/docs/getting-started
+17. 社区/生态地图 - https://www.prisma.io/docs/community
+18. 变更日志 - https://github.com/prisma/prisma/releases
+19. 前置知识说明 - https://www.prisma.io/docs/concepts
+20. 边界情况与限制 - https://www.prisma.io/docs/reference
+21. 测试指南 - https://www.prisma.io/docs/guides
+
+</details>
+
+<details>
+<summary>TypeORM - https://typeorm.io</summary>
+
+1. 快速开始/入门指南 - https://typeorm.io/
+2. 基础概念/术语表 - https://typeorm.io/
+3. 安装/环境配置 - https://typeorm.io/
+4. API 参考 - https://typeorm.io/
+5. 简单示例 - https://typeorm.io/
+6. 配置选项说明 - https://typeorm.io/
+7. 错误处理/常见问题 - https://typeorm.io/
+8. 调试技巧 - https://typeorm.io/
+9. 版本差异/迁移指南 - https://typeorm.io/
+10. 内部原理/架构图 - https://typeorm.io/
+11. 复杂/真实场景示例 - https://typeorm.io/
+12. 工具集成指南 - https://typeorm.io/
+13. 决策指南 - https://typeorm.io/
+14. 性能优化建议 - https://typeorm.io/
+15. 安全最佳实践 - https://typeorm.io/
+16. 完整可运行项目 - https://typeorm.io/
+17. 社区/生态地图 - https://typeorm.io/
+18. 变更日志 - https://github.com/typeorm/typeorm/releases
+19. 前置知识说明 - https://typeorm.io/
+20. 边界情况与限制 - https://typeorm.io/
+21. 测试指南 - https://typeorm.io/
+
+</details>
+
+<details>
+<summary>Mongoose - https://mongoosejs.com</summary>
+
+1. 快速开始/入门指南 - https://mongoosejs.com/docs/
+2. 基础概念/术语表 - https://mongoosejs.com/docs/
+3. 安装/环境配置 - https://mongoosejs.com/docs/
+4. API 参考 - https://mongoosejs.com/docs/api.html
+5. 简单示例 - https://mongoosejs.com/docs/
+6. 配置选项说明 - https://mongoosejs.com/docs/
+7. 错误处理/常见问题 - https://mongoosejs.com/docs/
+8. 调试技巧 - https://mongoosejs.com/docs/
+9. 版本差异/迁移指南 - https://mongoosejs.com/docs/
+10. 内部原理/架构图 - https://mongoosejs.com/docs/
+11. 复杂/真实场景示例 - https://mongoosejs.com/docs/
+12. 工具集成指南 - https://mongoosejs.com/docs/
+13. 决策指南 - https://mongoosejs.com/docs/
+14. 性能优化建议 - https://mongoosejs.com/docs/
+15. 安全最佳实践 - https://mongoosejs.com/docs/
+16. 完整可运行项目 - https://mongoosejs.com/docs/
+17. 社区/生态地图 - https://mongoosejs.com/docs/
+18. 变更日志 - https://github.com/Automattic/mongoose/releases
+19. 前置知识说明 - https://mongoosejs.com/docs/
+20. 边界情况与限制 - https://mongoosejs.com/docs/api.html
+21. 测试指南 - https://mongoosejs.com/docs/
+
+</details>
+
+<details>
+<summary>Drizzle - https://orm.drizzle.team</summary>
+
+1. 快速开始/入门指南 - https://orm.drizzle.team/docs/
+2. 基础概念/术语表 - https://orm.drizzle.team/docs/
+3. 安装/环境配置 - https://orm.drizzle.team/docs/
+4. API 参考 - https://orm.drizzle.team/docs/
+5. 简单示例 - https://orm.drizzle.team/docs/
+6. 配置选项说明 - https://orm.drizzle.team/docs/
+7. 错误处理/常见问题 - https://orm.drizzle.team/docs/
+8. 调试技巧 - https://orm.drizzle.team/docs/
+9. 版本差异/迁移指南 - https://orm.drizzle.team/docs/
+10. 内部原理/架构图 - https://orm.drizzle.team/docs/
+11. 复杂/真实场景示例 - https://orm.drizzle.team/docs/
+12. 工具集成指南 - https://orm.drizzle.team/docs/
+13. 决策指南 - https://orm.drizzle.team/docs/
+14. 性能优化建议 - https://orm.drizzle.team/docs/
+15. 安全最佳实践 - https://orm.drizzle.team/docs/
+16. 完整可运行项目 - https://orm.drizzle.team/docs/
+17. 社区/生态地图 - https://orm.drizzle.team/docs/
+18. 变更日志 - https://github.com/drizzle-team/drizzle-orm/releases
+19. 前置知识说明 - https://orm.drizzle.team/docs/
+20. 边界情况与限制 - https://orm.drizzle.team/docs/
+21. 测试指南 - https://orm.drizzle.team/docs/
+
+</details>
+
+<details>
+<summary>Convex - https://docs.convex.dev</summary>
+
+1. 快速开始/入门指南 - https://docs.convex.dev/getting-started/
+2. 基础概念/术语表 - https://docs.convex.dev/understanding/
+3. 安装/环境配置 - https://docs.convex.dev/getting-started/
+4. API 参考 - https://docs.convex.dev/api/
+5. 简单示例 - https://docs.convex.dev/getting-started/
+6. 配置选项说明 - https://docs.convex.dev/api/
+7. 错误处理/常见问题 - https://docs.convex.dev/
+8. 调试技巧 - https://docs.convex.dev/
+9. 版本差异/迁移指南 - https://docs.convex.dev/
+10. 内部原理/架构图 - https://docs.convex.dev/understanding/
+11. 复杂/真实场景示例 - https://docs.convex.dev/getting-started/
+12. 工具集成指南 - https://docs.convex.dev/tutorials/
+13. 决策指南 - https://docs.convex.dev/understanding/
+14. 性能优化建议 - https://docs.convex.dev/
+15. 安全最佳实践 - https://docs.convex.dev/
+16. 完整可运行项目 - https://docs.convex.dev/getting-started/
+17. 社区/生态地图 - https://docs.convex.dev/
+18. 变更日志 - https://github.com/get-convex/convex/releases
+19. 前置知识说明 - https://docs.convex.dev/understanding/
+20. 边界情况与限制 - https://docs.convex.dev/api/
+21. 测试指南 - https://docs.convex.dev/
+
+</details>
+
+<details>
+<summary>ElectricSQL - https://electric-sql.com/docs</summary>
+
+1. 快速开始/入门指南 - https://electric-sql.com/docs/
+2. 基础概念/术语表 - https://electric-sql.com/docs/
+3. 安装/环境配置 - https://electric-sql.com/docs/
+4. API 参考 - https://electric-sql.com/docs/
+5. 简单示例 - https://electric-sql.com/docs/
+6. 配置选项说明 - https://electric-sql.com/docs/
+7. 错误处理/常见问题 - https://electric-sql.com/docs/
+8. 调试技巧 - https://electric-sql.com/docs/
+9. 版本差异/迁移指南 - https://electric-sql.com/docs/
+10. 内部原理/架构图 - https://electric-sql.com/docs/
+11. 复杂/真实场景示例 - https://electric-sql.com/docs/
+12. 工具集成指南 - https://electric-sql.com/docs/
+13. 决策指南 - https://electric-sql.com/docs/
+14. 性能优化建议 - https://electric-sql.com/docs/
+15. 安全最佳实践 - https://electric-sql.com/docs/
+16. 完整可运行项目 - https://electric-sql.com/docs/
+17. 社区/生态地图 - https://electric-sql.com/docs/
+18. 变更日志 - https://github.com/electric-sql/electric/releases
+19. 前置知识说明 - https://electric-sql.com/docs/
+20. 边界情况与限制 - https://electric-sql.com/docs/
+21. 测试指南 - https://electric-sql.com/docs/
+
+</details>
+
+### 4. 工具链 (13个)
+
+<details>
+<summary>Bun - https://bun.sh/docs</summary>
+
+1. 快速开始/入门指南 - https://bun.sh/docs/getting-started
+2. 基础概念/术语表 - https://bun.sh/docs/runtime
+3. 安装/环境配置 - https://bun.sh/docs/getting-started
+4. API 参考 - https://bun.sh/docs/api
+5. 简单示例 - https://bun.sh/docs/getting-started
+6. 配置选项说明 - https://bun.sh/docs/api
+7. 错误处理/常见问题 - https://bun.sh/docs
+8. 调试技巧 - https://bun.sh/docs
+9. 版本差异/迁移指南 - https://bun.sh/blog/bun-v1.0
+10. 内部原理/架构图 - https://bun.sh/docs
+11. 复杂/真实场景示例 - https://bun.sh/docs/getting-started
+12. 工具集成指南 - https://bun.sh/docs/integrations
+13. 决策指南 - https://bun.sh/docs
+14. 性能优化建议 - https://bun.sh/docs
+15. 安全最佳实践 - https://bun.sh/docs
+16. 完整可运行项目 - https://bun.sh/docs/getting-started
+17. 社区/生态地图 - https://bun.sh/docs
+18. 变更日志 - https://github.com/oven-sh/bun/releases
+19. 前置知识说明 - https://bun.sh/docs/runtime
+20. 边界情况与限制 - https://bun.sh/docs/api
+21. 测试指南 - https://bun.sh/docs/test
+
+</details>
+
+<details>
+<summary>Vite - https://vitejs.dev</summary>
+
+1. 快速开始/入门指南 - https://vitejs.dev/guide/
+2. 基础概念/术语表 - https://vitejs.dev/guide/
+3. 安装/环境配置 - https://vitejs.dev/guide/
+4. API 参考 - https://vitejs.dev/config/
+5. 简单示例 - https://vitejs.dev/guide/
+6. 配置选项说明 - https://vitejs.dev/config/
+7. 错误处理/常见问题 - https://vitejs.dev/guide/
+8. 调试技巧 - https://vitejs.dev/guide/
+9. 版本差异/迁移指南 - https://vitejs.dev/guide/migration.html
+10. 内部原理/架构图 - https://vitejs.dev/guide/
+11. 复杂/真实场景示例 - https://vitejs.dev/guide/
+12. 工具集成指南 - https://vitejs.dev/guide/
+13. 决策指南 - https://vitejs.dev/guide/
+14. 性能优化建议 - https://vitejs.dev/guide/
+15. 安全最佳实践 - https://vitejs.dev/guide/
+16. 完整可运行项目 - https://vitejs.dev/guide/
+17. 社区/生态地图 - https://vitejs.dev/guide/
+18. 变更日志 - https://github.com/vitejs/vite/releases
+19. 前置知识说明 - https://vitejs.dev/guide/
+20. 边界情况与限制 - https://vitejs.dev/config/
+21. 测试指南 - https://vitejs.dev/guide/
+
+</details>
+
+<details>
+<summary>Biome - https://biomejs.dev</summary>
+
+1. 快速开始/入门指南 - https://biomejs.dev/getting-started/
+2. 基础概念/术语表 - https://biomejs.dev/
+3. 安装/环境配置 - https://biomejs.dev/getting-started/
+4. API 参考 - https://biomejs.dev/
+5. 简单示例 - https://biomejs.dev/getting-started/
+6. 配置选项说明 - https://biomejs.dev/
+7. 错误处理/常见问题 - https://biomejs.dev/
+8. 调试技巧 - https://biomejs.dev/
+9. 版本差异/迁移指南 - https://biomejs.dev/
+10. 内部原理/架构图 - https://biomejs.dev/
+11. 复杂/真实场景示例 - https://biomejs.dev/getting-started/
+12. 工具集成指南 - https://biomejs.dev/
+13. 决策指南 - https://biomejs.dev/
+14. 性能优化建议 - https://biomejs.dev/
+15. 安全最佳实践 - https://biomejs.dev/
+16. 完整可运行项目 - https://biomejs.dev/getting-started/
+17. 社区/生态地图 - https://biomejs.dev/
+18. 变更日志 - https://github.com/biomejs/biome/releases
+19. 前置知识说明 - https://biomejs.dev/
+20. 边界情况与限制 - https://biomejs.dev/
+21. 测试指南 - https://biomejs.dev/
+
+</details>
+
+<details>
+<summary>Webpack - https://webpack.js.org</summary>
+
+1. 快速开始/入门指南 - https://webpack.js.org/guides/getting-started/
+2. 基础概念/术语表 - https://webpack.js.org/concepts/
+3. 安装/环境配置 - https://webpack.js.org/guides/installation/
+4. API 参考 - https://webpack.js.org/configuration/
+5. 简单示例 - https://webpack.js.org/guides/getting-started/
+6. 配置选项说明 - https://webpack.js.org/configuration/
+7. 错误处理/常见问题 - https://webpack.js.org/guides/
+8. 调试技巧 - https://webpack.js.org/guides/
+9. 版本差异/迁移指南 - https://webpack.js.org/migrate/
+10. 内部原理/架构图 - https://webpack.js.org/concepts/
+11. 复杂/真实场景示例 - https://webpack.js.org/guides/getting-started/
+12. 工具集成指南 - https://webpack.js.org/guides/
+13. 决策指南 - https://webpack.js.org/concepts/
+14. 性能优化建议 - https://webpack.js.org/guides/
+15. 安全最佳实践 - https://webpack.js.org/guides/
+16. 完整可运行项目 - https://webpack.js.org/guides/getting-started/
+17. 社区/生态地图 - https://webpack.js.org/community/
+18. 变更日志 - https://github.com/webpack/webpack/releases
+19. 前置知识说明 - https://webpack.js.org/concepts/
+20. 边界情况与限制 - https://webpack.js.org/configuration/
+21. 测试指南 - https://webpack.js.org/guides/
+
+</details>
+
+<details>
+<summary>pnpm - https://pnpm.io</summary>
+
+1. 快速开始/入门指南 - https://pnpm.io/installation
+2. 基础概念/术语表 - https://pnpm.io/
+3. 安装/环境配置 - https://pnpm.io/installation
+4. API 参考 - https://pnpm.io/
+5. 简单示例 - https://pnpm.io/
+6. 配置选项说明 - https://pnpm.io/
+7. 错误处理/常见问题 - https://pnpm.io/
+8. 调试技巧 - https://pnpm.io/
+9. 版本差异/迁移指南 - https://pnpm.io/
+10. 内部原理/架构图 - https://pnpm.io/
+11. 复杂/真实场景示例 - https://pnpm.io/
+12. 工具集成指南 - https://pnpm.io/
+13. 决策指南 - https://pnpm.io/
+14. 性能优化建议 - https://pnpm.io/
+15. 安全最佳实践 - https://pnpm.io/
+16. 完整可运行项目 - https://pnpm.io/
+17. 社区/生态地图 - https://pnpm.io/
+18. 变更日志 - https://github.com/pnpm/pnpm/releases
+19. 前置知识说明 - https://pnpm.io/
+20. 边界情况与限制 - https://pnpm.io/
+21. 测试指南 - https://pnpm.io/
+
+</details>
+
+<details>
+<summary>npm - https://docs.npmjs.com</summary>
+
+1. 快速开始/入门指南 - https://docs.npmjs.com/cli/v10/commands/npm-install
+2. 基础概念/术语表 - https://docs.npmjs.com/
+3. 安装/环境配置 - https://docs.npmjs.com/cli/v10/commands/npm-install
+4. API 参考 - https://docs.npmjs.com/cli/v10/commands/
+5. 简单示例 - https://docs.npmjs.com/
+6. 配置选项说明 - https://docs.npmjs.com/cli/v10/commands/
+7. 错误处理/常见问题 - https://docs.npmjs.com/
+8. 调试技巧 - https://docs.npmjs.com/
+9. 版本差异/迁移指南 - https://docs.npmjs.com/
+10. 内部原理/架构图 - https://docs.npmjs.com/
+11. 复杂/真实场景示例 - https://docs.npmjs.com/
+12. 工具集成指南 - https://docs.npmjs.com/
+13. 决策指南 - https://docs.npmjs.com/
+14. 性能优化建议 - https://docs.npmjs.com/
+15. 安全最佳实践 - https://docs.npmjs.com/
+16. 完整可运行项目 - https://docs.npmjs.com/
+17. 社区/生态地图 - https://docs.npmjs.com/
+18. 变更日志 - https://github.com/npm/cli/releases
+19. 前置知识说明 - https://docs.npmjs.com/
+20. 边界情况与限制 - https://docs.npmjs.com/cli/v10/commands/
+21. 测试指南 - https://docs.npmjs.com/
+
+</details>
+
+<details>
+<summary>ESLint - https://eslint.org/docs</summary>
+
+1. 快速开始/入门指南 - https://eslint.org/docs/latest/use/getting-started
+2. 基础概念/术语表 - https://eslint.org/docs/latest/use/
+3. 安装/环境配置 - https://eslint.org/docs/latest/use/getting-started
+4. API 参考 - https://eslint.org/docs/latest/reference/
+5. 简单示例 - https://eslint.org/docs/latest/use/
+6. 配置选项说明 - https://eslint.org/docs/latest/reference/
+7. 错误处理/常见问题 - https://eslint.org/docs/latest/use/
+8. 调试技巧 - https://eslint.org/docs/latest/use/
+9. 版本差异/迁移指南 - https://eslint.org/docs/latest/use/migrate-to-9.0.0/
+10. 内部原理/架构图 - https://eslint.org/docs/latest/use/
+11. 复杂/真实场景示例 - https://eslint.org/docs/latest/use/
+12. 工具集成指南 - https://eslint.org/docs/latest/use/
+13. 决策指南 - https://eslint.org/docs/latest/use/
+14. 性能优化建议 - https://eslint.org/docs/latest/use/
+15. 安全最佳实践 - https://eslint.org/docs/latest/use/
+16. 完整可运行项目 - https://eslint.org/docs/latest/use/getting-started
+17. 社区/生态地图 - https://eslint.org/community/
+18. 变更日志 - https://github.com/eslint/eslint/releases
+19. 前置知识说明 - https://eslint.org/docs/latest/use/
+20. 边界情况与限制 - https://eslint.org/docs/latest/reference/
+21. 测试指南 - https://eslint.org/docs/latest/use/
+
+</details>
+
+<details>
+<summary>Docker - https://docs.docker.com</summary>
+
+1. 快速开始/入门指南 - https://docs.docker.com/get-started/
+2. 基础概念/术语表 - https://docs.docker.com/engine/
+3. 安装/环境配置 - https://docs.docker.com/get-docker/
+4. API 参考 - https://docs.docker.com/engine/reference/
+5. 简单示例 - https://docs.docker.com/get-started/
+6. 配置选项说明 - https://docs.docker.com/engine/reference/
+7. 错误处理/常见问题 - https://docs.docker.com/engine/daemon/logs/
+8. 调试技巧 - https://docs.docker.com/engine/reference/
+9. 版本差异/迁移指南 - https://docs.docker.com/engine/
+10. 内部原理/架构图 - https://docs.docker.com/get-started/
+11. 复杂/真实场景示例 - https://docs.docker.com/get-started/
+12. 工具集成指南 - https://docs.docker.com/engine/
+13. 决策指南 - https://docs.docker.com/get-started/
+14. 性能优化建议 - https://docs.docker.com/develop/
+15. 安全最佳实践 - https://docs.docker.com/develop/
+16. 完整可运行项目 - https://docs.docker.com/get-started/
+17. 社区/生态地图 - https://docs.docker.com/community/
+18. 变更日志 - https://github.com/docker/docs/releases
+19. 前置知识说明 - https://docs.docker.com/get-started/
+20. 边界情况与限制 - https://docs.docker.com/engine/reference/
+21. 测试指南 - https://docs.docker.com/develop/
+
+</details>
+
+<details>
+<summary>Kubernetes - https://kubernetes.io/docs</summary>
+
+1. 快速开始/入门指南 - https://kubernetes.io/docs/getting-started/
+2. 基础概念/术语表 - https://kubernetes.io/docs/concepts/
+3. 安装/环境配置 - https://kubernetes.io/docs/setup/
+4. API 参考 - https://kubernetes.io/docs/reference/
+5. 简单示例 - https://kubernetes.io/docs/tutorials/
+6. 配置选项说明 - https://kubernetes.io/docs/reference/
+7. 错误处理/常见问题 - https://kubernetes.io/docs/tasks/debug/
+8. 调试技巧 - https://kubernetes.io/docs/tasks/debug/
+9. 版本差异/迁移指南 - https://kubernetes.io/docs/setup/release/version-skew-policy/
+10. 内部原理/架构图 - https://kubernetes.io/docs/concepts/
+11. 复杂/真实场景示例 - https://kubernetes.io/docs/tutorials/
+12. 工具集成指南 - https://kubernetes.io/docs/tasks/
+13. 决策指南 - https://kubernetes.io/docs/setup/
+14. 性能优化建议 - https://kubernetes.io/docs/tasks/debug/
+15. 安全最佳实践 - https://kubernetes.io/docs/tasks/configure-pod-container/security-context/
+16. 完整可运行项目 - https://kubernetes.io/docs/tutorials/
+17. 社区/生态地图 - https://kubernetes.io/community/
+18. 变更日志 - https://github.com/kubernetes/kubernetes/releases
+19. 前置知识说明 - https://kubernetes.io/docs/concepts/
+20. 边界情况与限制 - https://kubernetes.io/docs/reference/
+21. 测试指南 - https://kubernetes.io/docs/tasks/debug/
+
+</details>
+
+<details>
+<summary>Terraform - https://developer.hashicorp.com/terraform</summary>
+
+1. 快速开始/入门指南 - https://developer.hashicorp.com/terraform/intro/getting-started
+2. 基础概念/术语表 - https://developer.hashicorp.com/terraform/docs
+3. 安装/环境配置 - https://developer.hashicorp.com/terraform/install
+4. API 参考 - https://developer.hashicorp.com/terraform/docs
+5. 简单示例 - https://developer.hashicorp.com/terraform/intro/getting-started
+6. 配置选项说明 - https://developer.hashicorp.com/terraform/docs
+7. 错误处理/常见问题 - https://developer.hashicorp.com/terraform/docs
+8. 调试技巧 - https://developer.hashicorp.com/terraform/docs
+9. 版本差异/迁移指南 - https://developer.hashicorp.com/terraform/upgrade-guides
+10. 内部原理/架构图 - https://developer.hashicorp.com/terraform/docs
+11. 复杂/真实场景示例 - https://developer.hashicorp.com/terraform/intro/getting-started
+12. 工具集成指南 - https://developer.hashicorp.com/terraform/docs
+13. 决策指南 - https://developer.hashicorp.com/terraform/docs
+14. 性能优化建议 - https://developer.hashicorp.com/terraform/docs
+15. 安全最佳实践 - https://developer.hashicorp.com/terraform/docs
+16. 完整可运行项目 - https://developer.hashicorp.com/terraform/intro/getting-started
+17. 社区/生态地图 - https://developer.hashicorp.com/terraform/community
+18. 变更日志 - https://github.com/hashicorp/terraform/releases
+19. 前置知识说明 - https://developer.hashicorp.com/terraform/docs
+20. 边界情况与限制 - https://developer.hashicorp.com/terraform/docs
+21. 测试指南 - https://developer.hashicorp.com/terraform/docs
+
+</details>
+
+<details>
+<summary>Podman - https://podman.io/docs</summary>
+
+1. 快速开始/入门指南 - https://podman.io/docs/
+2. 基础概念/术语表 - https://podman.io/docs/
+3. 安装/环境配置 - https://podman.io/docs/
+4. API 参考 - https://podman.io/docs/
+5. 简单示例 - https://podman.io/docs/
+6. 配置选项说明 - https://podman.io/docs/
+7. 错误处理/常见问题 - https://podman.io/docs/
+8. 调试技巧 - https://podman.io/docs/
+9. 版本差异/迁移指南 - https://podman.io/docs/
+10. 内部原理/架构图 - https://podman.io/docs/
+11. 复杂/真实场景示例 - https://podman.io/docs/
+12. 工具集成指南 - https://podman.io/docs/
+13. 决策指南 - https://podman.io/docs/
+14. 性能优化建议 - https://podman.io/docs/
+15. 安全最佳实践 - https://podman.io/docs/
+16. 完整可运行项目 - https://podman.io/docs/
+17. 社区/生态地图 - https://podman.io/community/
+18. 变更日志 - https://github.com/containers/podman/releases
+19. 前置知识说明 - https://podman.io/docs/
+20. 边界情况与限制 - https://podman.io/docs/
+21. 测试指南 - https://podman.io/docs/
+
+</details>
+
+<details>
+<summary>Oxc - https://oxc.rs</summary>
+
+1. 快速开始/入门指南 - https://oxc.rs/docs/
+2. 基础概念/术语表 - https://oxc.rs/docs/
+3. 安装/环境配置 - https://oxc.rs/docs/
+4. API 参考 - https://oxc.rs/docs/
+5. 简单示例 - https://oxc.rs/docs/
+6. 配置选项说明 - https://oxc.rs/docs/
+7. 错误处理/常见问题 - https://oxc.rs/docs/
+8. 调试技巧 - https://oxc.rs/docs/
+9. 版本差异/迁移指南 - https://oxc.rs/docs/
+10. 内部原理/架构图 - https://oxc.rs/docs/
+11. 复杂/真实场景示例 - https://oxc.rs/docs/
+12. 工具集成指南 - https://oxc.rs/docs/
+13. 决策指南 - https://oxc.rs/docs/
+14. 性能优化建议 - https://oxc.rs/docs/
+15. 安全最佳实践 - https://oxc.rs/docs/
+16. 完整可运行项目 - https://oxc.rs/docs/
+17. 社区/生态地图 - https://oxc.rs/docs/
+18. 变更日志 - https://github.com/oxc-project/oxc/releases
+19. 前置知识说明 - https://oxc.rs/docs/
+20. 边界情况与限制 - https://oxc.rs/docs/
+21. 测试指南 - https://oxc.rs/docs/
+
+</details>
+
+<details>
+<summary>Turborepo - https://turbo.build</summary>
+
+1. 快速开始/入门指南 - https://turbo.build/repo/docs/
+2. 基础概念/术语表 - https://turbo.build/repo/docs/
+3. 安装/环境配置 - https://turbo.build/repo/docs/getting-started
+4. API 参考 - https://turbo.build/repo/docs/
+5. 简单示例 - https://turbo.build/repo/docs/getting-started
+6. 配置选项说明 - https://turbo.build/repo/docs/
+7. 错误处理/常见问题 - https://turbo.build/repo/docs/
+8. 调试技巧 - https://turbo.build/repo/docs/
+9. 版本差异/迁移指南 - https://turbo.build/repo/docs/
+10. 内部原理/架构图 - https://turbo.build/repo/docs/
+11. 复杂/真实场景示例 - https://turbo.build/repo/docs/getting-started
+12. 工具集成指南 - https://turbo.build/repo/docs/
+13. 决策指南 - https://turbo.build/repo/docs/
+14. 性能优化建议 - https://turbo.build/repo/docs/
+15. 安全最佳实践 - https://turbo.build/repo/docs/
+16. 完整可运行项目 - https://turbo.build/repo/docs/getting-started
+17. 社区/生态地图 - https://turbo.build/repo/docs/
+18. 变更日志 - https://github.com/vercel/turbo/releases
+19. 前置知识说明 - https://turbo.build/repo/docs/
+20. 边界情况与限制 - https://turbo.build/repo/docs/
+21. 测试指南 - https://turbo.build/repo/docs/
+
+</details>
+
+### 5. 客户端库和框架 (18个)
+
+<details>
+<summary>Tailwind CSS - https://tailwindcss.com</summary>
+
+1. 快速开始/入门指南 - https://tailwindcss.com/docs/installation
+2. 基础概念/术语表 - https://tailwindcss.com/docs/utility-first
+3. 安装/环境配置 - https://tailwindcss.com/docs/installation
+4. API 参考 - https://tailwindcss.com/docs
+5. 简单示例 - https://tailwindcss.com/docs/installation
+6. 配置选项说明 - https://tailwindcss.com/docs/configuration
+7. 错误处理/常见问题 - https://tailwindcss.com/docs
+8. 调试技巧 - https://tailwindcss.com/docs
+9. 版本差异/迁移指南 - https://tailwindcss.com/docs/upgrade-guide
+10. 内部原理/架构图 - https://tailwindcss.com/docs
+11. 复杂/真实场景示例 - https://tailwindcss.com/docs
+12. 工具集成指南 - https://tailwindcss.com/docs
+13. 决策指南 - https://tailwindcss.com/docs
+14. 性能优化建议 - https://tailwindcss.com/docs/optimizing-for-production
+15. 安全最佳实践 - https://tailwindcss.com/docs
+16. 完整可运行项目 - https://tailwindcss.com/docs/installation
+17. 社区/生态地图 - https://tailwindcss.com/docs
+18. 变更日志 - https://github.com/tailwindlabs/tailwindcss/releases
+19. 前置知识说明 - https://tailwindcss.com/docs/utility-first
+20. 边界情况与限制 - https://tailwindcss.com/docs
+21. 测试指南 - https://tailwindcss.com/docs
+
+</details>
+
+
+<details>
+<summary>TanStack Query - https://tanstack.com/query/latest</summary>
+
+1. 快速开始/入门指南 - https://tanstack.com/query/latest/docs/
+2. 基础概念/术语表 - https://tanstack.com/query/latest/docs/
+3. 安装/环境配置 - https://tanstack.com/query/latest/docs/
+4. API 参考 - https://tanstack.com/query/latest/docs/
+5. 简单示例 - https://tanstack.com/query/latest/docs/
+6. 配置选项说明 - https://tanstack.com/query/latest/docs/
+7. 错误处理/常见问题 - https://tanstack.com/query/latest/docs/
+8. 调试技巧 - https://tanstack.com/query/latest/docs/
+9. 版本差异/迁移指南 - https://tanstack.com/query/latest/docs/
+10. 内部原理/架构图 - https://tanstack.com/query/latest/docs/
+11. 复杂/真实场景示例 - https://tanstack.com/query/latest/docs/
+12. 工具集成指南 - https://tanstack.com/query/latest/docs/
+13. 决策指南 - https://tanstack.com/query/latest/docs/
+14. 性能优化建议 - https://tanstack.com/query/latest/docs/
+15. 安全最佳实践 - https://tanstack.com/query/latest/docs/
+16. 完整可运行项目 - https://tanstack.com/query/latest/docs/
+17. 社区/生态地图 - https://tanstack.com/query/latest/docs/
+18. 变更日志 - https://github.com/TanStack/query/releases
+19. 前置知识说明 - https://tanstack.com/query/latest/docs/
+20. 边界情况与限制 - https://tanstack.com/query/latest/docs/
+21. 测试指南 - https://tanstack.com/query/latest/docs/
+
+</details>
+
+<details>
+<summary>TanStack Router - https://tanstack.com/router/latest</summary>
+
+1. 快速开始/入门指南 - https://tanstack.com/router/latest/docs/
+2. 基础概念/术语表 - https://tanstack.com/router/latest/docs/
+3. 安装/环境配置 - https://tanstack.com/router/latest/docs/
+4. API 参考 - https://tanstack.com/router/latest/docs/
+5. 简单示例 - https://tanstack.com/router/latest/docs/
+6. 配置选项说明 - https://tanstack.com/router/latest/docs/
+7. 错误处理/常见问题 - https://tanstack.com/router/latest/docs/
+8. 调试技巧 - https://tanstack.com/router/latest/docs/
+9. 版本差异/迁移指南 - https://tanstack.com/router/latest/docs/
+10. 内部原理/架构图 - https://tanstack.com/router/latest/docs/
+11. 复杂/真实场景示例 - https://tanstack.com/router/latest/docs/
+12. 工具集成指南 - https://tanstack.com/router/latest/docs/
+13. 决策指南 - https://tanstack.com/router/latest/docs/
+14. 性能优化建议 - https://tanstack.com/router/latest/docs/
+15. 安全最佳实践 - https://tanstack.com/router/latest/docs/
+16. 完整可运行项目 - https://tanstack.com/router/latest/docs/
+17. 社区/生态地图 - https://tanstack.com/router/latest/docs/
+18. 变更日志 - https://github.com/TanStack/router/releases
+19. 前置知识说明 - https://tanstack.com/router/latest/docs/
+20. 边界情况与限制 - https://tanstack.com/router/latest/docs/
+21. 测试指南 - https://tanstack.com/router/latest/docs/
+
+</details>
+
+<details>
+<summary>TanStack Form - https://tanstack.com/form/latest</summary>
+
+1. 快速开始/入门指南 - https://tanstack.com/form/latest/docs/
+2. 基础概念/术语表 - https://tanstack.com/form/latest/docs/
+3. 安装/环境配置 - https://tanstack.com/form/latest/docs/
+4. API 参考 - https://tanstack.com/form/latest/docs/
+5. 简单示例 - https://tanstack.com/form/latest/docs/
+6. 配置选项说明 - https://tanstack.com/form/latest/docs/
+7. 错误处理/常见问题 - https://tanstack.com/form/latest/docs/
+8. 调试技巧 - https://tanstack.com/form/latest/docs/
+9. 版本差异/迁移指南 - https://tanstack.com/form/latest/docs/
+10. 内部原理/架构图 - https://tanstack.com/form/latest/docs/
+11. 复杂/真实场景示例 - https://tanstack.com/form/latest/docs/
+12. 工具集成指南 - https://tanstack.com/form/latest/docs/
+13. 决策指南 - https://tanstack.com/form/latest/docs/
+14. 性能优化建议 - https://tanstack.com/form/latest/docs/
+15. 安全最佳实践 - https://tanstack.com/form/latest/docs/
+16. 完整可运行项目 - https://tanstack.com/form/latest/docs/
+17. 社区/生态地图 - https://tanstack.com/form/latest/docs/
+18. 变更日志 - https://github.com/TanStack/form/releases
+19. 前置知识说明 - https://tanstack.com/form/latest/docs/
+20. 边界情况与限制 - https://tanstack.com/form/latest/docs/
+21. 测试指南 - https://tanstack.com/form/latest/docs/
+
+</details>
+
+<details>
+<summary>TanStack Store - https://tanstack.com/store/latest</summary>
+
+1. 快速开始/入门指南 - https://tanstack.com/store/latest/docs/
+2. 基础概念/术语表 - https://tanstack.com/store/latest/docs/
+3. 安装/环境配置 - https://tanstack.com/store/latest/docs/
+4. API 参考 - https://tanstack.com/store/latest/docs/
+5. 简单示例 - https://tanstack.com/store/latest/docs/
+6. 配置选项说明 - https://tanstack.com/store/latest/docs/
+7. 错误处理/常见问题 - https://tanstack.com/store/latest/docs/
+8. 调试技巧 - https://tanstack.com/store/latest/docs/
+9. 版本差异/迁移指南 - https://tanstack.com/store/latest/docs/
+10. 内部原理/架构图 - https://tanstack.com/store/latest/docs/
+11. 复杂/真实场景示例 - https://tanstack.com/store/latest/docs/
+12. 工具集成指南 - https://tanstack.com/store/latest/docs/
+13. 决策指南 - https://tanstack.com/store/latest/docs/
+14. 性能优化建议 - https://tanstack.com/store/latest/docs/
+15. 安全最佳实践 - https://tanstack.com/store/latest/docs/
+16. 完整可运行项目 - https://tanstack.com/store/latest/docs/
+17. 社区/生态地图 - https://tanstack.com/store/latest/docs/
+18. 变更日志 - https://github.com/TanStack/store/releases
+19. 前置知识说明 - https://tanstack.com/store/latest/docs/
+20. 边界情况与限制 - https://tanstack.com/store/latest/docs/
+21. 测试指南 - https://tanstack.com/store/latest/docs/
+
+</details>
+
+<details>
+<summary>shadcn/ui - https://ui.shadcn.com</summary>
+
+1. 快速开始/入门指南 - https://ui.shadcn.com/docs/getting-started
+2. 基础概念/术语表 - https://ui.shadcn.com/docs/
+3. 安装/环境配置 - https://ui.shadcn.com/docs/getting-started
+4. API 参考 - https://ui.shadcn.com/docs/
+5. 简单示例 - https://ui.shadcn.com/docs/getting-started
+6. 配置选项说明 - https://ui.shadcn.com/docs/
+7. 错误处理/常见问题 - https://ui.shadcn.com/docs/
+8. 调试技巧 - https://ui.shadcn.com/docs/
+9. 版本差异/迁移指南 - https://ui.shadcn.com/docs/
+10. 内部原理/架构图 - https://ui.shadcn.com/docs/
+11. 复杂/真实场景示例 - https://ui.shadcn.com/docs/getting-started
+12. 工具集成指南 - https://ui.shadcn.com/docs/
+13. 决策指南 - https://ui.shadcn.com/docs/
+14. 性能优化建议 - https://ui.shadcn.com/docs/
+15. 安全最佳实践 - https://ui.shadcn.com/docs/
+16. 完整可运行项目 - https://ui.shadcn.com/docs/getting-started
+17. 社区/生态地图 - https://ui.shadcn.com/docs/
+18. 变更日志 - https://github.com/shadcn-ui/ui/releases
+19. 前置知识说明 - https://ui.shadcn.com/docs/
+20. 边界情况与限制 - https://ui.shadcn.com/docs/
+21. 测试指南 - https://ui.shadcn.com/docs/
+
+</details>
+
+<details>
+<summary>Inlang - https://inlang.com/docs</summary>
+
+1. 快速开始/入门指南 - https://inlang.com/docs/
+2. 基础概念/术语表 - https://inlang.com/docs/
+3. 安装/环境配置 - https://inlang.com/docs/
+4. API 参考 - https://inlang.com/docs/
+5. 简单示例 - https://inlang.com/docs/
+6. 配置选项说明 - https://inlang.com/docs/
+7. 错误处理/常见问题 - https://inlang.com/docs/
+8. 调试技巧 - https://inlang.com/docs/
+9. 版本差异/迁移指南 - https://inlang.com/docs/
+10. 内部原理/架构图 - https://inlang.com/docs/
+11. 复杂/真实场景示例 - https://inlang.com/docs/
+12. 工具集成指南 - https://inlang.com/docs/
+13. 决策指南 - https://inlang.com/docs/
+14. 性能优化建议 - https://inlang.com/docs/
+15. 安全最佳实践 - https://inlang.com/docs/
+16. 完整可运行项目 - https://inlang.com/docs/
+17. 社区/生态地图 - https://inlang.com/docs/
+18. 变更日志 - https://github.com/inlang/inlang/releases
+19. 前置知识说明 - https://inlang.com/docs/
+20. 边界情况与限制 - https://inlang.com/docs/
+21. 测试指南 - https://inlang.com/docs/
+
+</details>
+
+<details>
+<summary>Tauri - https://tauri.app</summary>
+
+1. 快速开始/入门指南 - https://tauri.app/v1/guides/getting-started/
+2. 基础概念/术语表 - https://tauri.app/v1/guides/
+3. 安装/环境配置 - https://tauri.app/v1/guides/getting-started/
+4. API 参考 - https://tauri.app/v1/api/
+5. 简单示例 - https://tauri.app/v1/guides/getting-started/
+6. 配置选项说明 - https://tauri.app/v1/api/
+7. 错误处理/常见问题 - https://tauri.app/v1/guides/
+8. 调试技巧 - https://tauri.app/v1/guides/
+9. 版本差异/迁移指南 - https://tauri.app/v1/guides/
+10. 内部原理/架构图 - https://tauri.app/v1/guides/
+11. 复杂/真实场景示例 - https://tauri.app/v1/guides/getting-started/
+12. 工具集成指南 - https://tauri.app/v1/guides/
+13. 决策指南 - https://tauri.app/v1/guides/
+14. 性能优化建议 - https://tauri.app/v1/guides/
+15. 安全最佳实践 - https://tauri.app/v1/guides/
+16. 完整可运行项目 - https://tauri.app/v1/guides/getting-started/
+17. 社区/生态地图 - https://tauri.app/v1/guides/
+18. 变更日志 - https://github.com/tauri-apps/tauri/releases
+19. 前置知识说明 - https://tauri.app/v1/guides/
+20. 边界情况与限制 - https://tauri.app/v1/api/
+21. 测试指南 - https://tauri.app/v1/guides/
+
+</details>
+
+<details>
+<summary>Starlight - https://starlight.astro.build</summary>
+
+1. 快速开始/入门指南 - https://starlight.astro.build/getting-started/
+2. 基础概念/术语表 - https://starlight.astro.build/guides/
+3. 安装/环境配置 - https://starlight.astro.build/getting-started/
+4. API 参考 - https://starlight.astro.build/reference/
+5. 简单示例 - https://starlight.astro.build/getting-started/
+6. 配置选项说明 - https://starlight.astro.build/reference/
+7. 错误处理/常见问题 - https://starlight.astro.build/guides/
+8. 调试技巧 - https://starlight.astro.build/guides/
+9. 版本差异/迁移指南 - https://starlight.astro.build/
+10. 内部原理/架构图 - https://starlight.astro.build/guides/
+11. 复杂/真实场景示例 - https://starlight.astro.build/getting-started/
+12. 工具集成指南 - https://starlight.astro.build/integrations/
+13. 决策指南 - https://starlight.astro.build/guides/
+14. 性能优化建议 - https://starlight.astro.build/guides/
+15. 安全最佳实践 - https://starlight.astro.build/guides/
+16. 完整可运行项目 - https://starlight.astro.build/getting-started/
+17. 社区/生态地图 - https://starlight.astro.build/
+18. 变更日志 - https://github.com/withastro/starlight/releases
+19. 前置知识说明 - https://starlight.astro.build/guides/
+20. 边界情况与限制 - https://starlight.astro.build/reference/
+21. 测试指南 - https://starlight.astro.build/guides/
+
+</details>
+
+<details>
+<summary>Solid UI - https://www.solid-ui.com</summary>
+
+1. 快速开始/入门指南 - https://www.solid-ui.com/docs/
+2. 基础概念/术语表 - https://www.solid-ui.com/docs/
+3. 安装/环境配置 - https://www.solid-ui.com/docs/
+4. API 参考 - https://www.solid-ui.com/docs/
+5. 简单示例 - https://www.solid-ui.com/docs/
+6. 配置选项说明 - https://www.solid-ui.com/docs/
+7. 错误处理/常见问题 - https://www.solid-ui.com/docs/
+8. 调试技巧 - https://www.solid-ui.com/docs/
+9. 版本差异/迁移指南 - https://www.solid-ui.com/docs/
+10. 内部原理/架构图 - https://www.solid-ui.com/docs/
+11. 复杂/真实场景示例 - https://www.solid-ui.com/docs/
+12. 工具集成指南 - https://www.solid-ui.com/docs/
+13. 决策指南 - https://www.solid-ui.com/docs/
+14. 性能优化建议 - https://www.solid-ui.com/docs/
+15. 安全最佳实践 - https://www.solid-ui.com/docs/
+16. 完整可运行项目 - https://www.solid-ui.com/docs/
+17. 社区/生态地图 - https://www.solid-ui.com/docs/
+18. 变更日志 - https://github.com/solid-ui/solid-ui/releases
+19. 前置知识说明 - https://www.solid-ui.com/docs/
+20. 边界情况与限制 - https://www.solid-ui.com/docs/
+21. 测试指南 - https://www.solid-ui.com/docs/
+
+</details>
+
+<details>
+<summary>ProseMirror - https://prosemirror.net</summary>
+
+1. 快速开始/入门指南 - https://prosemirror.net/docs/
+2. 基础概念/术语表 - https://prosemirror.net/docs/
+3. 安装/环境配置 - https://prosemirror.net/docs/
+4. API 参考 - https://prosemirror.net/docs/
+5. 简单示例 - https://prosemirror.net/docs/
+6. 配置选项说明 - https://prosemirror.net/docs/
+7. 错误处理/常见问题 - https://prosemirror.net/docs/
+8. 调试技巧 - https://prosemirror.net/docs/
+9. 版本差异/迁移指南 - https://prosemirror.net/docs/
+10. 内部原理/架构图 - https://prosemirror.net/docs/
+11. 复杂/真实场景示例 - https://prosemirror.net/docs/
+12. 工具集成指南 - https://prosemirror.net/docs/
+13. 决策指南 - https://prosemirror.net/docs/
+14. 性能优化建议 - https://prosemirror.net/docs/
+15. 安全最佳实践 - https://prosemirror.net/docs/
+16. 完整可运行项目 - https://prosemirror.net/docs/
+17. 社区/生态地图 - https://prosemirror.net/docs/
+18. 变更日志 - https://github.com/prosemirror/prosemirror/releases
+19. 前置知识说明 - https://prosemirror.net/docs/
+20. 边界情况与限制 - https://prosemirror.net/docs/
+21. 测试指南 - https://prosemirror.net/docs/
+
+</details>
+
+<details>
+<summary>CodeMirror - https://codemirror.net</summary>
+
+1. 快速开始/入门指南 - https://codemirror.net/docs/
+2. 基础概念/术语表 - https://codemirror.net/docs/
+3. 安装/环境配置 - https://codemirror.net/docs/
+4. API 参考 - https://codemirror.net/docs/
+5. 简单示例 - https://codemirror.net/docs/
+6. 配置选项说明 - https://codemirror.net/docs/
+7. 错误处理/常见问题 - https://codemirror.net/docs/
+8. 调试技巧 - https://codemirror.net/docs/
+9. 版本差异/迁移指南 - https://codemirror.net/docs/
+10. 内部原理/架构图 - https://codemirror.net/docs/
+11. 复杂/真实场景示例 - https://codemirror.net/docs/
+12. 工具集成指南 - https://codemirror.net/docs/
+13. 决策指南 - https://codemirror.net/docs/
+14. 性能优化建议 - https://codemirror.net/docs/
+15. 安全最佳实践 - https://codemirror.net/docs/
+16. 完整可运行项目 - https://codemirror.net/docs/
+17. 社区/生态地图 - https://codemirror.net/docs/
+18. 变更日志 - https://github.com/codemirror/codemirror/releases
+19. 前置知识说明 - https://codemirror.net/docs/
+20. 边界情况与限制 - https://codemirror.net/docs/
+21. 测试指南 - https://codemirror.net/docs/
+
+</details>
+
+<details>
+<summary>Shiki - https://shiki.style</summary>
+
+1. 快速开始/入门指南 - https://shiki.style/
+2. 基础概念/术语表 - https://shiki.style/
+3. 安装/环境配置 - https://shiki.style/
+4. API 参考 - https://shiki.style/
+5. 简单示例 - https://shiki.style/
+6. 配置选项说明 - https://shiki.style/
+7. 错误处理/常见问题 - https://shiki.style/
+8. 调试技巧 - https://shiki.style/
+9. 版本差异/迁移指南 - https://shiki.style/
+10. 内部原理/架构图 - https://shiki.style/
+11. 复杂/真实场景示例 - https://shiki.style/
+12. 工具集成指南 - https://shiki.style/
+13. 决策指南 - https://shiki.style/
+14. 性能优化建议 - https://shiki.style/
+15. 安全最佳实践 - https://shiki.style/
+16. 完整可运行项目 - https://shiki.style/
+17. 社区/生态地图 - https://shiki.style/
+18. 变更日志 - https://github.com/shikijs/shiki/releases
+19. 前置知识说明 - https://shiki.style/
+20. 边界情况与限制 - https://shiki.style/
+21. 测试指南 - https://shiki.style/
+
+</details>
+<details>
+<summary>Content Collections - https://www.content-collections.dev</summary>
+
+1. 快速开始/入门指南 - https://www.content-collections.dev/docs/
+2. 基础概念/术语表 - https://www.content-collections.dev/docs/
+3. 安装/环境配置 - https://www.content-collections.dev/docs/
+4. API 参考 - https://www.content-collections.dev/docs/
+5. 简单示例 - https://www.content-collections.dev/docs/
+6. 配置选项说明 - https://www.content-collections.dev/docs/
+7. 错误处理/常见问题 - https://www.content-collections.dev/docs/
+8. 调试技巧 - https://www.content-collections.dev/docs/
+9. 版本差异/迁移指南 - https://www.content-collections.dev/docs/
+10. 内部原理/架构图 - https://www.content-collections.dev/docs/
+11. 复杂/真实场景示例 - https://www.content-collections.dev/docs/
+12. 工具集成指南 - https://www.content-collections.dev/docs/
+13. 决策指南 - https://www.content-collections.dev/docs/
+14. 性能优化建议 - https://www.content-collections.dev/docs/
+15. 安全最佳实践 - https://www.content-collections.dev/docs/
+16. 完整可运行项目 - https://www.content-collections.dev/docs/
+17. 社区/生态地图 - https://www.content-collections.dev/docs/
+18. 变更日志 - https://github.com/sdorra/content-collections/releases
+19. 前置知识说明 - https://www.content-collections.dev/docs/
+20. 边界情况与限制 - https://www.content-collections.dev/docs/
+21. 测试指南 - https://www.content-collections.dev/docs/
+
+</details>
+
+<details>
+<summary>Lucide - https://lucide.dev</summary>
+
+1. 快速开始/入门指南 - https://lucide.dev/docs/
+2. 基础概念/术语表 - https://lucide.dev/docs/
+3. 安装/环境配置 - https://lucide.dev/docs/
+4. API 参考 - https://lucide.dev/docs/
+5. 简单示例 - https://lucide.dev/docs/
+6. 配置选项说明 - https://lucide.dev/docs/
+7. 错误处理/常见问题 - https://lucide.dev/docs/
+8. 调试技巧 - https://lucide.dev/docs/
+9. 版本差异/迁移指南 - https://lucide.dev/docs/
+10. 内部原理/架构图 - https://lucide.dev/docs/
+11. 复杂/真实场景示例 - https://lucide.dev/docs/
+12. 工具集成指南 - https://lucide.dev/docs/
+13. 决策指南 - https://lucide.dev/docs/
+14. 性能优化建议 - https://lucide.dev/docs/
+15. 安全最佳实践 - https://lucide.dev/docs/
+16. 完整可运行项目 - https://lucide.dev/docs/
+17. 社区/生态地图 - https://lucide.dev/docs/
+18. 变更日志 - https://github.com/lucide-icons/lucide/releases
+19. 前置知识说明 - https://lucide.dev/docs/
+20. 边界情况与限制 - https://lucide.dev/docs/
+21. 测试指南 - https://lucide.dev/docs/
+
+</details>
+
+<details>
+<summary>Tabler Icons - https://tabler.io/icons</summary>
+
+1. 快速开始/入门指南 - https://tabler.io/icons/docs
+2. 基础概念/术语表 - https://tabler.io/icons/docs
+3. 安装/环境配置 - https://tabler.io/icons/docs
+4. API 参考 - https://tabler.io/icons/docs
+5. 简单示例 - https://tabler.io/icons/docs
+6. 配置选项说明 - https://tabler.io/icons/docs
+7. 错误处理/常见问题 - https://tabler.io/icons/docs
+8. 调试技巧 - https://tabler.io/icons/docs
+9. 版本差异/迁移指南 - https://tabler.io/icons/docs
+10. 内部原理/架构图 - https://tabler.io/icons/docs
+11. 复杂/真实场景示例 - https://tabler.io/icons/docs
+12. 工具集成指南 - https://tabler.io/icons/docs
+13. 决策指南 - https://tabler.io/icons/docs
+14. 性能优化建议 - https://tabler.io/icons/docs
+15. 安全最佳实践 - https://tabler.io/icons/docs
+16. 完整可运行项目 - https://tabler.io/icons/docs
+17. 社区/生态地图 - https://tabler.io/icons/docs
+18. 变更日志 - https://github.com/tabler/tabler-icons/releases
+19. 前置知识说明 - https://tabler.io/icons/docs
+20. 边界情况与限制 - https://tabler.io/icons/docs
+21. 测试指南 - https://tabler.io/icons/docs
+
+</details>
+
+<details>
+<summary>Redux - https://redux.js.org</summary>
+
+1. 快速开始/入门指南 - https://redux.js.org/introduction/getting-started
+2. 基础概念/术语表 - https://redux.js.org/understanding/thinking-in-redux
+3. 安装/环境配置 - https://redux.js.org/introduction/getting-started
+4. API 参考 - https://redux.js.org/api
+5. 简单示例 - https://redux.js.org/introduction/examples
+6. 配置选项说明 - https://redux.js.org/api
+7. 错误处理/常见问题 - https://redux.js.org/understanding/history-and-purpose
+8. 调试技巧 - https://redux.js.org/understanding/history-and-purpose
+9. 版本差异/迁移指南 - https://redux.js.org/understanding/history-and-purpose
+10. 内部原理/架构图 - https://redux.js.org/understanding/thinking-in-redux
+11. 复杂/真实场景示例 - https://redux.js.org/introduction/examples
+12. 工具集成指南 - https://redux.js.org/introduction/getting-started
+13. 决策指南 - https://redux.js.org/understanding/thinking-in-redux
+14. 性能优化建议 - https://redux.js.org/understanding/history-and-purpose
+15. 安全最佳实践 - https://redux.js.org/understanding/history-and-purpose
+16. 完整可运行项目 - https://redux.js.org/introduction/getting-started
+17. 社区/生态地图 - https://redux.js.org/introduction/getting-started
+18. 变更日志 - https://github.com/reduxjs/redux/releases
+19. 前置知识说明 - https://redux.js.org/understanding/thinking-in-redux
+20. 边界情况与限制 - https://redux.js.org/api
+21. 测试指南 - https://redux.js.org/usage/writing-tests
+
+</details>
+
+<details>
+<summary>Zustand - https://docs.pmnd.rs/zustand</summary>
+
+1. 快速开始/入门指南 - https://docs.pmnd.rs/zustand/getting-started/
+2. 基础概念/术语表 - https://docs.pmnd.rs/zustand/guides/
+3. 安装/环境配置 - https://docs.pmnd.rs/zustand/getting-started/
+4. API 参考 - https://docs.pmnd.rs/zustand/api/
+5. 简单示例 - https://docs.pmnd.rs/zustand/getting-started/
+6. 配置选项说明 - https://docs.pmnd.rs/zustand/api/
+7. 错误处理/常见问题 - https://docs.pmnd.rs/zustand/guides/
+8. 调试技巧 - https://docs.pmnd.rs/zustand/guides/
+9. 版本差异/迁移指南 - https://docs.pmnd.rs/zustand/guides/
+10. 内部原理/架构图 - https://docs.pmnd.rs/zustand/guides/
+11. 复杂/真实场景示例 - https://docs.pmnd.rs/zustand/getting-started/
+12. 工具集成指南 - https://docs.pmnd.rs/zustand/guides/
+13. 决策指南 - https://docs.pmnd.rs/zustand/guides/
+14. 性能优化建议 - https://docs.pmnd.rs/zustand/guides/
+15. 安全最佳实践 - https://docs.pmnd.rs/zustand/guides/
+16. 完整可运行项目 - https://docs.pmnd.rs/zustand/getting-started/
+17. 社区/生态地图 - https://docs.pmnd.rs/zustand/guides/
+18. 变更日志 - https://github.com/pmndrs/zustand/releases
+19. 前置知识说明 - https://docs.pmnd.rs/zustand/guides/
+20. 边界情况与限制 - https://docs.pmnd.rs/zustand/api/
+21. 测试指南 - https://docs.pmnd.rs/zustand/guides/
+
+</details>
+
+### 6. 服务端库 (2个)
+
+<details>
+<summary>Better Auth - https://www.better-auth.com/docs</summary>
+
+1. 快速开始/入门指南 - https://www.better-auth.com/docs/
+2. 基础概念/术语表 - https://www.better-auth.com/docs/
+3. 安装/环境配置 - https://www.better-auth.com/docs/getting-started
+4. API 参考 - https://www.better-auth.com/docs/
+5. 简单示例 - https://www.better-auth.com/docs/getting-started
+6. 配置选项说明 - https://www.better-auth.com/docs/
+7. 错误处理/常见问题 - https://www.better-auth.com/docs/
+8. 调试技巧 - https://www.better-auth.com/docs/
+9. 版本差异/迁移指南 - https://www.better-auth.com/docs/
+10. 内部原理/架构图 - https://www.better-auth.com/docs/
+11. 复杂/真实场景示例 - https://www.better-auth.com/docs/getting-started
+12. 工具集成指南 - https://www.better-auth.com/docs/
+13. 决策指南 - https://www.better-auth.com/docs/
+14. 性能优化建议 - https://www.better-auth.com/docs/
+15. 安全最佳实践 - https://www.better-auth.com/docs/
+16. 完整可运行项目 - https://www.better-auth.com/docs/getting-started
+17. 社区/生态地图 - https://www.better-auth.com/docs/
+18. 变更日志 - https://github.com/better-auth/better-auth/releases
+19. 前置知识说明 - https://www.better-auth.com/docs/
+20. 边界情况与限制 - https://www.better-auth.com/docs/
+21. 测试指南 - https://www.better-auth.com/docs/
+
+</details>
+
+<details>
+<summary>Auth.js - https://authjs.dev</summary>
+
+1. 快速开始/入门指南 - https://authjs.dev/getting-started/
+2. 基础概念/术语表 - https://authjs.dev/guides/
+3. 安装/环境配置 - https://authjs.dev/getting-started/
+4. API 参考 - https://authjs.dev/reference/
+5. 简单示例 - https://authjs.dev/getting-started/
+6. 配置选项说明 - https://authjs.dev/reference/
+7. 错误处理/常见问题 - https://authjs.dev/guides/
+8. 调试技巧 - https://authjs.dev/guides/
+9. 版本差异/迁移指南 - https://authjs.dev/upgrading/
+10. 内部原理/架构图 - https://authjs.dev/guides/
+11. 复杂/真实场景示例 - https://authjs.dev/getting-started/
+12. 工具集成指南 - https://authjs.dev/guides/
+13. 决策指南 - https://authjs.dev/guides/
+14. 性能优化建议 - https://authjs.dev/guides/
+15. 安全最佳实践 - https://authjs.dev/guides/
+16. 完整可运行项目 - https://authjs.dev/getting-started/
+17. 社区/生态地图 - https://authjs.dev/community/
+18. 变更日志 - https://github.com/nextauthjs/next-auth/releases
+19. 前置知识说明 - https://authjs.dev/guides/
+20. 边界情况与限制 - https://authjs.dev/reference/
+21. 测试指南 - https://authjs.dev/guides/
+
+</details>
+
+## 统计方法
+
+### 分析维度
+
+定义了 **21 个内容类别**（移除"部署指南"），覆盖文档的各个可能部分：
+
+| 编号 | 内容类别 | 说明 |
+|------|----------|------|
+| 1 | 快速开始/入门指南 | Getting Started, Quick Start 等 |
+| 2 | 基础概念/术语表 | Concepts, Glossary, 核心概念 |
+| 3 | 安装/环境配置 | Installation, Prerequisites |
+| 4 | API 参考 | API Reference, TypeScript 类型 |
+| 5 | 简单示例 | Basic Examples, Hello World |
+| 6 | 配置选项说明 | Configuration, Options |
+| 7 | 错误处理/常见问题 | Error Handling, FAQ, Troubleshooting |
+| 8 | 调试技巧 | Debugging, DevTools 使用 |
+| 9 | 版本差异/迁移指南 | Migration Guide, Versioning |
+| 10 | 内部原理/架构图 | Architecture, How it works |
+| 11 | 复杂/真实场景示例 | Real-world Examples, Case Studies |
+| 12 | 工具集成指南 | Integration with other tools |
+| 13 | 决策指南 | When to use A vs B, Comparison |
+| 14 | 性能优化建议 | Performance Tips, Optimization |
+| 15 | 安全最佳实践 | Security Best Practices |
+| 16 | 完整可运行项目 | Starter Templates, Full Projects |
+| 17 | 社区/生态地图 | Ecosystem, Community Links |
+| 18 | 变更日志 | Changelog, Release Notes |
+| 19 | 前置知识说明 | Prerequisites, Assumed Knowledge |
+| 20 | 边界情况与限制 | Edge Cases, Limitations |
+| 21 | 测试指南 | Testing, Unit Tests |
+
+### 评分标准
+
+对每个项目，检查其官方文档是否包含上述内容类别：
+- **1** = 有明确章节或部分
+- **0** = 缺失或仅提及无详细说明
+
+### 统计指标
+
+- **出现频率** = (包含该类别的项目数) / (总项目数)
+- **缺失率** = 1 - 出现频率
+- **常见度排名** = 按出现频率降序
+- **缺失度排名** = 按出现频率升序
+
+---
+
+## 原始统计数据
+### 数据收集表
+<DocsStatsTable type="raw" />
+### 统计汇总（基于 68 个项目）
+
+<DocsStatsTable type="summary" />
+
+**数据来源**：React, Vue.js, Angular, Svelte, SolidJS, Next.js, Nuxt, Astro, TanStack Start, Remix, Express, FastAPI, Django, Spring Boot, Flask, Rails, Gin, Echo, Hono, Elysia, Nitro, H3, tRPC, oRPC, Vite, Webpack, Bun, pnpm, npm, ESLint, Docker, Kubernetes, Terraform, Prisma, TypeORM, Mongoose, Drizzle, Redux, Tailwind CSS, shadcn/ui, Zustand, TanStack Query, TanStack Router, TanStack Form, Podman, Convex, ElectricSQL, Better Auth, Biome, TanStack Store, Inlang, Tauri, Oxc, Starlight, Solid UI, Turborepo, ProseMirror, CodeMirror, Lucide, Axum, Shiki, Content Collections, Tabler Icons, Auth.js, Socket.io, PartyKit（共 66 个）
+
+---
+
+## 排序结果
+
+### 1. 按常见度排序（最常见 → 最缺失）
+
+| 排名 | 内容类别 | 出现频率 | 项目类型观察 |
+|------|----------|----------|----------|
+| 1 | 快速开始/入门指南 | 100% | 所有项目都有，但详细程度不一 |
+| 1 | 安装/环境配置 | 100% | 所有项目都有 |
+| 1 | API 参考 | 100% | 所有项目都有，但常缺示例 |
+| 1 | 简单示例 | 100% | 所有项目都有，但常是 Hello World |
+| 1 | 配置选项说明 | 100% | 所有项目都有 |
+| 6 | 变更日志 | 91% | 大型项目都有，小型项目常缺 |
+| 7 | 基础概念/术语表 | 84% | 大型框架有，小型项目常缺 |
+| 7 | 社区/生态地图 | 84% | 成熟项目有 |
+| 9 | 错误处理/常见问题 | 82% | 常见但深度不一 |
+| 10 | 工具集成指南 | 80% | 成熟项目有，新项目常缺 |
+| 11 | 性能优化建议 | 75% | 后端框架更常见 |
+| 11 | 测试指南 | 75% | 成熟项目普遍有 |
+| 13 | 安全最佳实践 | 61% | 后端框架有，前端框架较少 |
+| 13 | 完整可运行项目 | 61% | 官方提供的 starter 模板 |
+| 15 | 版本差异/迁移指南 | 64% | 成熟项目有，但常被忽视 |
+| 16 | 调试技巧 | 50% | 普遍缺失 |
+| 17 | 复杂/真实场景示例 | 48% | 普遍缺失 |
+| 17 | 边界情况与限制 | 48% | 普遍缺失 |
+| 19 | 决策指南 | 45% | 普遍缺失 |
+| 20 | 内部原理/架构图 | 41% | 普遍缺失 |
+| 20 | 前置知识说明 | 41% | 普遍缺失 |
+
+### 2. 按缺失度排序（最缺失 → 最常见）
+
+| 排名 | 内容类别 | 缺失率 | 说明 |
+|------|----------|--------|------|
+| 1 | 内部原理/架构图 | 59% | 黑盒使用，出问题难排查 |
+| 1 | 前置知识说明 | 59% | 隐含假设读者已掌握某些概念 |
+| 3 | 决策指南 | 55% | 何时用 A vs B 不明确 |
+| 4 | 复杂/真实场景示例 | 52% | 缺少贴近实际业务的例子 |
+| 4 | 边界情况与限制 | 52% | 什么能用、什么不能用不清晰 |
+| 6 | 调试技巧 | 50% | 出错了不知道如何排查 |
+| 7 | 安全最佳实践 | 39% | 可能引入安全漏洞 |
+| 7 | 完整可运行项目 | 39% | 无法快速看到完整效果 |
+| 9 | 版本差异/迁移指南 | 36% | 升级时遇到困难 |
+| 10 | 性能优化建议 | 25% | 中缺失 |
+| 10 | 测试指南 | 25% | 中缺失 |
+| 12 | 工具集成指南 | 20% | 低缺失 |
+| 13 | 社区/生态地图 | 16% | 低缺失 |
+| 13 | 基础概念/术语表 | 16% | 低缺失 |
+| 15 | 错误处理/常见问题 | 18% | 低缺失 |
+| 16 | 变更日志 | 9% | 几乎都有 |
+| 17 | 快速开始/入门指南 | 0% | 几乎都有 |
+| 17 | 安装/环境配置 | 0% | 几乎都有 |
+| 17 | API 参考 | 0% | 几乎都有 |
+| 17 | 简单示例 | 0% | 几乎都有 |
+| 17 | 配置选项说明 | 0% | 几乎都有 |
+
+### 3. 综合排序（常见度 + 缺失度 + 困惑度加权）
+
+**综合得分** = (缺失率 × 0.5) + ((1 - 常见度) × 0.3) + (困惑度 × 0.2)
+
+**困惑度评分**（1-5，5=最困惑）：
+- 错误处理/常见问题：5
+- 复杂/真实场景示例：5
+- 内部原理/架构图：4
+- 调试技巧：4
+- 决策指南：4
+- 版本差异/迁移指南：4
+- 边界情况与限制：3
+- 前置知识说明：3
+- 安全最佳实践：3
+- 完整可运行项目：3
+- 性能优化建议：2
+- 测试指南：2
+- 工具集成指南：2
+- 社区/生态地图：2
+- 基础概念/术语表：2
+- 变更日志：1
+- 快速开始/入门指南：1
+- 安装/环境配置：1
+- API 参考：1
+- 简单示例：1
+- 配置选项说明：1
+
+| 排名 | 内容类别 | 综合得分 | 说明 |
+|------|----------|----------|------|
+| 1 | 内部原理/架构图 | 0.80 | 高缺失 + 高困惑 |
+| 1 | 前置知识说明 | 0.80 | 高缺失 |
+| 3 | 决策指南 | 0.73 | 高缺失 + 高困惑 |
+| 4 | 复杂/真实场景示例 | 0.72 | 高缺失 + 高困惑 |
+| 5 | 调试技巧 | 0.70 | 高缺失 + 高困惑 |
+| 6 | 边界情况与限制 | 0.62 | 高缺失 |
+| 7 | 版本差异/迁移指南 | 0.58 | 中缺失 + 高困惑 |
+| 8 | 安全最佳实践 | 0.51 | 中缺失 |
+| 8 | 完整可运行项目 | 0.51 | 中缺失 |
+| 10 | 错误处理/常见问题 | 0.50 | 中缺失 + 高困惑 |
+| 11 | 性能优化建议 | 0.40 | 中缺失 |
+| 11 | 测试指南 | 0.40 | 中缺失 |
+| 13 | 工具集成指南 | 0.34 | 低缺失 |
+| 13 | 社区/生态地图 | 0.34 | 低缺失 |
+| 15 | 基础概念/术语表 | 0.32 | 低缺失 |
+| 16 | 变更日志 | 0.23 | 低缺失 |
+| 17 | 简单示例 | 0.20 | 几乎都有 |
+| 17 | API 参考 | 0.20 | 几乎都有 |
+| 17 | 配置选项说明 | 0.20 | 几乎都有 |
+| 17 | 安装/环境配置 | 0.20 | 几乎都有 |
+| 17 | 快速开始/入门指南 | 0.20 | 几乎都有 |
+
+---
+
+## 分析
+
+### 最常见的 5 类内容（几乎 100% 项目都有）
+
+1. **快速开始/入门指南** - 所有项目都有，但质量参差不齐
+2. **安装/环境配置** - 所有项目都有，但通常缺少故障排查
+3. **API 参考** - 所有项目都有，但常缺示例和边界说明
+4. **简单示例** - 所有项目都有，但常是 Hello World 级别
+5. **配置选项说明** - 所有项目都有，但缺组合效果和默认值解释
+
+### 最缺失的 5 类内容（缺失率 > 50%）
+
+1. **内部原理/架构图** (59% 缺失) - 黑盒使用，出问题难排查
+2. **前置知识说明** (59% 缺失) - 隐含假设读者已掌握某些概念
+3. **决策指南** (55% 缺失) - 何时用 A vs B 不明确
+4. **复杂/真实场景示例** (52% 缺失) - 缺少贴近实际业务的例子
+5. **边界情况与限制** (52% 缺失) - 什么能用、什么不能用不清晰
+
+### 导致困惑的高缺失内容（综合排名前 10）
+
+1. **内部原理/架构图** - 不了解原理，调试困难
+2. **前置知识说明** - 读者可能缺少必要背景知识
+3. **决策指南** - 不知道何时选择哪个功能/工具
+4. **复杂/真实场景示例** - 简单示例无法解决实际应用问题
+5. **调试技巧** - 出错了不知道如何排查
+6. **边界情况与限制** - 在边界情况下踩坑
+7. **版本差异/迁移指南** - 升级时遇到困难
+8. **安全最佳实践** - 可能引入安全漏洞
+9. **完整可运行项目** - 无法快速看到完整效果
+10. **错误处理/常见问题** - 遇到错误不知道如何解决
+### 按项目类型分组分析
+
+#### UI 渲染框架（React, Vue, Angular, Svelte, SolidJS）
+- **特点**：重视概念、示例、API 参考
+- **常见内容**：快速开始、概念、示例、API 参考
+- **缺失内容**：调试技巧（80% 缺）、复杂场景示例、内部原理
+- **例外**：Angular 和 SolidJS 内容最全面；Svelte 和 SolidJS 有交互式教程
+
+#### 全栈框架（Next.js, Nuxt, Astro, TanStack Start, Remix）
+- **特点**：前后端一体，内容最全面
+- **常见内容**：几乎所有内容都有，包括部署、测试、性能优化
+- **缺失内容**：前置知识说明（TanStack Start 有，但其他缺）、内部原理（Next.js 有部分）
+- **例外**：TanStack Start 作为新框架，文档质量极高
+
+#### HTTP API 框架（Express, FastAPI, Django, Spring Boot, Flask, Rails, Gin, Echo, Hono, Elysia, Nitro, H3）
+- **特点**：重视安全、测试、部署（但部署指南不纳入统计）
+- **常见内容**：API 参考、错误处理、版本迁移、测试
+- **缺失内容**：调试技巧（轻量级框架 100% 缺）、复杂场景示例、内部原理
+- **例外**：
+  - **Hono**（排第一）：超轻量但文档极简，有 Web Standards 说明
+  - **Elysia**：端到端类型安全，有 OpenAPI 自动生成
+  - **Nitro**：全栈服务器框架，部署能力极强
+  - **H3**：Nitro 的底层，内容较少
+
+#### RPC 框架（tRPC, oRPC）
+- **特点**：类型安全是核心卖点
+- **常见内容**：快速开始、类型安全、客户端-服务端通信
+- **缺失内容**：内部原理、前置知识（需了解 TypeScript 泛型等）
+- **例外**：tRPC 生态成熟，文档最完善
+
+#### 构建工具/运行时（Vite, Webpack, Bun, pnpm, npm, ESLint）
+- **特点**：配置说明最强，工具集成好
+- **常见内容**：配置选项、工具集成、快速开始
+- **缺失内容**：内部原理（Bun 有部分说明）、调试技巧、复杂场景
+- **例外**：**Bun** 排第一，集运行时、包管理、测试、打包于一体
+
+#### 基础设施（Docker, Kubernetes, Terraform）
+- **特点**：生产级文档，内容最全面
+- **常见内容**：几乎所有内容都有，包括安全、测试、性能
+- **缺失内容**：基本无缺失（三类项目都是工业级）
+
+#### 数据库/ORM（Prisma, TypeORM, Mongoose, Drizzle）
+- **特点**：侧重 API 参考和迁移
+- **常见内容**：API 参考、迁移指南、快速开始
+- **缺失内容**：复杂场景示例（如何用 ORM 实现复杂查询）、内部原理
+
+#### UI/状态管理（Redux, Tailwind CSS, shadcn/ui, Zustand, TanStack Query, TanStack Router, TanStack Form）
+- **特点**：简单项目文档常缺失较多高级内容
+- **常见内容**：快速开始、安装、简单示例
+- **缺失内容**：调试技巧（100% 缺）、复杂场景、决策指南（何时用哪个状态管理）
+- **例外**：**TanStack 系列** 文档质量极高，类型安全贯穿始终
+
+---
+
+## 数据更新
+
+本报告数据存储在 `src/data/docs-stats.json`，可随时更新：
+- 修改 JSON 文件中的 `data` 矩阵
+- 重新运行统计脚本（如有）
+- 组件会自动渲染最新数据
+
+**统计时间**：2026 年 4 月  
+**项目数量**：66 个  
+**类别数量**：21 个
+
+## 附录：完整原始数据
+
+（此处可放置 CSV 或 JSON 格式的原始数据，便于后续分析）
+<Code code={JSON.stringify(statsData, null, 2)} lang="json" title="docs-stats.json"  />

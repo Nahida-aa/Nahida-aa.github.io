@@ -1,0 +1,55 @@
+@import 'tailwindcss';
+@layer starlight, base, theme, components, utilities;
+@import '@astrojs/starlight-tailwind';
+@import 'tailwindcss/theme.css' layer(theme);
+@import 'tailwindcss/utilities.css' layer(utilities);
+@import 'starlight-ui-tweaks/styles';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+	--ctp-lavender: hsl(232deg, 97%, 85%);
+	--foreground: oklch(0.141 0.005 285.823);
+	--muted-foreground: oklch(0.552 0.016 285.938);
+	--muted: oklch(0.967 0.001 286.375);
+	--accent: oklch(0.967 0.001 286.375);
+	--primary: var(--ctp-lavender);
+	--background: hsl(64, 53%, 94%);
+}
+.dark,
+[data-theme='dark'] {
+	--ctp-lavender: hsl(232deg, 97%, 85%);
+	--ctp-text: hsl(226deg 64% 88%); /* text, card-foreground */
+	--ctp-overlay1: hsl(230deg, 13%, 55%); /* muted-foreground */
+	--ctp-surface1: hsl(231deg, 16%, 34%); /* accent */
+	--ctp-surface0: hsl(237deg, 16%, 23%); /* secondary,popover,toast,muted */
+	--ctp-base: hsl(232deg, 23%, 18%); /* card,  bg */
+	--foreground: var(--ctp-text); /* ctp-text */
+	--muted-foreground: var(--ctp-overlay1); /* ctp-subtext0 */
+	--accent: var(--ctp-surface1);
+	--muted: var(--ctp-surface0); /* TODO: */
+	--background: var(--ctp-base);
+	--primary: var(--ctp-lavender);
+}
+@theme inline {
+	--color-foreground: var(--foreground);
+	--color-muted-foreground: var(--muted-foreground);
+	--color-accent: var(--accent);
+	--color-muted: var(--muted);
+	--color-background: var(--background);
+
+	--color-primary: var(--primary);
+}
+
+/* .sl-markdown-content :is(img):not(:where(.not-content *)) {
+	display: inline-flex;
+	width: attr(width px);
+}
+img[height] {
+	width: attr(width px);
+	height: attr(height px); 
+} */
+
+body {
+	@apply bg-background text-foreground;
+}

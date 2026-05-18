@@ -1,6 +1,0 @@
-console.log(1 + "2")
-console.log('1' + 2)
-console.assert(undefined, "undefined is not defined")
-console.warn("This is a warning message")
-console.error("This is an error message")
-console.trace("This is a trace message")

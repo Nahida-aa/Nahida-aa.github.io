@@ -6,45 +6,47 @@ yarn-debug.log*
 yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
-# nodejs
-node_modules
-# dist
-dist-ssr
-*.local
-# cache
-__pycache__
 
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-!.vscode/settings.json
-!.vscode/aa.code-snippets
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# dependencies
+node_modules
+
+# build output
+dist
+dist-ssr
+.astro
+.next
+out
+out/
 
 # env
 .env*
 !.env.example
 
-# key
+# Editor
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+!.vscode/aa.code-snippets
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+*.local
+
+# OS
+.DS_Store
+__pycache__
+
+# keys
 /certificates
-
-# next
-.next
-out
-out/
-
 certificates
 
 # gen data
 /public/data/index.json
 /public/data/tags.json
 
+# data
 H_CHARLS_D_Data.csv
-
 *.csv
