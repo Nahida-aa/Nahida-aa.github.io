@@ -1,6 +1,5 @@
 ---
 title: programming Language
-description: 
 created_at: 2021-12-09T00:27:40Z
 updated_at: 2025-07-14T01:58:16Z
 tags: [cs, programming]

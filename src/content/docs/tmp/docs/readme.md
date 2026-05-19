@@ -1,5 +1,6 @@
-# docs
-
+---
+title: docs
+---
 - [prd.md](./prd.md)
 - [architecture.md](./architecture.md): 
 - [changelog.md](./changelog.md):

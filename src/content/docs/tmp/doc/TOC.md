@@ -1,5 +1,6 @@
-# TOC
-
+---
+title: TOC
+---
 [TOC]
 
 ## test [TOC]

@@ -1,5 +1,6 @@
-# init
-
+---
+title: init
+---
 ## install git
 
 windows

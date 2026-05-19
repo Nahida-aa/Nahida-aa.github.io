@@ -1,1 +1,3 @@
-# Deep learnings
+---
+title: Deep learnings
+---

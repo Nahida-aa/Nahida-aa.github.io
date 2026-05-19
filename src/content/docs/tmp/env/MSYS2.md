@@ -1,5 +1,6 @@
-# MSYS2
-
+---
+title: MSYS2
+---
 ```sh
 pacman -Syu
 ```

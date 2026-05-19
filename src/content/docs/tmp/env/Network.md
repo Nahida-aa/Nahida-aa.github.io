@@ -1,5 +1,6 @@
-# Network
-
+---
+title: Network
+---
 ## ssh
 
 ## VPN

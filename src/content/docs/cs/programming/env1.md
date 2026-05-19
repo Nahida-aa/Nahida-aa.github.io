@@ -1,6 +1,5 @@
 ---
 title: program env
-description: 
 created_at: 2021-12-29T17:34:48Z
 updated_at: 2025-09-03T17:34:48Z
 tags: [dev]

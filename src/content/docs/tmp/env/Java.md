@@ -1,5 +1,6 @@
-# Java-sdkman-MSYS2
-
+---
+title: Java-sdkman-MSYS2
+---
 ```sh
 # 安装必要的依赖： 确保你已经安装了 curl 和 zip，可以使用以下命令安装
 pacman -S curl zip unzip

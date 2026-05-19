@@ -1,4 +1,6 @@
-# 我的世界创作社区平台需求文档
+---
+title: 我的世界创作社区平台需求文档
+---
 https://github.com/Nahida-aa/mcc-next
 ## 1. 背景
 

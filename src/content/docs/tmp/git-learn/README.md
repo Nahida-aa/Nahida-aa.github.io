@@ -1,6 +1,6 @@
-
-# git-learn
-
+---
+title: git-learn
+---
 ## quick setup — if you’ve done this kind of thing before
 
 ![20240429123755](https://raw.githubusercontent.com/Nahida-aa/picgo/main/images/20240429123755.png)

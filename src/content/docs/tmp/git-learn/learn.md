@@ -1,5 +1,6 @@
-# 快速入门
-
+---
+title: 快速入门
+---
 ```sh
 git
 git config --list --show-origin
