@@ -1,5 +1,5 @@
 ---
-title: 数据库结构优化：版本状态流程简化
+title: '数据库结构优化：版本状态流程简化'
 ---
 Initial release for Minecraft 1.20.1 
 

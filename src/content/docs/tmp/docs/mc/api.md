@@ -1,3 +1,7 @@
+---
+title: 'api'
+---
+
 ## 1. **官方 Minecraft API**
 - **Mojang/Microsoft 官方 API**: `https://launchermeta.mojang.com/mc/game/version_manifest.json`
 - 这是最权威的数据源，包含所有官方版本信息

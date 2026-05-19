@@ -1,5 +1,5 @@
 ---
-title: LocalOnly Collection
+title: 'LocalOnly Collection'
 ---
 
 # LocalOnly Collection

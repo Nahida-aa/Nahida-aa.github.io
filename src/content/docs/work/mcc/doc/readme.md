@@ -1,3 +1,7 @@
+---
+title: 'db/schema'
+---
+
 # db/schema
 
 url: 2048

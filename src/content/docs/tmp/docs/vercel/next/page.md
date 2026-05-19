@@ -1,3 +1,7 @@
+---
+title: 'page'
+---
+
 ```tsx
 export async function getStaticProps () {
   // `getStaticProps` 在服务端执行

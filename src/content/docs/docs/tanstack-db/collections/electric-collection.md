@@ -1,5 +1,5 @@
 ---
-title: Electric Collection
+title: 'Electric Collection'
 ---
 
 # Electric Collection

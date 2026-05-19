@@ -1,3 +1,7 @@
+---
+title: 'env_var'
+---
+
 # env_var
 
 Windows(nt) : Process_env = user_env + system_env

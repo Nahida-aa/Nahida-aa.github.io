@@ -1,9 +1,6 @@
 ---
 title: Linux
-description: 
-image: 
 created_at: 2025-03-10T10:38:37Z
-pushed_at: 
 updated_at: 2025-03-10T10:38:37Z
 tags: []
 private: false

@@ -1,5 +1,5 @@
 ---
-title: git-learn
+title: 'git-learn'
 ---
 ## quick setup — if you’ve done this kind of thing before
 

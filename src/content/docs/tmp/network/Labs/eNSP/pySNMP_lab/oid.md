@@ -1,3 +1,7 @@
+---
+title: 'oid'
+---
+
 ### 步骤 (2)：通过 MIB 管理工具获取 OID
 
 要通过 MIB 管理工具获取 OID，你可以使用 iReasoning MIB Browser 或类似的工具。以下是详细步骤：

@@ -186,7 +186,14 @@ export default defineConfig({
           //   paper: ['/paper/**'],
           //   network: ['/network/**'],
           // },
-          // exclude: ['/', '/work/**', '/biology/**', '/auto/**', '/mcc/**', '/about/**', '/tags/**'],
+          exclude: [
+            '/', '/work/**', '/biology/**',
+            '/cs/**', '/docs/**', '/me/**', '/skills/**', '/tmp/**',
+            '/math/**', '/about/**', '/tags/**',
+            '/zh-cn/work/**', '/zh-cn/biology/**',
+            '/zh-cn/cs/**', '/zh-cn/docs/**', '/zh-cn/me/**', '/zh-cn/skills/**', '/zh-cn/tmp/**',
+            '/zh-cn/math/**', '/zh-cn/about/**', '/zh-cn/tags/**',
+          ],
         }),
         starlightUiTweaks(),
         starlightCatppuccin({

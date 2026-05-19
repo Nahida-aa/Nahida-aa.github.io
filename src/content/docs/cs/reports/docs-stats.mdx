@@ -3,9 +3,8 @@ title: 开源项目官方文档内容统计报告
 description: 基于 44 个开源项目文档的内容统计分析（2026 年 4 月）
 ---
 
-import DocsStatsTable from '#/components/DocsStatsTable.astro';
-import { Code } from '@astrojs/starlight/components';
-import statsData from '#/data/docs-stats.json';
+{/* import DocsStatsTable from '#/components/DocsStatsTable.astro'; */}
+{/* import statsData from '#/data/docs-stats.json'; */}
 
 本报告对 **66 个** 开源项目的官方文档进行了系统性分析，统计了 **21 类** 常见文档内容的出现频率，并基于数据生成了三种排序：**按常见度排序**、**按缺失度排序**、**综合排序**。
 
@@ -1915,10 +1914,10 @@ import statsData from '#/data/docs-stats.json';
 
 ## 原始统计数据
 ### 数据收集表
-<DocsStatsTable type="raw" />
+{/* DocsStatsTable component removed (source file missing) */}
 ### 统计汇总（基于 68 个项目）
 
-<DocsStatsTable type="summary" />
+{/* DocsStatsTable component removed (source file missing) */}
 
 **数据来源**：React, Vue.js, Angular, Svelte, SolidJS, Next.js, Nuxt, Astro, TanStack Start, Remix, Express, FastAPI, Django, Spring Boot, Flask, Rails, Gin, Echo, Hono, Elysia, Nitro, H3, tRPC, oRPC, Vite, Webpack, Bun, pnpm, npm, ESLint, Docker, Kubernetes, Terraform, Prisma, TypeORM, Mongoose, Drizzle, Redux, Tailwind CSS, shadcn/ui, Zustand, TanStack Query, TanStack Router, TanStack Form, Podman, Convex, ElectricSQL, Better Auth, Biome, TanStack Store, Inlang, Tauri, Oxc, Starlight, Solid UI, Turborepo, ProseMirror, CodeMirror, Lucide, Axum, Shiki, Content Collections, Tabler Icons, Auth.js, Socket.io, PartyKit（共 66 个）
 
@@ -2129,4 +2128,4 @@ import statsData from '#/data/docs-stats.json';
 ## 附录：完整原始数据
 
 （此处可放置 CSV 或 JSON 格式的原始数据，便于后续分析）
-<Code code={JSON.stringify(statsData, null, 2)} lang="json" title="docs-stats.json"  />
+{/* <Code code={JSON.stringify(statsData, null, 2)} lang="json" title="docs-stats.json"  /> */}

@@ -1,3 +1,7 @@
+---
+title: 'readme'
+---
+
 Switch1配置
 1.	Switch>en  //进入特权模式
 2.	Switch#conf t  //进入全局模式

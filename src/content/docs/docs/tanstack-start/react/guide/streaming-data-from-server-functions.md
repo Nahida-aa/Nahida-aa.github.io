@@ -1,5 +1,5 @@
 ---
-title: Streaming Data from Server Functions
+title: 'Streaming Data from Server Functions'
 ---
 
 Streaming data from the server has become very popular thanks to the rise of AI apps. Luckily, it's a pretty easy task with TanStack Start, and what's even better: the streamed data is typed!

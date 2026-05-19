@@ -1,3 +1,7 @@
+---
+title: 'GRUB (GRand Unified Bootloader)'
+---
+
 # GRUB (GRand Unified Bootloader)
 
 is a boot loader. The current GRUB is also referred to as GRUB 2. The original GRUB, or GRUB Legacy, corresponds to versions 0.9x. This page exclusively describes GRUB 2.

@@ -1,3 +1,7 @@
+---
+title: 'usage: python [option] ... [-c cmd | -m mod | file | -] [arg] ...'
+---
+
 ```cmd
 python /?
 #

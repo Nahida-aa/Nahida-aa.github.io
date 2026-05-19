@@ -1,5 +1,5 @@
 ---
-title: mod dev
+title: 'mod dev'
 ---
 ## fabric
 Fabric 是一款适用于 Minecraft Java 版的轻量级模组工具链，设计简洁易用。它允许开发者对原版游戏进行修改（“模组”），添加新功能或更改现有机制。

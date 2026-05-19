@@ -1,6 +1,6 @@
 ---
 title: mc
-description: 
+description: Minecraft notes
 created_at: 2011-06-16T10:06:40Z
 updated_at: 2025-08-06T22:12:40Z
 tags: [mc]

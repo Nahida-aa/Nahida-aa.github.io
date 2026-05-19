@@ -1,3 +1,7 @@
+---
+title: 'compare'
+---
+
 # compare
 
 ## keyboard shortcuts

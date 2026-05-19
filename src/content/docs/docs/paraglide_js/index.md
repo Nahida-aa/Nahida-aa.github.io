@@ -1,5 +1,5 @@
 ---
-title: Paraglide JS
+title: 'Paraglide JS'
 ---
 [![NPM Downloads](https://img.shields.io/npm/dw/%40inlang%2Fparaglide-js?logo=npm&logoColor=red&label=npm%20downloads)](https://www.npmjs.com/package/@inlang/paraglide-js)
 [![GitHub Issues](https://img.shields.io/github/issues-closed/opral/paraglide-js?logo=github&color=purple)](https://github.com/opral/paraglide-js/issues)

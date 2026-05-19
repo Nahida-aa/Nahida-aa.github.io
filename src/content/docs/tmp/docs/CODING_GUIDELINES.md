@@ -1,5 +1,5 @@
 ---
-title: CODING_GUIDELINES
+title: 'CODING_GUIDELINES'
 ---
 ## file\dir\var
 

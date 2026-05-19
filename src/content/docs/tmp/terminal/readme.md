@@ -1,3 +1,7 @@
+---
+title: 'shell'
+---
+
 # shell
 
 shell={GUI, CLI, ...}

@@ -1,3 +1,7 @@
+---
+title: '[?/Microsoft VS Code](Microsoft-VS-Code/README.md)'
+---
+
 # [?/Microsoft VS Code](Microsoft-VS-Code/README.md)
 
 Visual Studio Code 的安装目录，具体取决于你的操作系统和安装方式。在 Windows 上，它通常位于 C:\Program Files\Microsoft VS Code

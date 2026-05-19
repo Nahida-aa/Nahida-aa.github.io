@@ -1,5 +1,5 @@
 ---
-title: Query Collection
+title: 'Query Collection'
 ---
 
 # Query Collection

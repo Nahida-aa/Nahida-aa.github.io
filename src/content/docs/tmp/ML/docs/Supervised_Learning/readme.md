@@ -1,3 +1,7 @@
+---
+title: 'Supervised Learning'
+---
+
 # Supervised Learning
 
 Linear Regression -> Logistic Regression

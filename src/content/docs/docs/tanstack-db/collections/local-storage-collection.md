@@ -1,5 +1,5 @@
 ---
-title: LocalStorage Collection
+title: 'LocalStorage Collection'
 ---
 
 # LocalStorage Collection
