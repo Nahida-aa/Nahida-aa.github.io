@@ -40,6 +40,7 @@ export default defineConfig({
               { label: 'calculus', link: 'math/calculus/' },
               { label: 'trigonometry', link: 'math/trigonometry/' },
               { label: 'number-theory', link: 'math/number-theory/' },
+              { label: 'convolution', link: 'math/convolution/' },
             ],
           },
           {
