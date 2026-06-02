@@ -216,6 +216,20 @@ export default defineConfig({
         baseUrl: 'https://github.com/Nahida-aa/Nahida-aa.github.io/edit/main/',
       },
       lastUpdated: true,
+        head: [
+    // Example: add Fathom analytics script tag.
+    {
+      tag: 'script',
+      attrs: {
+        // <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6587057475152413"
+    //  crossorigin="anonymous"></script>
+        src: 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6587057475152413',
+        'data-site': 'MY-FATHOM-ID',
+        async: true,
+        crossorigin: 'anonymous',
+      },
+    },
+  ],
     }),
   ],
 
